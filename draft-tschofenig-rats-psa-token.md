@@ -186,9 +186,10 @@ psa-client-id = (
 
 The Instance ID claim represents the unique identifier of the instance. It is a
 32 bytes hash of the public key corresponding to the Initial Attestation Key
-(IAK). If the IAK is a symmetric key then the Instance ID is a hash of the IAK.
-It is encoded as a EAT Universal Entity ID of type RAND, i.e., with a 0x01 type
-byte prepended. The full definition is in the {{PSA-SM}}.
+(IAK). If the IAK is a symmetric key then the Instance ID is a hash of the IAK
+itself.  It is encoded as a Universal Entity ID of type RAND
+{{?I-D.ietf-rats-eat}}, i.e., prepending a 0x01 type byte to the key hash. The
+full definition is in the {{PSA-SM}}.
 
 This claim MUST be present in a PSA attestation token.
 
