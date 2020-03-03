@@ -286,7 +286,7 @@ psa-boot-seed = (
 )
 ~~~
 
-## Target Software Inventory Claims
+## Software Inventory Claims
 
 ### Software Components
 {: #sec-sw-components }
