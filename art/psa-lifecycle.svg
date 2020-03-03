@@ -1,13 +1,194 @@
 <?xml version='1.0' encoding='utf-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" class="diagram" version="1.1" height="57" width="72" viewBox="0 0 72.0 57.0">
+<svg xmlns="http://www.w3.org/2000/svg" class="diagram" version="1.1" height="329" width="512" viewBox="0 0 512.0 329.0">
 <g transform="translate(8,16)">
-<path d="M 0,0 L 56,0" fill="none" stroke="black"/>
-<path d="M 0,32 L 56,32" fill="none" stroke="black"/>
-<path d="M 0,0 L 0,32" fill="none" stroke="black"/>
-<path d="M 56,0 L 56,32" fill="none" stroke="black"/>
-<text text-anchor="middle" font-family="monospace" x="16" y="20" fill="black" font-size="1em">T</text>
-<text text-anchor="middle" font-family="monospace" x="24" y="20" fill="black" font-size="1em">O</text>
-<text text-anchor="middle" font-family="monospace" x="32" y="20" fill="black" font-size="1em">D</text>
-<text text-anchor="middle" font-family="monospace" x="40" y="20" fill="black" font-size="1em">O</text>
+<path d="M 200,0 L 376,0" fill="none" stroke="black"/>
+<path d="M 80,16 L 96,16" fill="none" stroke="black"/>
+<path d="M 160,16 L 184,16" fill="none" stroke="black"/>
+<path d="M 184,32 L 280,32" fill="none" stroke="black"/>
+<path d="M 280,32 L 360,32" fill="none" stroke="black"/>
+<path d="M 320,48 L 440,48" fill="none" stroke="black"/>
+<path d="M 16,96 L 120,96" fill="none" stroke="black"/>
+<path d="M 240,96 L 320,96" fill="none" stroke="black"/>
+<path d="M 160,112 L 240,112" fill="none" stroke="black"/>
+<path d="M 320,112 L 408,112" fill="none" stroke="black"/>
+<path d="M 16,128 L 120,128" fill="none" stroke="black"/>
+<path d="M 240,128 L 256,128" fill="none" stroke="black"/>
+<path d="M 256,128 L 320,128" fill="none" stroke="black"/>
+<path d="M 216,176 L 304,176" fill="none" stroke="black"/>
+<path d="M 304,176 L 352,176" fill="none" stroke="black"/>
+<path d="M 384,176 L 456,176" fill="none" stroke="black"/>
+<path d="M 456,176 L 496,176" fill="none" stroke="black"/>
+<path d="M 216,208 L 280,208" fill="none" stroke="black"/>
+<path d="M 280,208 L 352,208" fill="none" stroke="black"/>
+<path d="M 56,224 L 64,224" fill="none" stroke="black"/>
+<path d="M 64,224 L 160,224" fill="none" stroke="black"/>
+<path d="M 160,224 L 176,224" fill="none" stroke="black"/>
+<path d="M 384,224 L 440,224" fill="none" stroke="black"/>
+<path d="M 440,224 L 496,224" fill="none" stroke="black"/>
+<path d="M 176,240 L 280,240" fill="none" stroke="black"/>
+<path d="M 280,240 L 440,240" fill="none" stroke="black"/>
+<path d="M 40,256 L 96,256" fill="none" stroke="black"/>
+<path d="M 96,256 L 160,256" fill="none" stroke="black"/>
+<path d="M 216,272 L 352,272" fill="none" stroke="black"/>
+<path d="M 112,288 L 208,288" fill="none" stroke="black"/>
+<path d="M 216,304 L 352,304" fill="none" stroke="black"/>
+<path d="M 40,240 L 40,256" fill="none" stroke="black"/>
+<path d="M 64,32 L 64,80" fill="none" stroke="black"/>
+<path d="M 64,144 L 64,160" fill="none" stroke="black"/>
+<path d="M 64,192 L 64,224" fill="none" stroke="black"/>
+<path d="M 96,256 L 96,272" fill="none" stroke="black"/>
+<path d="M 160,112 L 160,224" fill="none" stroke="black"/>
+<path d="M 176,224 L 176,240" fill="none" stroke="black"/>
+<path d="M 184,16 L 184,32" fill="none" stroke="black"/>
+<path d="M 216,176 L 216,208" fill="none" stroke="black"/>
+<path d="M 216,272 L 216,304" fill="none" stroke="black"/>
+<path d="M 240,96 L 240,112" fill="none" stroke="black"/>
+<path d="M 240,112 L 240,128" fill="none" stroke="black"/>
+<path d="M 256,128 L 256,160" fill="none" stroke="black"/>
+<path d="M 280,32 L 280,80" fill="none" stroke="black"/>
+<path d="M 280,208 L 280,240" fill="none" stroke="black"/>
+<path d="M 304,64 L 304,80" fill="none" stroke="black"/>
+<path d="M 304,144 L 304,176" fill="none" stroke="black"/>
+<path d="M 320,96 L 320,112" fill="none" stroke="black"/>
+<path d="M 320,112 L 320,128" fill="none" stroke="black"/>
+<path d="M 352,176 L 352,208" fill="none" stroke="black"/>
+<path d="M 352,272 L 352,304" fill="none" stroke="black"/>
+<path d="M 376,0 L 376,16" fill="none" stroke="black"/>
+<path d="M 384,176 L 384,224" fill="none" stroke="black"/>
+<path d="M 424,128 L 424,160" fill="none" stroke="black"/>
+<path d="M 440,224 L 440,240" fill="none" stroke="black"/>
+<path d="M 456,64 L 456,176" fill="none" stroke="black"/>
+<path d="M 496,176 L 496,224" fill="none" stroke="black"/>
+<polygon points="216.000000,288.000000 204.000000,282.399994 204.000000,293.600006" transform="rotate(0.000000, 208.000000, 288.000000)" fill="black"/>
+<path d="M 256,160 L 256,168" fill="none" stroke="black"/>
+<polygon points="272.000000,160.000000 260.000000,154.399994 260.000000,165.600006" transform="rotate(90.000000, 256.000000, 160.000000)" fill="black"/>
+<path d="M 280,80 L 280,88" fill="none" stroke="black"/>
+<polygon points="296.000000,80.000000 284.000000,74.400002 284.000000,85.599998" transform="rotate(90.000000, 280.000000, 80.000000)" fill="black"/>
+<path d="M 304,80 L 304,88" fill="none" stroke="black"/>
+<polygon points="320.000000,80.000000 308.000000,74.400002 308.000000,85.599998" transform="rotate(90.000000, 304.000000, 80.000000)" fill="black"/>
+<path d="M 304,136 L 304,144" fill="none" stroke="black"/>
+<polygon points="320.000000,144.000000 308.000000,138.399994 308.000000,149.600006" transform="rotate(270.000000, 304.000000, 144.000000)" fill="black"/>
+<path d="M 424,160 L 424,168" fill="none" stroke="black"/>
+<polygon points="440.000000,160.000000 428.000000,154.399994 428.000000,165.600006" transform="rotate(90.000000, 424.000000, 160.000000)" fill="black"/>
+<path d="M 200,0 A 16,16 0 0,0 184,16" fill="none" stroke="black"/>
+<path d="M 80,16 A 16,16 0 0,0 64,32" fill="none" stroke="black"/>
+<path d="M 376,16 A 16,16 0 0,1 360,32" fill="none" stroke="black"/>
+<path d="M 320,48 A 16,16 0 0,0 304,64" fill="none" stroke="black"/>
+<path d="M 440,48 A 16,16 0 0,1 456,64" fill="none" stroke="black"/>
+<path d="M 16,96 A 16,16 0 0,0 0,112" fill="none" stroke="black"/>
+<path d="M 120,96 A 16,16 0 0,1 136,112" fill="none" stroke="black"/>
+<path d="M 408,112 A 16,16 0 0,1 424,128" fill="none" stroke="black"/>
+<path d="M 0,112 A 16,16 0 0,0 16,128" fill="none" stroke="black"/>
+<path d="M 136,112 A 16,16 0 0,1 120,128" fill="none" stroke="black"/>
+<path d="M 56,224 A 16,16 0 0,0 40,240" fill="none" stroke="black"/>
+<path d="M 176,240 A 16,16 0 0,1 160,256" fill="none" stroke="black"/>
+<path d="M 96,272 A 16,16 0 0,0 112,288" fill="none" stroke="black"/>
+<circle cx="64" cy="80" r="6" fill="black" stroke="black"/>
+<circle cx="64" cy="144" r="6" fill="black" stroke="black"/>
+<text text-anchor="middle" font-family="monospace" x="304" y="20" fill="black" font-size="1em">L</text>
+<text text-anchor="middle" font-family="monospace" x="80" y="180" fill="black" font-size="1em">i</text>
+<text text-anchor="middle" font-family="monospace" x="240" y="196" fill="black" font-size="1em">o</text>
+<text text-anchor="middle" font-family="monospace" x="288" y="196" fill="black" font-size="1em">T</text>
+<text text-anchor="middle" font-family="monospace" x="304" y="292" fill="black" font-size="1em">i</text>
+<text text-anchor="middle" font-family="monospace" x="288" y="116" fill="black" font-size="1em">r</text>
+<text text-anchor="middle" font-family="monospace" x="288" y="292" fill="black" font-size="1em">s</text>
+<text text-anchor="middle" font-family="monospace" x="208" y="20" fill="black" font-size="1em">r</text>
+<text text-anchor="middle" font-family="monospace" x="224" y="20" fill="black" font-size="1em">v</text>
+<text text-anchor="middle" font-family="monospace" x="360" y="20" fill="black" font-size="1em">n</text>
+<text text-anchor="middle" font-family="monospace" x="472" y="212" fill="black" font-size="1em">g</text>
+<text text-anchor="middle" font-family="monospace" x="112" y="244" fill="black" font-size="1em">i</text>
+<text text-anchor="middle" font-family="monospace" x="120" y="244" fill="black" font-size="1em">n</text>
+<text text-anchor="middle" font-family="monospace" x="256" y="292" fill="black" font-size="1em">o</text>
+<text text-anchor="middle" font-family="monospace" x="80" y="116" fill="black" font-size="1em">i</text>
+<text text-anchor="middle" font-family="monospace" x="304" y="116" fill="black" font-size="1em">d</text>
+<text text-anchor="middle" font-family="monospace" x="464" y="196" fill="black" font-size="1em">b</text>
+<text text-anchor="middle" font-family="monospace" x="232" y="292" fill="black" font-size="1em">D</text>
+<text text-anchor="middle" font-family="monospace" x="280" y="20" fill="black" font-size="1em">n</text>
+<text text-anchor="middle" font-family="monospace" x="400" y="196" fill="black" font-size="1em">R</text>
+<text text-anchor="middle" font-family="monospace" x="408" y="212" fill="black" font-size="1em">R</text>
+<text text-anchor="middle" font-family="monospace" x="272" y="20" fill="black" font-size="1em">i</text>
+<text text-anchor="middle" font-family="monospace" x="336" y="20" fill="black" font-size="1em">d</text>
+<text text-anchor="middle" font-family="monospace" x="56" y="180" fill="black" font-size="1em">c</text>
+<text text-anchor="middle" font-family="monospace" x="472" y="196" fill="black" font-size="1em">l</text>
+<text text-anchor="middle" font-family="monospace" x="456" y="212" fill="black" font-size="1em">b</text>
+<text text-anchor="middle" font-family="monospace" x="144" y="244" fill="black" font-size="1em">e</text>
+<text text-anchor="middle" font-family="monospace" x="56" y="116" fill="black" font-size="1em">r</text>
+<text text-anchor="middle" font-family="monospace" x="272" y="196" fill="black" font-size="1em">R</text>
+<text text-anchor="middle" font-family="monospace" x="312" y="196" fill="black" font-size="1em">e</text>
+<text text-anchor="middle" font-family="monospace" x="264" y="196" fill="black" font-size="1em">P</text>
+<text text-anchor="middle" font-family="monospace" x="240" y="292" fill="black" font-size="1em">e</text>
+<text text-anchor="middle" font-family="monospace" x="280" y="292" fill="black" font-size="1em">i</text>
+<text text-anchor="middle" font-family="monospace" x="264" y="292" fill="black" font-size="1em">m</text>
+<text text-anchor="middle" font-family="monospace" x="320" y="196" fill="black" font-size="1em">b</text>
+<text text-anchor="middle" font-family="monospace" x="272" y="292" fill="black" font-size="1em">m</text>
+<text text-anchor="middle" font-family="monospace" x="328" y="196" fill="black" font-size="1em">u</text>
+<text text-anchor="middle" font-family="monospace" x="96" y="244" fill="black" font-size="1em">r</text>
+<text text-anchor="middle" font-family="monospace" x="88" y="116" fill="black" font-size="1em">e</text>
+<text text-anchor="middle" font-family="monospace" x="88" y="180" fill="black" font-size="1em">s</text>
+<text text-anchor="middle" font-family="monospace" x="80" y="244" fill="black" font-size="1em">T</text>
+<text text-anchor="middle" font-family="monospace" x="136" y="244" fill="black" font-size="1em">t</text>
+<text text-anchor="middle" font-family="monospace" x="104" y="244" fill="black" font-size="1em">m</text>
+<text text-anchor="middle" font-family="monospace" x="136" y="20" fill="black" font-size="1em">o</text>
+<text text-anchor="middle" font-family="monospace" x="256" y="20" fill="black" font-size="1em">o</text>
+<text text-anchor="middle" font-family="monospace" x="64" y="116" fill="black" font-size="1em">i</text>
+<text text-anchor="middle" font-family="monospace" x="328" y="20" fill="black" font-size="1em">k</text>
+<text text-anchor="middle" font-family="monospace" x="48" y="116" fill="black" font-size="1em">e</text>
+<text text-anchor="middle" font-family="monospace" x="264" y="116" fill="black" font-size="1em">e</text>
+<text text-anchor="middle" font-family="monospace" x="304" y="196" fill="black" font-size="1em">D</text>
+<text text-anchor="middle" font-family="monospace" x="400" y="212" fill="black" font-size="1em">P</text>
+<text text-anchor="middle" font-family="monospace" x="440" y="212" fill="black" font-size="1em">D</text>
+<text text-anchor="middle" font-family="monospace" x="112" y="20" fill="black" font-size="1em">E</text>
+<text text-anchor="middle" font-family="monospace" x="144" y="20" fill="black" font-size="1em">l</text>
+<text text-anchor="middle" font-family="monospace" x="240" y="20" fill="black" font-size="1em">s</text>
+<text text-anchor="middle" font-family="monospace" x="424" y="196" fill="black" font-size="1em">o</text>
+<text text-anchor="middle" font-family="monospace" x="464" y="212" fill="black" font-size="1em">u</text>
+<text text-anchor="middle" font-family="monospace" x="128" y="20" fill="black" font-size="1em">r</text>
+<text text-anchor="middle" font-family="monospace" x="272" y="116" fill="black" font-size="1em">c</text>
+<text text-anchor="middle" font-family="monospace" x="336" y="196" fill="black" font-size="1em">g</text>
+<text text-anchor="middle" font-family="monospace" x="416" y="196" fill="black" font-size="1em">c</text>
+<text text-anchor="middle" font-family="monospace" x="296" y="292" fill="black" font-size="1em">s</text>
+<text text-anchor="middle" font-family="monospace" x="96" y="180" fill="black" font-size="1em">t</text>
+<text text-anchor="middle" font-family="monospace" x="424" y="212" fill="black" font-size="1em">T</text>
+<text text-anchor="middle" font-family="monospace" x="64" y="180" fill="black" font-size="1em">k</text>
+<text text-anchor="middle" font-family="monospace" x="432" y="196" fill="black" font-size="1em">v</text>
+<text text-anchor="middle" font-family="monospace" x="408" y="196" fill="black" font-size="1em">e</text>
+<text text-anchor="middle" font-family="monospace" x="248" y="20" fill="black" font-size="1em">i</text>
+<text text-anchor="middle" font-family="monospace" x="72" y="180" fill="black" font-size="1em">l</text>
+<text text-anchor="middle" font-family="monospace" x="232" y="196" fill="black" font-size="1em">N</text>
+<text text-anchor="middle" font-family="monospace" x="248" y="196" fill="black" font-size="1em">n</text>
+<text text-anchor="middle" font-family="monospace" x="256" y="196" fill="black" font-size="1em">-</text>
+<text text-anchor="middle" font-family="monospace" x="216" y="20" fill="black" font-size="1em">o</text>
+<text text-anchor="middle" font-family="monospace" x="96" y="116" fill="black" font-size="1em">r</text>
+<text text-anchor="middle" font-family="monospace" x="40" y="180" fill="black" font-size="1em">l</text>
+<text text-anchor="middle" font-family="monospace" x="280" y="196" fill="black" font-size="1em">o</text>
+<text text-anchor="middle" font-family="monospace" x="128" y="244" fill="black" font-size="1em">a</text>
+<text text-anchor="middle" font-family="monospace" x="312" y="292" fill="black" font-size="1em">o</text>
+<text text-anchor="middle" font-family="monospace" x="120" y="20" fill="black" font-size="1em">n</text>
+<text text-anchor="middle" font-family="monospace" x="48" y="180" fill="black" font-size="1em">a</text>
+<text text-anchor="middle" font-family="monospace" x="200" y="20" fill="black" font-size="1em">P</text>
+<text text-anchor="middle" font-family="monospace" x="72" y="116" fill="black" font-size="1em">f</text>
+<text text-anchor="middle" font-family="monospace" x="312" y="20" fill="black" font-size="1em">o</text>
+<text text-anchor="middle" font-family="monospace" x="32" y="180" fill="black" font-size="1em">B</text>
+<text text-anchor="middle" font-family="monospace" x="88" y="244" fill="black" font-size="1em">e</text>
+<text text-anchor="middle" font-family="monospace" x="320" y="292" fill="black" font-size="1em">n</text>
+<text text-anchor="middle" font-family="monospace" x="320" y="20" fill="black" font-size="1em">c</text>
+<text text-anchor="middle" font-family="monospace" x="448" y="196" fill="black" font-size="1em">r</text>
+<text text-anchor="middle" font-family="monospace" x="448" y="212" fill="black" font-size="1em">e</text>
+<text text-anchor="middle" font-family="monospace" x="328" y="292" fill="black" font-size="1em">e</text>
+<text text-anchor="middle" font-family="monospace" x="232" y="20" fill="black" font-size="1em">i</text>
+<text text-anchor="middle" font-family="monospace" x="40" y="116" fill="black" font-size="1em">V</text>
+<text text-anchor="middle" font-family="monospace" x="256" y="116" fill="black" font-size="1em">S</text>
+<text text-anchor="middle" font-family="monospace" x="296" y="116" fill="black" font-size="1em">e</text>
+<text text-anchor="middle" font-family="monospace" x="440" y="196" fill="black" font-size="1em">e</text>
+<text text-anchor="middle" font-family="monospace" x="480" y="196" fill="black" font-size="1em">e</text>
+<text text-anchor="middle" font-family="monospace" x="416" y="212" fill="black" font-size="1em">o</text>
+<text text-anchor="middle" font-family="monospace" x="264" y="20" fill="black" font-size="1em">n</text>
+<text text-anchor="middle" font-family="monospace" x="288" y="20" fill="black" font-size="1em">g</text>
+<text text-anchor="middle" font-family="monospace" x="344" y="20" fill="black" font-size="1em">o</text>
+<text text-anchor="middle" font-family="monospace" x="352" y="20" fill="black" font-size="1em">w</text>
+<text text-anchor="middle" font-family="monospace" x="280" y="116" fill="black" font-size="1em">u</text>
+<text text-anchor="middle" font-family="monospace" x="456" y="196" fill="black" font-size="1em">a</text>
+<text text-anchor="middle" font-family="monospace" x="248" y="292" fill="black" font-size="1em">c</text>
+<text text-anchor="middle" font-family="monospace" x="336" y="292" fill="black" font-size="1em">d</text>
 </g>
 </svg>
