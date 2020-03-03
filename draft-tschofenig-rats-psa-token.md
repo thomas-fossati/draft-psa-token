@@ -374,7 +374,7 @@ profile document. This attribute will normally be excluded, unless there was an
 exception to the default measurement described in the profile for a specific
 component.
 
-### No Software Measurements
+## No Software Measurements
 
 In the event that the implementation does not contain any software measurements
 then the Software Components claim {{sec-sw-components}} can be omitted but
