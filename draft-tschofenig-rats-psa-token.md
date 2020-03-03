@@ -222,7 +222,7 @@ psa-implementation-id = (
 The Hardware Version claim provides metadata linking the token to the GDSII
 that went to fabrication for this instance. It can be used to link the class of
 chip and PSA RoT to the data on a certification website. It MUST be represented
-as a thirteen-digit {{EAN-13}}
+as a thirteen-digit {{EAN-13}}.
 
 ~~~
 psa-hardware-version-type = text .regexp "[0-9]{13}"
