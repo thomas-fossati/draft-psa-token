@@ -287,7 +287,7 @@ chip and PSA RoT to the data on a certification website. It MUST be represented
 as a thirteen-digit {{EAN-13}}
 
 ~~~
-psa-hardware-version-type = text (TODO EAN-13 regex)
+psa-hardware-version-type = text .regexp "[0-9]{13}"
 
 psa-hardware-version = (
     arm_psa_hw_version => psa-hardware-version-type
@@ -313,8 +313,10 @@ psa-boot-seed = (
 {: #sec-sw-components }
 
 The Software Components claim is a list of software components that includes
-all the software loaded by the PSA RoT. This claim is needed for the rules
-outlined in {{PSA-SM}}.  TODO(tho) figure out the MUST.
+all the software loaded by the PSA RoT. This claim SHALL be included in
+attestation tokens produced by an implementation conformant with {{PSA-SM}}.
+If the Software Components claim is present, then the No Software Measurement
+claim ({{sec-no-sw-measurements}}) MUST NOT be present.
 
 Each entry in the Software Components list describes one software component
 using the attributes described in the following subsections.  Unless explicitly
@@ -382,6 +384,7 @@ exception to the default measurement described in the profile for a specific
 component.
 
 ## No Software Measurements
+{: #sec-no-sw-measurements }
 
 In the event that the implementation does not contain any software measurements
 then the Software Components claim {{sec-sw-components}} can be omitted but
