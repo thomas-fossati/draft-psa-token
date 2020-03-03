@@ -1,3 +1,6 @@
+# XXX this needs to be invoked manually after modifying or adding any
+# .ascii-art files.
+
 root := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
 
 # check if goat and svgcheck are installed
