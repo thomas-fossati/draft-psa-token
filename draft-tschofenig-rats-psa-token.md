@@ -49,24 +49,12 @@ author:
     email: Thomas.Fossati@arm.com
 
 normative:
-  PSA:
-    author:
-      org: Arm
-    title: Platform Security Architecture Resources
-    target: https://www.arm.com/why-arm/architecture/platform-security-architecture/psa-resources
-    date: 2019
   PSA-SM:
     author:
       org: Arm
     title: Platform Security Architecture Security Model 1.0 (PSA-SM)
     target: https://pages.arm.com/psa-resources-sm.html
     date: 19. Feb. 2019
-  TF-M:
-    author:
-      org: Linaro
-    title: Trusted Firmware
-    target: https://www.trustedfirmware.org
-    date: 2019
   EAN-13:
     author:
       org: GS1
@@ -75,7 +63,24 @@ normative:
     date: 2019
 
 informative:
-
+  IANA-CWT:
+    author:
+      org: IANA
+    title: CBOR Web Token (CWT) Claims
+    target: https://www.iana.org/assignments/cwt/cwt.xhtml
+    date: 2020
+  TF-M:
+    author:
+      org: Linaro
+    title: Trusted Firmware
+    target: https://www.trustedfirmware.org
+    date: 2020
+  PSA:
+    author:
+      org: Arm
+    title: Platform Security Architecture Resources
+    target: https://www.arm.com/why-arm/architecture/platform-security-architecture/psa-resources
+    date: 2019
 
 --- abstract
 
@@ -134,6 +139,7 @@ the Application domain, typically containing the application firmware,
 operating systems, and general hardware.
 
 # PSA Claims
+{: #sec-psa-claims }
 
 This section describes the claims to be used in a PSA attestation token.
 
@@ -159,8 +165,9 @@ psa-nonce-claim = (
 ## Instance ID
 
 The Instance ID claim represents the unique identifier of the instance. It is a
-hash of the public key corresponding to the Initial Attestation Key. The full
-definition is in {{PSA-SM}}.
+hash of the public key corresponding to the Initial Attestation Key (IAK). If
+the IAK is a symmetric key then the Instance ID is a hash of the IAK. The full
+definition is in the {{PSA-SM}}.
 
 This claim MUST be present in a PSA attestation token.
 
@@ -334,11 +341,11 @@ this software component.
 
 The following measurement types MAY be used:
 
-* 'BL': a Boot Loader
-* 'PRoT': a component of the PSA Root of Trust
-* 'ARoT': a component of the Application Root of Trust
-* 'App': a component of the NSPE application
-* 'TS': a component of a Trusted Subsystem
+* "BL": a Boot Loader
+* "PRoT": a component of the PSA Root of Trust
+* "ARoT": a component of the Application Root of Trust
+* "App": a component of the NSPE application
+* "TS": a component of a Trusted Subsystem
 
 ### Measurement Value
 
@@ -399,31 +406,9 @@ hardware and software. The claims are encoded in CBOR {{!RFC7049}} format.
 
 # Collected CDDL
 
-~~~
-psa-token = {
-    psa-nonce-claim,
-    psa-instance-id,
-    psa-verification-service-indicator,
-    psa-profile,
-    psa-implementation-id,
-    psa-client-id,
-    psa-lifecycle,
-    psa-hardware-version,
-    psa-boot-seed,
-    ( psa-software-components // psa-no-sw-measurement ),
-}
 
-arm_psa_profile_id = -75000
-arm_psa_partition_id = -75001
-arm_psa_security_lifecycle = -75002
-arm_psa_implementation_id = -75003
-arm_psa_boot_seed = -75004
-arm_psa_hw_version = -75005
-arm_psa_sw_components = -75006
-arm_psa_no_sw_measurements = -75007
-arm_psa_nonce = -75008
-arm_psa_UEID = -75009
-arm_psa_origination = -75010
+~~~
+{::include psa-token.cddl}
 ~~~
 
 # Security and Privacy Considerations
@@ -431,10 +416,14 @@ arm_psa_origination = -75010
 This specification re-uses the CWT and the EAT specification. Hence, the
 security and privacy considerations of those specifications apply here as well.
 
-Since CWTs offer different ways to protect the token this specification
-profiles those options and only uses public key cryptography. The token MUST be
-signed following the structure of the COSE specification {{!RFC8152}}.  The COSE
-type MUST be COSE-Sign1.
+Since CWTs offer different ways to protect the token, this specification
+profiles those options and allows use of public key cryptography as well as MAC
+authentication. The token MUST be signed following the structure of the COSE
+specification {{!RFC8152}}.  The COSE type MUST be COSE-Sign1 for public key
+signatures or COSE-Mac0 for MAC authentication.  Note however that use of MAC
+authentication is NOT RECOMMENDED due to the associated infrastructure costs
+for key management and protocol complexities. It may also restrict the ability
+to interoperate with third parties.
 
 Attestation tokens contain information that may be unique to a device and
 therefore they may allow to single out an individual device for tracking
@@ -444,7 +433,9 @@ keys. This may be achieved using a Privacy CA or a DAA scheme.
 
 # IANA Considerations
 
-This document has no IANA actions.
+IANA is requested to allocate the claims defined in {{sec-psa-claims}} to the
+CBOR Web Token (CWT) Claims registry {{IANA-CWT}}. The change controller are
+the authors and the reference is this document.
 
 --- back
 
@@ -598,4 +589,4 @@ We would like to thank the following colleagues for their contributions:
 # Acknowledgments
 {:numbered="false"}
 
-Thank you Carsten Bormann for helping out with the CDDL.
+Thanks to Carsten Bormann for help with the CDDL.
