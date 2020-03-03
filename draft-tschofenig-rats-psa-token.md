@@ -206,7 +206,7 @@ This claim MUST be present in a PSA attestation token.
 The Implementation ID claim uniquely identifies the underlying immutable PSA
 RoT. A verification service can use this claim to locate the details of the
 verification process. Such details include the implementation's origin and
-associated certification state.
+associated certification state. The full definition is in the {{PSA-SM}}.
 
 This claim MUST be present in a PSA attestation token.
 
@@ -232,11 +232,15 @@ as a thirteen-digit {{EAN-13}}.
 The Security Lifecycle claim represents the current lifecycle state of the PSA
 RoT. The state is represented by an integer that is divided to convey a major
 state and a minor state. A major state is mandatory and defined by {{PSA-SM}}.
-A minor state is optional and 'IMPLEMENTATION DEFINED'. The encoding is:
-version\[15:8\] - PSA security lifecycle state, and version\[7:0\] -
-IMPLEMENTATION DEFINED state. The PSA lifecycle states are illustrated in
-{{fig-lifecycle-states}}. For PSA, a remote verifier can only trust reports
-from the PSA RoT when it is in SECURED or NON_PSA_ROT_DEBUG major states.
+A minor state is optional and 'IMPLEMENTATION DEFINED'. The PSA security
+lifecycle state and implementation state are encoded as follows:
+
+* version\[15:8\] - PSA security lifecycle state, and
+* version\[7:0\] - IMPLEMENTATION DEFINED state.
+
+The PSA lifecycle states are illustrated in {{fig-lifecycle-states}}. For PSA,
+a remote verifier can only trust reports from the PSA RoT when it is in SECURED
+or NON_PSA_ROT_DEBUG major states.
 
 This claim MUST be present in a PSA attestation token.
 
@@ -359,19 +363,21 @@ verifier may choose to ignore this claim in favor of other information.
 ### Profile Definition
 
 The Profile Definition claim contains the name of a document that describes the
-'profile' of the report. The document name may include versioning. The value
+"profile" of the report. The document name may include versioning. The value
 for this specification MUST be PSA_IOT_PROFILE_1.
 
 ~~~
 {::include cddl/psa-profile.cddl}
 ~~~
 
-# Token Encoding
+# Token Encoding and Signing
 
 The report is encoded as a COSE Web Token (CWT) {{!RFC8392}}, similar to the
 Entity Attestation Token (EAT) {{?I-D.ietf-rats-eat}}. The token consists of a
 series of claims declaring evidence as to the nature of the instance of
-hardware and software. The claims are encoded in CBOR {{!RFC7049}} format.
+hardware and software. The claims are encoded in CBOR {{!RFC7049}} format.  For
+asymmetric key algorithms, the signature structure MUST be COSE-Sign1.  For
+symmetric key algorithms, the structure MUST be COSE-Mac0.
 
 # Collected CDDL
 
