@@ -429,13 +429,13 @@ This specification re-uses the CWT and the EAT specification. Hence, the
 security and privacy considerations of those specifications apply here as well.
 
 Since CWTs offer different ways to protect the token, this specification
-profiles those options and allows use of public key cryptography as well as MAC
-authentication. The token MUST be signed following the structure of the COSE
-specification {{!RFC8152}}.  The COSE type MUST be COSE-Sign1 for public key
-signatures or COSE-Mac0 for MAC authentication.  Note however that use of MAC
-authentication is NOT RECOMMENDED due to the associated infrastructure costs
-for key management and protocol complexities. It may also restrict the ability
-to interoperate with third parties.
+profiles those options and allows signatures based on use of public key
+cryptography as well as MAC authentication. The token MUST be signed following
+the structure of the COSE specification {{!RFC8152}}.  The COSE type MUST be
+COSE-Sign1 for public key signatures or COSE-Mac0 for MAC authentication.  Note
+however that use of MAC authentication is NOT RECOMMENDED due to the associated
+infrastructure costs for key management and protocol complexities. It may also
+restrict the ability to interoperate with third parties.
 
 Attestation tokens contain information that may be unique to a device and
 therefore they may allow to single out an individual device for tracking
