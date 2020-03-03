@@ -572,7 +572,6 @@ Same token using extended CBOR diagnostic format:
 )
 ~~~
 
-
 # Contributors
 {:numbered="false"}
 
@@ -599,4 +598,4 @@ We would like to thank the following colleagues for their contributions:
 # Acknowledgments
 {:numbered="false"}
 
-TODO acknowledge.
+Thank you Carsten Bormann for helping out with the CDDL.
