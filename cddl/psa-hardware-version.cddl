@@ -1,0 +1,5 @@
+psa-hardware-version-type = text .regexp "[0-9]{13}"
+
+psa-hardware-version = (
+    arm_psa_hw_version => psa-hardware-version-type
+)

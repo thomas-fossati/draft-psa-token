@@ -1,0 +1,5 @@
+psa-implementation-id-type = bytes .size 32
+
+psa-implementation-id = (
+    arm_psa_implementation_id => psa-implementation-id-type
+)

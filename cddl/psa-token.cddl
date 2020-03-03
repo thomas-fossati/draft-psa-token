@@ -1,0 +1,24 @@
+psa-token = {
+    psa-nonce-claim,
+    psa-instance-id,
+    psa-verification-service-indicator,
+    psa-profile,
+    psa-implementation-id,
+    psa-client-id,
+    psa-lifecycle,
+    psa-hardware-version,
+    psa-boot-seed,
+    ( psa-software-components // psa-no-sw-measurement ),
+}
+
+arm_psa_profile_id = -75000
+arm_psa_partition_id = -75001
+arm_psa_security_lifecycle = -75002
+arm_psa_implementation_id = -75003
+arm_psa_boot_seed = -75004
+arm_psa_hw_version = -75005
+arm_psa_sw_components = -75006
+arm_psa_no_sw_measurements = -75007
+arm_psa_nonce = -75008
+arm_psa_UEID = -75009
+arm_psa_origination = -75010

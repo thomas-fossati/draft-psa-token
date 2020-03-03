@@ -1,0 +1,5 @@
+psa-nonce-type = bytes .size 32 / bytes .size 48 / bytes .size 64
+
+psa-nonce-claim = (
+    arm_psa_nonce => psa-nonce-type
+)

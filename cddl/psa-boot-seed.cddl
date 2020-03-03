@@ -1,0 +1,5 @@
+psa-boot-seed-type = bytes .size 32
+
+psa-boot-seed = (
+    arm_psa_boot_seed => psa-boot-seed-type
+)

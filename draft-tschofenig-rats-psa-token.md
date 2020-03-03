@@ -61,6 +61,12 @@ normative:
     title: International Article Number - EAN/UPC barcodes
     target: https://www.gs1.org/standards/barcodes/ean-upc
     date: 2019
+  PSA-FF:
+    author:
+      org: Arm
+    title: Platform Security Architecture Firmware Framework 1.0 (PSA-FF)
+    target: https://pages.arm.com/psa-resources-ff.html
+    date: 20. Feb. 2019
 
 informative:
   IANA-CWT:
@@ -157,27 +163,25 @@ be 32, 48, or 64 bytes.
 This claim MUST be present in a PSA attestation token.
 
 ~~~
-psa-nonce-type = bytes .size 32 / bytes .size 48 / bytes .size 64
-
-psa-nonce-claim = (
-    arm_psa_nonce => psa-nonce-type
-)
+{::include cddl/psa-nonce.cddl}
 ~~~
 
 ### Client ID
 
-The Client ID claim represents the ID of the caller. It is a signed integer
-whereby negative values represent callers from the NSPE and where positive IDs
-represent callers from the SPE.
+The Client ID claim represents the Partition ID of the caller. It is a signed
+integer whereby negative values represent callers from the NSPE and where
+positive IDs represent callers from the SPE. The value 0 is not permitted. The
+full definition of a Partition ID is provided by the PSA Firmware Framework
+{{PSA-FF}}.
+
+It is essential that this claim is checked in the verification process to
+ensure that a security domain cannot spoof a report from another security
+domain.
 
 This claim MUST be present in a PSA attestation token.
 
 ~~~
-psa-client-id-type = -2147483648..2147483647
-
-psa-client-id = (
-    arm_psa_partition_id => psa-client-id-type
-)
+{::include cddl/psa-client-id.cddl}
 ~~~
 
 ## Target Identification Claims
@@ -194,11 +198,7 @@ full definition is in the {{PSA-SM}}.
 This claim MUST be present in a PSA attestation token.
 
 ~~~
-psa-instance-id-type = bytes .size 33
-
-psa-instance-id = (
-    arm_psa_UEID => psa-instance-id-type
-)
+{::include cddl/psa-instance-id.cddl}
 ~~~
 
 ### Implementation ID
@@ -211,11 +211,7 @@ associated certification state.
 This claim MUST be present in a PSA attestation token.
 
 ~~~
-psa-implementation-id-type = bytes .size 32
-
-psa-implementation-id = (
-    arm_psa_implementation_id => psa-implementation-id-type
-)
+{::include cddl/psa-implementation-id.cddl}
 ~~~
 
 ### Hardware Version
@@ -226,11 +222,7 @@ chip and PSA RoT to the data on a certification website. It MUST be represented
 as a thirteen-digit {{EAN-13}}.
 
 ~~~
-psa-hardware-version-type = text .regexp "[0-9]{13}"
-
-psa-hardware-version = (
-    arm_psa_hw_version => psa-hardware-version-type
-)
+{::include cddl/psa-hardware-version.cddl}
 ~~~
 
 ## Target State Claims
@@ -258,19 +250,7 @@ This claim MUST be present in a PSA attestation token.
 </t>
 
 ~~~
-psa-lifecycle-type = (
-    unknown: 0x0000,
-    assembly_and_test: 0x1000,
-    psa_rot_provisioning: 0x2000,
-    secured: 0x3000,
-    non_psa_rot_debug: 0x4000,
-    recoverable_psa_rot_debug: 0x5000,
-    decommissioned: 0x6000,
-)
-
-psa-lifecycle = (
-    arm_psa_security_lifecycle => &psa-lifecycle-type
-)
+{::include cddl/psa-security-lifecycle.cddl}
 ~~~
 
 ### Boot Seed
@@ -281,11 +261,7 @@ will allow differentiation of reports from different boot sessions.
 This claim MUST be present in a PSA attestation token.
 
 ~~~
-psa-boot-seed-type = bytes .size 32
-
-psa-boot-seed = (
-    arm_psa_boot_seed => psa-boot-seed-type
-)
+{::include cddl/psa-boot-seed.cddl}
 ~~~
 
 ## Software Inventory Claims
@@ -304,17 +280,7 @@ using the attributes described in the following subsections.  Unless explicitly
 stated, the presence of an attribute is OPTIONAL.
 
 ~~~
-psa-software-component-type = (
-    ? 1 => text,        ; measurement type
-    2 => bytes .size 32 ; measurement value
-    ? 4  => text,       ; version
-    5 => bytes,         ; signer id
-    ? 6 => text,        ; measurement description
-)
-
-psa-software-components = (
-    arm_psa_sw_components => [ + psa-software-component-type ]
-)
+{::include cddl/psa-software-components.cddl}
 ~~~
 
 #### Measurement Type
@@ -374,11 +340,7 @@ state. This claim is intended for devices that are not compliant with
 {{PSA-SM}}.
 
 ~~~
-psa-no-sw-measuremments-type = 0..1
-
-psa-no-sw-measurement = (
-    arm_psa_no_sw_measurements => psa-no-sw-measuremments-type
-)
+{::include cddl/psa-no-sw-measurements.cddl}
 ~~~
 
 ## Verification Claims
@@ -391,11 +353,7 @@ be used to locate the service or a URL specifying the address of the service. A
 verifier may choose to ignore this claim in favor of other information.
 
 ~~~
-psa-verification-service-indicator-type = text
-
-psa-verification-service-indicator = (
-    arm_psa_origination => psa-verification-service-indicator-type
-)
+{::include cddl/psa-verification-service-indicator.cddl}
 ~~~
 
 ### Profile Definition
@@ -405,11 +363,7 @@ The Profile Definition claim contains the name of a document that describes the
 for this specification MUST be PSA_IOT_PROFILE_1.
 
 ~~~
-psa-profile-type = "PSA_IOT_PROFILE_1"
-
-psa-profile = (
-    arm_psa_profile_id => psa-profile-type
-)
+{::include cddl/psa-profile.cddl}
 ~~~
 
 # Token Encoding
@@ -422,7 +376,29 @@ hardware and software. The claims are encoded in CBOR {{!RFC7049}} format.
 # Collected CDDL
 
 ~~~
-{::include psa-token.cddl}
+{::include cddl/psa-token.cddl}
+
+{::include cddl/psa-boot-seed.cddl}
+
+{::include cddl/psa-client-id.cddl}
+
+{::include cddl/psa-hardware-version.cddl}
+
+{::include cddl/psa-implementation-id.cddl}
+
+{::include cddl/psa-instance-id.cddl}
+
+{::include cddl/psa-no-sw-measurements.cddl}
+
+{::include cddl/psa-nonce.cddl}
+
+{::include cddl/psa-profile.cddl}
+
+{::include cddl/psa-security-lifecycle.cddl}
+
+{::include cddl/psa-software-components.cddl}
+
+{::include cddl/psa-verification-service-indicator.cddl}
 ~~~
 
 # Security and Privacy Considerations

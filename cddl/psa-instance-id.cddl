@@ -1,0 +1,5 @@
+psa-instance-id-type = bytes .size 33
+
+psa-instance-id = (
+    arm_psa_UEID => psa-instance-id-type
+)

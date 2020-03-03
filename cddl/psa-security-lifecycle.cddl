@@ -1,0 +1,20 @@
+psa-lifecycle-unknown-type = 0x0000..0x00ff
+psa-lifecycle-assembly-and-test-type = 0x1000..0x10ff
+psa-lifecycle-psa-rot-provisioning-type = 0x2000..0x20ff
+psa-lifecycle-secured-type = 0x3000..0x30ff
+psa-lifecycle-non-psa-rot-debug-type = 0x4000..0x40ff
+psa-lifecycle-recoverable-psa-rot-debug-type = 0x5000..0x50ff
+psa-lifecycle-decommissioned-type = 0x6000..0x60ff
+
+psa-lifecycle-type = 
+    psa-lifecycle-unknown-type /
+    psa-lifecycle-assembly-and-test-type /
+    psa-lifecycle-psa-rot-provisioning-type /
+    psa-lifecycle-secured-type /
+    psa-lifecycle-non-psa-rot-debug-type /
+    psa-lifecycle-recoverable-psa-rot-debug-type /
+    psa-lifecycle-decommissioned-type
+
+psa-lifecycle = (
+    arm_psa_security_lifecycle => psa-lifecycle-type
+)
