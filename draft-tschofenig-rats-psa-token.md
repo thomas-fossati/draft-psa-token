@@ -146,7 +146,9 @@ This section describes the claims to be used in a PSA attestation token.
 CDDL {{!RFC8610}} along with text descriptions is used to define each claim
 independent of encoding.
 
-## Auth Challenge
+## Caller Claims
+
+### Auth Challenge
 
 The Auth Challenge claim is an input object from the caller. For example, this
 can be a cryptographic nonce, a hash of locally attested data. The length must
@@ -162,7 +164,25 @@ psa-nonce-claim = (
 )
 ~~~
 
-## Instance ID
+### Client ID
+
+The Client ID claim represents the ID of the caller. It is a signed integer
+whereby negative values represent callers from the NSPE and where positive IDs
+represent callers from the SPE.
+
+This claim MUST be present in a PSA attestation token.
+
+~~~
+psa-client-id-type = -2147483648..2147483647
+
+psa-client-id = (
+    arm_psa_partition_id => psa-client-id-type
+)
+~~~
+
+## Target Identification Claims
+
+### Instance ID
 
 The Instance ID claim represents the unique identifier of the instance. It is a
 hash of the public key corresponding to the Initial Attestation Key (IAK). If
@@ -179,36 +199,7 @@ psa-instance-id = (
 )
 ~~~
 
-## Verification Service Indicator
-
-The Verification Service Indicator claim is a hint used by a relying party to
-locate a validation service for the token. The value is a text string that can
-be used to locate the service or a URL specifying the address of the service. A
-verifier may choose to ignore this claim in favor of other information.
-
-~~~
-psa-verification-service-indicator-type = text
-
-psa-verification-service-indicator = (
-    arm_psa_origination => psa-verification-service-indicator-type
-)
-~~~
-
-## Profile Definition
-
-The Profile Definition claim contains the name of a document that describes the
-'profile' of the report. The document name may include versioning. The value
-for this specification MUST be PSA_IOT_PROFILE_1.
-
-~~~
-psa-profile-type = "PSA_IOT_PROFILE_1"
-
-psa-profile = (
-    arm_psa_profile_id => psa-profile-type
-)
-~~~
-
-## Implementation ID
+### Implementation ID
 
 The Implementation ID claim uniquely identifies the underlying immutable PSA
 RoT. A verification service can use this claim to locate the details of the
@@ -225,23 +216,24 @@ psa-implementation-id = (
 )
 ~~~
 
-## Client ID
+### Hardware Version
 
-The Client ID claim represents the ID of the caller. It is a signed integer
-whereby negative values represent callers from the NSPE and where positive IDs
-represent callers from the SPE.
-
-This claim MUST be present in a PSA attestation token.
+The Hardware Version claim provides metadata linking the token to the GDSII
+that went to fabrication for this instance. It can be used to link the class of
+chip and PSA RoT to the data on a certification website. It MUST be represented
+as a thirteen-digit {{EAN-13}}
 
 ~~~
-psa-client-id-type = -2147483648..2147483647
+psa-hardware-version-type = text .regexp "[0-9]{13}"
 
-psa-client-id = (
-    arm_psa_partition_id => psa-client-id-type
+psa-hardware-version = (
+    arm_psa_hw_version => psa-hardware-version-type
 )
 ~~~
 
-## Security Lifecycle
+## Target State Claims
+
+### Security Lifecycle
 
 The Security Lifecycle claim represents the current lifecycle state of the PSA
 RoT. The state is represented by an integer that is divided to convey a major
@@ -279,22 +271,7 @@ psa-lifecycle = (
 )
 ~~~
 
-## Hardware Version
-
-The Hardware Version claim provides metadata linking the token to the GDSII
-that went to fabrication for this instance. It can be used to link the class of
-chip and PSA RoT to the data on a certification website. It MUST be represented
-as a thirteen-digit {{EAN-13}}
-
-~~~
-psa-hardware-version-type = text .regexp "[0-9]{13}"
-
-psa-hardware-version = (
-    arm_psa_hw_version => psa-hardware-version-type
-)
-~~~
-
-## Boot Seed
+### Boot Seed
 
 The Boot Seed claim represents a random value created at system boot time that
 will allow differentiation of reports from different boot sessions.
@@ -309,7 +286,9 @@ psa-boot-seed = (
 )
 ~~~
 
-## Software Components
+## Target Software Inventory Claims
+
+### Software Components
 {: #sec-sw-components }
 
 The Software Components claim is a list of software components that includes
@@ -336,7 +315,7 @@ psa-software-components = (
 )
 ~~~
 
-### Measurement Type
+#### Measurement Type
 
 The Measurement Type attribute (key=1) is short string representing the role of
 this software component.
@@ -349,7 +328,7 @@ The following measurement types MAY be used:
 * "App": a component of the NSPE application
 * "TS": a component of a Trusted Subsystem
 
-### Measurement Value
+#### Measurement Value
 
 The Measurement Value attribute (key=2) represents a hash of the invariant
 software component in memory at startup time. The value MUST be a cryptographic
@@ -357,13 +336,13 @@ hash of 256 bits or stronger.
 
 This attribute MUST be present in a PSA software component.
 
-### Version
+#### Version
 
 The Version attribute (key=4) is the issued software version in the form of a
 text string. The value of this attribute will correspond to the entry in the
 original signed manifest of the component.
 
-### Signer ID
+#### Signer ID
 
 The Signer ID attribute (key=5) is the hash of a signing authority public key
 for the software component. The value of this attribute will correspond to the
@@ -373,7 +352,7 @@ verifier to ensure the components were signed by an expected trusted source.
 This attribute MUST be present in a PSA software component to be compliant with
 {{PSA-SM}}.
 
-### Measurement Description
+#### Measurement Description
 
 The Measurement Description attribute (key=6) is the description of the way in
 which the measurement value of the software component is computed. The value
@@ -383,7 +362,7 @@ profile document. This attribute will normally be excluded, unless there was an
 exception to the default measurement described in the profile for a specific
 component.
 
-## No Software Measurements
+### No Software Measurements
 {: #sec-no-sw-measurements }
 
 In the event that the implementation does not contain any software measurements
@@ -400,6 +379,37 @@ psa-no-sw-measurement = (
 )
 ~~~
 
+## Verification Claims
+
+### Verification Service Indicator
+
+The Verification Service Indicator claim is a hint used by a relying party to
+locate a validation service for the token. The value is a text string that can
+be used to locate the service or a URL specifying the address of the service. A
+verifier may choose to ignore this claim in favor of other information.
+
+~~~
+psa-verification-service-indicator-type = text
+
+psa-verification-service-indicator = (
+    arm_psa_origination => psa-verification-service-indicator-type
+)
+~~~
+
+### Profile Definition
+
+The Profile Definition claim contains the name of a document that describes the
+'profile' of the report. The document name may include versioning. The value
+for this specification MUST be PSA_IOT_PROFILE_1.
+
+~~~
+psa-profile-type = "PSA_IOT_PROFILE_1"
+
+psa-profile = (
+    arm_psa_profile_id => psa-profile-type
+)
+~~~
+
 # Token Encoding
 
 The report is encoded as a COSE Web Token (CWT) {{!RFC8392}}, similar to the
@@ -408,7 +418,6 @@ series of claims declaring evidence as to the nature of the instance of
 hardware and software. The claims are encoded in CBOR {{!RFC7049}} format.
 
 # Collected CDDL
-
 
 ~~~
 {::include psa-token.cddl}
