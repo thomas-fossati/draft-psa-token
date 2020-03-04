@@ -1,11 +1,11 @@
-psa-software-component-type = (
-    ? 1 => text,        ; measurement type
-    2 => bytes .size 32 ; measurement value
-    ? 4  => text,       ; version
-    5 => bytes,         ; signer id
-    ? 6 => text,        ; measurement description
-)
+psa-software-component = {
+    ? 1 => text,         ; measurement type
+    2 => bytes .size 32, ; measurement value
+    ? 4  => text,        ; version
+    5 => bytes .size 32, ; signer id
+    ? 6 => text,         ; measurement description
+}
 
 psa-software-components = (
-    arm_psa_sw_components => [ + psa-software-component-type ]
+    arm_psa_sw_components => [ + psa-software-component ]
 )

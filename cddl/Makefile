@@ -15,7 +15,7 @@ FRAGMENTS += psa-verification-service-indicator.cddl
 
 AMALGAMATION := psa-attestation.cddl
 
-$(AMALGAMATION): ; $(RM) $@ && cat $(FRAGMENTS) >> $@
+$(AMALGAMATION): $(FRAGMENTS) ; $(RM) $@ && cat $(FRAGMENTS) >> $@
 
 clean: ; $(RM) $(AMALGAMATION)
 .PHONY: clean

@@ -1,5 +1,5 @@
 psa-profile-type = "PSA_IOT_PROFILE_1"
 
 psa-profile = (
-    arm_psa_profile_id => psa-profile-type
+    ? arm_psa_profile_id => psa-profile-type
 )

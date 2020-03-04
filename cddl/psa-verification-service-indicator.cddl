@@ -1,5 +1,5 @@
 psa-verification-service-indicator-type = text
 
 psa-verification-service-indicator = (
-    arm_psa_origination => psa-verification-service-indicator-type
+    ? arm_psa_origination => psa-verification-service-indicator-type
 )
