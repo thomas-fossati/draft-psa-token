@@ -379,7 +379,7 @@ hardware and software. The claims are encoded in CBOR {{!RFC7049}} format.  For
 asymmetric key algorithms, the signature structure MUST be COSE-Sign1.  For
 symmetric key algorithms, the structure MUST be COSE-Mac0.
 
-# Collected CDDL
+# Collated CDDL
 
 ~~~
 {::include cddl/psa-token.cddl}
