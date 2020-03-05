@@ -340,8 +340,8 @@ component.
 In the event that the implementation does not contain any software measurements
 then the Software Components claim {{sec-sw-components}} can be omitted but
 instead the token MUST include this claim to indicate this is a deliberate
-state. This claim is intended for devices that are not compliant with
-{{PSA-SM}}.
+state. The value SHOULD be 1.  This claim is intended for devices that are not
+compliant with {{PSA-SM}}.
 
 ~~~
 {::include cddl/psa-no-sw-measurements.cddl}

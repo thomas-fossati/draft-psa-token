@@ -1,4 +1,4 @@
-psa-no-sw-measurements-type = 0..1
+psa-no-sw-measurements-type = 1
 
 psa-no-sw-measurement = (
     arm_psa_no_sw_measurements => psa-no-sw-measurements-type

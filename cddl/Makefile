@@ -19,3 +19,12 @@ $(AMALGAMATION): $(FRAGMENTS) ; $(RM) $@ && cat $(FRAGMENTS) >> $@
 
 clean: ; $(RM) $(AMALGAMATION)
 .PHONY: clean
+
+# check if cddl is installed
+cddl ?= $(shell command -v cddl)
+ifeq ($(strip $(cddl)),)
+  $(error cddl tool not found. To install cddl, run: 'gem install cddl')
+else
+  EXAMPLE := example/psa-token.cbor
+  check: $(AMALGAMATION) ; cddl $< validate $(EXAMPLE)
+endif
