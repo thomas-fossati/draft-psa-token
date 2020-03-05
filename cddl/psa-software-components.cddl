@@ -1,12 +1,9 @@
-psa-signer-id-type = bytes .size 32 / bytes .size 48 / bytes .size 64
-psa-measurement-type = bytes .size 32 / bytes .size 48 / bytes .size 64
-
 psa-software-component = {
-    ? 1 => text,               ; measurement type
-    2 => psa-measurement-type, ; measurement value
-    ? 4  => text,              ; version
-    5 => psa-signer-id-type,   ; signer id
-    ? 6 => text,               ; measurement description
+    ? 1 => text,        ; measurement type
+    2 => psa-hash-type, ; measurement value
+    ? 4  => text,       ; version
+    5 => psa-hash-type, ; signer id
+    ? 6 => text,        ; measurement description
 }
 
 psa-software-components = (

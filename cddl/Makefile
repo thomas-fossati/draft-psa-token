@@ -1,6 +1,7 @@
 SHELL := /bin/bash
 
 FRAGMENTS := psa-token.cddl
+FRAGMENTS += psa-common-types.cddl
 FRAGMENTS += psa-boot-seed.cddl
 FRAGMENTS += psa-client-id.cddl
 FRAGMENTS += psa-hardware-version.cddl

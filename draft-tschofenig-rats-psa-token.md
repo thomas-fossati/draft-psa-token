@@ -106,7 +106,7 @@ specification describes what claims are used by PSA compliant systems.
 # Introduction
 
 Trusted execution environments are now present in many devices, which provide a
-safe environment to place security sensitive code, such as cryptography, secure
+safe environment to place security sensitive code such as cryptography, secure
 boot, secure storage, and other essential security functions. These security
 functions are typically exposed through a narrow and well-defined interface,
 and can be used by operating system libraries and applications.  Various APIs
@@ -150,7 +150,12 @@ operating systems, and general hardware.
 This section describes the claims to be used in a PSA attestation token.
 
 CDDL {{!RFC8610}} along with text descriptions is used to define each claim
-independent of encoding.
+independent of encoding.  The following CDDL type(s) are used by different
+claims:
+
+~~~
+{::include cddl/psa-common-types.cddl}
+~~~
 
 ## Caller Claims
 
@@ -383,6 +388,8 @@ symmetric key algorithms, the structure MUST be COSE-Mac0.
 
 ~~~
 {::include cddl/psa-token.cddl}
+
+{::include cddl/psa-common-types.cddl}
 
 {::include cddl/psa-boot-seed.cddl}
 
