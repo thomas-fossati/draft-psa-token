@@ -1,4 +1,18 @@
+.DEFAULT_GOAL := test
+
 SHELL := /bin/bash
+
+cddl ?= $(shell command -v cddl)
+ifeq ($(strip $(cddl)),)
+  $(error cddl tool not found. To install cddl, run: 'gem install cddl')
+endif
+
+diag2cbor ?= $(shell command -v diag2cbor.rb)
+ifeq ($(strip $(diag2cbor)),)
+  $(error diag2cbor tool not found. To install diag2cbor, run: 'gem install cbor-diag')
+endif
+
+CLEANFILES :=
 
 FRAGMENTS := psa-token.cddl
 FRAGMENTS += psa-common-types.cddl
@@ -16,16 +30,23 @@ FRAGMENTS += psa-verification-service-indicator.cddl
 
 AMALGAMATION := psa-attestation.cddl
 
-$(AMALGAMATION): $(FRAGMENTS) ; $(RM) $@ && cat $(FRAGMENTS) >> $@
+$(AMALGAMATION): $(FRAGMENTS) ; $(RM) $@ && cat $^ >> $@
 
-clean: ; $(RM) $(AMALGAMATION)
+CLEANFILES += $(AMALGAMATION)
+
+%.cbor: %.diag ; $(diag2cbor) $< > $@
+
+DIAG_FILES := $(wildcard test/*.diag)
+CBOR_FILES := $(DIAG_FILES:.diag=.cbor)
+
+CLEANFILES += $(CBOR_FILES)
+
+test: $(AMALGAMATION) $(CBOR_FILES)
+	@for f in $(CBOR_FILES); do \
+		$(cddl) $< validate $$f; \
+		[ $$? -eq 0 ] && echo "[OK] $$f"; \
+	done
+.PHONY: test
+
+clean: ; $(RM) $(CLEANFILES)
 .PHONY: clean
-
-# check if cddl is installed
-cddl ?= $(shell command -v cddl)
-ifeq ($(strip $(cddl)),)
-  $(error cddl tool not found. To install cddl, run: 'gem install cddl')
-else
-  EXAMPLE := example/psa-token.cbor
-  check: $(AMALGAMATION) ; cddl $< validate $(EXAMPLE)
-endif

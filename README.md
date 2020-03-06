@@ -11,12 +11,25 @@ This is the working area for the individual Internet-Draft, "Arm's Platform Secu
 Formatted text and HTML versions of the draft can be built using `make`.
 
 ```sh
-$ make
+$ make -C art && make
 ```
 
 This requires that you have the necessary software installed.  See
 [the instructions](https://github.com/martinthomson/i-d-template/blob/master/doc/SETUP.md).
 
+## Running the CDDL tests
+
+To run the CDDL validation tests:
+
+```sh
+$ make -C cddl
+```
+
+The validation suite depends on `cddl` and `diag2cbor` which can be installed by:
+```sh
+# gem install cddl cbor-diag
+
+```
 
 ## Contributing
 
