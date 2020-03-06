@@ -90,12 +90,13 @@ informative:
 
 --- abstract
 
-The Platform Security Architecture (PSA) is a family of security and software
-specifications to help device makers build best-practice security into
-products. Devices that are PSA compliant are able to produce attestation
-tokens, which are the basis for a number of different protocols, including
-secure provisioning and network access control.  This document specifies the
-PSA attestation token structure and semantics.
+The Platform Security Architecture (PSA) is a family of hardware and firmware
+security specifications, as well as open-source reference implementations, to
+help device makers and chip manufacturers build best-practice security into
+products. Devices that are PSA compliant are able to produce attestation tokens
+as described in this memo, which are the basis for a number of different
+protocols, including secure provisioning and network access control.  This
+document specifies the PSA attestation token structure and semantics.
 
 At its core, the CWT (COSE Web Token) format is used and populated with a set
 of claims in a way similar to EAT (Entity Attestation Token). This
@@ -131,18 +132,22 @@ RoT
 : Root of Trust, the minimal set of software, hardware and data that has to be
 implicitly trusted in the platform - there is no software or hardware at a
 deeper level that can verify that the Root of Trust is authentic and
-unmodified.
+unmodified.  An example of RoT is an initial bootloader in ROM, which contains
+cryptographic functions and credentials, running on a specific hardware
+platform.
 
 SPE
 : Secure Processing Environment, a platform's processing environment for
 software that provides confidentiality and integrity for its runtime state,
 from software and hardware, outside of the SPE. Contains trusted code and
-trusted hardware.
+trusted hardware.  (Equivalent to Trusted Execution Environment (TEE), or
+"secure world".)
 
 NSPE
 : Non Secure Processing Environment, the security domain outside of the SPE,
 the Application domain, typically containing the application firmware,
-operating systems, and general hardware.
+operating systems, and general hardware.  (Equivalent to Rich Execution
+Environment (REE), or "normal world".)
 
 # PSA Claims
 {: #sec-psa-claims }
@@ -175,13 +180,12 @@ This claim MUST be present in a PSA attestation token.
 
 The Client ID claim represents the Partition ID of the caller. It is a signed
 integer whereby negative values represent callers from the NSPE and where
-positive IDs represent callers from the SPE. The value 0 is not permitted. The
-full definition of a Partition ID is provided by the PSA Firmware Framework
-{{PSA-FF}}.
+positive IDs represent callers from the SPE. The value 0 is not permitted.  For
+a definition of the Partition ID, see the PSA Firmware Framework {{PSA-FF}}.
 
 It is essential that this claim is checked in the verification process to
-ensure that a security domain cannot spoof a report from another security
-domain.
+ensure that a security domain, i.e., an attestation endpoint, cannot spoof a
+report from another security domain.
 
 This claim MUST be present in a PSA attestation token.
 
@@ -193,12 +197,12 @@ This claim MUST be present in a PSA attestation token.
 
 ### Instance ID
 
-The Instance ID claim represents the unique identifier of the instance. It is a
-32 bytes hash of the public key corresponding to the Initial Attestation Key
-(IAK). If the IAK is a symmetric key then the Instance ID is a hash of the IAK
-itself.  It is encoded as a Universal Entity ID of type RAND
+The Instance ID claim represents the unique identifier of the device instance.
+It is a 32 bytes hash of the public key corresponding to the Initial
+Attestation Key (IAK). If the IAK is a symmetric key then the Instance ID is a
+hash of the IAK itself.  It is encoded as a Universal Entity ID of type RAND
 {{?I-D.ietf-rats-eat}}, i.e., prepending a 0x01 type byte to the key hash. The
-full definition is in the {{PSA-SM}}.
+full definition is in {{PSA-SM}}.
 
 This claim MUST be present in a PSA attestation token.
 
@@ -211,7 +215,7 @@ This claim MUST be present in a PSA attestation token.
 The Implementation ID claim uniquely identifies the underlying immutable PSA
 RoT. A verification service can use this claim to locate the details of the
 verification process. Such details include the implementation's origin and
-associated certification state. The full definition is in the {{PSA-SM}}.
+associated certification state. The full definition is in {{PSA-SM}}.
 
 This claim MUST be present in a PSA attestation token.
 
@@ -287,6 +291,14 @@ claim ({{sec-no-sw-measurements}}) MUST NOT be present.
 Each entry in the Software Components list describes one software component
 using the attributes described in the following subsections.  Unless explicitly
 stated, the presence of an attribute is OPTIONAL.
+
+Note that, as described in {{?I-D.ietf-rats-architecture}}, a relying party
+will typically see the result of the verification process from the Verifier in
+form of an attestation result, rather than the "naked" PSA token from the
+attesting endpoint.  Therefore, a relying party is not expected to understand
+the Software Components claim.  Instead, it is for the Verifier to check this
+claim against the associated endorsements and provide an answer in form of an
+"higher level" attestation result.
 
 ~~~
 {::include cddl/psa-software-components.cddl}
@@ -432,7 +444,7 @@ Attestation tokens contain information that may be unique to a device and
 therefore they may allow to single out an individual device for tracking
 purposes.  Implementations that have privacy requirements must take appropriate
 measures to ensure that the token is only used to provision anonymous/pseudonym
-keys. This may be achieved using a Privacy CA or a DAA scheme.
+keys.
 
 # IANA Considerations
 
@@ -593,4 +605,5 @@ We would like to thank the following colleagues for their contributions:
 # Acknowledgments
 {:numbered="false"}
 
-Thanks to Carsten Bormann for help with the CDDL.
+Thanks to Carsten Bormann for help with the CDDL and Nicholas Wood for ideas
+and comments.
