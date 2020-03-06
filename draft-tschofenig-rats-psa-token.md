@@ -155,7 +155,7 @@ Environment (REE), or "normal world".)
 This section describes the claims to be used in a PSA attestation token.
 
 CDDL {{!RFC8610}} along with text descriptions is used to define each claim
-independent of encoding.  The following CDDL type(s) are used by different
+independent of encoding.  The following CDDL type(s) are reused by different
 claims:
 
 ~~~
@@ -297,8 +297,9 @@ will typically see the result of the verification process from the Verifier in
 form of an attestation result, rather than the "naked" PSA token from the
 attesting endpoint.  Therefore, a relying party is not expected to understand
 the Software Components claim.  Instead, it is for the Verifier to check this
-claim against the associated endorsements and provide an answer in form of an
-"higher level" attestation result.
+claim against the available endorsements and provide an answer in form of an
+"high level" attestation result, which may or may not include the original
+Software Components claim.
 
 ~~~
 {::include cddl/psa-software-components.cddl}
