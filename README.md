@@ -17,6 +17,17 @@ $ make -C art && make
 This requires that you have the necessary software installed.  See
 [the instructions](https://github.com/martinthomson/i-d-template/blob/master/doc/SETUP.md).
 
+## Submitting the draft
+
+The XML file needs to be "prepped" before submitting it to the datatracker:
+
+```sh
+$ make draft-tschofenig-rats-psa-token-NN.xml
+$ xml2rfc --v3 --preptool draft-tschofenig-rats-psa-token-NN.xml
+```
+
+The resulting `draft-tschofenig-rats-psa-token-NN.prepped.xml` is what needs to be uploaded.
+
 ## Running the CDDL tests
 
 To run the CDDL validation tests:
