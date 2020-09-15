@@ -12,7 +12,7 @@ psa-token = {
 }
 
 arm_psa_profile_id = -75000
-arm_psa_partition_id = -75001
+arm_psa_client_id = -75001
 arm_psa_security_lifecycle = -75002
 arm_psa_implementation_id = -75003
 arm_psa_boot_seed = -75004
