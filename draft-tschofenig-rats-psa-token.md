@@ -180,7 +180,7 @@ This claim MUST be present in a PSA attestation token.
 
 The Client ID claim represents the security domain of the caller.
 
-In the PSA, a security domain is represented by a signed
+In PSA, a security domain is represented by a signed
 integer whereby negative values represent callers from the NSPE and where
 positive IDs represent callers from the SPE. The value 0 is not permitted.
 
