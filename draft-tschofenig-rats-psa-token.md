@@ -178,16 +178,21 @@ This claim MUST be present in a PSA attestation token.
 
 ### Client ID
 
-The Client ID claim represents the Partition ID of the caller. It is a signed
+The Client ID claim represents the security domain of the caller.
+
+In PSA, a security domain is represented by a signed
 integer whereby negative values represent callers from the NSPE and where
-positive IDs represent callers from the SPE. The value 0 is not permitted.  For
-a definition of the Partition ID, see the PSA Firmware Framework {{PSA-FF}}.
+positive IDs represent callers from the SPE. The value 0 is not permitted.
+
+For an example definition of client IDs, see the PSA Firmware Framework {{PSA-FF}}.
 
 It is essential that this claim is checked in the verification process to
 ensure that a security domain, i.e., an attestation endpoint, cannot spoof a
 report from another security domain.
 
 This claim MUST be present in a PSA attestation token.
+
+Note that the CDDL label used to be called arm_psa_partition_id.
 
 ~~~
 {::include cddl/psa-client-id.cddl}
@@ -595,7 +600,7 @@ Same token using extended CBOR diagnostic format:
       / arm_psa_nonce / -75008: h'000102030405060708090a0b0c0d0e0f101
       112131415161718191a1b1c1d1e1f',
       / arm_psa_origination / -75010: "psa_verifier",
-      / arm_psa_partition_id / -75001: -1,
+      / arm_psa_client_id / -75001: -1,
       / arm_psa_UEID / -75009: h'01000102030405060708090a0b0c0d0e0f10
       1112131415161718191a1b1c1d1e1f',
       / arm_psa_profile_id / -75000: "PSA_IoT_PROFILE_1"
