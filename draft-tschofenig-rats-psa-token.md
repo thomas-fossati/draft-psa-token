@@ -184,8 +184,6 @@ In PSA, a security domain is represented by a signed
 integer whereby negative values represent callers from the NSPE and where
 positive IDs represent callers from the SPE. The value 0 is not permitted.
 
-An alternative system may define its own definition of client ID values.
-
 For an example definition of client IDs, see the PSA Firmware Framework {{PSA-FF}}.
 
 It is essential that this claim is checked in the verification process to
