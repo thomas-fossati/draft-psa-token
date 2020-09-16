@@ -399,8 +399,8 @@ The report is encoded as a COSE Web Token (CWT) {{!RFC8392}}, similar to the
 Entity Attestation Token (EAT) {{?I-D.ietf-rats-eat}}. The token consists of a
 series of claims declaring evidence as to the nature of the instance of
 hardware and software. The claims are encoded in CBOR {{!RFC7049}} format.  For
-asymmetric key algorithms, the signature structure MUST be COSE-Sign1.  For
-symmetric key algorithms, the structure MUST be COSE-Mac0.
+asymmetric key algorithms, the signature structure MUST be COSE_Sign1.  For
+symmetric key algorithms, the structure MUST be COSE_Mac0.
 
 # Collated CDDL
 
@@ -441,7 +441,7 @@ Since CWTs offer different ways to protect the token, this specification
 profiles those options and allows signatures based on use of public key
 cryptography as well as MAC authentication. The token MUST be signed following
 the structure of the COSE specification {{!RFC8152}}.  The COSE type MUST be
-COSE-Sign1 for public key signatures or COSE-Mac0 for MAC authentication.  Note
+COSE_Sign1 for public key signatures or COSE_Mac0 for MAC authentication.  Note
 however that use of MAC authentication is NOT RECOMMENDED due to the associated
 infrastructure costs for key management and protocol complexities. It may also
 restrict the ability to interoperate with third parties.
