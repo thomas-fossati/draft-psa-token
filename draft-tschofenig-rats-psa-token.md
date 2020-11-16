@@ -75,6 +75,18 @@ informative:
     title: CBOR Web Token (CWT) Claims
     target: https://www.iana.org/assignments/cwt/cwt.xhtml
     date: 2020
+  IANA-MediaTypes:
+    author:
+      org: IANA
+    title: Media Types
+    target: http://www.iana.org/assignments/media-types
+    date: 2020
+  IANA-CoAP-Content-Formats:
+    author:
+      org: IANA
+    title: CoAP Content-Formats
+    target: https://www.iana.org/assignments/core-parameters
+    date: 2020
   TF-M:
     author:
       org: Linaro
@@ -485,6 +497,52 @@ following claims:
 IANA is requested to allocate the claims defined in {{sec-psa-claims}} to the
 CBOR Web Token (CWT) Claims registry {{IANA-CWT}}. The change controller are
 the authors and the reference is this document.
+
+## Media Type Registration
+
+IANA is requested to register the "application/psa-attestation-token" media
+type {{!RFC2046}} in the "Media Types" registry {{IANA-MediaTypes}} in the
+manner described in RFC 6838 {{!RFC6838}}, which can be used to indicate that
+the content is a PSA Attestation Token.
+
+* Type name: application
+* Subtype name: psa-attestation-token
+* Required parameters: n/a
+* Optional parameters: n/a
+* Encoding considerations: binary
+* Security considerations: See the Security Considerations section
+  of RFCThis
+* Interoperability considerations: n/a
+* Published specification: RFCThis
+* Applications that use this media type: Attesters and Relying Parties sending
+  PSA attestation tokens over HTTP(S), CoAP(S), and other transports.
+* Fragment identifier considerations: n/a
+* Additional information:
+
+  * Magic number(s): n/a
+  * File extension(s): n/a
+  * Macintosh file type code(s): n/a
+
+* Person & email address to contact for further information:
+  Hannes Tschofenig, Hannes.Tschofenig@arm.com
+* Intended usage: COMMON
+* Restrictions on usage: none
+* Author: Hannes Tschofenig, Hannes.Tschofenig@arm.com
+* Change controller: IESG
+* Provisional registration?  No
+
+## CoAP Content-Formats Registration
+
+IANA is requested to register the CoAP Content-Format ID for the
+"application/psa-attestation-token" media type in the "CoAP Content-Formats"
+registry {{IANA-CoAP-Content-Formats}}.
+
+### Registry Contents
+
+*  Media Type: application/psa-attestation-token
+*  Encoding: -
+*  Id: TBD
+*  Reference: RFCThis
 
 --- back
 
