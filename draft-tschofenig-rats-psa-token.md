@@ -494,9 +494,190 @@ following claims:
 
 # IANA Considerations
 
-IANA is requested to allocate the claims defined in {{sec-psa-claims}} to the
-CBOR Web Token (CWT) Claims registry {{IANA-CWT}}. The change controller are
-the authors and the reference is this document.
+
+## CBOR Web Token Claims Registration
+
+This specification registers the following claims in the IANA "CBOR Web Token (CWT) 
+Claims" registry {{IANA-CWT}}, established by {{!RFC8392}}.
+
+### Auth Challenge Claim
+
+   *  Claim Name: "psa-nonce-claim"
+
+   *  Claim Description: Auth Challenge
+
+   *  JWT Claim Name: "psa-nonce-claim"
+
+   *  Claim Key: [[Proposed: -75008]]
+
+   *  Claim Value Type(s): bytes (32, 48, or 64 bytes in length)
+
+   *  Change Controller: [[Authors of this RFC]]
+
+   *  Specification Document(s): Section 3.1.1 of [[this RFC]
+
+### Client ID Claim
+
+   *  Claim Name: "psa-client-id"
+
+   *  Claim Description: Client ID
+
+   *  JWT Claim Name: "psa-client-id"
+
+   *  Claim Key: [[Proposed: -75001]]
+
+   *  Claim Value Type(s): signed integer
+
+   *  Change Controller: [[Authors of this RFC]]
+
+   *  Specification Document(s): Section 3.1.2 of [[this RFC]]
+
+### Instance ID Claim
+
+   *  Claim Name: "psa-instance-id"
+
+   *  Claim Description: Instance ID
+
+   *  JWT Claim Name: "psa-instance-id"
+
+   *  Claim Key: [[Proposed: -75009]]
+
+   *  Claim Value Type(s): bytes (33 bytes in length)
+
+   *  Change Controller: [[Authors of this RFC]]
+
+   *  Specification Document(s): Section 3.2.1 of [[this RFC]]
+
+### Implementation ID Claim
+
+   *  Claim Name: "psa-implementation-id"
+
+   *  Claim Description: Implementation ID
+
+   *  JWT Claim Name: "psa-implementation-id"
+
+   *  Claim Key: [[Proposed: -75003]]
+
+   *  Claim Value Type(s): bytes (32 bytes in length)
+
+   *  Change Controller: [[Authors of this RFC]]
+
+   *  Specification Document(s): Section 3.2.2 of [[this RFC]]
+
+### Hardware Version Claim
+
+   *  Claim Name: "psa-hardware-version"
+
+   *  Claim Description: Hardware Version
+
+   *  JWT Claim Name: "psa-hardware-version"
+
+   *  Claim Key: [[Proposed: -75005]]
+
+   *  Claim Value Type(s): text
+
+   *  Change Controller: [[Authors of this RFC]]
+
+   *  Specification Document(s): Section 3.2.3 of [[this RFC]]
+
+### Security Lifecycle Claim
+
+   *  Claim Name: "psa-lifecycle"
+
+   *  Claim Description: Security Lifecycle
+
+   *  JWT Claim Name: "psa-lifecycle"
+
+   *  Claim Key: [[Proposed: -75002]]
+
+   *  Claim Value Type(s): unsigned integer 
+
+   *  Change Controller: [[Authors of this RFC]]
+
+   *  Specification Document(s): Section 3.3.1 of [[this RFC]]
+
+### Boot Seed Claim
+
+   *  Claim Name: "psa-boot-seed"
+
+   *  Claim Description: Boot Seed
+
+   *  JWT Claim Name: "psa-boot-seed"
+
+   *  Claim Key: [[Proposed: -75004]]
+
+   *  Claim Value Type(s): bytes (32 bytes in length)
+
+   *  Change Controller: [[Authors of this RFC]]
+
+   *  Specification Document(s): Section 3.3.2 of [[this RFC]]
+
+### Software Components Claim
+
+   *  Claim Name: "psa-software-components"
+
+   *  Claim Description: Software Components
+
+   *  JWT Claim Name: "psa-software-components"
+
+   *  Claim Key: [[Proposed: -75006]]
+
+   *  Claim Value Type(s): array
+
+   *  Change Controller: [[Authors of this RFC]]
+
+   *  Specification Document(s): Section 3.4.1 of [[this RFC]]
+
+### No Software Measurements Claim
+
+   *  Claim Name: "psa-no-sw-measurement"
+
+   *  Claim Description: No Software Measurements
+
+   *  JWT Claim Name: "psa-no-sw-measurement"
+
+   *  Claim Key: [[Proposed: -75007]]
+
+   *  Claim Value Type(s): unsigned integer
+
+   *  Change Controller: [[Authors of this RFC]]
+
+   *  Specification Document(s): Section 3.4.2 of [[this RFC]]
+
+### Verification Service Indicator Claim
+
+   *  Claim Name: "psa-verification-service-indicator"
+
+   *  Claim Description: Verification Service Indicator
+
+   *  JWT Claim Name: "psa-verification-service-indicator"
+
+   *  Claim Key: [[Proposed: -75010]]
+
+   *  Claim Value Type(s): text
+
+   *  Change Controller: [[Authors of this RFC]]
+
+   *  Specification Document(s): Section 3.5.1 of [[this RFC]]
+
+
+### Profile Definition Claim
+
+   *  Claim Name: "psa-profile"
+
+   *  Claim Description: Profile Definition
+
+   *  JWT Claim Name: "psa-profile"
+
+   *  Claim Key: [[Proposed: -75000]]
+   
+   *  Claim Value Type(s): text
+
+   *  Change Controller: [[Authors of this RFC]]
+
+   *  Specification Document(s): Section 3.5.2 of [[this RFC]]
+
+
 
 ## Media Type Registration
 
