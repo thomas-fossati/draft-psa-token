@@ -692,9 +692,9 @@ the content is a PSA Attestation Token.
 * Optional parameters: n/a
 * Encoding considerations: binary
 * Security considerations: See the Security Considerations section
-  of RFCThis
+  of [[this RFC]]
 * Interoperability considerations: n/a
-* Published specification: RFCThis
+* Published specification: [[this RFC]]
 * Applications that use this media type: Attesters and Relying Parties sending
   PSA attestation tokens over HTTP(S), CoAP(S), and other transports.
 * Fragment identifier considerations: n/a
@@ -722,8 +722,8 @@ registry {{IANA-CoAP-Content-Formats}}.
 
 *  Media Type: application/psa-attestation-token
 *  Encoding: -
-*  Id: TBD
-*  Reference: RFCThis
+*  Id: [[To-be-assigned by IANA]]
+*  Reference: [[this RFC]]
 
 --- back
 
