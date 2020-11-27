@@ -508,7 +508,7 @@ Claims" registry {{IANA-CWT}}, established by {{!RFC8392}}.
 
    *  JWT Claim Name: "psa-nonce-claim"
 
-   *  Claim Key: [[To-be-assigned by IANA]]
+   *  Claim Key: [[Proposed: -75008]]
 
    *  Claim Value Type(s): bytes (32, 48, or 64 bytes in length)
 
@@ -524,7 +524,7 @@ Claims" registry {{IANA-CWT}}, established by {{!RFC8392}}.
 
    *  JWT Claim Name: "psa-client-id"
 
-   *  Claim Key: [[To-be-assigned by IANA]]
+   *  Claim Key: [[Proposed: -75001]]
 
    *  Claim Value Type(s): signed integer
 
@@ -540,7 +540,7 @@ Claims" registry {{IANA-CWT}}, established by {{!RFC8392}}.
 
    *  JWT Claim Name: "psa-instance-id"
 
-   *  Claim Key: [[To-be-assigned by IANA]]
+   *  Claim Key: [[Proposed: -75009]]
 
    *  Claim Value Type(s): bytes (33 bytes in length)
 
@@ -556,7 +556,7 @@ Claims" registry {{IANA-CWT}}, established by {{!RFC8392}}.
 
    *  JWT Claim Name: "psa-implementation-id"
 
-   *  Claim Key: [[To-be-assigned by IANA]]
+   *  Claim Key: [[Proposed: -75003]]
 
    *  Claim Value Type(s): bytes (32 bytes in length)
 
@@ -572,7 +572,7 @@ Claims" registry {{IANA-CWT}}, established by {{!RFC8392}}.
 
    *  JWT Claim Name: "psa-hardware-version"
 
-   *  Claim Key: [[To-be-assigned by IANA]]
+   *  Claim Key: [[Proposed: -75005]]
 
    *  Claim Value Type(s): text
 
@@ -588,7 +588,7 @@ Claims" registry {{IANA-CWT}}, established by {{!RFC8392}}.
 
    *  JWT Claim Name: "psa-lifecycle"
 
-   *  Claim Key: [[To-be-assigned by IANA]]
+   *  Claim Key: [[Proposed: -75002]]
 
    *  Claim Value Type(s): unsigned integer 
 
@@ -604,7 +604,7 @@ Claims" registry {{IANA-CWT}}, established by {{!RFC8392}}.
 
    *  JWT Claim Name: "psa-boot-seed"
 
-   *  Claim Key: [[To-be-assigned by IANA]]
+   *  Claim Key: [[Proposed: -75004]]
 
    *  Claim Value Type(s): bytes (32 bytes in length)
 
@@ -620,7 +620,7 @@ Claims" registry {{IANA-CWT}}, established by {{!RFC8392}}.
 
    *  JWT Claim Name: "psa-software-components"
 
-   *  Claim Key: [[To-be-assigned by IANA]]
+   *  Claim Key: [[Proposed: -75006]]
 
    *  Claim Value Type(s): array
 
@@ -636,7 +636,7 @@ Claims" registry {{IANA-CWT}}, established by {{!RFC8392}}.
 
    *  JWT Claim Name: "psa-no-sw-measurement"
 
-   *  Claim Key: [[To-be-assigned by IANA]]
+   *  Claim Key: [[Proposed: -75007]]
 
    *  Claim Value Type(s): unsigned integer
 
@@ -652,7 +652,7 @@ Claims" registry {{IANA-CWT}}, established by {{!RFC8392}}.
 
    *  JWT Claim Name: "psa-verification-service-indicator"
 
-   *  Claim Key: [[To-be-assigned by IANA]]
+   *  Claim Key: [[Proposed: -75010]]
 
    *  Claim Value Type(s): text
 
@@ -669,8 +669,8 @@ Claims" registry {{IANA-CWT}}, established by {{!RFC8392}}.
 
    *  JWT Claim Name: "psa-profile"
 
-   *  Claim Key: [[To-be-assigned by IANA]]
-
+   *  Claim Key: [[Proposed: -75000]]
+   
    *  Claim Value Type(s): text
 
    *  Change Controller: [[Authors of this RFC]]
