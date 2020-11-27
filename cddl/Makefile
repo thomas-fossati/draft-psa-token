@@ -41,6 +41,13 @@ CBOR_FILES := $(DIAG_FILES:.diag=.cbor)
 
 CLEANFILES += $(CBOR_FILES)
 
+EXAMPLE := example/psa-token.cbor
+CLEANFILES += $(EXAMPLE)
+
+.PHONY: check-example
+check-example: $(AMALGAMATION) $(EXAMPLE)
+	$(cddl) $< validate $(EXAMPLE)
+
 test: $(AMALGAMATION) $(CBOR_FILES)
 	@for f in $(CBOR_FILES); do \
 		$(cddl) $< validate $$f &> /dev/null ; \
