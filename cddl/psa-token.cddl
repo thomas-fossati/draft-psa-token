@@ -1,5 +1,5 @@
 psa-token = {
-    psa-nonce-claim,
+    psa-nonce,
     psa-instance-id,
     psa-verification-service-indicator,
     psa-profile,
