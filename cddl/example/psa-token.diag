@@ -1,0 +1,32 @@
+{
+  / psa-profile /             -75000: "PSA_IOT_PROFILE_1",
+  / psa-client-id /           -75001: 1,
+  / psa-lifecycle /           -75002: 12288,
+  / psa-implementation-id /   -75003: h'50515253545556575051
+52535455565750515253545556575051525354555657',
+  / psa-boot-seed /           -75004: h'DEADBEEFDEADBEEFDEAD
+BEEFDEADBEEFDEADBEEFDEADBEEFDEADBEEFDEADBEEF',
+  / psa-hardware-version /    -75005: "1234567890123",
+  / psa-software-components / -75006: [
+    {
+      / measurement type /  1: "BL",
+      / measurement value / 2: h'000102040001020400010204000
+1020400010204000102040001020400010204',
+      / signer ID /         5: h'519200FF519200FF519200FF519
+200FF519200FF519200FF519200FF519200FF'
+    },
+    {
+      / measurement type /  1: "PRoT",
+      / measurement value / 2: h'050607080506070805060708050
+6070805060708050607080506070805060708',
+      / signer ID /         5: h'519200FF519200FF519200FF519
+200FF519200FF519200FF519200FF519200FF'
+    }
+  ],
+  / psa-nonce /       -75008: h'0001020300010203000102030001
+020300010203000102030001020300010203',
+  / psa-instance-id / -75009: h'01A0A1A2A3A0A1A2A3A0A1A2A3A0
+A1A2A3A0A1A2A3A0A1A2A3A0A1A2A3A0A1A2A3',
+  / psa-verification-service-indicator / -75010: "https://ps
+a-verifier.org"
+}

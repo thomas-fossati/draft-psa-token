@@ -254,6 +254,7 @@ as a thirteen-digit {{EAN-13}}.
 ## Target State Claims
 
 ### Security Lifecycle
+{: #sec-security-lifecycle }
 
 The Security Lifecycle claim represents the current lifecycle state of the PSA
 RoT. The state is represented by an integer that is divided to convey a major
@@ -733,123 +734,27 @@ A reference implementation is provided by the Trusted Firmware project {{TF-M}}.
 
 # Example
 
-The following example shows an attestation token that was produced for a device
-that has a single-stage bootloader, and an RTOS with a device management
-client. From a code point of view, the RTOS and the device management client
-form a single binary.
-
-EC key using curve P-256 with:
-
-* x: 0xdcf0d0f4bcd5e26a54ee36cad660d283d12abc5f7307de58689e77cd60452e75
-* y: 0x8cbadb5fe9f89a7107e5a2e8ea44ec1b09b7da2a1a82a0252a4c1c26ee1ed7cf
-* d: 0xc74670bcb7e85b3803efb428940492e73e3fe9d4f7b5a8ad5e480cbdbcb554c2
-
-Key using COSE format (base64-encoded):
+The following example shows a PSA attestation token for an hypothetical system
+comprising two measured software components (a boot loader and a trusted RTOS).
+The attesting device is in a lifecycle state {{sec-security-lifecycle}} of
+SECURED.  The attestation has been requested from a client residing in the
+SPE:
 
 ~~~
-  pSJYIIy621/p+JpxB+Wi6OpE7BsJt9oqGoKgJSpMHCbuHtfPI1ggx0ZwvLfoWzgD77Q
-  olASS5z4/6dT3taitXkgMvby1VMIBAiFYINzw0PS81eJqVO42ytZg0oPRKrxfcwfeWG
-  ied81gRS51IAE=
+{::include cddl/example/psa-token.diag}
 ~~~
 
-Example of EAT token (base64-encoded):
+The JWK representation of the IAK used for creating the COSE Sign1 signature
+over the PSA token is:
 
 ~~~
-  0oRDoQEmoFkCIqk6AAEk+1ggAAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8
-  6AAEk+lggAAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh86AAEk/YSkAlggAA
-  ECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8EZTMuMS40BVggAAECAwQFBgcIC
-  QoLDA0ODxAREhMUFRYXGBkaGxwdHh8BYkJMpAJYIAABAgMEBQYHCAkKCwwNDg8QERIT
-  FBUWFxgZGhscHR4fBGMxLjEFWCAAAQIDBAUGBwgJCgsMDQ4PEBESExQVFhcYGRobHB0
-  eHwFkUFJvVKQCWCAAAQIDBAUGBwgJCgsMDQ4PEBESExQVFhcYGRobHB0eHwRjMS4wBV
-  ggAAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8BZEFSb1SkAlggAAECAwQFB
-  gcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8EYzIuMgVYIAABAgMEBQYHCAkKCwwNDg8Q
-  ERITFBUWFxgZGhscHR4fAWNBcHA6AAEk+RkwADoAAST/WCAAAQIDBAUGBwgJCgsMDQ4
-  PEBESExQVFhcYGRobHB0eHzoAASUBbHBzYV92ZXJpZmllcjoAAST4IDoAASUAWCEBAA
-  ECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh86AAEk93FQU0FfSW9UX1BST0ZJT
-  EVfMVhAWIYFCO5+jMSOuoctu11pSlQrEyKtDVECPBlw30KfBlAcaDqVEIoMztCm6A4J
-  ZvIr1j0cAFaXShG6My14d4f7Tw==
+{::include cddl/example/iak.jwk}
 ~~~
 
-Same token using extended CBOR diagnostic format:
+The resulting COSE object is:
 
 ~~~
-18(
-  [
-  / protected / h'a10126' / {
-      \ alg \ 1: -7 \ ECDSA 256 \
-    } / ,
-  / unprotected / {},
-  / payload / h'a93a000124fb5820000102030405060708090a0b0c0d0e0f10111
-  2131415161718191a1b1c1d1e1f3a000124fa5820000102030405060708090a0b0c
-  0d0e0f101112131415161718191a1b1c1d1e1f3a000124fd84a4025820000102030
-  405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f0465332e312e
-  34055820000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1
-  d1e1f0162424ca4025820000102030405060708090a0b0c0d0e0f10111213141516
-  1718191a1b1c1d1e1f0463312e31055820000102030405060708090a0b0c0d0e0f1
-  01112131415161718191a1b1c1d1e1f016450526f54a40258200001020304050607
-  08090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f0463312e30055820000
-  102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f016441
-  526f54a4025820000102030405060708090a0b0c0d0e0f101112131415161718191
-  a1b1c1d1e1f0463322e32055820000102030405060708090a0b0c0d0e0f10111213
-  1415161718191a1b1c1d1e1f01634170703a000124f91930003a000124ff5820000
-  102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f3a0001
-  25016c7073615f76657269666965723a000124f8203a00012500582101000102030
-  405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f3a000124f771
-  5053415f496f545f50524f46494c455f
-  31' / {
-     / arm_psa_boot_seed / -75004: h'000102030405060708090a0b0c0d0e0f
-     101112131415161718191a1b1c1d1e1f',
-     / arm_psa_implementation_id / -75003: h'000102030405060708090a0b
-     0c0d0e0f101112131415161718191a1b1c1d1e1f',
-     / arm_psa_sw_components / -75006: [
-          {
-            / measurement / 2: h'000102030405060708090a0b0c0d0e0f1011
-            12131415161718191a1b1c1d1e1f',
-            / version / 4: "3.1.4",
-            / signerID / 5: h'000102030405060708090a0b0c0d0e0f1011121
-            31415161718191a1b1c1d1e1f',
-            / type / 1: "BL"
-          },
-          {
-            / measurement / 2: h'000102030405060708090a0b0c0d0e0f1011
-            12131415161718191a1b1c1d1e1f',
-            / version / 4: "1.1",
-            / signerID / 5: h'000102030405060708090a0b0c0d0e0f1011121
-            31415161718191a1b1c1d1e1f',
-            / type / 1: "PRoT"
-          },
-          {
-            / measurement / 2: h'000102030405060708090a0b0c0d0e0f1011
-            12131415161718191a1b1c1d1e1f',
-            / version / 4: "1.0",
-            / signerID / 5: h'000102030405060708090a0b0c0d0e0f1011121
-            31415161718191a1b1c1d1e1f',
-            / type / 1: "ARoT"
-          },
-          {
-            / measurement / 2: h'000102030405060708090a0b0c0d0e0f1011
-            12131415161718191a1b1c1d1e1f',
-            / version / 4: "2.2",
-            / signerID / 5: h'000102030405060708090a0b0c0d0e0f1011121
-            31415161718191a1b1c1d1e1f',
-            / type / 1: "App"
-          }
-        ],
-      / arm_psa_security_lifecycle / -75002: 12288 / SECURED /,
-      / arm_psa_nonce / -75008: h'000102030405060708090a0b0c0d0e0f101
-      112131415161718191a1b1c1d1e1f',
-      / arm_psa_origination / -75010: "psa_verifier",
-      / arm_psa_client_id / -75001: -1,
-      / arm_psa_UEID / -75009: h'01000102030405060708090a0b0c0d0e0f10
-      1112131415161718191a1b1c1d1e1f',
-      / arm_psa_profile_id / -75000: "PSA_IoT_PROFILE_1"
-    }),
-    } / ,
-  / signature / h'58860508ee7e8cc48eba872dbb5d694a542b1322ad0d51023c1
-  970df429f06501c683a95108a0cced0a6e80e0966f22bd63d1c0056974a11ba332d
-  787787fb4f'
-  ]
-)
+{::include cddl/example/cose.diag}
 ~~~
 
 # Contributors
