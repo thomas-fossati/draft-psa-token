@@ -1,0 +1,5 @@
+psa-certification-reference-type = text .regexp "[0-9]{13}"
+
+psa-certification-reference = (
+    ? arm_psa_certification_reference => psa-certification-reference-type
+)

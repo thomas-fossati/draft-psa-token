@@ -240,15 +240,19 @@ This claim MUST be present in a PSA attestation token.
 {::include cddl/psa-implementation-id.cddl}
 ~~~
 
-### Hardware Version
+### Certification Reference
 
-The Hardware Version claim provides metadata linking the token to the GDSII
-that went to fabrication for this instance. It can be used to link the class of
-chip and PSA RoT to the data on a certification website. It MUST be represented
-as a thirteen-digit {{EAN-13}}.
+The Certification Reference claim is used to link the class of chip and PSA RoT
+of the attesting device to an associated entry in the PSA Certification
+database. It MUST be represented as a thirteen-digit {{EAN-13}}.
+
+Linking to the PSA Certification entry can still be achieved if this claim is
+not present in the token by making an association at a Verifier between the
+reference values and other token claim values - for example, the Implementation
+ID.
 
 ~~~
-{::include cddl/psa-hardware-version.cddl}
+{::include cddl/psa-certification-reference.cddl}
 ~~~
 
 ## Target State Claims
@@ -426,7 +430,7 @@ symmetric key algorithms, the structure MUST be COSE_Mac0.
 
 {::include cddl/psa-client-id.cddl}
 
-{::include cddl/psa-hardware-version.cddl}
+{::include cddl/psa-certification-reference.cddl}
 
 {::include cddl/psa-implementation-id.cddl}
 
@@ -498,7 +502,7 @@ following claims:
 
 ## CBOR Web Token Claims Registration
 
-This specification registers the following claims in the IANA "CBOR Web Token (CWT) 
+This specification registers the following claims in the IANA "CBOR Web Token (CWT)
 Claims" registry {{IANA-CWT}}, established by {{!RFC8392}}.
 
 ### Auth Challenge Claim
@@ -515,7 +519,7 @@ Claims" registry {{IANA-CWT}}, established by {{!RFC8392}}.
 
    *  Change Controller: [[Authors of this RFC]]
 
-   *  Specification Document(s): Section 3.1.1 of [[this RFC]
+   *  Specification Document(s): Section 3.1.1 of [[this RFC]]
 
 ### Client ID Claim
 
@@ -565,13 +569,13 @@ Claims" registry {{IANA-CWT}}, established by {{!RFC8392}}.
 
    *  Specification Document(s): Section 3.2.2 of [[this RFC]]
 
-### Hardware Version Claim
+### Certification Reference Claim
 
-   *  Claim Name: "psa-hardware-version"
+   *  Claim Name: "psa-certification-reference"
 
-   *  Claim Description: Hardware Version
+   *  Claim Description: Certification Reference
 
-   *  JWT Claim Name: "psa-hardware-version"
+   *  JWT Claim Name: "psa-certification-reference"
 
    *  Claim Key: [[Proposed: -75005]]
 
@@ -591,7 +595,7 @@ Claims" registry {{IANA-CWT}}, established by {{!RFC8392}}.
 
    *  Claim Key: [[Proposed: -75002]]
 
-   *  Claim Value Type(s): unsigned integer 
+   *  Claim Value Type(s): unsigned integer
 
    *  Change Controller: [[Authors of this RFC]]
 
@@ -671,7 +675,7 @@ Claims" registry {{IANA-CWT}}, established by {{!RFC8392}}.
    *  JWT Claim Name: "psa-profile"
 
    *  Claim Key: [[Proposed: -75000]]
-   
+
    *  Claim Value Type(s): text
 
    *  Change Controller: [[Authors of this RFC]]

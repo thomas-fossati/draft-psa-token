@@ -6,7 +6,7 @@ psa-token = {
     psa-implementation-id,
     psa-client-id,
     psa-lifecycle,
-    psa-hardware-version,
+    psa-certification-reference,
     psa-boot-seed,
     ( psa-software-components // psa-no-sw-measurement ),
 }
@@ -16,7 +16,7 @@ arm_psa_client_id = -75001
 arm_psa_security_lifecycle = -75002
 arm_psa_implementation_id = -75003
 arm_psa_boot_seed = -75004
-arm_psa_hw_version = -75005
+arm_psa_certification_reference = -75005
 arm_psa_sw_components = -75006
 arm_psa_no_sw_measurements = -75007
 arm_psa_nonce = -75008
