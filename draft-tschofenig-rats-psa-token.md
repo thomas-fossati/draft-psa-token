@@ -176,10 +176,9 @@ claims:
 
 ## Caller Claims
 
-### Auth Challenge
+### Nonce
 
-The Auth Challenge claim is an input object from the caller. For example, this
-can be a cryptographic nonce, a hash of locally attested data. The length must
+The Nonce claim is a challenge from the caller. The length must
 be 32, 48, or 64 bytes.
 
 This claim MUST be present in a PSA attestation token.
@@ -501,13 +500,13 @@ following claims:
 This specification registers the following claims in the IANA "CBOR Web Token (CWT) 
 Claims" registry {{IANA-CWT}}, established by {{!RFC8392}}.
 
-### Auth Challenge Claim
+### Nonce Claim
 
-   *  Claim Name: "psa-nonce-claim"
+   *  Claim Name: "psa-nonce"
 
-   *  Claim Description: Auth Challenge
+   *  Claim Description: Nonce
 
-   *  JWT Claim Name: "psa-nonce-claim"
+   *  JWT Claim Name: "psa-nonce"
 
    *  Claim Key: [[Proposed: -75008]]
 
