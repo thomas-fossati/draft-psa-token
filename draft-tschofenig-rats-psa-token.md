@@ -248,7 +248,7 @@ database. It MUST be represented as a thirteen-digit {{EAN-13}}.
 
 Linking to the PSA Certification entry can still be achieved if this claim is
 not present in the token by making an association at a Verifier between the
-reference values and other token claim values - for example, the Implementation
+reference value and other token claim values - for example, the Implementation
 ID.
 
 ~~~
