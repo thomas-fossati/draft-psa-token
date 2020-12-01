@@ -1,5 +1,6 @@
 psa-verification-service-indicator-type = text
 
 psa-verification-service-indicator = (
-    ? psa-verification-service-indicator-key => psa-verification-service-indicator-type
+    ? psa-verification-service-indicator-key =>
+        psa-verification-service-indicator-type
 )
