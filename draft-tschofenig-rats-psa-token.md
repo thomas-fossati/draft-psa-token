@@ -1,7 +1,7 @@
 ---
 title: "Arm's Platform Security Architecture (PSA) Attestation Token"
 abbrev: "PSA Attestation Token"
-docname: draft-tschofenig-rats-psa-token
+docname: draft-tschofenig-rats-psa-token-latest
 category: info
 
 ipr: trust200902
