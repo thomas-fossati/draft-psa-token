@@ -16,5 +16,5 @@ psa-lifecycle-type =
     psa-lifecycle-decommissioned-type
 
 psa-lifecycle = (
-    arm_psa_security_lifecycle => psa-lifecycle-type
+    psa-lifecycle-key => psa-lifecycle-type
 )

@@ -11,14 +11,14 @@ psa-token = {
     ( psa-software-components // psa-no-sw-measurement ),
 }
 
-arm_psa_profile_id = -75000
-arm_psa_client_id = -75001
-arm_psa_security_lifecycle = -75002
-arm_psa_implementation_id = -75003
-arm_psa_boot_seed = -75004
-arm_psa_certification_reference = -75005
-arm_psa_sw_components = -75006
-arm_psa_no_sw_measurements = -75007
-arm_psa_nonce = -75008
-arm_psa_UEID = -75009
-arm_psa_origination = -75010
+psa-profile-key = -75000
+psa-client-id-key = -75001
+psa-lifecycle-key = -75002 
+psa-implementation-id-key = -75003
+psa-boot-seed-key = -75004
+psa-certification-reference-key = -75005
+psa-software-components-key = -75006
+psa-no-sw-measurement-key = -75007
+psa-nonce-key = -75008
+psa-instance-id-key = -75009
+psa-verification-service-indicator-key = -75010
