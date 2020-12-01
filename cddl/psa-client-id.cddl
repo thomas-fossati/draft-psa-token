@@ -4,5 +4,5 @@ psa-client-id-spe-type = 1..2147483647
 psa-client-id-type = psa-client-id-nspe-type / psa-client-id-spe-type
 
 psa-client-id = (
-    arm_psa_client_id => psa-client-id-type
+    psa-client-id-key => psa-client-id-type
 )

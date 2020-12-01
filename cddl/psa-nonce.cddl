@@ -1,3 +1,3 @@
 psa-nonce = (
-    arm_psa_nonce => psa-hash-type
+    psa-nonce-key => psa-hash-type
 )
