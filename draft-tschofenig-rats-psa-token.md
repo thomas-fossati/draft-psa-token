@@ -53,7 +53,7 @@ normative:
     author:
       org: Arm
     title: Platform Security Architecture Security Model 1.0 (PSA-SM)
-    target: https://pages.arm.com/psa-resources-sm.html
+    target: https://developer.arm.com/-/media/Files/pdf/PlatformSecurityArchitecture/Architect/DEN0079_PSA_SM_ALPHA-03_RC01.pdf
     date: 19. Feb. 2019
   EAN-13:
     author:
@@ -65,7 +65,7 @@ normative:
     author:
       org: Arm
     title: Platform Security Architecture Firmware Framework 1.0 (PSA-FF)
-    target: https://pages.arm.com/psa-resources-ff.html
+    target: https://developer.arm.com/-/media/Files/pdf/PlatformSecurityArchitecture/Architect/DEN0063-PSA_Firmware_Framework-1.0.0-2.pdf
     date: 20. Feb. 2019
 
 informative:
@@ -74,31 +74,31 @@ informative:
       org: IANA
     title: CBOR Web Token (CWT) Claims
     target: https://www.iana.org/assignments/cwt/cwt.xhtml
-    date: 2020
+    date: 2021
   IANA-MediaTypes:
     author:
       org: IANA
     title: Media Types
     target: http://www.iana.org/assignments/media-types
-    date: 2020
+    date: 2021
   IANA-CoAP-Content-Formats:
     author:
       org: IANA
     title: CoAP Content-Formats
     target: https://www.iana.org/assignments/core-parameters
-    date: 2020
+    date: 2021
   TF-M:
     author:
       org: Linaro
-    title: Trusted Firmware
-    target: https://www.trustedfirmware.org
-    date: 2020
+    title: Trusted Firmware-M
+    target: https://www.trustedfirmware.org/projects/tf-m/
+    date: 2021
   PSA:
     author:
       org: Arm
     title: Platform Security Architecture Resources
-    target: https://www.arm.com/why-arm/architecture/platform-security-architecture/psa-resources
-    date: 2019
+    target: https://developer.arm.com/architectures/security-architectures/platform-security-architecture/documentation
+    date: 2021
 
 --- abstract
 
