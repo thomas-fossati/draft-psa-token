@@ -30,10 +30,10 @@
           }
         ],
       / arm_psa_security_lifecycle / -75002: 12288 / SECURED /,
-      / arm_psa_nonce / -75008: h'000102030405060708090a0b0c0d0e0f101
+      / nonce /            10: h'000102030405060708090a0b0c0d0e0f101
       112131415161718191a1b1c1d1e1f',
       / arm_psa_partition_id / -75001: -1,
-      / arm_psa_UEID / -75009: h'01000102030405060708090a0b0c0d0e0f10
+      / ueid /             11: h'01000102030405060708090a0b0c0d0e0f10
       1112131415161718191a1b1c1d1e',
-      / arm_psa_profile_id / -75000: "PSA_IOT_PROFILE_1"
+      / profile /          18: "http://arm.com/psa/2"
 }
