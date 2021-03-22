@@ -1,5 +1,5 @@
 psa-instance-id-type = bytes .size 33
 
 psa-instance-id = (
-    psa-instance-id-key => psa-instance-id-type
+    11 => psa-instance-id-type
 )
