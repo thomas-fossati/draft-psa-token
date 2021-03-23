@@ -1,4 +1,4 @@
-psa-profile-type = "http://arm.com/psa/2"
+psa-profile-type = "http://arm.com/psa/2.0.0"
 
 psa-profile = (
     18 => psa-profile-type

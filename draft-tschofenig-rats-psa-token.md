@@ -224,10 +224,8 @@ Note that the CDDL label used to be called arm_psa_partition_id.
 ### Instance ID
 {: #sec-instance-id-claim}
 
-The Instance ID claim represents the unique identifier of the device.
-It is a 32 bytes hash of the public key corresponding to the Initial
-Attestation Key (IAK). If the IAK is a symmetric key then the Instance ID is a
-hash of the hash of the IAK itself.  The full definition is in {{PSA-SM}}.
+The Instance ID claim represents the unique identifier of the Initial
+Attestation Key (IAK).  The full definition is in {{PSA-SM}}.
 
 The EAT `ueid` (claim key 11) of type RAND is used.  The following constraints
 apply to the `ueid-type`:
@@ -425,7 +423,7 @@ The EAT `profile` (claim key 18) is used.  The following constraints
 apply to its type:
 
 * The URI encoding MUST be used;
-* The value MUST be `http://arm.com/psa/2`.
+* The value MUST be `http://arm.com/psa/2.0.0`.
 
 This claim MUST be present in a PSA attestation token.
 
@@ -449,14 +447,14 @@ claims:
 These claim keys have been retired and their use is deprecated.
 
 Unless compatibility with existing infrastructure is a concern, emitters (e.g.,
-devices that implement the PSA attestation API) SHOULD produce tokens with
+devices that implement the PSA Attestation API) SHOULD produce tokens with
 their standard equivalent instead, as described in {{sec-nonce-claim}},
 {{sec-instance-id-claim}} and {{sec-profile-definition-claim}} respectively.
 
 In order to smooth the transition to the token format described in this
 document it is RECOMMENDED that receivers (e.g., PSA Attestation Verifiers)
 accept tokens encoded according to the old profile (`PROFILE_IOT_1`) as well as
-to the new profile (`http://arm.com/psa/2`), at least for the time needed to
+to the new profile (`http://arm.com/psa/2.0.0`), at least for the time needed to
 their clients to upgrade.
 
 # Token Encoding and Signing

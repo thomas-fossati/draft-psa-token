@@ -36,5 +36,5 @@
       / arm_psa_partition_id / -75001: -1,
       / ueid /    11: h'01000102030405060708090a0b0c0d0e0f10
       1112131415161718191a1b1c1d1e1f',
-      / profile / 18: "http://arm.com/psa/2"
+      / profile / 18: "http://arm.com/psa/2.0.0"
 }
