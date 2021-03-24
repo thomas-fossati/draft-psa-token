@@ -28,6 +28,13 @@ $ xml2rfc --v3 --preptool draft-tschofenig-rats-psa-token-NN.xml
 
 The resulting `draft-tschofenig-rats-psa-token-NN.prepped.xml` is what needs to be uploaded.
 
+```sh
+$ curl -S \
+    -F "user=thomas.fossati@arm.com" \
+    -F "xml=@draft-tschofenig-rats-psa-token-NN.prepped.xml" \
+    https://datatracker.ietf.org/api/submit
+```
+
 ## Running the CDDL tests
 
 To run the CDDL validation tests:
