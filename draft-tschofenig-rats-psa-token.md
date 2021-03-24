@@ -450,7 +450,7 @@ devices that implement the PSA Attestation API) SHOULD produce tokens with
 their standard equivalent instead, as described in {{sec-nonce-claim}},
 {{sec-instance-id-claim}} and {{sec-profile-definition-claim}} respectively.
 
-In order to smooth the transition to the token format described in this
+To simplify the transition to the token format described in this
 document it is RECOMMENDED that receivers (e.g., PSA Attestation Verifiers)
 accept tokens encoded according to the old profile (`PROFILE_IOT_1`) as well as
 to the new profile (`http://arm.com/psa/2.0.0`), at least for the time needed to
