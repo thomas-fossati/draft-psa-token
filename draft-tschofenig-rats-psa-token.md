@@ -187,7 +187,7 @@ The EAT {{!I-D.ietf-rats-eat}} `nonce` (claim key 10) is used.  The following
 constraints apply to the `nonce-type`:
 
 * The length MUST be either 32, 48, or 64 bytes.
-* There MUST be only one nonce value.
+* Only a single nonce value is conveyed. Per {{!I-D.ietf-rats-eat}} the array notation is not used for encoding the nonce value.
 
 Note that the latter implies that the array form MUST NOT be used.
 
