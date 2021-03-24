@@ -421,7 +421,7 @@ the intended semantics to the rest of the claims found in the token.
 The EAT `profile` (claim key 18) is used.  The following constraints
 apply to its type:
 
-* The URI encoding MUST be used;
+* The URI encoding MUST be used.
 * The value MUST be `http://arm.com/psa/2.0.0`.
 
 This claim MUST be present in a PSA attestation token.
