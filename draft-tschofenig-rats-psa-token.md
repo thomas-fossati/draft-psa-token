@@ -229,7 +229,7 @@ Attestation Key (IAK).  The full definition is in {{PSA-SM}}.
 The EAT `ueid` (claim key 11) of type RAND is used.  The following constraints
 apply to the `ueid-type`:
 
-* The length MUST be 33 bytes;
+* The length MUST be 33 bytes.
 * The first byte MUST be 0x01 (RAND) followed by the 32-bytes key hash.
 
 This claim MUST be present in a PSA attestation token.
