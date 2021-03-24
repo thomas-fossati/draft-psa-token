@@ -1,5 +1,5 @@
 {
-  / psa-profile /                 -75000: "PSA_IOT_PROFILE_1",
+  / profile /              18: "http://arm.com/psa/2.0.0",
   / psa-client-id /               -75001: 1,
   / psa-lifecycle /               -75002: 12288,
   / psa-implementation-id /       -75003: h'50515253545556575051
@@ -23,9 +23,9 @@ F519200FF519200FF519200FF519200FF'
 F519200FF519200FF519200FF519200FF'
     }
   ],
-  / psa-nonce /       -75008: h'00010203000102030001020300010203
+  / nonce /               10: h'00010203000102030001020300010203
 00010203000102030001020300010203',
-  / psa-instance-id / -75009: h'01A0A1A2A3A0A1A2A3A0A1A2A3A0A1A2
+  / ueid /                11: h'01A0A1A2A3A0A1A2A3A0A1A2A3A0A1A2
 A3A0A1A2A3A0A1A2A3A0A1A2A3A0A1A2A3',
   / psa-verification-service-indicator / -75010: "https://psa-ve
 rifier.org"

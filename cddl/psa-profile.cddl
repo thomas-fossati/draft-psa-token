@@ -1,5 +1,5 @@
-psa-profile-type = "PSA_IOT_PROFILE_1"
+psa-profile-type = "http://arm.com/psa/2.0.0"
 
 psa-profile = (
-    ? psa-profile-key => psa-profile-type
+    18 => psa-profile-type
 )
