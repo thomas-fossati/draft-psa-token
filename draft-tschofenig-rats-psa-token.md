@@ -181,7 +181,7 @@ claims:
 ### Nonce
 {: #sec-nonce-claim}
 
-The Nonce claim is a challenge from the caller.
+The Nonce claim is used to carry the challenge provided by the caller to demonstrate freshness of the generated token.
 
 The EAT {{!I-D.ietf-rats-eat}} `nonce` (claim key 10) is used.  The following
 constraints apply to the `nonce-type`:
