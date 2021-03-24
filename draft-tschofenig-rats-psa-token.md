@@ -186,7 +186,7 @@ The Nonce claim is a challenge from the caller.
 The EAT {{!I-D.ietf-rats-eat}} `nonce` (claim key 10) is used.  The following
 constraints apply to the `nonce-type`:
 
-* The length MUST be 32, 48, or 64 bytes;
+* The length MUST be either 32, 48, or 64 bytes.
 * There MUST be only one nonce value.
 
 Note that the latter implies that the array form MUST NOT be used.
