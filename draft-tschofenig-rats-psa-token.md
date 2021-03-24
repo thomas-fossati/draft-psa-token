@@ -437,7 +437,7 @@ with previous versions of the PSA attestation token format.
 # Backwards Compatibility Considerations
 {: #sec-backwards-compat}
 
-Previous versions of this specification used different keys for the following
+Previous versions of this specification used different claim key values for the following
 claims:
 
 * Nonce (claim key -75008);
