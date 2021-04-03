@@ -69,12 +69,6 @@ normative:
     date: 20. Feb. 2019
 
 informative:
-  IANA-CWT:
-    author:
-      org: IANA
-    title: CBOR Web Token (CWT) Claims
-    target: https://www.iana.org/assignments/cwt/cwt.xhtml
-    date: 2021
   IANA-MediaTypes:
     author:
       org: IANA
@@ -92,6 +86,12 @@ informative:
       org: Linaro
     title: Trusted Firmware-M
     target: https://www.trustedfirmware.org/projects/tf-m/
+    date: 2021
+  Veraison:
+    author:
+      org: The Veraison Project
+    title: Veraison psatoken package
+    target: https://github.com/veraison/psatoken
     date: 2021
   PSA:
     author:
@@ -610,7 +610,9 @@ registry {{IANA-CoAP-Content-Formats}}.
 
 # Reference Implementation
 
-A reference implementation is provided by the Trusted Firmware project {{TF-M}}.
+A reference implementation is provided by the Trusted Firmware project
+{{TF-M}}, another one by the Veraison project {{Veraison}}.  Both
+implementations are released as open-source software.
 
 # Example
 
