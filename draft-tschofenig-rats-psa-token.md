@@ -99,6 +99,12 @@ informative:
     title: Platform Security Architecture Resources
     target: https://developer.arm.com/architectures/security-architectures/platform-security-architecture/documentation
     date: 2021
+  PSACertified:
+    author:
+      org: PSA Certified
+    title: PSA Certified IoT Security Framework
+    target: https://psacertified.org
+    date: 2021
 
 --- abstract
 
@@ -557,8 +563,8 @@ would include a policy with appraisal for the following claims:
   Value as above, by allowing a token to contain any firmware entries signed by
   a known Signer ID, without checking for a uniquely registered version.
 * Certification Reference - if present, this value could be used as a hint to
-  locate an entry in the PSA Certification database associated with the
-  attesting device.
+  locate security certification information associated with the attesting
+  device. An example could be a reference to a {{PSACertified}} certificate.
 
 # IANA Considerations
 
