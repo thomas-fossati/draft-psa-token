@@ -556,6 +556,9 @@ would include a policy with appraisal for the following claims:
   allow a Verifier to operate a more general policy than that for Measurement
   Value as above, by allowing a token to contain any firmware entries signed by
   a known Signer ID, without checking for a uniquely registered version.
+* Certification Reference - if present, this value could be used as a hint to
+  locate an entry in the PSA Certification database associated with the
+  attesting device.
 
 # IANA Considerations
 
