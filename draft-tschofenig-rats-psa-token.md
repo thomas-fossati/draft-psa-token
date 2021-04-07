@@ -537,7 +537,7 @@ keys.
 
 # Verification
 
-To verify the token, the primary need is to check correct formation and signing
+To verify the token, the primary need is to check correct encoding and signing
 as detailed in {{sec-token-encoding-and-signing}}.  In particular, the Instance
 ID claim is used (together with the kid in the token COSE header, if present)
 to assist in locating the public key used to verify the token signature.
