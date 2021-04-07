@@ -539,7 +539,7 @@ keys.
 
 To verify the token, the primary need is to check correct encoding and signing
 as detailed in {{sec-token-encoding-and-signing}}.  In particular, the Instance
-ID claim is used (together with the kid in the token COSE header, if present)
+ID claim is used (together with the kid in the COSE header, if present)
 to assist in locating the public key used to verify the signature covering the CWT token.
 
 In addition, the Verifier will typically operate a policy where values of some
