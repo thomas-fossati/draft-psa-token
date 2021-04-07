@@ -99,6 +99,12 @@ informative:
     title: Platform Security Architecture Resources
     target: https://developer.arm.com/architectures/security-architectures/platform-security-architecture/documentation
     date: 2021
+  PSACertified:
+    author:
+      org: PSA Certified
+    title: PSA Certified IoT Security Framework
+    target: https://psacertified.org
+    date: 2021
 
 --- abstract
 
@@ -281,8 +287,8 @@ lifecycle state and implementation state are encoded as follows:
 * version\[7:0\] - IMPLEMENTATION DEFINED state.
 
 The PSA lifecycle states are illustrated in {{fig-lifecycle-states}}. For PSA,
-a remote verifier can only trust reports from the PSA RoT when it is in SECURED
-or NON_PSA_ROT_DEBUG major states.
+a Verifier can only trust reports from the PSA RoT when it is in SECURED or
+NON_PSA_ROT_DEBUG major states.
 
 This claim MUST be present in a PSA attestation token.
 
@@ -370,7 +376,7 @@ original signed manifest of the component.
 The Signer ID attribute (key=5) is the hash of a signing authority public key
 for the software component. The value of this attribute will correspond to the
 entry in the original manifest for the component. This can be used by a
-verifier to ensure the components were signed by an expected trusted source.
+Verifier to ensure the components were signed by an expected trusted source.
 
 This attribute MUST be present in a PSA software component to be compliant with
 {{PSA-SM}}.
@@ -405,7 +411,7 @@ compliant with {{PSA-SM}}.
 The Verification Service Indicator claim is a hint used by a relying party to
 locate a validation service for the token. The value is a text string that can
 be used to locate the service or a URL specifying the address of the service. A
-verifier may choose to ignore this claim in favor of other information.
+Verifier may choose to ignore this claim in favor of other information.
 
 ~~~
 {::include cddl/psa-verification-service-indicator.cddl}
@@ -457,6 +463,7 @@ to the new profile (`http://arm.com/psa/2.0.0`), at least for the time needed to
 their clients to upgrade.
 
 # Token Encoding and Signing
+{: #sec-token-encoding-and-signing}
 
 The PSA attestation token is encoded in CBOR {{!RFC7049}} format.  Only
 definite-length string, arrays, and maps are allowed.
@@ -530,31 +537,34 @@ keys.
 
 # Verification
 
-To verify the token, the primary need is to check correct formation and signing
-as for any CWT token.  In addition though, the verifier can operate a policy
-where values of some of the claims in this profile can be compared to reference
-values, registered with the verifier for a given deployment, in order to
-confirm that the device is endorsed by the manufacturer supply chain.  The
-policy may require that the relevant claims must have a match to a registered
-reference value.  All claims may be worthy of additional appraisal.  It is
-likely that most deployments would include a policy with appraisal for the
-following claims:
+To verify the token, the primary need is to check correct encoding and signing
+as detailed in {{sec-token-encoding-and-signing}}.  In particular, the Instance
+ID claim is used (together with the kid in the COSE header, if present)
+to assist in locating the public key used to verify the signature covering the CWT token.
 
-* Instance ID - the value of the Instance ID can be used (together with the kid
-  in the token COSE header, if present) to assist in locating the public key
-  used to verify the token signature.
+In addition, the Verifier will typically operate a policy where values of some
+of the claims in this profile can be compared to reference values, registered
+with the Verifier for a given deployment, in order to confirm that the device
+is endorsed by the manufacturer supply chain.  The policy may require that the
+relevant claims must have a match to a registered reference value.  All claims
+may be worthy of additional appraisal.  It is likely that most deployments
+would include a policy with appraisal for the following claims:
+
 * Implementation ID - the value of the Implementation ID can be used to
   identify the verification requirements of the deployment.
 * Software Component, Measurement Value - this value can uniquely identify a
-  firmware release from the supply chain. In some cases, a verifier may
+  firmware release from the supply chain. In some cases, a Verifier may
   maintain a record for a series of firmware releases, being patches to an
   original baseline release. A verification policy may then allow this value to
   match any point on that release sequence or expect some minimum level of
   maturity related to the sequence.
 * Software Component, Signer ID - where present in a deployment, this could
-  allow a verifier to operate a more general policy than that for Measurement
+  allow a Verifier to operate a more general policy than that for Measurement
   Value as above, by allowing a token to contain any firmware entries signed by
   a known Signer ID, without checking for a uniquely registered version.
+* Certification Reference - if present, this value could be used as a hint to
+  locate security certification information associated with the attesting
+  device. An example could be a reference to a {{PSACertified}} certificate.
 
 # IANA Considerations
 
