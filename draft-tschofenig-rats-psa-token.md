@@ -554,6 +554,8 @@ To verify the token, the primary need is to check correct encoding and signing
 as detailed in {{sec-token-encoding-and-signing}}.  In particular, the Instance
 ID claim is used (together with the kid in the COSE header, if present)
 to assist in locating the public key used to verify the signature covering the CWT token.
+The key used for verification is supplied to the Verifier by an authorized
+Endorser along with the corresponding Attester's Instance ID.
 
 In addition, the Verifier will typically operate a policy where values of some
 of the claims in this profile can be compared to reference values, registered
@@ -578,6 +580,9 @@ would include a policy with appraisal for the following claims:
 * Certification Reference - if present, this value could be used as a hint to
   locate security certification information associated with the attesting
   device. An example could be a reference to a {{PSACertified}} certificate.
+
+The protocol used to convey Endorsements and Reference Values to the Verifier
+is out of scope of this document.
 
 # IANA Considerations
 
