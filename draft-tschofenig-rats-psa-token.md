@@ -472,7 +472,7 @@ their clients to upgrade.
 # Token Encoding and Signing
 {: #sec-token-encoding-and-signing}
 
-The PSA attestation token is encoded in CBOR {{!RFC7049}} format.  Only
+The PSA attestation token is encoded in CBOR {{!RFC8949}} format.  Only
 definite-length string, arrays, and maps are allowed.
 
 Cryptographic protection is obtained by wrapping the `psa-token` map in a COSE
