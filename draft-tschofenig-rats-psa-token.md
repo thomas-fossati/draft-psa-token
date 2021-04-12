@@ -93,6 +93,13 @@ informative:
     title: Veraison psatoken package
     target: https://github.com/veraison/psatoken
     date: 2021
+  Xclaim:
+    author:
+      ins: L. Lundblade
+      name: Laurence Lundblade
+    title: Xclaim
+    target: https://github.com/laurencelundblade/xclaim
+    date: 2021
   PSA:
     author:
       org: Arm
@@ -515,6 +522,12 @@ remote attestation protocol is made.
 {::include cddl/psa-verification-service-indicator.cddl}
 ~~~
 
+# Implementation Status
+
+Independent implementations of this specification are provided by the Trusted
+Firmware project {{TF-M}}, the Veraison project {{Veraison}}, and Xclaim
+{{Xclaim}}.  All three implementations are released as open-source software.
+
 # Security and Privacy Considerations
 
 This specification re-uses the CWT and the EAT specification. Hence, the
@@ -617,12 +630,6 @@ registry {{IANA-CoAP-Content-Formats}}.
 *  Reference: [[this RFC]]
 
 --- back
-
-# Reference Implementation
-
-A reference implementation is provided by the Trusted Firmware project
-{{TF-M}}, another one by the Veraison project {{Veraison}}.  Both
-implementations are released as open-source software.
 
 # Example
 
