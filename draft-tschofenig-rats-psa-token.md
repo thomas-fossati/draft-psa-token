@@ -256,8 +256,7 @@ This claim MUST be present in a PSA attestation token.
 The Implementation ID claim uniquely identifies the implementation of the
 immutable PSA RoT. A verification service uses this claim to locate the
 details of the PSA RoT implementation from an Endorser or manufacturer.
-Such details include the implementation's origin and
-is used by a verification service to determine the security properties
+Such details are used by a verification service to determine the security properties
 or certification status of the PSA RoT implementation.
 
 The value and format of the ID is decided by
