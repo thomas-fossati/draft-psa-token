@@ -253,12 +253,22 @@ This claim MUST be present in a PSA attestation token.
 
 ### Implementation ID
 
-The Implementation ID claim uniquely identifies the underlying immutable PSA
-RoT. A verification service can use this claim to locate the details of the
-verification process. Such details include the implementation's origin and
-associated certification state. The full definition is in {{PSA-SM}}.
+The Implementation ID claim uniquely identifies the implementation of the
+immutable PSA RoT. A verification service uses this claim to locate the
+details of the RoT implementation from an Endorser or manufacturer.
+Such details include the implementation's origin and
+is used by a verification service to determine the security properties
+or certification status of the RoT implementation.
+
+The value and format of the ID is decided by
+the manufacturer or a particular certification scheme. For example, the ID
+could take the form of a product serial number, 
+database ID, or other appropriate identifier.
 
 This claim MUST be present in a PSA attestation token.
+
+Note that this identifies the RoT implementation, not a particular instance.
+To uniquely identify an instance, see the Instance ID claim {{sec-instance-id-claim}}.
 
 ~~~
 {::include cddl/psa-implementation-id.cddl}
