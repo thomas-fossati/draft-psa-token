@@ -481,8 +481,9 @@ structure MUST be COSE_Sign1.  For symmetric key algorithms, the signature
 structure MUST be COSE_Mac0.
 
 The CWT CBOR tag (61) is not used.  An application that needs to exchange PSA
-attestation tokens can use the media type defined in {{sec-iana-media-types}}
-or the CoAP Content-Format defined in {{sec-iana-coap-content-format}}.
+attestation tokens can wrap the serialised COSE_Sign1 or COSE_Mac0 in the media
+type defined in {{sec-iana-media-types}} or the CoAP Content-Format defined in
+{{sec-iana-coap-content-format}}.
 
 # Freshness Model
 
@@ -582,7 +583,7 @@ would include a policy with appraisal for the following claims:
   device. An example could be a reference to a {{PSACertified}} certificate.
 
 The protocol used to convey Endorsements and Reference Values to the Verifier
-is out of scope of this document.
+is not in scope for this document.
 
 # IANA Considerations
 
