@@ -261,7 +261,7 @@ or certification status of the PSA RoT implementation.
 
 The value and format of the ID is decided by
 the manufacturer or a particular certification scheme. For example, the ID
-could take the form of a product serial number, 
+could take the form of a product serial number,
 database ID, or other appropriate identifier.
 
 This claim MUST be present in a PSA attestation token.
@@ -488,6 +488,15 @@ Cryptographic protection is obtained by wrapping the `psa-token` map in a COSE
 Web Token (CWT) {{!RFC8392}}.  For asymmetric key algorithms, the signature
 structure MUST be COSE_Sign1.  For symmetric key algorithms, the signature
 structure MUST be COSE_Mac0.
+
+Acknowledging the variety of markets, regulations and use cases in which the
+PSA attestation token can be used, this specification does not impose any
+strong requirement on the cryptographic algorithms that need to be supported by
+Attesters and Verifiers.  It is assumed that some form of out-of-band discovery
+and negotiation is in place to allow interoperability between the involved
+parties, and that the flexibility provided by the COSE format is sufficient to
+deal with the level of cryptographic agility needed to adapt to specific use
+cases.
 
 The CWT CBOR tag (61) is not used.  An application that needs to exchange PSA
 attestation tokens can wrap the serialised COSE_Sign1 or COSE_Mac0 in the media
