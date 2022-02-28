@@ -40,8 +40,8 @@ author:
  -
     ins: A. Shaw
     name: Adrian Shaw
-    organization: Arm Limited
-    email: Adrian.Shaw@arm.com
+    organization: HP Labs
+    email: Adrian.Shaw@hp.com
  -
     ins: T. Fossati
     name: Thomas Fossati
