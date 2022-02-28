@@ -239,7 +239,7 @@ Note that the CDDL label used to be called arm_psa_partition_id.
 The Instance ID claim represents the unique identifier of the Initial
 Attestation Key (IAK).  The full definition is in {{PSA-SM}}.
 
-The EAT `ueid` (claim key 11) of type RAND is used.  The following constraints
+The EAT `ueid` (claim key 256) of type RAND is used.  The following constraints
 apply to the `ueid-type`:
 
 * The length MUST be 33 bytes.
