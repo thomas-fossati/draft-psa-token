@@ -11,7 +11,6 @@ psa-token = {
     ( psa-software-components // psa-no-sw-measurement ),
 }
 
-psa-profile-key = -75000
 psa-client-id-key = -75001
 psa-lifecycle-key = -75002 
 psa-implementation-id-key = -75003
@@ -19,6 +18,9 @@ psa-boot-seed-key = -75004
 psa-certification-reference-key = -75005
 psa-software-components-key = -75006
 psa-no-sw-measurement-key = -75007
-psa-nonce-key = -75008
-psa-instance-id-key = -75009
 psa-verification-service-indicator-key = -75010
+
+; from EAT
+nonce-label = 10
+ueid-label = 256
+profile-label = 265

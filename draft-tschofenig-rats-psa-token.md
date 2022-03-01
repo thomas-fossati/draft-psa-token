@@ -239,7 +239,7 @@ Note that the CDDL label used to be called arm_psa_partition_id.
 The Instance ID claim represents the unique identifier of the Initial
 Attestation Key (IAK).  The full definition is in {{PSA-SM}}.
 
-The EAT `ueid` (claim key 11) of type RAND is used.  The following constraints
+The EAT `ueid` (claim key 256) of type RAND is used.  The following constraints
 apply to the `ueid-type`:
 
 * The length MUST be 33 bytes.
@@ -440,7 +440,7 @@ The Profile Definition claim encodes the unique identifier that corresponds to
 the EAT profile described by this document.  This allows a receiver to assign
 the intended semantics to the rest of the claims found in the token.
 
-The EAT `profile` (claim key 18) is used.  The following constraints
+The EAT `profile` (claim key 265) is used.  The following constraints
 apply to its type:
 
 * The URI encoding MUST be used.
