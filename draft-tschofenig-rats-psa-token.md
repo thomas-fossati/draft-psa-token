@@ -74,44 +74,50 @@ informative:
       org: IANA
     title: Media Types
     target: http://www.iana.org/assignments/media-types
-    date: 2021
+    date: 2022
+  IANA-HashFunctionTextualNames:
+    author:
+      org: IANA
+    title: Hash Function Textual Names
+    target: https://www.iana.org/assignments/hash-function-text-names
+    date: 2022
   IANA-CoAP-Content-Formats:
     author:
       org: IANA
     title: CoAP Content-Formats
     target: https://www.iana.org/assignments/core-parameters
-    date: 2021
+    date: 2022
   TF-M:
     author:
       org: Linaro
     title: Trusted Firmware-M
     target: https://www.trustedfirmware.org/projects/tf-m/
-    date: 2021
+    date: 2022
   Veraison:
     author:
       org: The Veraison Project
     title: Veraison psatoken package
     target: https://github.com/veraison/psatoken
-    date: 2021
+    date: 2022
   Xclaim:
     author:
       ins: L. Lundblade
       name: Laurence Lundblade
     title: Xclaim
     target: https://github.com/laurencelundblade/xclaim
-    date: 2021
+    date: 2022
   PSA:
     author:
       org: Arm
     title: Platform Security Architecture Resources
     target: https://developer.arm.com/architectures/security-architectures/platform-security-architecture/documentation
-    date: 2021
+    date: 2022
   PSACertified:
     author:
       org: PSA Certified
     title: PSA Certified IoT Security Framework
     target: https://psacertified.org
-    date: 2021
+    date: 2022
 
 --- abstract
 
@@ -399,13 +405,9 @@ This attribute MUST be present in a PSA software component to be compliant with
 
 #### Measurement Description
 
-The Measurement Description attribute (key=6) is the description of the way in
-which the measurement value of the software component is computed. The value
-will be a text string containing an abbreviated description (or name) of the
-measurement method which can be used to lookup the details of the method in a
-profile document. This attribute will normally be excluded, unless there was an
-exception to the default measurement described in the profile for a specific
-component.
+The Measurement Description attribute (key=6) contains a string identifying the
+hash algorithm used to compute the corresponding Measurement Value.  The string
+SHOULD be encoded according to {{IANA-HashFunctionTextualNames}}.
 
 ### No Software Measurements
 {: #sec-no-sw-measurements }
