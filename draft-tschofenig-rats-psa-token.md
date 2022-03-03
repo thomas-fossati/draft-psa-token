@@ -471,23 +471,35 @@ with previous versions of the PSA attestation token format.
 # Backwards Compatibility Considerations
 {: #sec-backwards-compat}
 
-Previous versions of this specification used different claim key values for the following
-claims:
+A previous version of this specification (identified by the `PSA_IOT_PROFILE_1`
+profile) used claim key values from the "private use range" of the CWT Claims
+registry.  These claim keys have now been retired and their use is deprecated.
 
-* Nonce (claim key -75008);
-* Instance ID (claim key -75009);
-* Profile Description (claim key -75000 and value `PSA_IOT_PROFILE_1`).
+{{tab-claim-map}} provides the mappings between the deprecated and new claim
+keys.
 
-These claim keys have been retired and their use is deprecated.
+| | PSA_IOT_PROFILE_1 | http://arm.com/psa/2.0.0 |
+|-|-------------------|--------------------------|
+| Nonce | -75008 | 10 (EAT nonce) |
+| Instance ID | -75009 | 256 (EAT euid) |
+| Profile Definition | -75000 | 265 (EAT eat_profile) |
+| Client ID | -75001 | -4500 |
+| Security Lifecycle | -75002 | -4501 |
+| Implementation ID | -75003 | -4502 |
+| Boot Seed | -75004 | -4503 |
+| Certification Reference | -75005 | -4504 |
+| Software Components | -75006 | -4505 |
+| No Softwared Measurements | -75007 | -4506 |
+| Verification Service Indicator | -75010 | -4507 |
+{: #tab-claim-map title="Claim key mappings"}
 
 Unless compatibility with existing infrastructure is a concern, emitters (e.g.,
 devices that implement the PSA Attestation API) SHOULD produce tokens with
-their standard equivalent instead, as described in {{sec-nonce-claim}},
-{{sec-instance-id-claim}} and {{sec-profile-definition-claim}} respectively.
+the claim keys specified in this document.
 
 To simplify the transition to the token format described in this
 document it is RECOMMENDED that receivers (e.g., PSA Attestation Verifiers)
-accept tokens encoded according to the old profile (`PROFILE_IOT_1`) as well as
+accept tokens encoded according to the old profile (`PSA_IOT_PROFILE_1`) as well as
 to the new profile (`http://arm.com/psa/2.0.0`), at least for the time needed to
 their clients to upgrade.
 
