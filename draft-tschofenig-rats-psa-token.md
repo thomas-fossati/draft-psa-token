@@ -483,14 +483,14 @@ keys.
 | Nonce | -75008 | 10 (EAT nonce) |
 | Instance ID | -75009 | 256 (EAT euid) |
 | Profile Definition | -75000 | 265 (EAT eat_profile) |
-| Client ID | -75001 | -4500 |
-| Security Lifecycle | -75002 | -4501 |
-| Implementation ID | -75003 | -4502 |
-| Boot Seed | -75004 | -4503 |
-| Certification Reference | -75005 | -4504 |
-| Software Components | -75006 | -4505 |
-| No Softwared Measurements | -75007 | -4506 |
-| Verification Service Indicator | -75010 | -4507 |
+| Client ID | -75001 | 2394 |
+| Security Lifecycle | -75002 | 2395 |
+| Implementation ID | -75003 | 2396 |
+| Boot Seed | -75004 | 2397 |
+| Certification Reference | -75005 | 2398 |
+| Software Components | -75006 | 2399 |
+| No Softwared Measurements | -75007 | 2400 |
+| Verification Service Indicator | -75010 | 2401 |
 {: #tab-claim-map title="Claim key mappings"}
 
 Unless compatibility with existing infrastructure is a concern, emitters (e.g.,
@@ -640,7 +640,7 @@ Web Token (CWT) Claims" registry {{IANA-CWT}}.
 * Claim Name: psa-client-id
 * Claim Description: PSA Client ID
 * JWT Claim Name: N/A
-* Claim Key: TBD (requested value: -4500)
+* Claim Key: TBD (requested value: 2394)
 * Claim Value Type(s): signed integer
 * Change Controller: [[Authors of this RFC]]
 * Specification Document(s): {{sec-client-id}} of [[this RFC]]
@@ -650,7 +650,7 @@ Web Token (CWT) Claims" registry {{IANA-CWT}}.
 * Claim Name: psa-security-lifecycle
 * Claim Description: PSA Security Lifecycle
 * JWT Claim Name: N/A
-* Claim Key: TBD (requested value: -4501)
+* Claim Key: TBD (requested value: 2395)
 * Claim Value Type(s): unsigned integer
 * Change Controller: [[Authors of this RFC]]
 * Specification Document(s): {{sec-security-lifecycle}} of [[this RFC]]
@@ -660,7 +660,7 @@ Web Token (CWT) Claims" registry {{IANA-CWT}}.
 * Claim Name: psa-implementation-id
 * Claim Description: PSA Implementation ID
 * JWT Claim Name: N/A
-* Claim Key: TBD (requested value: -4502)
+* Claim Key: TBD (requested value: 2396)
 * Claim Value Type(s): byte string
 * Change Controller: [[Authors of this RFC]]
 * Specification Document(s): {{sec-implementation-id}} of [[this RFC]]
@@ -670,7 +670,7 @@ Web Token (CWT) Claims" registry {{IANA-CWT}}.
 * Claim Name: psa-boot-seed
 * Claim Description: PSA Boot Seed
 * JWT Claim Name: N/A
-* Claim Key: TBD (requested value: -4503)
+* Claim Key: TBD (requested value: 2397)
 * Claim Value Type(s): byte string
 * Change Controller: [[Authors of this RFC]]
 * Specification Document(s): {{sec-boot-seed}} of [[this RFC]]
@@ -680,7 +680,7 @@ Web Token (CWT) Claims" registry {{IANA-CWT}}.
 * Claim Name: psa-certification-reference
 * Claim Description: PSA Certification Reference
 * JWT Claim Name: N/A
-* Claim Key: TBD (requested value: -4504)
+* Claim Key: TBD (requested value: 2398)
 * Claim Value Type(s): text string
 * Change Controller: [[Authors of this RFC]]
 * Specification Document(s): {{sec-certification-reference}} of [[this RFC]]
@@ -690,7 +690,7 @@ Web Token (CWT) Claims" registry {{IANA-CWT}}.
 * Claim Name: psa-software-components
 * Claim Description: PSA Software Components
 * JWT Claim Name: N/A
-* Claim Key: TBD (requested value: -4505)
+* Claim Key: TBD (requested value: 2399)
 * Claim Value Type(s): array
 * Change Controller: [[Authors of this RFC]]
 * Specification Document(s): {{sec-sw-components}} of [[this RFC]]
@@ -700,7 +700,7 @@ Web Token (CWT) Claims" registry {{IANA-CWT}}.
 * Claim Name: psa-no-sw-measurements
 * Claim Description: PSA No Software Measurements
 * JWT Claim Name: N/A
-* Claim Key: TBD (requested value: -4506)
+* Claim Key: TBD (requested value: 2400)
 * Claim Value Type(s): unsigned integer
 * Change Controller: [[Authors of this RFC]]
 * Specification Document(s): {{sec-no-sw-measurements}} of [[this RFC]]
@@ -710,7 +710,7 @@ Web Token (CWT) Claims" registry {{IANA-CWT}}.
 * Claim Name: psa-verification-service-indicator
 * Claim Description: PSA Verification Service Indicator
 * JWT Claim Name: N/A
-* Claim Key: TBD (requested value: -4507)
+* Claim Key: TBD (requested value: 2401)
 * Claim Value Type(s): text string
 * Change Controller: [[Authors of this RFC]]
 * Specification Document(s): {{sec-verification-service-indicator}} of [[this RFC]]

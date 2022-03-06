@@ -11,14 +11,14 @@ psa-token = {
     ( psa-software-components // psa-no-sw-measurement ),
 }
 
-psa-client-id-key = -4500
-psa-lifecycle-key = -4501 
-psa-implementation-id-key = -4502
-psa-boot-seed-key = -4503
-psa-certification-reference-key = -4504
-psa-software-components-key = -4505
-psa-no-sw-measurement-key = -4506
-psa-verification-service-indicator-key = -4507
+psa-client-id-key = 2394
+psa-lifecycle-key = 2395
+psa-implementation-id-key = 2396
+psa-boot-seed-key = 2397
+psa-certification-reference-key = 2398
+psa-software-components-key = 2399
+psa-no-sw-measurement-key = 2400
+psa-verification-service-indicator-key = 2401
 
 ; from EAT
 nonce-label = 10
