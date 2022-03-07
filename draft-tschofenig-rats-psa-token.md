@@ -238,8 +238,6 @@ report from another security domain.
 
 This claim MUST be present in a PSA attestation token.
 
-Note that the CDDL label used to be called arm_psa_partition_id.
-
 ~~~
 {::include cddl/psa-client-id.cddl}
 ~~~
