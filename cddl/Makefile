@@ -21,7 +21,6 @@ FRAGMENTS += psa-client-id.cddl
 FRAGMENTS += psa-certification-reference.cddl
 FRAGMENTS += psa-implementation-id.cddl
 FRAGMENTS += psa-instance-id.cddl
-FRAGMENTS += psa-no-sw-measurements.cddl
 FRAGMENTS += psa-nonce.cddl
 FRAGMENTS += psa-profile.cddl
 FRAGMENTS += psa-security-lifecycle.cddl

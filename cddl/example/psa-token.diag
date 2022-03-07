@@ -27,6 +27,6 @@ F519200FF519200FF519200FF519200FF'
 00010203000102030001020300010203',
   / ueid /               256: h'01A0A1A2A3A0A1A2A3A0A1A2A3A0A1A2
 A3A0A1A2A3A0A1A2A3A0A1A2A3A0A1A2A3',
-  / psa-verification-service-indicator / 2401: "https://psa-ve
+  / psa-verification-service-indicator / 2400: "https://psa-ve
 rifier.org"
 }

@@ -3,6 +3,7 @@ title: "Arm's Platform Security Architecture (PSA) Attestation Token"
 abbrev: "PSA Attestation Token"
 docname: draft-tschofenig-rats-psa-token-latest
 category: info
+submissionType: independent
 
 ipr: trust200902
 area: Security
@@ -354,8 +355,6 @@ This claim MUST be present in a PSA attestation token.
 The Software Components claim is a list of software components that includes
 all the software loaded by the PSA RoT. This claim SHALL be included in
 attestation tokens produced by an implementation conformant with {{PSA-SM}}.
-If the Software Components claim is present, then the No Software Measurement
-claim ({{sec-no-sw-measurements}}) MUST NOT be present.
 
 Each entry in the Software Components list describes one software component
 using the attributes described in the following subsections.  Unless explicitly
@@ -417,19 +416,6 @@ The Measurement Description attribute (key=6) contains a string identifying the
 hash algorithm used to compute the corresponding Measurement Value.  The string
 SHOULD be encoded according to {{IANA-HashFunctionTextualNames}}.
 
-### No Software Measurements
-{: #sec-no-sw-measurements }
-
-In the event that the implementation does not contain any software measurements
-then the Software Components claim {{sec-sw-components}} can be omitted but
-instead the token MUST include this claim to indicate this is a deliberate
-state. The value SHOULD be 1.  This claim is intended for devices that are not
-compliant with {{PSA-SM}}.
-
-~~~
-{::include cddl/psa-no-sw-measurements.cddl}
-~~~
-
 ## Verification Claims
 
 ### Verification Service Indicator
@@ -487,8 +473,7 @@ keys.
 | Boot Seed | -75004 | 2397 |
 | Certification Reference | -75005 | 2398 |
 | Software Components | -75006 | 2399 |
-| No Softwared Measurements | -75007 | 2400 |
-| Verification Service Indicator | -75010 | 2401 |
+| Verification Service Indicator | -75010 | 2400 |
 {: #tab-claim-map title="Claim key mappings"}
 
 Unless compatibility with existing infrastructure is a concern, emitters (e.g.,
@@ -550,8 +535,6 @@ remote attestation protocol is made.
 {::include cddl/psa-implementation-id.cddl}
 
 {::include cddl/psa-instance-id.cddl}
-
-{::include cddl/psa-no-sw-measurements.cddl}
 
 {::include cddl/psa-nonce.cddl}
 
@@ -693,22 +676,12 @@ Web Token (CWT) Claims" registry {{IANA-CWT}}.
 * Change Controller: [[Authors of this RFC]]
 * Specification Document(s): {{sec-sw-components}} of [[this RFC]]
 
-### No Software Measurements Claim
-
-* Claim Name: psa-no-sw-measurements
-* Claim Description: PSA No Software Measurements
-* JWT Claim Name: N/A
-* Claim Key: TBD (requested value: 2400)
-* Claim Value Type(s): unsigned integer
-* Change Controller: [[Authors of this RFC]]
-* Specification Document(s): {{sec-no-sw-measurements}} of [[this RFC]]
-
 ### Verification Service Indicator Claim
 
 * Claim Name: psa-verification-service-indicator
 * Claim Description: PSA Verification Service Indicator
 * JWT Claim Name: N/A
-* Claim Key: TBD (requested value: 2401)
+* Claim Key: TBD (requested value: 2400)
 * Claim Value Type(s): text string
 * Change Controller: [[Authors of this RFC]]
 * Specification Document(s): {{sec-verification-service-indicator}} of [[this RFC]]

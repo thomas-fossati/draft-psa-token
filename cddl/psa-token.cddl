@@ -8,7 +8,7 @@ psa-token = {
     psa-lifecycle,
     psa-certification-reference,
     psa-boot-seed,
-    ( psa-software-components // psa-no-sw-measurement ),
+    psa-software-components,
 }
 
 psa-client-id-key = 2394
@@ -17,8 +17,7 @@ psa-implementation-id-key = 2396
 psa-boot-seed-key = 2397
 psa-certification-reference-key = 2398
 psa-software-components-key = 2399
-psa-no-sw-measurement-key = 2400
-psa-verification-service-indicator-key = 2401
+psa-verification-service-indicator-key = 2400
 
 ; from EAT
 nonce-label = 10
