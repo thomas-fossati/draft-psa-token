@@ -1,9 +1,9 @@
 {
-     / arm_psa_boot_seed / -75004: h'000102030405060708090a0b0c0d0e0f
+     / arm_psa_boot_seed / 2397: h'000102030405060708090a0b0c0d0e0f
      101112131415161718191a1b1c1d1e1f',
-     / arm_psa_implementation_id / -75003: h'000102030405060708090a0b
+     / arm_psa_implementation_id / 2396: h'000102030405060708090a0b
      0c0d0e0f101112131415161718191a1b1c1d1e1f',
-     / arm_psa_sw_components / -75006: [
+     / arm_psa_sw_components / 2399: [
           {
             / measurement / 2: h'000102030405060708090a0b0c0d0e0f1011
             12131415161718191a1b1c1d1e1f',
@@ -29,9 +29,9 @@
             31415161718191a1b1c1d1e1f'
           }
         ],
-      / arm_psa_security_lifecycle / -75002: 12288 / SECURED /,
+      / arm_psa_security_lifecycle / 2395: 12288 / SECURED /,
       / nonce /            10: h'000102030405060708090a0b0c0d0e0f1011
       12131415161718191a1b1c1d1e1f',
-      / arm_psa_partition_id / -75001: -1,
+      / arm_psa_partition_id / 2394: -1,
       / profile /         265: "http://arm.com/psa/2.0.0"
 }

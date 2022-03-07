@@ -1,13 +1,13 @@
 {
   / eat_profile /         265: "http://arm.com/psa/2.0.0",
-  / psa-client-id /               -75001: 1,
-  / psa-lifecycle /               -75002: 12288,
-  / psa-implementation-id /       -75003: h'50515253545556575051
+  / psa-client-id /               2394: 1,
+  / psa-lifecycle /               2395: 12288,
+  / psa-implementation-id /       2396: h'50515253545556575051
 52535455565750515253545556575051525354555657',
-  / psa-boot-seed /               -75004: h'DEADBEEFDEADBEEFDEAD
+  / psa-boot-seed /               2397: h'DEADBEEFDEADBEEFDEAD
 BEEFDEADBEEFDEADBEEFDEADBEEFDEADBEEFDEADBEEF',
-  / psa-certification-reference / -75005: "1234567890123",
-  / psa-software-components /     -75006: [
+  / psa-certification-reference / 2398: "1234567890123",
+  / psa-software-components /     2399: [
     {
       / measurement type /  1: "BL",
       / measurement value / 2: h'0001020400010204000102040001020
@@ -27,6 +27,6 @@ F519200FF519200FF519200FF519200FF'
 00010203000102030001020300010203',
   / ueid /               256: h'01A0A1A2A3A0A1A2A3A0A1A2A3A0A1A2
 A3A0A1A2A3A0A1A2A3A0A1A2A3A0A1A2A3',
-  / psa-verification-service-indicator / -75010: "https://psa-ve
+  / psa-verification-service-indicator / 2401: "https://psa-ve
 rifier.org"
 }

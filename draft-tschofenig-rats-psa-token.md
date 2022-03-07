@@ -69,6 +69,12 @@ normative:
     date: 20. Feb. 2019
 
 informative:
+  IANA-CWT:
+    author:
+      org: IANA
+    title: CBOR Web Token (CWT) Claims
+    target: https://www.iana.org/assignments/cwt/cwt.xhtml#claims-registry
+    date: 2022
   IANA-MediaTypes:
     author:
       org: IANA
@@ -216,6 +222,7 @@ This claim MUST be present in a PSA attestation token.
 ~~~
 
 ### Client ID
+{: #sec-client-id}
 
 The Client ID claim represents the security domain of the caller.
 
@@ -258,6 +265,7 @@ This claim MUST be present in a PSA attestation token.
 ~~~
 
 ### Implementation ID
+{: #sec-implementation-id}
 
 The Implementation ID claim uniquely identifies the implementation of the
 immutable PSA RoT. A verification service uses this claim to locate the
@@ -280,6 +288,7 @@ To uniquely identify an instance, see the Instance ID claim {{sec-instance-id-cl
 ~~~
 
 ### Certification Reference
+{: #sec-certification-reference}
 
 The Certification Reference claim is used to link the class of chip and PSA RoT
 of the attesting device to an associated entry in the PSA Certification
@@ -328,6 +337,7 @@ This claim MUST be present in a PSA attestation token.
 ~~~
 
 ### Boot Seed
+{: #sec-boot-seed }
 
 The Boot Seed claim represents a random value created at system boot time that
 will allow differentiation of reports from different boot sessions.
@@ -425,6 +435,7 @@ compliant with {{PSA-SM}}.
 ## Verification Claims
 
 ### Verification Service Indicator
+{: #sec-verification-service-indicator}
 
 The Verification Service Indicator claim is a hint used by a relying party to
 locate a validation service for the token. The value is a text string that can
@@ -460,23 +471,35 @@ with previous versions of the PSA attestation token format.
 # Backwards Compatibility Considerations
 {: #sec-backwards-compat}
 
-Previous versions of this specification used different claim key values for the following
-claims:
+A previous version of this specification (identified by the `PSA_IOT_PROFILE_1`
+profile) used claim key values from the "private use range" of the CWT Claims
+registry.  These claim keys have now been retired and their use is deprecated.
 
-* Nonce (claim key -75008);
-* Instance ID (claim key -75009);
-* Profile Description (claim key -75000 and value `PSA_IOT_PROFILE_1`).
+{{tab-claim-map}} provides the mappings between the deprecated and new claim
+keys.
 
-These claim keys have been retired and their use is deprecated.
+| | PSA_IOT_PROFILE_1 | http://arm.com/psa/2.0.0 |
+|-|-------------------|--------------------------|
+| Nonce | -75008 | 10 (EAT nonce) |
+| Instance ID | -75009 | 256 (EAT euid) |
+| Profile Definition | -75000 | 265 (EAT eat_profile) |
+| Client ID | -75001 | 2394 |
+| Security Lifecycle | -75002 | 2395 |
+| Implementation ID | -75003 | 2396 |
+| Boot Seed | -75004 | 2397 |
+| Certification Reference | -75005 | 2398 |
+| Software Components | -75006 | 2399 |
+| No Softwared Measurements | -75007 | 2400 |
+| Verification Service Indicator | -75010 | 2401 |
+{: #tab-claim-map title="Claim key mappings"}
 
 Unless compatibility with existing infrastructure is a concern, emitters (e.g.,
 devices that implement the PSA Attestation API) SHOULD produce tokens with
-their standard equivalent instead, as described in {{sec-nonce-claim}},
-{{sec-instance-id-claim}} and {{sec-profile-definition-claim}} respectively.
+the claim keys specified in this document.
 
 To simplify the transition to the token format described in this
 document it is RECOMMENDED that receivers (e.g., PSA Attestation Verifiers)
-accept tokens encoded according to the old profile (`PROFILE_IOT_1`) as well as
+accept tokens encoded according to the old profile (`PSA_IOT_PROFILE_1`) as well as
 to the new profile (`http://arm.com/psa/2.0.0`), at least for the time needed to
 their clients to upgrade.
 
@@ -606,6 +629,91 @@ The protocol used to convey Endorsements and Reference Values to the Verifier
 is not in scope for this document.
 
 # IANA Considerations
+
+## CBOR Web Token Claims Registration
+
+This specification requests IANA to register the following claims in the "CBOR
+Web Token (CWT) Claims" registry {{IANA-CWT}}.
+
+### Client ID Claim
+
+* Claim Name: psa-client-id
+* Claim Description: PSA Client ID
+* JWT Claim Name: N/A
+* Claim Key: TBD (requested value: 2394)
+* Claim Value Type(s): signed integer
+* Change Controller: [[Authors of this RFC]]
+* Specification Document(s): {{sec-client-id}} of [[this RFC]]
+
+### Security Lifecycle Claim
+
+* Claim Name: psa-security-lifecycle
+* Claim Description: PSA Security Lifecycle
+* JWT Claim Name: N/A
+* Claim Key: TBD (requested value: 2395)
+* Claim Value Type(s): unsigned integer
+* Change Controller: [[Authors of this RFC]]
+* Specification Document(s): {{sec-security-lifecycle}} of [[this RFC]]
+
+### Implementation ID Claim
+
+* Claim Name: psa-implementation-id
+* Claim Description: PSA Implementation ID
+* JWT Claim Name: N/A
+* Claim Key: TBD (requested value: 2396)
+* Claim Value Type(s): byte string
+* Change Controller: [[Authors of this RFC]]
+* Specification Document(s): {{sec-implementation-id}} of [[this RFC]]
+
+### Boot Seed Claim
+
+* Claim Name: psa-boot-seed
+* Claim Description: PSA Boot Seed
+* JWT Claim Name: N/A
+* Claim Key: TBD (requested value: 2397)
+* Claim Value Type(s): byte string
+* Change Controller: [[Authors of this RFC]]
+* Specification Document(s): {{sec-boot-seed}} of [[this RFC]]
+
+### Certification Reference Claim
+
+* Claim Name: psa-certification-reference
+* Claim Description: PSA Certification Reference
+* JWT Claim Name: N/A
+* Claim Key: TBD (requested value: 2398)
+* Claim Value Type(s): text string
+* Change Controller: [[Authors of this RFC]]
+* Specification Document(s): {{sec-certification-reference}} of [[this RFC]]
+
+### Software Components Claim
+
+* Claim Name: psa-software-components
+* Claim Description: PSA Software Components
+* JWT Claim Name: N/A
+* Claim Key: TBD (requested value: 2399)
+* Claim Value Type(s): array
+* Change Controller: [[Authors of this RFC]]
+* Specification Document(s): {{sec-sw-components}} of [[this RFC]]
+
+### No Software Measurements Claim
+
+* Claim Name: psa-no-sw-measurements
+* Claim Description: PSA No Software Measurements
+* JWT Claim Name: N/A
+* Claim Key: TBD (requested value: 2400)
+* Claim Value Type(s): unsigned integer
+* Change Controller: [[Authors of this RFC]]
+* Specification Document(s): {{sec-no-sw-measurements}} of [[this RFC]]
+
+### Verification Service Indicator Claim
+
+* Claim Name: psa-verification-service-indicator
+* Claim Description: PSA Verification Service Indicator
+* JWT Claim Name: N/A
+* Claim Key: TBD (requested value: 2401)
+* Claim Value Type(s): text string
+* Change Controller: [[Authors of this RFC]]
+* Specification Document(s): {{sec-verification-service-indicator}} of [[this RFC]]
 
 ## Media Type Registration
 {: #sec-iana-media-types}
