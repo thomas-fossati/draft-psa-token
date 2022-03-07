@@ -1,5 +1,0 @@
-psa-no-sw-measurements-type = 1
-
-psa-no-sw-measurement = (
-    psa-no-sw-measurement-key => psa-no-sw-measurements-type
-)
