@@ -42,7 +42,7 @@ author:
     ins: A. Shaw
     name: Adrian Shaw
     organization: HP Labs
-    email: adrianlshaw@acm.org 
+    email: adrianlshaw@acm.org
  -
     ins: T. Fossati
     name: Thomas Fossati
