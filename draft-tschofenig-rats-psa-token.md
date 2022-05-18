@@ -338,10 +338,12 @@ This claim MUST be present in a PSA attestation token.
 ### Boot Seed
 {: #sec-boot-seed }
 
-The Boot Seed claim represents a random value created at system boot time that
+The Boot Seed claim represents a value created at system boot time that
 will allow differentiation of reports from different boot sessions.
 
-This claim MUST be present in a PSA attestation token.
+This claim MAY be present in a PSA attestation token.
+
+If present, it MUST be between 8 and 32 bytes.
 
 ~~~
 {::include cddl/psa-boot-seed.cddl}
@@ -475,6 +477,10 @@ keys.
 | Software Components | -75006 | 2399 |
 | Verification Service Indicator | -75010 | 2400 |
 {: #tab-claim-map title="Claim key mappings"}
+
+The new profile introduces two further changes:
+* the "Boot Seed" claim is now optional and variable length (see {{sec-boot-seed}}),
+* the "No Software Measurements" claim has been retired.
 
 Unless compatibility with existing infrastructure is a concern, emitters (e.g.,
 devices that implement the PSA Attestation API) SHOULD produce tokens with
