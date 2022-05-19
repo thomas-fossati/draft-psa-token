@@ -572,7 +572,7 @@ Firmware-M project {{TF-M}}, the Veraison project {{Veraison}}, and the Xclaim
 
 # Security and Privacy Considerations
 
-This specification re-uses the EAT specification and therefore the CWT specification. 
+This specification re-uses the EAT specification and therefore the CWT specification.
 Hence, the security and privacy considerations of those specifications apply here as well.
 
 Since CWTs offer different ways to protect the token, this specification
