@@ -549,27 +549,25 @@ remote attestation protocol is made.
 
 # Implementation Status
 
-Independent implementations of this specification are provided by the Trusted
-Firmware project {{TF-M}}, the Veraison project {{Veraison}}, and Xclaim
-{{Xclaim}}.  All three implementations are released as open-source software.
+Implementations of this specification are provided by the Trusted
+Firmware-M project {{TF-M}}, the Veraison project {{Veraison}}, and the Xclaim
+{{Xclaim}} library.  All three implementations are released as open-source software.
 
 # Security and Privacy Considerations
 
-This specification re-uses the CWT and the EAT specification. Hence, the
-security and privacy considerations of those specifications apply here as well.
+This specification re-uses the EAT specification and therefore the CWT specification.
+Hence, the security and privacy considerations of those specifications apply here as well.
 
 Since CWTs offer different ways to protect the token, this specification
-profiles those options and allows signatures based on use of public key
-cryptography as well as MAC authentication. The token MUST be signed following
-the structure of the COSE specification {{!RFC8152}}.  The COSE type MUST be
-COSE_Sign1 for public key signatures or COSE_Mac0 for MAC authentication.  Note
-however that use of MAC authentication is NOT RECOMMENDED due to the associated
-infrastructure costs for key management and protocol complexities. It may also
-restrict the ability to interoperate with third parties.
+profiles those options and allows signatures using public key cryptography as
+well as message authentication codes (MACs). COSE_Sign1 is used for digital
+signatures and COSE_Mac0 for MACs, as defined in the COSE specification {{!RFC8152}}.
+Note, however, that the use of MAC authentication is NOT RECOMMENDED due to the associated
+infrastructure costs for key management and protocol complexities.
 
 Attestation tokens contain information that may be unique to a device and
 therefore they may allow to single out an individual device for tracking
-purposes.  Implementations that have privacy requirements must take appropriate
+purposes.  Deployments that have privacy requirements must take appropriate
 measures to ensure that the token is only used to provision anonymous/pseudonym
 keys.
 
