@@ -125,6 +125,12 @@ informative:
     title: PSA Certified IoT Security Framework
     target: https://psacertified.org
     date: 2022
+  PSA-API:
+    author:
+      org: Arm
+    title: PSA Attestation API 1.0
+    target: https://developer.arm.com/-/media/Files/pdf/PlatformSecurityArchitecture/Implement/IHI0085-PSA_Attestation_API-1.0.2.pdf
+    date: 2019
 
 --- abstract
 
@@ -188,6 +194,54 @@ NSPE
 the Application domain, typically containing the application firmware,
 operating systems, and general hardware.  (Equivalent to Rich Execution
 Environment (REE), or "normal world".)
+
+# PSA Attester Model
+
+{{fig-psa-attester}} outlines the structure of the PSA Attester according to
+the conceptual model described in {{Section 3.1 of I-D.ietf-rats-architecture}}.
+
+<t>
+  <figure anchor="fig-psa-attester" title="PSA Attester">
+    <artset>
+      <artwork type="ascii-art" src="art/psa-attester.ascii-art" />
+      <artwork type="svg" src="art/psa-attester.svg" />
+    </artset>
+  </figure>
+</t>
+
+The PSA Attester is a relatively straightforward embodiment of the RATS
+Attester with exactly one Attesting Environment and one Target Environment.
+
+The Attesting Environment is responsible for collecting the information to be
+represented in PSA claims and to assemble them into Evidence. It is made of two
+cooperating components:
+
+* The Main Bootloader (executing at boot-time) measures the loaded software
+  components, collects the relevant PSA RoT parameters, and stores the recorded
+  information in secure memory (Main Boot State) from where the Initial
+  Attestation Service will, when asked for a platform attestation report,
+  retrieve them.
+
+* The Initial Attestation Service (executing at run-time in SPE) answers
+  requests coming from NSPE via the PSA attestation API {{PSA-API}}, collects
+  and formats the claims from Main Boot State, and uses the Initial Attestation
+  Key (IAK) to sign the attestation report.
+
+The Target Environment can be broken down into four macro "objects", some of
+which may or may not be present depending on the device architecture:
+
+* (A subset of) the PSA RoT parameters, including Instance and Implementation
+  IDs.
+
+* The updateable PSA RoT, including the Secure Partition Manager and all PSA
+  RoT services.
+
+* The (optional) Application RoT, that is any application-defined security
+  service, possibly making use of the PSA RoT services.
+
+* The loader of the application software running in NSPE.
+
+A reference implementation of the PSA Attester is provided by {{TF-M}}.
 
 # PSA Claims
 {: #sec-psa-claims }
