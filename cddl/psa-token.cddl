@@ -7,7 +7,7 @@ psa-token = {
     psa-client-id,
     psa-lifecycle,
     psa-certification-reference,
-    psa-boot-seed,
+    ? psa-boot-seed,
     psa-software-components,
 }
 
