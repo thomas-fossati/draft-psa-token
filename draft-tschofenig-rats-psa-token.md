@@ -533,6 +533,7 @@ keys.
 {: #tab-claim-map title="Claim key mappings"}
 
 The new profile introduces two further changes:
+
 * the "Boot Seed" claim is now optional and variable length (see {{sec-boot-seed}}),
 * the "No Software Measurements" claim has been retired.
 
