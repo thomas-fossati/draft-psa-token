@@ -11,7 +11,7 @@ This is the working area for the individual Internet-Draft, "Arm's Platform Secu
 Formatted text and HTML versions of the draft can be built using `make`.
 
 ```sh
-$ make -C art && make -C cddl check-example && make
+$ make -C cddl check-example && make
 ```
 
 This requires that you have the necessary software installed.  See
