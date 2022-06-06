@@ -6,8 +6,8 @@ category: info
 submissionType: independent
 
 ipr: trust200902
-area: Security
-workgroup: RATS
+area: "Security"
+workgroup: "Remote ATtestation ProcedureS"
 keyword: Internet-Draft
 
 stand_alone: yes
@@ -200,14 +200,10 @@ Environment (REE), or "normal world".)
 {{fig-psa-attester}} outlines the structure of the PSA Attester according to
 the conceptual model described in {{Section 3.1 of I-D.ietf-rats-architecture}}.
 
-<t>
-  <figure anchor="fig-psa-attester" title="PSA Attester">
-    <artset>
-      <artwork type="ascii-art" src="art/psa-attester.ascii-art" />
-      <artwork type="svg" src="art/psa-attester.svg" />
-    </artset>
-  </figure>
-</t>
+~~~ aasvg
+{::include art/psa-attester.ascii-art}
+~~~
+{: #fig-psa-attester title="PSA Attester" }
 
 The PSA Attester is a relatively straightforward embodiment of the RATS
 Attester with exactly one Attesting Environment and one Target Environment.
@@ -376,14 +372,10 @@ NON_PSA_ROT_DEBUG major states.
 
 This claim MUST be present in a PSA attestation token.
 
-<t>
-  <figure anchor="fig-lifecycle-states" title="PSA Lifecycle States">
-    <artset>
-      <artwork type="ascii-art" src="art/psa-lifecycle.ascii-art" />
-      <artwork type="svg" src="art/psa-lifecycle.svg" />
-    </artset>
-  </figure>
-</t>
+~~~ aasvg
+{::include art/psa-lifecycle.ascii-art}
+~~~
+{: #fig-lifecycle-states title="PSA Lifecycle States" }
 
 ~~~
 {::include cddl/psa-security-lifecycle.cddl}
