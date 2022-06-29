@@ -1,9 +1,9 @@
 psa-software-component = {
-  ? 1 => text,          ; measurement type
-    2 => psa-hash-type, ; measurement value
-  ? 4 => text,          ; version
-    5 => psa-hash-type, ; signer id
-  ? 6 => text,          ; measurement description
+  ? &(measurement-type: 1) => text
+    &(measurement-value: 2) => psa-hash-type
+  ? &(version: 4) => text
+    &(signer-id: 5) => psa-hash-type
+  ? &(measurement-desc: 6) => text
 }
 
 psa-software-components = (

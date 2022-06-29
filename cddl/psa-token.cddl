@@ -1,14 +1,14 @@
 psa-token = {
-    psa-nonce,
-    psa-instance-id,
-    psa-verification-service-indicator,
-    psa-profile,
-    psa-implementation-id,
-    psa-client-id,
-    psa-lifecycle,
-    psa-certification-reference,
-    ? psa-boot-seed,
-    psa-software-components,
+    psa-nonce
+    psa-instance-id
+    psa-verification-service-indicator
+    psa-profile
+    psa-implementation-id
+    psa-client-id
+    psa-lifecycle
+    psa-certification-reference
+    ? psa-boot-seed
+    psa-software-components
 }
 
 psa-client-id-key = 2394
