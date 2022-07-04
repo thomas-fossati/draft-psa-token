@@ -1,32 +1,23 @@
 {
-  / eat_profile /         265: "http://arm.com/psa/2.0.0",
-  / psa-client-id /               2394: 1,
-  / psa-lifecycle /               2395: 12288,
-  / psa-implementation-id /       2396: h'50515253545556575051
-52535455565750515253545556575051525354555657',
-  / psa-boot-seed /               2397: h'DEADBEEFDEADBEEFDEAD
-BEEFDEADBEEFDEADBEEFDEADBEEFDEADBEEFDEADBEEF',
-  / psa-certification-reference / 2398: "1234567890123",
-  / psa-software-components /     2399: [
+  / eat_profile /             265: "http://arm.com/psa/2.0.0",
+  / psa-client-id /          2394: 2147483647,
+  / psa-security-lifecycle / 2395: 12288,
+  / psa-implementation-id /  2396: h'000000000000000000000000000
+0000000000000000000000000000000000000',
+  / psa-boot-seed /          2397: h'0000000000000000',
+  / psa-certification-reference / 2398: "1234567890123-12345",
+  / psa-software-components / 2399: [
     {
-      / measurement type /  1: "BL",
-      / measurement value / 2: h'0001020400010204000102040001020
-400010204000102040001020400010204',
-      / signer ID /         5: h'519200FF519200FF519200FF519200F
-F519200FF519200FF519200FF519200FF'
-    },
-    {
-      / measurement type /  1: "PRoT",
-      / measurement value / 2: h'0506070805060708050607080506070
-805060708050607080506070805060708',
-      / signer ID /         5: h'519200FF519200FF519200FF519200F
-F519200FF519200FF519200FF519200FF'
+      / measurement value / 2: h'0303030303030303030303030303030
+303030303030303030303030303030303',
+      / signer ID /         5: h'0404040404040404040404040404040
+404040404040404040404040404040404'
     }
   ],
-  / nonce /               10: h'00010203000102030001020300010203
-00010203000102030001020300010203',
-  / ueid /               256: h'01A0A1A2A3A0A1A2A3A0A1A2A3A0A1A2
-A3A0A1A2A3A0A1A2A3A0A1A2A3A0A1A2A3',
-  / psa-verification-service-indicator / 2400: "https://psa-ve
-rifier.org"
+  / nonce /     10: h'010101010101010101010101010101010101010101
+0101010101010101010101',
+  / ueid /     256: h'010202020202020202020202020202020202020202
+020202020202020202020202',
+  / psa-vsi / 2400: "https://veraison.example/v1/challenge-respo
+nse"
 }

@@ -48,11 +48,12 @@ check-example: $(AMALGAMATION) $(EXAMPLE)
 	$(cddl) $< validate $(EXAMPLE)
 
 test: $(AMALGAMATION) $(CBOR_FILES)
+	@echo "## testing against CDDL schema ($<)"
 	@for f in $(CBOR_FILES); do \
 		$(cddl) $< validate $$f &> /dev/null ; \
 		case $$f in \
-		*GOOD_*) [ $$? -eq 0 ] && echo "[OK] $$f" ;; \
-		*FAIL_*) [ $$? -ne 0 ] && echo "[OK] $$f" ;; \
+		*GOOD_*) [ $$? -eq 0 ] && echo "[OK] $$f" || echo "!! [KO] $$f" ;; \
+		*FAIL_*) [ $$? -ne 0 ] && echo "[OK] $$f" || echo "!! [KO] $$f" ;; \
 		esac ; \
 	done
 .PHONY: test
