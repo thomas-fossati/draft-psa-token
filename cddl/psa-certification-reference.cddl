@@ -1,4 +1,4 @@
-psa-certification-reference-type = text .regexp "[0-9]{13}"
+psa-certification-reference-type = text .regexp "[0-9]{13}-[0-9]{5}"
 
 psa-certification-reference = (
     ? psa-certification-reference-key => 

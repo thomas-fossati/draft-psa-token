@@ -68,6 +68,12 @@ normative:
     title: Platform Security Architecture Firmware Framework 1.0 (PSA-FF)
     target: https://developer.arm.com/-/media/Files/pdf/PlatformSecurityArchitecture/Architect/DEN0063-PSA_Firmware_Framework-1.0.0-2.pdf
     date: 20. Feb. 2019
+  PSA-Cert-Guide:
+    author:
+      org: PSA Certified
+    title: PSA Certified Level 2 Step by Step Guide Version 1.1
+    target: https://www.psacertified.org/app/uploads/2020/07/JSADEN011-PSA_Certified_Level_2_Step-by-Step-1.1-20200403.pdf
+    date: 2020
 
 informative:
   IANA-CWT:
@@ -341,7 +347,9 @@ To uniquely identify an instance, see the Instance ID claim {{sec-instance-id-cl
 
 The Certification Reference claim is used to link the class of chip and PSA RoT
 of the attesting device to an associated entry in the PSA Certification
-database. It MUST be represented as a thirteen-digit {{EAN-13}}.
+database. It MUST be represented as a string made of nineteen numeric
+characters: a thirteen-digit {{EAN-13}}, followed by a dash "-", followed by
+the five-digit versioning information described in {{PSA-Cert-Guide}}.
 
 Linking to the PSA Certification entry can still be achieved if this claim is
 not present in the token by making an association at a Verifier between the
@@ -524,10 +532,13 @@ keys.
 | Verification Service Indicator | -75010 | 2400 |
 {: #tab-claim-map title="Claim key mappings"}
 
-The new profile introduces two further changes:
+The new profile introduces three further changes:
 
-* the "Boot Seed" claim is now optional and variable length (see {{sec-boot-seed}}),
-* the "No Software Measurements" claim has been retired.
+* the "Boot Seed" claim is now optional and variable length (see
+  {{sec-boot-seed}}),
+* the "No Software Measurements" claim has been retired,
+* the "Certification Reference" syntax changed from EAN-13 to EAN-13+5 (see
+  {{sec-certification-reference}}).
 
 Unless compatibility with existing infrastructure is a concern, emitters (e.g.,
 devices that implement the PSA Attestation API) SHOULD produce tokens with
