@@ -478,9 +478,10 @@ SHOULD be encoded according to {{IANA-HashFunctionTextualNames}}.
 {: #sec-verification-service-indicator}
 
 The Verification Service Indicator claim is a hint used by a relying party to
-locate a validation service for the token. The value is a text string that can
-be used to locate the service or a URL specifying the address of the service. A
-Verifier may choose to ignore this claim in favor of other information.
+locate a verification service for the token. The value is a text string that
+can be used to locate the service (typically, a URL specifying the address of
+the verification service API). A Relying Party may choose to ignore this claim
+in favor of other information.
 
 ~~~
 {::include cddl/psa-verification-service-indicator.cddl}
