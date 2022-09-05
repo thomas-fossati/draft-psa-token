@@ -74,6 +74,10 @@ normative:
     title: PSA Certified Level 2 Step by Step Guide Version 1.1
     target: https://www.psacertified.org/app/uploads/2020/07/JSADEN011-PSA_Certified_Level_2_Step-by-Step-1.1-20200403.pdf
     date: 2020
+  STD96:
+    -: uri
+    =: RFC9052
+  COSE-ALGS: RFC9053
 
 informative:
   IANA-CWT:
@@ -564,11 +568,13 @@ structure MUST be COSE_Mac0.
 Acknowledging the variety of markets, regulations and use cases in which the
 PSA attestation token can be used, this specification does not impose any
 strong requirement on the cryptographic algorithms that need to be supported by
-Attesters and Verifiers.  It is assumed that some form of out-of-band discovery
-and negotiation is in place to allow interoperability between the involved
-parties, and that the flexibility provided by the COSE format is sufficient to
-deal with the level of cryptographic agility needed to adapt to specific use
-cases.
+Attesters and Verifiers.  It is assumed that the flexibility provided by the
+COSE format is sufficient to deal with the level of cryptographic agility
+needed to adapt to specific use cases.  For interoperability considerations, it
+is RECOMMENDED that commonly adopted algorithms are used, such as those
+discussed in {{COSE-ALGS}}).  It is expected that receivers (Verifiers and
+Relying Parties) will accept a wider range of algorithms, while Attesters would
+produce PSA tokens using only one such algorithm.
 
 The CWT CBOR tag (61) is not used.  An application that needs to exchange PSA
 attestation tokens can wrap the serialised COSE_Sign1 or COSE_Mac0 in the media
@@ -625,7 +631,7 @@ Hence, the security and privacy considerations of those specifications apply her
 Since CWTs offer different ways to protect the token, this specification
 profiles those options and allows signatures using public key cryptography as
 well as message authentication codes (MACs). COSE_Sign1 is used for digital
-signatures and COSE_Mac0 for MACs, as defined in the COSE specification {{!RFC8152}}.
+signatures and COSE_Mac0 for MACs, as defined in the COSE specification {{STD96}}.
 Note, however, that the use of MAC authentication is NOT RECOMMENDED due to the associated
 infrastructure costs for key management and protocol complexities.
 
