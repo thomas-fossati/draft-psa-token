@@ -25,31 +25,32 @@ pi:
   text-list-symbols: -o*+
 
 author:
- -
-    ins: H. Tschofenig
-    name: Hannes Tschofenig
+ -  name: Hannes Tschofenig
     organization: Arm Limited
     email: Hannes.Tschofenig@arm.com
- -
-    ins: S. Frost
-    name: Simon Frost
+ -  name: Simon Frost
     organization: Arm Limited
     email: Simon.Frost@arm.com
- -
-    ins: M. Brossard
-    name: Mathias Brossard
+ -  name: Mathias Brossard
     organization: Arm Limited
     email: Mathias.Brossard@arm.com
- -
-    ins: A. Shaw
-    name: Adrian Shaw
+ -  name: Adrian Shaw
     organization: HP Labs
     email: adrianlshaw@acm.org
- -
-    ins: T. Fossati
-    name: Thomas Fossati
+ -  name: Thomas Fossati
     organization: Arm Limited
     email: Thomas.Fossati@arm.com
+
+contributor:
+ -  name: Laurence Lundblade
+    organization: Security Theory LLC
+    email: lgl@securitytheory.com
+ -  name: Tamas Ban
+    organization: Arm Limited
+    email: Tamas.Ban@arm.com
+ -  name: Sergei Trofimov
+    organization: Arm Limited
+    email: Sergei.Trofimov@arm.com
 
 normative:
   PSA-SM:
@@ -76,12 +77,10 @@ normative:
     title: PSA Certified Level 2 Step by Step Guide Version 1.1
     target: https://www.psacertified.org/app/uploads/2020/07/JSADEN011-PSA_Certified_Level_2_Step-by-Step-1.1-20200403.pdf
     date: 2020
-STD96:
+  STD96:
     -: uri
     =: RFC9052
   COSE-ALGS: RFC9053
-
-informative:
   IANA-CWT:
     author:
       org: IANA
@@ -146,6 +145,9 @@ informative:
     target: https://developer.arm.com/-/media/Files/pdf/PlatformSecurityArchitecture/Implement/IHI0085-PSA_Attestation_API-1.0.2.pdf
     date: 2019
 
+entity:
+  SELF: "RFCthis"
+
 --- abstract
 
 The Platform Security Architecture (PSA) is a family of hardware and firmware
@@ -188,7 +190,7 @@ Model documentation {{PSA-SM}}.
 
 ## Glossary
 
-RoT
+RoT:
 : Root of Trust, the minimal set of software, hardware and data that has to be
 implicitly trusted in the platform - there is no software or hardware at a
 deeper level that can verify that the Root of Trust is authentic and
@@ -196,14 +198,14 @@ unmodified.  An example of RoT is an initial bootloader in ROM, which contains
 cryptographic functions and credentials, running on a specific hardware
 platform.
 
-SPE
+SPE:
 : Secure Processing Environment, a platform's processing environment for
 software that provides confidentiality and integrity for its runtime state,
 from software and hardware, outside of the SPE. Contains trusted code and
 trusted hardware.  (Equivalent to Trusted Execution Environment (TEE), or
 "secure world".)
 
-NSPE
+NSPE:
 : Non Secure Processing Environment, the security domain outside of the SPE,
 the Application domain, typically containing the application firmware,
 operating systems, and general hardware.  (Equivalent to Rich Execution
@@ -675,7 +677,7 @@ registry {{IANA-CWT}}.
 * Claim Key: 2394
 * Claim Value Type(s): signed integer
 * Change Controller: Hannes Tschofenig
-* Specification Document(s): {{sec-client-id}} of [[this RFC]]
+* Specification Document(s): {{sec-client-id}} of {{&SELF}}
 
 ### Security Lifecycle Claim
 
@@ -685,7 +687,7 @@ registry {{IANA-CWT}}.
 * Claim Key: 2395
 * Claim Value Type(s): unsigned integer
 * Change Controller: Hannes Tschofenig
-* Specification Document(s): {{sec-security-lifecycle}} of [[this RFC]]
+* Specification Document(s): {{sec-security-lifecycle}} of {{&SELF}}
 
 ### Implementation ID Claim
 
@@ -695,7 +697,7 @@ registry {{IANA-CWT}}.
 * Claim Key: 2396
 * Claim Value Type(s): byte string
 * Change Controller: Hannes Tschofenig
-* Specification Document(s): {{sec-implementation-id}} of [[this RFC]]
+* Specification Document(s): {{sec-implementation-id}} of {{&SELF}}
 
 ### Boot Seed Claim
 
@@ -705,7 +707,7 @@ registry {{IANA-CWT}}.
 * Claim Key: 2397
 * Claim Value Type(s): byte string
 * Change Controller: Hannes Tschofenig
-* Specification Document(s): {{sec-boot-seed}} of [[this RFC]]
+* Specification Document(s): {{sec-boot-seed}} of {{&SELF}}
 
 ### Certification Reference Claim
 
@@ -715,7 +717,7 @@ registry {{IANA-CWT}}.
 * Claim Key: 2398
 * Claim Value Type(s): text string
 * Change Controller: Hannes Tschofenig
-* Specification Document(s): {{sec-certification-reference}} of [[this RFC]]
+* Specification Document(s): {{sec-certification-reference}} of {{&SELF}}
 
 ### Software Components Claim
 
@@ -725,7 +727,7 @@ registry {{IANA-CWT}}.
 * Claim Key: 2399
 * Claim Value Type(s): array
 * Change Controller: Hannes Tschofenig
-* Specification Document(s): {{sec-sw-components}} of [[this RFC]]
+* Specification Document(s): {{sec-sw-components}} of {{&SELF}}
 
 ### Verification Service Indicator Claim
 
@@ -735,7 +737,7 @@ registry {{IANA-CWT}}.
 * Claim Key: 2400
 * Claim Value Type(s): text string
 * Change Controller: Hannes Tschofenig
-* Specification Document(s): {{sec-verification-service-indicator}} of [[this RFC]]
+* Specification Document(s): {{sec-verification-service-indicator}} of {{&SELF}}
 
 ## Media Type Registration
 {: #sec-iana-media-types}
@@ -751,9 +753,9 @@ the content is a PSA Attestation Token.
 * Optional parameters: n/a
 * Encoding considerations: binary
 * Security considerations: See the Security Considerations section
-  of [[this RFC]]
+  of {{&SELF}}
 * Interoperability considerations: n/a
-* Published specification: [[this RFC]]
+* Published specification: {{&SELF}}
 * Applications that use this media type: Attesters and Relying Parties sending
   PSA attestation tokens over HTTP(S), CoAP(S), and other transports.
 * Fragment identifier considerations: n/a
@@ -783,7 +785,7 @@ registry {{IANA-CoAP-Content-Formats}}.
 *  Media Type: application/psa-attestation-token
 *  Encoding: -
 *  Id: [[To-be-assigned by IANA]]
-*  Reference: [[this RFC]]
+*  Reference: {{&SELF}}
 
 --- back
 
@@ -810,29 +812,6 @@ The resulting COSE object is:
 
 ~~~
 {::include cddl/example/cose.diag}
-~~~
-
-# Contributors
-{:numbered="false"}
-
-We would like to thank the following colleagues for their contributions:
-
-~~~
-* Laurence Lundblade
-  Security Theory LLC
-  lgl@securitytheory.com
-~~~
-
-~~~
-* Tamas Ban
-  Arm Limited
-  Tamas.Ban@arm.com
-~~~
-
-~~~
-* Sergei Trofimov
-  Arm Limited
-  Sergei.Trofimov@arm.com
 ~~~
 
 # Acknowledgments
