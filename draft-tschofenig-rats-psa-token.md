@@ -1,4 +1,6 @@
 ---
+v: 3
+
 title: "Arm's Platform Security Architecture (PSA) Attestation Token"
 abbrev: "PSA Attestation Token"
 docname: draft-tschofenig-rats-psa-token-latest
@@ -587,29 +589,7 @@ remote attestation protocol is made.
 # Collated CDDL
 
 ~~~
-{::include cddl/psa-token.cddl}
-
-{::include cddl/psa-common-types.cddl}
-
-{::include cddl/psa-boot-seed.cddl}
-
-{::include cddl/psa-client-id.cddl}
-
-{::include cddl/psa-certification-reference.cddl}
-
-{::include cddl/psa-implementation-id.cddl}
-
-{::include cddl/psa-instance-id.cddl}
-
-{::include cddl/psa-nonce.cddl}
-
-{::include cddl/psa-profile.cddl}
-
-{::include cddl/psa-security-lifecycle.cddl}
-
-{::include cddl/psa-software-components.cddl}
-
-{::include cddl/psa-verification-service-indicator.cddl}
+{::include cddl/psa-attestation.cddl}
 ~~~
 
 # Implementation Status
