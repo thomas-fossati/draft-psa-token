@@ -1,4 +1,6 @@
 ---
+v: 3
+
 title: "Arm's Platform Security Architecture (PSA) Attestation Token"
 abbrev: "PSA Attestation Token"
 docname: draft-tschofenig-rats-psa-token-latest
@@ -74,7 +76,7 @@ normative:
     title: PSA Certified Level 2 Step by Step Guide Version 1.1
     target: https://www.psacertified.org/app/uploads/2020/07/JSADEN011-PSA_Certified_Level_2_Step-by-Step-1.1-20200403.pdf
     date: 2020
-  STD96:
+STD96:
     -: uri
     =: RFC9052
   COSE-ALGS: RFC9053
@@ -86,6 +88,8 @@ informative:
     title: CBOR Web Token (CWT) Claims
     target: https://www.iana.org/assignments/cwt/cwt.xhtml#claims-registry
     date: 2022
+
+informative:
   IANA-MediaTypes:
     author:
       org: IANA
@@ -482,9 +486,10 @@ SHOULD be encoded according to {{IANA-HashFunctionTextualNames}}.
 {: #sec-verification-service-indicator}
 
 The Verification Service Indicator claim is a hint used by a relying party to
-locate a validation service for the token. The value is a text string that can
-be used to locate the service or a URL specifying the address of the service. A
-Verifier may choose to ignore this claim in favor of other information.
+locate a verification service for the token. The value is a text string that
+can be used to locate the service (typically, a URL specifying the address of
+the verification service API). A Relying Party may choose to ignore this claim
+in favor of other information.
 
 ~~~
 {::include cddl/psa-verification-service-indicator.cddl}
@@ -592,29 +597,7 @@ remote attestation protocol is made.
 # Collated CDDL
 
 ~~~
-{::include cddl/psa-token.cddl}
-
-{::include cddl/psa-common-types.cddl}
-
-{::include cddl/psa-boot-seed.cddl}
-
-{::include cddl/psa-client-id.cddl}
-
-{::include cddl/psa-certification-reference.cddl}
-
-{::include cddl/psa-implementation-id.cddl}
-
-{::include cddl/psa-instance-id.cddl}
-
-{::include cddl/psa-nonce.cddl}
-
-{::include cddl/psa-profile.cddl}
-
-{::include cddl/psa-security-lifecycle.cddl}
-
-{::include cddl/psa-software-components.cddl}
-
-{::include cddl/psa-verification-service-indicator.cddl}
+{::include cddl/psa-attestation.cddl}
 ~~~
 
 # Implementation Status
@@ -681,17 +664,17 @@ is not in scope for this document.
 
 ## CBOR Web Token Claims Registration
 
-This specification requests IANA to register the following claims in the "CBOR
-Web Token (CWT) Claims" registry {{IANA-CWT}}.
+IANA has registered the following claims in the "CBOR Web Token (CWT) Claims"
+registry {{IANA-CWT}}.
 
 ### Client ID Claim
 
 * Claim Name: psa-client-id
 * Claim Description: PSA Client ID
 * JWT Claim Name: N/A
-* Claim Key: TBD (requested value: 2394)
+* Claim Key: 2394
 * Claim Value Type(s): signed integer
-* Change Controller: [[Authors of this RFC]]
+* Change Controller: Hannes Tschofenig
 * Specification Document(s): {{sec-client-id}} of [[this RFC]]
 
 ### Security Lifecycle Claim
@@ -699,9 +682,9 @@ Web Token (CWT) Claims" registry {{IANA-CWT}}.
 * Claim Name: psa-security-lifecycle
 * Claim Description: PSA Security Lifecycle
 * JWT Claim Name: N/A
-* Claim Key: TBD (requested value: 2395)
+* Claim Key: 2395
 * Claim Value Type(s): unsigned integer
-* Change Controller: [[Authors of this RFC]]
+* Change Controller: Hannes Tschofenig
 * Specification Document(s): {{sec-security-lifecycle}} of [[this RFC]]
 
 ### Implementation ID Claim
@@ -709,9 +692,9 @@ Web Token (CWT) Claims" registry {{IANA-CWT}}.
 * Claim Name: psa-implementation-id
 * Claim Description: PSA Implementation ID
 * JWT Claim Name: N/A
-* Claim Key: TBD (requested value: 2396)
+* Claim Key: 2396
 * Claim Value Type(s): byte string
-* Change Controller: [[Authors of this RFC]]
+* Change Controller: Hannes Tschofenig
 * Specification Document(s): {{sec-implementation-id}} of [[this RFC]]
 
 ### Boot Seed Claim
@@ -719,9 +702,9 @@ Web Token (CWT) Claims" registry {{IANA-CWT}}.
 * Claim Name: psa-boot-seed
 * Claim Description: PSA Boot Seed
 * JWT Claim Name: N/A
-* Claim Key: TBD (requested value: 2397)
+* Claim Key: 2397
 * Claim Value Type(s): byte string
-* Change Controller: [[Authors of this RFC]]
+* Change Controller: Hannes Tschofenig
 * Specification Document(s): {{sec-boot-seed}} of [[this RFC]]
 
 ### Certification Reference Claim
@@ -729,9 +712,9 @@ Web Token (CWT) Claims" registry {{IANA-CWT}}.
 * Claim Name: psa-certification-reference
 * Claim Description: PSA Certification Reference
 * JWT Claim Name: N/A
-* Claim Key: TBD (requested value: 2398)
+* Claim Key: 2398
 * Claim Value Type(s): text string
-* Change Controller: [[Authors of this RFC]]
+* Change Controller: Hannes Tschofenig
 * Specification Document(s): {{sec-certification-reference}} of [[this RFC]]
 
 ### Software Components Claim
@@ -739,9 +722,9 @@ Web Token (CWT) Claims" registry {{IANA-CWT}}.
 * Claim Name: psa-software-components
 * Claim Description: PSA Software Components
 * JWT Claim Name: N/A
-* Claim Key: TBD (requested value: 2399)
+* Claim Key: 2399
 * Claim Value Type(s): array
-* Change Controller: [[Authors of this RFC]]
+* Change Controller: Hannes Tschofenig
 * Specification Document(s): {{sec-sw-components}} of [[this RFC]]
 
 ### Verification Service Indicator Claim
@@ -749,9 +732,9 @@ Web Token (CWT) Claims" registry {{IANA-CWT}}.
 * Claim Name: psa-verification-service-indicator
 * Claim Description: PSA Verification Service Indicator
 * JWT Claim Name: N/A
-* Claim Key: TBD (requested value: 2400)
+* Claim Key: 2400
 * Claim Value Type(s): text string
-* Change Controller: [[Authors of this RFC]]
+* Change Controller: Hannes Tschofenig
 * Specification Document(s): {{sec-verification-service-indicator}} of [[this RFC]]
 
 ## Media Type Registration

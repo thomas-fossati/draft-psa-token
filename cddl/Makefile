@@ -29,7 +29,9 @@ FRAGMENTS += psa-verification-service-indicator.cddl
 
 AMALGAMATION := psa-attestation.cddl
 
-$(AMALGAMATION): $(FRAGMENTS) ; @$(RM) $@ && cat $^ >> $@
+$(AMALGAMATION): $(FRAGMENTS)
+	@rm -f $@
+	for f in $^ ; do ( grep -v '^;' $$f ; echo ) ; done > $@
 
 CLEANFILES += $(AMALGAMATION)
 
@@ -58,5 +60,5 @@ test: $(AMALGAMATION) $(CBOR_FILES)
 	done
 .PHONY: test
 
-clean: ; $(RM) $(CLEANFILES)
+clean: ; rm -f $(CLEANFILES)
 .PHONY: clean
