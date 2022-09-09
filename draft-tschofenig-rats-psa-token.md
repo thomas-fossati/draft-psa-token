@@ -666,8 +666,9 @@ is not in scope for this document.
 
 ## CBOR Web Token Claims Registration
 
-IANA has registered the following claims in the "CBOR Web Token (CWT) Claims"
-registry {{IANA-CWT}}.
+IANA is requested to make permanent the following claims that have been
+assigned via early allocation in the "CBOR Web Token (CWT) Claims" registry
+{{IANA-CWT}}.
 
 ### Client ID Claim
 
