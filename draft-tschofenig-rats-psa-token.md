@@ -420,8 +420,9 @@ If present, it MUST be between 8 and 32 bytes.
 {: #sec-sw-components }
 
 The Software Components claim is a list of software components that includes
-all the software loaded by the PSA RoT. This claim SHALL be included in
-attestation tokens produced by an implementation conformant with {{PSA-SM}}.
+all the software (both code and configuration) loaded by the PSA RoT.  This
+claim MUST be included in attestation tokens produced by an implementation
+conformant with {{PSA-SM}}.
 
 Each entry in the Software Components list describes one software component
 using the attributes described in the following subsections.  Unless explicitly
