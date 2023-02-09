@@ -429,7 +429,7 @@ stated, the presence of an attribute is OPTIONAL.
 
 Note that, as described in {{?RFC9334}}, a relying party will typically see the
 result of the verification process from the Verifier in form of an attestation
-result, rather than the "naked" PSA token from the attesting endpoint.
+result, rather than the PSA token from the attesting endpoint.
 Therefore, a relying party is not expected to understand the Software
 Components claim.  Instead, it is for the Verifier to check this claim against
 the available endorsements and provide an answer in form of an "high level"
