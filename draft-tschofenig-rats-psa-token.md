@@ -743,47 +743,31 @@ registry {{IANA-CWT}}.
 ## Media Type Registration
 {: #sec-iana-media-types}
 
-IANA is requested to register the "application/psa-attestation-token" media
-type {{!RFC2046}} in the "Media Types" registry {{IANA-MediaTypes}} in the
-manner described in RFC 6838 {{!RFC6838}}, which can be used to indicate that
-the content is a PSA Attestation Token.
-
-* Type name: application
-* Subtype name: psa-attestation-token
-* Required parameters: n/a
-* Optional parameters: n/a
-* Encoding considerations: binary
-* Security considerations: See the Security Considerations section
-  of {{&SELF}}
-* Interoperability considerations: n/a
-* Published specification: {{&SELF}}
-* Applications that use this media type: Attesters and Relying Parties sending
-  PSA attestation tokens over HTTP(S), CoAP(S), and other transports.
-* Fragment identifier considerations: n/a
-* Additional information:
-
-  * Magic number(s): n/a
-  * File extension(s): n/a
-  * Macintosh file type code(s): n/a
-
-* Person & email address to contact for further information:
-  Hannes Tschofenig, Hannes.Tschofenig@arm.com
-* Intended usage: COMMON
-* Restrictions on usage: none
-* Author: Hannes Tschofenig, Hannes.Tschofenig@arm.com
-* Change controller: IESG
-* Provisional registration?  No
+To indicate that the transmitted content is a PSA Attestation Token,
+applications can use the `application/eat-cwt` media type defined in
+{{!I-D.ietf-rats-eat-media-type}} with the `eat_profile` parameter set to
+`http://arm.com/psa/2.0.0` (or `PSA_IOT_PROFILE_1` if the token is encoded
+according to the old profile, see {{sec-backwards-compat}}).
 
 ## CoAP Content-Formats Registration
 {: #sec-iana-coap-content-format}
 
-IANA is requested to register the CoAP Content-Format ID for the
-"application/psa-attestation-token" media type in the "CoAP Content-Formats"
-registry {{IANA-CoAP-Content-Formats}}.
+IANA is requested to register two CoAP Content-Format IDs in the "CoAP
+Content-Formats" registry {{IANA-CoAP-Content-Formats}}:
+
+* One for the `application/eat-cwt` media type with the `eat_profile` parameter
+  equal to `http://arm.com/psa/2.0.0`
+* Another for the `application/eat-cwt` media type with the `eat_profile`
+  parameter equal to `PSA_IOT_PROFILE_1`
 
 ### Registry Contents
 
-*  Media Type: application/psa-attestation-token
+*  Media Type: `application/eat-cwt; eat_profile="http://arm.com/psa/2.0.0"`
+*  Encoding: -
+*  Id: [[To-be-assigned by IANA]]
+*  Reference: {{&SELF}}
+
+*  Media Type: `application/eat-cwt; eat_profile="PSA_IOT_PROFILE_1"`
 *  Encoding: -
 *  Id: [[To-be-assigned by IANA]]
 *  Reference: {{&SELF}}
