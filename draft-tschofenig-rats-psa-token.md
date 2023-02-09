@@ -446,13 +446,16 @@ Components claim.
 The Measurement Type attribute (key=1) is short string representing the role of
 this software component.
 
-The following measurement types MAY be used:
+The following measurement types MAY be used for code measurements:
 
 * "BL": a Boot Loader
 * "PRoT": a component of the PSA Root of Trust
 * "ARoT": a component of the Application Root of Trust
 * "App": a component of the NSPE application
 * "TS": a component of a Trusted Subsystem
+
+The same labels with a "-config" postfix (e.g., "PRoT-config") MAY be used for
+configuration measurements.
 
 #### Measurement Value
 
