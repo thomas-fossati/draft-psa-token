@@ -190,6 +190,7 @@ Model documentation {{PSA-SM}}.
 
 ## Glossary
 
+{: vspace="0"}
 RoT:
 : Root of Trust, the minimal set of software, hardware and data that has to be
 implicitly trusted in the platform - there is no software or hardware at a
@@ -214,7 +215,7 @@ Environment (REE), or "normal world".)
 # PSA Attester Model
 
 {{fig-psa-attester}} outlines the structure of the PSA Attester according to
-the conceptual model described in {{Section 3.1 of I-D.ietf-rats-architecture}}.
+the conceptual model described in {{Section 3.1 of RFC9334}}.
 
 ~~~ aasvg
 {::include art/psa-attester.ascii-art}
@@ -426,14 +427,14 @@ Each entry in the Software Components list describes one software component
 using the attributes described in the following subsections.  Unless explicitly
 stated, the presence of an attribute is OPTIONAL.
 
-Note that, as described in {{?I-D.ietf-rats-architecture}}, a relying party
-will typically see the result of the verification process from the Verifier in
-form of an attestation result, rather than the "naked" PSA token from the
-attesting endpoint.  Therefore, a relying party is not expected to understand
-the Software Components claim.  Instead, it is for the Verifier to check this
-claim against the available endorsements and provide an answer in form of an
-"high level" attestation result, which may or may not include the original
-Software Components claim.
+Note that, as described in {{?RFC9334}}, a relying party will typically see the
+result of the verification process from the Verifier in form of an attestation
+result, rather than the PSA token from the attesting endpoint.
+Therefore, a relying party is not expected to understand the Software
+Components claim.  Instead, it is for the Verifier to check this claim against
+the available endorsements and provide an answer in form of an "high level"
+attestation result, which may or may not include the original Software
+Components claim.
 
 ~~~
 {::include cddl/psa-software-components.cddl}
@@ -591,10 +592,9 @@ type defined in {{sec-iana-media-types}} or the CoAP Content-Format defined in
 # Freshness Model
 
 The PSA Token supports the freshness models for attestation Evidence based on
-nonces and epoch handles (Section 10.2 and 10.3 of
-{{?I-D.ietf-rats-architecture}}) using the `nonce` claim to convey the nonce or
-epoch handle supplied by the Verifier.  No further assumption on the specific
-remote attestation protocol is made.
+nonces and epoch handles ({{Section 10.2 and Section 10.3 of ?RFC9334}}) using
+the `nonce` claim to convey the nonce or epoch handle supplied by the Verifier.
+No further assumption on the specific remote attestation protocol is made.
 
 # Collated CDDL
 
