@@ -26,8 +26,8 @@ pi:
 
 author:
  -  name: Hannes Tschofenig
-    organization: Arm Limited
-    email: Hannes.Tschofenig@arm.com
+    organization:
+    email: Hannes.Tschofenig@gmx.net
  -  name: Simon Frost
     organization: Arm Limited
     email: Simon.Frost@arm.com
