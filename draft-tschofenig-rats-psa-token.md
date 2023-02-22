@@ -140,6 +140,7 @@ informative:
     target: https://developer.arm.com/-/media/Files/pdf/PlatformSecurityArchitecture/Implement/IHI0085-PSA_Attestation_API-1.0.2.pdf
     date: 2019
   PSA-Endorsements: I-D.fdb-rats-psa-endorsements
+  RATS-CoRIM: I-D.ietf-rats-corim
   RATS-AR4SI: I-D.ietf-rats-ar4si
 
 entity:
@@ -694,9 +695,9 @@ of RATS-AR4SI}}.
 
 ## Endorsements, Reference Values and Verification Key Material
 
-{{PSA-Endorsements}} defines a protocol based on the CoRIM data model that can
-be used to convey PSA Endorsements, Reference Values and verification key
-material to the Verifier.
+{{PSA-Endorsements}} defines a protocol based on the {{RATS-CoRIM}} data model
+that can be used to convey PSA Endorsements, Reference Values and verification
+key material to the Verifier.
 
 # IANA Considerations
 
