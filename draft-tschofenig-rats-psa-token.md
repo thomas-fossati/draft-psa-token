@@ -89,12 +89,7 @@ normative:
     date: 2022
 
 informative:
-  IANA-MediaTypes:
-    author:
-      org: IANA
-    title: Media Types
-    target: http://www.iana.org/assignments/media-types
-    date: 2022
+  RFC9334:
   IANA-HashFunctionTextualNames:
     author:
       org: IANA
@@ -144,6 +139,9 @@ informative:
     title: PSA Attestation API 1.0
     target: https://developer.arm.com/-/media/Files/pdf/PlatformSecurityArchitecture/Implement/IHI0085-PSA_Attestation_API-1.0.2.pdf
     date: 2019
+  PSA-Endorsements: I-D.fdb-rats-psa-endorsements
+  RATS-CoRIM: I-D.ietf-rats-corim
+  RATS-AR4SI: I-D.ietf-rats-ar4si
 
 entity:
   SELF: "RFCthis"
@@ -428,7 +426,7 @@ Each entry in the Software Components list describes one software component
 using the attributes described in the following subsections.  Unless explicitly
 stated, the presence of an attribute is OPTIONAL.
 
-Note that, as described in {{?RFC9334}}, a relying party will typically see the
+Note that, as described in {{RFC9334}}, a relying party will typically see the
 result of the verification process from the Verifier in form of an attestation
 result, rather than the PSA token from the attesting endpoint.
 Therefore, a relying party is not expected to understand the Software
@@ -596,7 +594,7 @@ type defined in {{sec-iana-media-types}} or the CoAP Content-Format defined in
 # Freshness Model
 
 The PSA Token supports the freshness models for attestation Evidence based on
-nonces and epoch handles ({{Section 10.2 and Section 10.3 of ?RFC9334}}) using
+nonces and epoch handles ({{Section 10.2 and Section 10.3 of RFC9334}}) using
 the `nonce` claim to convey the nonce or epoch handle supplied by the Verifier.
 No further assumption on the specific remote attestation protocol is made.
 
@@ -663,8 +661,43 @@ would include a policy with appraisal for the following claims:
   locate security certification information associated with the attesting
   device. An example could be a reference to a {{PSACertified}} certificate.
 
-The protocol used to convey Endorsements and Reference Values to the Verifier
-is not in scope for this document.
+## AR4SI Trustworthiness Claims Mappings
+
+{{RATS-AR4SI}} defines an information model that Verifiers can employ to
+produce Attestation Results.
+AR4SI provides a set of standardized appraisal categories and tiers that
+greatly simplifies the task of writing Relying Party policies in multi-attester
+environments.
+
+The contents of {{tab-ar4si-map}} are intended as guidance for implementing a
+PSA Verifier that computes its results using AR4SI.
+The table describes which PSA Evidence claims (if any) are related to which
+AR4SI trustworthiness claim, and therefore what the Verifier must consider when
+deciding if and how to appraise a certain feature associated with the PSA
+Attester.
+
+Trustworthiness Vector claims | Related PSA claims
+---|---
+`configuration` | Software Components ({{sec-sw-components}})
+`executables` | ditto
+`file-system` | N/A
+`hardware` | Implementation ID ({{sec-implementation-id}})
+`instance-identity` | Instance ID ({{sec-instance-id-claim}}).  The Security Lifecycle ({{sec-security-lifecycle}}) can also impact the derived identity.
+`runtime-opaque` | Indirectly derived from `executables`, `hardware`, and `instance-identity`.  The Security Lifecycle ({{sec-security-lifecycle}}) can also be relevant: for example, any debug state will expose otherwise protected memory.
+`sourced-data` | N/A
+`storage-opaque` | Indirectly derived from `executables`, `hardware`, and `instance-identity`.
+{: #tab-ar4si-map title="AR4SI Claims mappings"}
+
+This document does not prescribe what value must be chosen based on each
+possible situation: when assigning specific Trustworthiness Claim values, an
+implementation is expected to follow the algorithm described in {{Section 2.3.3
+of RATS-AR4SI}}.
+
+## Endorsements, Reference Values and Verification Key Material
+
+{{PSA-Endorsements}} defines a protocol based on the {{RATS-CoRIM}} data model
+that can be used to convey PSA Endorsements, Reference Values and verification
+key material to the Verifier.
 
 # IANA Considerations
 
