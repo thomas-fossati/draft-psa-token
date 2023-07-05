@@ -836,6 +836,12 @@ The resulting COSE object is:
 {::include cddl/example/cose.diag}
 ~~~
 
+which has the following base16 encoding:
+
+~~~
+{::include cddl/example/cose.hex}
+~~~
+
 # Acknowledgments
 {:numbered="false"}
 
