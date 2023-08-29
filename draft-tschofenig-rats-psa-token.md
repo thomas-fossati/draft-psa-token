@@ -69,7 +69,7 @@ normative:
     author:
       org: Arm
     title: Platform Security Architecture Firmware Framework 1.0 (PSA-FF)
-    target: https://developer.arm.com/-/media/Files/pdf/PlatformSecurityArchitecture/Architect/DEN0063-PSA_Firmware_Framework-1.0.0-2.pdf
+    target: https://developer.arm.com/documentation/den0063/a
     date: 20. Feb. 2019
   PSA-Cert-Guide:
     author:
