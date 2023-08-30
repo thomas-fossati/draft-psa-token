@@ -600,10 +600,12 @@ type defined in {{sec-iana-media-types}} or the CoAP Content-Format defined in
 IAKs can be either raw public keys or certified public keys.
 
 Certified public keys require the manufacturer to run the certification
-authority that issues x.509 certs for the IAKs.
+authority (CA) that issues x.509 certs for the IAKs.  (Note that operating a CA
+is a complex and expensive task that may be unaffordable to certain
+manufacturers.)
 
-This approach provides sensibly better scalability properties compared to using
-raw public keys, namely:
+If applicable, such approach provides sensibly better scalability properties
+compared to using raw public keys, namely:
 
 * storage requirements on the verifier side are minimised - the same
   manufacturer's trust anchor is used for any number of devices,
@@ -614,6 +616,12 @@ The IAK's x.509 cert can be inlined in the PSA token using the `x5chain` COSE
 header parameter {{COSE-X509}} at the cost of an increase in the PSA token
 size.  {{Section 4.4 of TLS12-IoT}} and {{Section 15 of TLS13-IoT}} provide
 guidance for profiling x.509 certs used in IoT deployments.
+Note that the exact split between pre-provisioned and inlined certs may vary
+depending on the specific deployment.  In that respect, `x5chain` is quite
+flexible: it can contain the end-entity (EE) cert only, the EE and a partial
+chain, or the EE and the full chain up to the trust anchor (see {{Section 2 of
+COSE-X509}} for the details).  Deciding a sensible split point may depend on
+constraints around network bandwidth and memory (especially network buffers).
 
 # Freshness Model
 
