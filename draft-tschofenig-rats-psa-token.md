@@ -87,6 +87,8 @@ normative:
     title: CBOR Web Token (CWT) Claims
     target: https://www.iana.org/assignments/cwt/cwt.xhtml#claims-registry
     date: 2022
+  EAT: I-D.ietf-rats-eat
+  EAT-MEDIATYPES: I-D.ietf-rats-eat-media-type
 
 informative:
   RFC9334:
@@ -274,11 +276,11 @@ claims:
 
 The Nonce claim is used to carry the challenge provided by the caller to demonstrate freshness of the generated token.
 
-The EAT {{!I-D.ietf-rats-eat}} `nonce` (claim key 10) is used.  The following
-constraints apply to the `nonce-type`:
+The EAT {{EAT}} `nonce` (claim key 10) is used.  The following constraints
+apply to the `nonce-type`:
 
 * The length MUST be either 32, 48, or 64 bytes.
-* Only a single nonce value is conveyed. Per {{!I-D.ietf-rats-eat}} the array notation is not used for encoding the nonce value.
+* Only a single nonce value is conveyed. The array notation MUST NOT be used for encoding the nonce value.
 
 
 This claim MUST be present in a PSA attestation token.
@@ -777,12 +779,13 @@ assigned via early allocation in the "CBOR Web Token (CWT) Claims" registry
 * Change Controller: Hannes Tschofenig
 * Specification Document(s): {{sec-verification-service-indicator}} of {{&SELF}}
 
-## Media Type Registration
+## Media Types
 {: #sec-iana-media-types}
 
+No new media type registration is requested.
 To indicate that the transmitted content is a PSA Attestation Token,
-applications can use the `application/eat-cwt` media type defined in
-{{!I-D.ietf-rats-eat-media-type}} with the `eat_profile` parameter set to
+applications can use the `application/eat+cwt` media type defined in
+{{EAT-MEDIATYPES}} with the `eat_profile` parameter set to
 `http://arm.com/psa/2.0.0` (or `PSA_IOT_PROFILE_1` if the token is encoded
 according to the old profile, see {{sec-backwards-compat}}).
 
@@ -792,19 +795,19 @@ according to the old profile, see {{sec-backwards-compat}}).
 IANA is requested to register two CoAP Content-Format IDs in the "CoAP
 Content-Formats" registry {{IANA-CoAP-Content-Formats}}:
 
-* One for the `application/eat-cwt` media type with the `eat_profile` parameter
+* One for the `application/eat+cwt` media type with the `eat_profile` parameter
   equal to `http://arm.com/psa/2.0.0`
-* Another for the `application/eat-cwt` media type with the `eat_profile`
+* Another for the `application/eat+cwt` media type with the `eat_profile`
   parameter equal to `PSA_IOT_PROFILE_1`
 
 ### Registry Contents
 
-*  Media Type: `application/eat-cwt; eat_profile="http://arm.com/psa/2.0.0"`
+*  Media Type: `application/eat+cwt; eat_profile="http://arm.com/psa/2.0.0"`
 *  Encoding: -
 *  Id: [[To-be-assigned by IANA]]
 *  Reference: {{&SELF}}
 
-*  Media Type: `application/eat-cwt; eat_profile="PSA_IOT_PROFILE_1"`
+*  Media Type: `application/eat+cwt; eat_profile="PSA_IOT_PROFILE_1"`
 *  Encoding: -
 *  Id: [[To-be-assigned by IANA]]
 *  Reference: {{&SELF}}
