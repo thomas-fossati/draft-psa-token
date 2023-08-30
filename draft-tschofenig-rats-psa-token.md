@@ -660,9 +660,9 @@ The key used for verification is either supplied to the Verifier by an
 authorized Endorser along with the corresponding Attester's Instance ID or
 inlined in the token using the `x5chain` header parameter as described in
 {{sec-scalability}}.
-If the IAK is a raw public key, the Instance ID claim is used (together with
-the kid in the COSE header, if present) to assist in locating the public key
-used to verify the signature covering the CWT token.
+If the IAK is a raw public key, the Instance and Implementation ID claims are
+used (together with the kid in the COSE header, if present) to assist in
+locating the key used to verify the signature covering the CWT token.
 
 In addition, the Verifier will typically operate a policy where values of some
 of the claims in this profile can be compared to reference values, registered
