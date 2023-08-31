@@ -622,7 +622,8 @@ depending on the specific deployment.  In that respect, `x5chain` is quite
 flexible: it can contain the end-entity (EE) cert only, the EE and a partial
 chain, or the EE and the full chain up to the trust anchor (see {{Section 2 of
 COSE-X509}} for the details).  Deciding a sensible split point may depend on
-constraints around network bandwidth and memory (especially network buffers).
+constraints around network bandwidth and computing resources available to the
+endpoints (especially network buffers).
 
 # Freshness Model
 
