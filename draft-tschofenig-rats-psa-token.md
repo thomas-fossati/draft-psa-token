@@ -38,8 +38,8 @@ author:
     organization: HP Labs
     email: adrianlshaw@acm.org
  -  name: Thomas Fossati
-    organization: Arm Limited
-    email: Thomas.Fossati@arm.com
+    organization: Linaro
+    email: thomas.fossati@linaro.org
 
 contributor:
  -  name: Laurence Lundblade
