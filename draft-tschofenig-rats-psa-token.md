@@ -87,10 +87,15 @@ normative:
     title: CBOR Web Token (CWT) Claims
     target: https://www.iana.org/assignments/cwt/cwt.xhtml#claims-registry
     date: 2022
+  X509: RFC5280
   EAT: I-D.ietf-rats-eat
   EAT-MEDIATYPES: I-D.ietf-rats-eat-media-type
 
+
 informative:
+  TLS12-IoT: RFC7925
+  TLS13-IoT: I-D.draft-ietf-uta-tls13-iot-profile
+  COSE-X509: RFC9360
   RFC9334:
   IANA-HashFunctionTextualNames:
     author:
@@ -595,6 +600,36 @@ attestation tokens can wrap the serialised COSE_Sign1 or COSE_Mac0 in the media
 type defined in {{sec-iana-media-types}} or the CoAP Content-Format defined in
 {{sec-iana-coap-content-format}}.
 
+# Scalability Considerations
+{: #sec-scalability}
+
+IAKs can be either raw public keys or certified public keys.
+
+Certified public keys require the manufacturer to run the certification
+authority (CA) that issues X.509 certs for the IAKs.  (Note that operating a CA
+is a complex and expensive task that may be unaffordable to certain
+manufacturers.)
+
+If applicable, such approach provides sensibly better scalability properties
+compared to using raw public keys, namely:
+
+* storage requirements on the verifier side are minimised - the same
+  manufacturer's trust anchor is used for any number of devices,
+* the provisioning model is simpler and more robust since there is no need to
+  notify the verifier about each newly manufactured device.
+
+The IAK's X.509 cert can be inlined in the PSA token using the `x5chain` COSE
+header parameter {{COSE-X509}} at the cost of an increase in the PSA token
+size.  {{Section 4.4 of TLS12-IoT}} and {{Section 15 of TLS13-IoT}} provide
+guidance for profiling X.509 certs used in IoT deployments.
+Note that the exact split between pre-provisioned and inlined certs may vary
+depending on the specific deployment.  In that respect, `x5chain` is quite
+flexible: it can contain the end-entity (EE) cert only, the EE and a partial
+chain, or the EE and the full chain up to the trust anchor (see {{Section 2 of
+COSE-X509}} for the details).  Deciding a sensible split point may depend on
+constraints around network bandwidth and computing resources available to the
+endpoints (especially network buffers).
+
 # Freshness Model
 
 The PSA Token supports the freshness models for attestation Evidence based on
@@ -635,11 +670,17 @@ keys.
 # Verification
 
 To verify the token, the primary need is to check correct encoding and signing
-as detailed in {{sec-token-encoding-and-signing}}.  In particular, the Instance
-ID claim is used (together with the kid in the COSE header, if present)
-to assist in locating the public key used to verify the signature covering the CWT token.
-The key used for verification is supplied to the Verifier by an authorized
-Endorser along with the corresponding Attester's Instance ID.
+as detailed in {{sec-token-encoding-and-signing}}.
+The key used for verification is either supplied to the Verifier by an
+authorized Endorser along with the corresponding Attester's Instance ID or
+inlined in the token using the `x5chain` header parameter as described in
+{{sec-scalability}}.
+If the IAK is a raw public key, the Instance and Implementation ID claims are
+used (together with the kid in the COSE header, if present) to assist in
+locating the key used to verify the signature covering the CWT token.
+If the IAK is a certified public key, X.509 path construction and validation
+({{Section 6 of X509}}) up to a trusted CA MUST be successful before the key is
+used to verify the token signature.
 
 In addition, the Verifier will typically operate a policy where values of some
 of the claims in this profile can be compared to reference values, registered
