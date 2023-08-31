@@ -87,6 +87,7 @@ normative:
     title: CBOR Web Token (CWT) Claims
     target: https://www.iana.org/assignments/cwt/cwt.xhtml#claims-registry
     date: 2022
+  X509: RFC5280
 
 informative:
   TLS12-IoT: RFC7925
@@ -671,6 +672,9 @@ inlined in the token using the `x5chain` header parameter as described in
 If the IAK is a raw public key, the Instance and Implementation ID claims are
 used (together with the kid in the COSE header, if present) to assist in
 locating the key used to verify the signature covering the CWT token.
+If the IAK is a certified public key, X.509 path construction and validation
+({{Section 6 of X509}}) up to a trusted CA MUST be successful before the key is
+used to verify the token signature.
 
 In addition, the Verifier will typically operate a policy where values of some
 of the claims in this profile can be compared to reference values, registered
