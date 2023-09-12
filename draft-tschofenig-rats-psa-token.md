@@ -600,6 +600,10 @@ attestation tokens can wrap the serialised COSE_Sign1 or COSE_Mac0 in the media
 type defined in {{sec-iana-media-types}} or the CoAP Content-Format defined in
 {{sec-iana-coap-content-format}}.
 
+A PSA token is always directly signed by the PSA RoT.  Therefore, a PSA
+claims-set ({{sec-psa-claims}}) is never carried in a Detached EAT bundle
+({{Section 5 of EAT}}).
+
 # Scalability Considerations
 {: #sec-scalability}
 
