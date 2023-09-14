@@ -585,8 +585,8 @@ decoder.
 
 Cryptographic protection is obtained by wrapping the `psa-token` map in a COSE
 Web Token (CWT) {{!RFC8392}}.  For asymmetric key algorithms, the signature
-structure MUST be COSE_Sign1.  For symmetric key algorithms, the signature
-structure MUST be COSE_Mac0.
+structure MUST be a tagged (18) COSE_Sign1.  For symmetric key algorithms, the signature
+structure MUST be a tagged (17) COSE_Mac0.
 
 Acknowledging the variety of markets, regulations and use cases in which the
 PSA attestation token can be used, this specification does not impose any
