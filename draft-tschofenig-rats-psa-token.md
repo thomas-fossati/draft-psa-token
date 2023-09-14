@@ -578,6 +578,10 @@ their clients to upgrade.
 
 The PSA attestation token is encoded in CBOR {{!RFC8949}} format.  Only
 definite-length string, arrays, and maps are allowed.
+Given that a PSA attester is typically found in a constrained device, it MAY
+NOT emit CBOR preferred serializations ({{Section 4.1 of RFC8949}}).
+Therefore, the receiver (e.g., a Verifier) MUST be a variation-tolerant
+decoder.
 
 Cryptographic protection is obtained by wrapping the `psa-token` map in a COSE
 Web Token (CWT) {{!RFC8392}}.  For asymmetric key algorithms, the signature
