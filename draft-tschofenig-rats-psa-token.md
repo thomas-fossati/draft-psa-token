@@ -513,14 +513,19 @@ in favor of other information.
 {: #sec-profile-definition-claim}
 
 The Profile Definition claim encodes the unique identifier that corresponds to
-the EAT profile described by this document.  This allows a receiver to assign
+one of the EAT profiles described by this document.  This allows a receiver to assign
 the intended semantics to the rest of the claims found in the token.
 
-The EAT `profile` (claim key 265) is used.  The following constraints
-apply to its type:
+The EAT `profile` (claim key 265) is used.
 
-* The URI encoding MUST be used.
-* The value MUST be `http://arm.com/psa/2.0.0`.
+The URI encoding MUST be used.
+
+The value MUST be one of:
+
+* `tag:psacertified.org,2023:psa#a+es` for the profile defined in {{sec-ecdsa-profile}},
+* `tag:psacertified.org,2023:psa#s+hmac` for the profile defined in {{sec-hmac-profile}}.
+
+Future profiles derived from the "base" PSA profile SHALL mint their unique value as described in {{sec-profile-uri-structure}}.
 
 This claim MUST be present in a PSA attestation token.
 
@@ -531,7 +536,22 @@ with previous versions of the PSA attestation token format.
 {::include cddl/psa-profile.cddl}
 ~~~
 
-# Backwards Compatibility Considerations
+#### URI Structure for the Profile Identifier
+{: #sec-profile-uri-structure}
+
+A new profile is associated with a unique string.
+
+The string MUST use the URI fragment syntax defined in {{Section 3.5 of !RFC3986}}.
+
+The string SHOULD be short to avoid unnecessary overhead.
+
+To avoid collisions, profile authors SHOULD communicate upfront their intent to use a certain string using the enquiry form on the {{PSACertified}} website.
+
+To derive the value to be used for the `eat_profile` claim, the string is added as a fragment to the `tag:psacertified.org,2023:psa` tag URI {{!RFC4151}}.
+
+For example, an hypothetical profile using a COSE_Mac0 with AES Message Authenticationm Code (AES-MAC) may decide to use the string "s+aes-mac".  The `eat_profile` value would than be: `tag:psacertified.org,2023:psa#s+aes-mac`.
+
+## Backwards Compatibility Considerations
 {: #sec-backwards-compat}
 
 A previous version of this specification (identified by the `PSA_IOT_PROFILE_1`
@@ -573,7 +593,15 @@ accept tokens encoded according to the old profile (`PSA_IOT_PROFILE_1`) as well
 to the new profile (`http://arm.com/psa/2.0.0`), at least for the time needed to
 their clients to upgrade.
 
-# Token Encoding and Signing
+# Profiles
+
+This document defines a baseline with common requirements that all PSA profile must satisfy.
+
+If also defines two profiles ({{sec-ecdsa-profile}} and {{sec-hmac-profile}}) that build on the baseline while constraining the use of COSE primitives and algorithms to improve interoperability.
+
+## Baseline Profile
+
+### Token Encoding and Signing
 {: #sec-token-encoding-and-signing}
 
 The PSA attestation token is encoded in CBOR {{!RFC8949}} format.  Only
@@ -608,6 +636,68 @@ A PSA token is always directly signed by the PSA RoT.  Therefore, a PSA
 claims-set ({{sec-psa-claims}}) is never carried in a Detached EAT bundle
 ({{Section 5 of EAT}}).
 
+### Freshness Model
+
+The PSA Token supports the freshness models for attestation Evidence based on
+nonces and epoch handles ({{Section 10.2 and Section 10.3 of RFC9334}}) using
+the `nonce` claim to convey the nonce or epoch handle supplied by the Verifier.
+No further assumption on the specific remote attestation protocol is made.
+
+Note that use of epoch handles is constrained by the type restrictions imposed by the `eat_nonce` syntax.
+For use in PSA tokens, it must be possible to encode the epoch handle as an opaque binary string between 8 and 64 octets.
+
+## Profile LM
+{: #sec-ecdsa-profile}
+
+This profile is suitable for devices using TrustedFirmware-M {{TF-M}} built with profile Large, Medium and Medium-ARoT-less.
+
+{{ecdsa-profile}} presents a concise view of the requirements.
+
+The value of the `eat_profile` MUST be `tag:psacertified.org,2023:psa#lm+es`.
+
+| Issue | Profile Definition |
+| CBOR/JSON | CBOR MUST be used  |
+| CBOR Encoding | Definite length maps and arrays MUST be used |
+| CBOR Encoding | Definite length strings MUST be used |
+| CBOR Serialization | Variant serialization MAY be used |
+| COSE Protection | COSE_Sign1 MUST be used |
+| Algorithms | The receiver MUST accept ES256, ES384 and ES512; the sender MUST send one of these |
+| Detached EAT Bundle Usage | Detached EAT bundles MUST not be sent with this profile |
+| Verification Key Identification | Implementation ID and Instance ID MUST be used to identify the verification key|
+| Endorsements | See {{sec-psa-endorsements}} |
+| Freshness | A new single unique nonce MUST be used for every token request |
+| Claims | Those defined in {{sec-psa-claims}}. As per general EAT rules, the receiver MUST NOT error out on claims it doesn't understand. |
+{: #ecdsa-profile title="Large/Medium Profile"}
+
+## Profile S
+{: #sec-hmac-profile}
+
+This profile is tailored for devices using TrustedFirmware-M {{TF-M}} built with profile Small.
+
+{{hmac-profile}} presents a concise view of the profile requirements.
+
+The value of the `eat_profile` MUST be `tag:psacertified.org,2023:psa#s+hmac`.
+
+| Issue | Profile Definition |
+| CBOR/JSON | CBOR MUST be used  |
+| CBOR Encoding | Definite length maps and arrays MUST be used |
+| CBOR Encoding | Definite length strings MUST be used |
+| CBOR Serialization | Variant serialization MAY be used |
+| COSE Protection | COSE_Mac0 MUST be used |
+| Algorithms | The receiver MUST accept HMAC256/256, HMAC384/384 and HMAC512/512; the sender MUST send one of these |
+| Detached EAT Bundle Usage | Detached EAT bundles MUST not be sent with this profile |
+| Verification Key Identification | Implementation ID and Instance ID MUST be used to identify the verification key|
+| Endorsements | See {{sec-psa-endorsements}} |
+| Freshness | either nonce or Epoch ID based freshness |
+| Claims | Those defined in {{sec-psa-claims}}. As per general EAT rules, the receiver MUST NOT error out on claims it doesn't understand. |
+{: #hmac-profile title="Small Profile"}
+
+# Collated CDDL
+
+~~~
+{::include cddl/psa-attestation.cddl}
+~~~
+
 # Scalability Considerations
 {: #sec-scalability}
 
@@ -637,19 +727,6 @@ chain, or the EE and the full chain up to the trust anchor (see {{Section 2 of
 COSE-X509}} for the details).  Deciding a sensible split point may depend on
 constraints around network bandwidth and computing resources available to the
 endpoints (especially network buffers).
-
-# Freshness Model
-
-The PSA Token supports the freshness models for attestation Evidence based on
-nonces and epoch handles ({{Section 10.2 and Section 10.3 of RFC9334}}) using
-the `nonce` claim to convey the nonce or epoch handle supplied by the Verifier.
-No further assumption on the specific remote attestation protocol is made.
-
-# Collated CDDL
-
-~~~
-{::include cddl/psa-attestation.cddl}
-~~~
 
 # Implementation Status
 
@@ -747,6 +824,7 @@ implementation is expected to follow the algorithm described in {{Section 2.3.3
 of RATS-AR4SI}}.
 
 ## Endorsements, Reference Values and Verification Key Material
+{: #sec-psa-endorsements}
 
 {{PSA-Endorsements}} defines a protocol based on the {{RATS-CoRIM}} data model
 that can be used to convey PSA Endorsements, Reference Values and verification
