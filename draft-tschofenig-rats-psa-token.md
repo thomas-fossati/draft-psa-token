@@ -525,7 +525,7 @@ The value MUST be one of:
 * `tag:psacertified.org,2023:psa#a+es` for the profile defined in {{sec-ecdsa-profile}},
 * `tag:psacertified.org,2023:psa#s+hmac` for the profile defined in {{sec-hmac-profile}}.
 
-Future profiles derived from the "base" PSA profile SHALL mint their unique value as described in {{sec-profile-uri-structure}}.
+Future profiles derived from the baseline PSA profile SHALL mint their unique value as described in {{sec-profile-uri-structure}}.
 
 This claim MUST be present in a PSA attestation token.
 
@@ -536,7 +536,7 @@ with previous versions of the PSA attestation token format.
 {::include cddl/psa-profile.cddl}
 ~~~
 
-#### URI Structure for the Profile Identifier
+#### URI Structure for the Derived Profile Identifiers
 {: #sec-profile-uri-structure}
 
 A new profile is associated with a unique string.
@@ -549,7 +549,7 @@ To avoid collisions, profile authors SHOULD communicate upfront their intent to 
 
 To derive the value to be used for the `eat_profile` claim, the string is added as a fragment to the `tag:psacertified.org,2023:psa` tag URI {{!RFC4151}}.
 
-For example, an hypothetical profile using a COSE_Mac0 with AES Message Authenticationm Code (AES-MAC) may decide to use the string "s+aes-mac".  The `eat_profile` value would than be: `tag:psacertified.org,2023:psa#s+aes-mac`.
+For example, an hypothetical profile using a COSE_Mac0 with AES Message Authenticationm Code (AES-MAC) may decide to use the string "s+aes-mac".  The `eat_profile` value would then be: `tag:psacertified.org,2023:psa#s+aes-mac`.
 
 ## Backwards Compatibility Considerations
 {: #sec-backwards-compat}
@@ -595,9 +595,9 @@ their clients to upgrade.
 
 # Profiles
 
-This document defines a baseline with common requirements that all PSA profile must satisfy.
+This document defines a baseline with common requirements that all PSA profiles must satisfy.
 
-If also defines two profiles ({{sec-ecdsa-profile}} and {{sec-hmac-profile}}) that build on the baseline while constraining the use of COSE primitives and algorithms to improve interoperability.
+This document also defines two profiles ({{sec-ecdsa-profile}} and {{sec-hmac-profile}}) that build on the baseline while constraining the use of COSE primitives and algorithms to improve interoperability between PSA Attesters and Verifiers.
 
 ## Baseline Profile
 
@@ -609,23 +609,22 @@ definite-length string, arrays, and maps are allowed.
 Given that a PSA attester is typically found in a constrained device, it MAY
 NOT emit CBOR preferred serializations ({{Section 4.1 of RFC8949}}).
 Therefore, the receiver (e.g., a Verifier) MUST be a variation-tolerant
-decoder.
+CBOR decoder.
 
-Cryptographic protection is obtained by wrapping the `psa-token` map in a COSE
+Cryptographic protection is obtained by wrapping the `psa-token` claims-set in a COSE
 Web Token (CWT) {{!RFC8392}}.  For asymmetric key algorithms, the signature
 structure MUST be a tagged (18) COSE_Sign1.  For symmetric key algorithms, the signature
 structure MUST be a tagged (17) COSE_Mac0.
 
 Acknowledging the variety of markets, regulations and use cases in which the
-PSA attestation token can be used, this specification does not impose any
+PSA attestation token can be used, the baseline profile does not impose any
 strong requirement on the cryptographic algorithms that need to be supported by
-Attesters and Verifiers.  It is assumed that the flexibility provided by the
-COSE format is sufficient to deal with the level of cryptographic agility
-needed to adapt to specific use cases.  For interoperability considerations, it
-is RECOMMENDED that commonly adopted algorithms are used, such as those
-discussed in {{COSE-ALGS}}).  It is expected that receivers (Verifiers and
-Relying Parties) will accept a wider range of algorithms, while Attesters would
-produce PSA tokens using only one such algorithm.
+Attesters and Verifiers.  The flexibility provided by the COSE format should be
+sufficient to deal with the level of cryptographic agility needed to adapt to
+specific use cases.  It is RECOMMENDED that commonly adopted algorithms are
+used, such as those discussed in {{COSE-ALGS}}.  It is expected that receivers
+(Verifiers and Relying Parties) will accept a wider range of algorithms, while
+Attesters would produce PSA tokens using only one such algorithm.
 
 The CWT CBOR tag (61) is not used.  An application that needs to exchange PSA
 attestation tokens can wrap the serialised COSE_Sign1 or COSE_Mac0 in the media
@@ -646,51 +645,69 @@ No further assumption on the specific remote attestation protocol is made.
 Note that use of epoch handles is constrained by the type restrictions imposed by the `eat_nonce` syntax.
 For use in PSA tokens, it must be possible to encode the epoch handle as an opaque binary string between 8 and 64 octets.
 
-## Profile LM
-{: #sec-ecdsa-profile}
+### Synopsis
 
-This profile is suitable for devices using TrustedFirmware-M {{TF-M}} built with profile Large, Medium and Medium-ARoT-less.
-
-{{ecdsa-profile}} presents a concise view of the requirements.
-
-The value of the `eat_profile` MUST be `tag:psacertified.org,2023:psa#lm+es`.
+{{tbl-baseline-profile}} presents a concise view of the requirements.
 
 | Issue | Profile Definition |
 | CBOR/JSON | CBOR MUST be used  |
 | CBOR Encoding | Definite length maps and arrays MUST be used |
 | CBOR Encoding | Definite length strings MUST be used |
 | CBOR Serialization | Variant serialization MAY be used |
+| COSE Protection | COSE_Sign1 and/or COSE_Mac0 MUST be used |
+| Algorithms | {{COSE-ALGS}} SHOULD be used |
+| Detached EAT Bundle Usage | Detached EAT bundles MUST not be sent |
+| Verification Key Identification | Any identification method listed in {{Appendix F.1 of EAT}} |
+| Endorsements | See {{sec-psa-endorsements}} |
+| Freshness | nonce or epoch ID based |
+| Claims | Those defined in {{sec-psa-claims}}. As per general EAT rules, the receiver MUST NOT error out on claims it doesn't understand. |
+{: #tbl-baseline-profile title="Baseline Profile"}
+
+## Profile LM
+{: #sec-ecdsa-profile}
+
+This profile is suitable for devices using TrustedFirmware-M {{TF-M}} built with profile Large, Medium and Medium-ARoT-less.
+
+{{tbl-ecdsa-profile}} presents a concise view of the requirements.
+
+The value of the `eat_profile` MUST be `tag:psacertified.org,2023:psa#lm+es`.
+
+| Issue | Profile Definition |
+| CBOR/JSON | See {{baseline-profile}} |
+| CBOR Encoding | See {{baseline-profile}} |
+| CBOR Encoding | See {{baseline-profile}} |
+| CBOR Serialization | See {{baseline-profile}} |
 | COSE Protection | COSE_Sign1 MUST be used |
 | Algorithms | The receiver MUST accept ES256, ES384 and ES512; the sender MUST send one of these |
-| Detached EAT Bundle Usage | Detached EAT bundles MUST not be sent with this profile |
-| Verification Key Identification | Implementation ID and Instance ID MUST be used to identify the verification key|
+| Detached EAT Bundle Usage | See {{baseline-profile}} |
+| Verification Key Identification | Claim-Based Key Identification ({{Appendix F.1.4 of EAT}}) using Implementation ID and Instance ID |
 | Endorsements | See {{sec-psa-endorsements}} |
-| Freshness | A new single unique nonce MUST be used for every token request |
-| Claims | Those defined in {{sec-psa-claims}}. As per general EAT rules, the receiver MUST NOT error out on claims it doesn't understand. |
-{: #ecdsa-profile title="Large/Medium Profile"}
+| Freshness | See {{baseline-profile}} |
+| Claims | See {{baseline-profile}} |
+{: #tbl-ecdsa-profile title="Large/Medium Profile"}
 
 ## Profile S
 {: #sec-hmac-profile}
 
 This profile is tailored for devices using TrustedFirmware-M {{TF-M}} built with profile Small.
 
-{{hmac-profile}} presents a concise view of the profile requirements.
+{{tbl-hmac-profile}} presents a concise view of the profile requirements.
 
 The value of the `eat_profile` MUST be `tag:psacertified.org,2023:psa#s+hmac`.
 
 | Issue | Profile Definition |
-| CBOR/JSON | CBOR MUST be used  |
-| CBOR Encoding | Definite length maps and arrays MUST be used |
-| CBOR Encoding | Definite length strings MUST be used |
-| CBOR Serialization | Variant serialization MAY be used |
+| CBOR/JSON | See {{baseline-profile}} |
+| CBOR Encoding | See {{baseline-profile}} |
+| CBOR Encoding | See {{baseline-profile}} |
+| CBOR Serialization | See {{baseline-profile}} |
 | COSE Protection | COSE_Mac0 MUST be used |
 | Algorithms | The receiver MUST accept HMAC256/256, HMAC384/384 and HMAC512/512; the sender MUST send one of these |
-| Detached EAT Bundle Usage | Detached EAT bundles MUST not be sent with this profile |
-| Verification Key Identification | Implementation ID and Instance ID MUST be used to identify the verification key|
-| Endorsements | See {{sec-psa-endorsements}} |
-| Freshness | either nonce or Epoch ID based freshness |
-| Claims | Those defined in {{sec-psa-claims}}. As per general EAT rules, the receiver MUST NOT error out on claims it doesn't understand. |
-{: #hmac-profile title="Small Profile"}
+| Detached EAT Bundle Usage | See {{baseline-profile}} |
+| Verification Key Identification | Claim-Based Key Identification ({{Appendix F.1.4 of EAT}}) using Implementation ID and Instance ID |
+| Endorsements | See {{baseline-profile}} |
+| Freshness | See {{baseline-profile}} |
+| Claims | See {{baseline-profile}} |
+{: #tbl-hmac-profile title="Small Profile"}
 
 # Collated CDDL
 
@@ -715,6 +732,8 @@ compared to using raw public keys, namely:
   manufacturer's trust anchor is used for any number of devices,
 * the provisioning model is simpler and more robust since there is no need to
   notify the verifier about each newly manufactured device.
+* already existing and well understood revocation mechanisms (CRL, OCSP) can be
+  used.
 
 The IAK's X.509 cert can be inlined in the PSA token using the `x5chain` COSE
 header parameter {{COSE-X509}} at the cost of an increase in the PSA token
@@ -724,7 +743,7 @@ Note that the exact split between pre-provisioned and inlined certs may vary
 depending on the specific deployment.  In that respect, `x5chain` is quite
 flexible: it can contain the end-entity (EE) cert only, the EE and a partial
 chain, or the EE and the full chain up to the trust anchor (see {{Section 2 of
-COSE-X509}} for the details).  Deciding a sensible split point may depend on
+COSE-X509}} for the details).  Deciding on a sensible split point may depend on
 constraints around network bandwidth and computing resources available to the
 endpoints (especially network buffers).
 
