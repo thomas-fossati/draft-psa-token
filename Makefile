@@ -22,9 +22,8 @@ CDDL_FRAGS += cddl/psa-security-lifecycle.cddl
 CDDL_FRAGS += cddl/psa-software-components.cddl
 CDDL_FRAGS += cddl/psa-verification-service-indicator.cddl
 
-EXAMPLES := cddl/example/cose.diag
-EXAMPLES += cddl/example/iak.jwk
-EXAMPLES += cddl/example/psa-token.diag
+EXAMPLES := $(wildcard cddl/example/*.diag)
+EXAMPLES += $(wildcard cddl/example/*.json)
 
 ARTWORK := art/psa-attester.ascii-art
 ARTWORK += art/psa-lifecycle.ascii-art

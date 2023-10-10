@@ -1,0 +1,10 @@
+instance_id: !!binary AQICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC
+implementation_id: !!binary AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+challenge: !!binary AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQE=
+client_id: 2147483647
+security_lifecycle: sl_secured
+profile_id: tag:psacertified.org,2023:psa#tfm
+boot_seed: !!binary AAAAAAAAAAA=
+sw_components:
+    - signer_id: !!binary BAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQ=
+      measurement_value: !!binary AwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwM=

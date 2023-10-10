@@ -865,35 +865,68 @@ Content-Formats" registry {{IANA-CoAP-Content-Formats}}:
 
 --- back
 
-# Example
+# Examples
 
-The following example shows a PSA attestation token for an hypothetical system
-comprising two measured software components (a boot loader and a trusted RTOS).
-The attesting device is in a lifecycle state {{sec-security-lifecycle}} of
+The following examples show PSA attestation tokens for an hypothetical system
+comprising a single measured software component.
+The attesting device is in a lifecycle state ({{sec-security-lifecycle}}) of
 SECURED.  The attestation has been requested from a client residing in the
-SPE:
+SPE.
+
+The example in {{ex-sign1}} illustrates the case where the IAK is an asymmetric key.  A COSE Sign1 envelope is used to wrap the PSA claims-set.
+
+{{ex-mac0}} illustrates the case where the IAK is a symmetric key (TF-M is compiled with `SYMMETRIC_INITIAL_ATTESTATION`) and a COSE Mac0 envelope is used instead.
+
+The claims sets are identical, except for the Instance ID which is synthesized from the key material.
+
+## COSE Sign1 Token {#ex-sign1}
 
 ~~~
-{::include cddl/example/psa-token.diag}
+{::include cddl/example/sign1-claims.diag}
 ~~~
 
 The JWK representation of the IAK used for creating the COSE Sign1 signature
 over the PSA token is:
 
 ~~~
-{::include cddl/example/iak.jwk}
+{::include cddl/example/tfm-es-iak.json}
 ~~~
 
 The resulting COSE object is:
 
 ~~~
-{::include cddl/example/cose.diag}
+{::include cddl/example/psa-sign1.diag}
 ~~~
 
 which has the following base16 encoding:
 
 ~~~
-{::include cddl/example/cose.hex}
+{::include cddl/example/psa-sign1.hex}
+~~~
+
+## COSE Mac0 Token {#ex-mac0}
+
+~~~
+{::include cddl/example/mac0-claims.diag}
+~~~
+
+The JWK representation of the IAK used for creating the COSE Mac0 signature
+over the PSA token is:
+
+~~~
+{::include cddl/example/tfm-hs-iak.json}
+~~~
+
+The resulting COSE object is:
+
+~~~
+{::include cddl/example/psa-mac0.diag}
+~~~
+
+which has the following base16 encoding:
+
+~~~
+{::include cddl/example/psa-mac0.hex}
 ~~~
 
 # Acknowledgments
