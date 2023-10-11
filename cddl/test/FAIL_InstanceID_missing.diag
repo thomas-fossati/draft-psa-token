@@ -33,5 +33,5 @@
       / nonce /            10: h'000102030405060708090a0b0c0d0e0f1011
       12131415161718191a1b1c1d1e1f',
       / clientID /       2394: -1,
-      / profile /         265: "http://arm.com/psa/2.0.0"
+      / profile /         265: "tag:psacertified.org,2023:psa#tfm"
 }

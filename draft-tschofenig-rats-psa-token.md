@@ -558,7 +558,7 @@ registry.  These claim keys have now been retired and their use is deprecated.
 {{tab-claim-map}} provides the mappings between the deprecated and new claim
 keys.
 
-| | PSA_IOT_PROFILE_1 | http://arm.com/psa/2.0.0 |
+| | PSA_IOT_PROFILE_1 | tag:psacertified.org,2023:psa#tfm |
 |-|-------------------|--------------------------|
 | Nonce | -75008 | 10 (EAT nonce) |
 | Instance ID | -75009 | 256 (EAT euid) |
@@ -587,7 +587,7 @@ the claim keys specified in this document.
 To simplify the transition to the token format described in this
 document it is RECOMMENDED that receivers (e.g., PSA Attestation Verifiers)
 accept tokens encoded according to the old profile (`PSA_IOT_PROFILE_1`) as well as
-to the new profile (`http://arm.com/psa/2.0.0`), at least for the time needed to
+to the new profile (`tag:psacertified.org,2023:psa#tfm`), at least for the time needed to
 their clients to upgrade.
 
 # Profiles
@@ -908,7 +908,7 @@ No new media type registration is requested.
 To indicate that the transmitted content is a PSA Attestation Token,
 applications can use the `application/eat+cwt` media type defined in
 {{EAT-MEDIATYPES}} with the `eat_profile` parameter set to
-`http://arm.com/psa/2.0.0` (or `PSA_IOT_PROFILE_1` if the token is encoded
+`tag:psacertified.org,2023:psa#tfm` (or `PSA_IOT_PROFILE_1` if the token is encoded
 according to the old profile, see {{sec-backwards-compat}}).
 
 ## CoAP Content-Formats Registration
@@ -918,13 +918,13 @@ IANA is requested to register two CoAP Content-Format IDs in the "CoAP
 Content-Formats" registry {{IANA-CoAP-Content-Formats}}:
 
 * One for the `application/eat+cwt` media type with the `eat_profile` parameter
-  equal to `http://arm.com/psa/2.0.0`
+  equal to `tag:psacertified.org,2023:psa#tfm`
 * Another for the `application/eat+cwt` media type with the `eat_profile`
   parameter equal to `PSA_IOT_PROFILE_1`
 
 ### Registry Contents
 
-*  Media Type: `application/eat+cwt; eat_profile="http://arm.com/psa/2.0.0"`
+*  Media Type: `application/eat+cwt; eat_profile="tag:psacertified.org,2023:psa#tfm"`
 *  Encoding: -
 *  Id: [[To-be-assigned by IANA]]
 *  Reference: {{&SELF}}

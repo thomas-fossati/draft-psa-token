@@ -44,6 +44,6 @@
       / clientID /            2394: -1,
       / ueid /    256: h'01000102030405060708090a0b0c0d0e0f10
       1112131415161718191a1b1c1d1e1f',
-      / profile / 265: "http://arm.com/psa/2.0.0",
+      / profile / 265: "tag:psacertified.org,2023:psa#tfm",
       / arm_psa_hw_version / 2398: "0123456789012-12345"
 }

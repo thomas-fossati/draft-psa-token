@@ -1,4 +1,4 @@
-psa-profile-type = "http://arm.com/psa/2.0.0"
+psa-profile-type = "tag:psacertified.org,2023:psa#tfm"
 
 psa-profile = (
     profile-label => psa-profile-type
