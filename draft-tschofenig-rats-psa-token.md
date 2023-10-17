@@ -522,7 +522,7 @@ The URI encoding MUST be used.
 
 The value MUST be `tag:psacertified.org,2023:psa#tfm` for the profile defined in {{sec-tfm-profile}}.
 
-Future profiles derived from the baseline PSA profile SHALL mint their unique value as described in {{sec-profile-uri-structure}}.
+Future profiles derived from the baseline PSA profile SHALL create their unique value, as described in {{sec-profile-uri-structure}}.
 
 This claim MUST be present in a PSA attestation token.
 
