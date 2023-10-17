@@ -875,7 +875,7 @@ SPE.
 
 The example in {{ex-sign1}} illustrates the case where the IAK is an asymmetric key.  A COSE Sign1 envelope is used to wrap the PSA claims-set.
 
-{{ex-mac0}} illustrates the case where the IAK is a symmetric key (TF-M is compiled with `SYMMETRIC_INITIAL_ATTESTATION`) and a COSE Mac0 envelope is used instead.
+{{ex-mac0}} illustrates the case where the IAK is a symmetric key and a COSE Mac0 envelope is used instead.
 
 The claims sets are identical, except for the Instance ID which is synthesized from the key material.
 
