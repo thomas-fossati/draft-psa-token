@@ -1,0 +1,3770 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2022-09-11T00:34:11.128364+00:00",
+  "repo": "thomas-fossati/draft-psa-token",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    },
+    {
+      "name": "future",
+      "description": "",
+      "color": "f9d0c4"
+    }
+  ],
+  "issues": [
+    {
+      "number": 1,
+      "id": "MDU6SXNzdWU1NzY5MjAyMjA=",
+      "title": "We need to deprecate HW-ver",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/1",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "However, we need to have a conversation with PSA Certified before removing the claim from the token, where the message to be communicated is that the authoritative linking to any certification data is done via Implementation ID rather than the HW-ver.  If PSA Certified still want to use HW-ver as the external facing ID, they also need to provide the mapping HW-ver->Implementation ID as part of the \u201cendorsement feeding\u201d into the Verifier.",
+      "createdAt": "2020-03-06T13:07:54Z",
+      "updatedAt": "2020-03-06T13:16:21Z",
+      "closedAt": "2020-03-06T13:16:21Z",
+      "comments": []
+    },
+    {
+      "number": 13,
+      "id": "MDU6SXNzdWU3NzA0MDgxOTE=",
+      "title": "wrong reference to PSA-SM",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/13",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "It should be [this](https://developer.arm.com/architectures/security-architectures/platform-security-architecture/documentation) rather than [that](https://pages.arm.com/psa-resources-sm.html).",
+      "createdAt": "2020-12-17T22:04:57Z",
+      "updatedAt": "2021-02-12T15:31:27Z",
+      "closedAt": "2021-02-12T15:31:27Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "closed by https://github.com/thomas-fossati/draft-psa-token/pull/14",
+          "createdAt": "2021-02-12T15:31:26Z",
+          "updatedAt": "2021-02-12T15:31:26Z"
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "id": "MDU6SXNzdWU4Mzc5OTAxMTc=",
+      "title": "Use standard EAT claims that have been pre-registered",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/15",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Also change the profile value to `http://arm.com/psa/2`",
+      "createdAt": "2021-03-22T18:18:04Z",
+      "updatedAt": "2021-03-24T09:31:39Z",
+      "closedAt": "2021-03-24T09:31:39Z",
+      "comments": []
+    },
+    {
+      "number": 17,
+      "id": "MDU6SXNzdWU4NDE3NTYzMzg=",
+      "title": "add veraison to the list of implementations",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/17",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "add http://github.com/veraison/psatoken alongside TF-M",
+      "createdAt": "2021-03-26T09:25:24Z",
+      "updatedAt": "2021-04-03T15:56:27Z",
+      "closedAt": "2021-04-03T15:56:27Z",
+      "comments": []
+    },
+    {
+      "number": 18,
+      "id": "MDU6SXNzdWU4NDE3NTc4MjM=",
+      "title": "more precision in the verification section",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/18",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "* instead of \"CWT\" we should reference the section that describes the verification requirements\r\n* InstanceID should be clearly marked as the lookup handle for the verification key material",
+      "createdAt": "2021-03-26T09:27:22Z",
+      "updatedAt": "2021-04-07T15:03:10Z",
+      "closedAt": "2021-04-07T15:03:10Z",
+      "comments": []
+    },
+    {
+      "number": 20,
+      "id": "MDU6SXNzdWU4NTI1OTQ4ODQ=",
+      "title": "Refer to RFC 8949 instead of 7049",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/20",
+      "state": "CLOSED",
+      "author": "laurencelundblade",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2021-04-07T16:44:29Z",
+      "updatedAt": "2021-04-12T16:23:47Z",
+      "closedAt": "2021-04-12T16:23:47Z",
+      "comments": []
+    },
+    {
+      "number": 21,
+      "id": "MDU6SXNzdWU4NTI2MDI4MjI=",
+      "title": "Crypto interoperability",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/21",
+      "state": "CLOSED",
+      "author": "laurencelundblade",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "I would specify a set of crypto algorithms that the Verifier must implement (e.g., ES256, ES384, AES-CBC-MAC-256//64...)... The Verifier must implement them all, the Attester doesn't have to implement all, just one.\r\n\r\nA profile should lock everything down to have guaranteed interoperability.",
+      "createdAt": "2021-04-07T16:54:49Z",
+      "updatedAt": "2021-04-14T13:47:54Z",
+      "closedAt": "2021-04-14T13:47:54Z",
+      "comments": [
+        {
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Makes sense to me. So far this draft is just leaning on what is defined in the COSE RFC, but we ought to lock it down, as you say. Thanks for the suggestion. ",
+          "createdAt": "2021-04-08T17:22:14Z",
+          "updatedAt": "2021-04-08T17:22:14Z"
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "id": "MDU6SXNzdWU4NTI2MTA2ODA=",
+      "title": "Verification key identification",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/22",
+      "state": "CLOSED",
+      "author": "laurencelundblade",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The Instance ID description mostly says it, but I think it would be good to add a small section on how the Verifier gets the verification key and how it constitutes and endorsement of the Attester.\r\n\r\nSomething like, \"the Verifier must obtain verification keys out of band from the Endorser. The Verifier selects the verification key to use based on the Instance ID/UEID\". \r\n\r\nThis should also address keys for Mac0. I assume Instance ID/UEID will also be used for Mac0.\r\n\r\nIt should probably say that for PSA Token, the distribution and availability of a Verification key constitutes and Endorsement of the Attester.\r\n\r\nI kind of think it is OK for a profile document to go into full detail of the key lifecycle and distribution, maybe even defining the format of an Endorsement. Maybe it is out of scope of the RATS WG, but to have an interoperable end-end system some of this probably needs to be filled in.",
+      "createdAt": "2021-04-07T17:05:05Z",
+      "updatedAt": "2021-04-12T18:18:23Z",
+      "closedAt": "2021-04-12T18:18:23Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "> I kind of think it is OK for a profile document to go into full detail of the key lifecycle and distribution, maybe even defining the format of an Endorsement. Maybe it is out of scope of the RATS WG, but to have an interoperable end-end system some of this probably needs to be filled in.\r\n\r\nThis is fundamental information for closing the verification loop.  However, I don't think the token draft is the place for this discussion.  Instead, we are building the supply-chain -> Verifier protocol as a profile of the DICE endorsements [here](https://github.com/thomas-fossati/draft-psa-endorsements).",
+          "createdAt": "2021-04-12T18:12:34Z",
+          "updatedAt": "2021-04-12T18:12:34Z"
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "id": "MDU6SXNzdWU4NTI2MjM4MDA=",
+      "title": "What does Implementation ID really identify?",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/23",
+      "state": "CLOSED",
+      "author": "laurencelundblade",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "I can't tell if it is:\r\n -- like a serial number that is different in every physical device\r\n -- like a SW version number\r\n -- like a class of types of attester implementations ... a model number\r\n -- something else?\r\n\r\nI try to describe the space in which any ID operates so the reader knows what the identifier is trying to \"uniquely identify\". (pretty much all identifiers aim to *uniquely* identify, so uniquely isn't a useful word here\").",
+      "createdAt": "2021-04-07T17:17:34Z",
+      "updatedAt": "2021-04-13T16:02:39Z",
+      "closedAt": "2021-04-13T16:02:39Z",
+      "comments": [
+        {
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The implementation ID identifies the implementation of the PSA Root of Trust. If the RoT is pure hardware, then it could be, for example, an EAN. If the RoT is a combination of hardware and firmware, then it might be some number chosen by an Endorser in a public database. Ultimately, whatever form it takes, it has to be used by a Verifier to look up the certification status of that RoT (or at least, if not certified, use it to determine its security properties) and check if the Initial Attestation Public Key is endorsed by a vendor as genuine.\r\n\r\nIf a chip gets revved and/or its firmware gets updated, then I believe it is up to both the vendor and the certification scheme whether a new implementation ID should be used.\r\n\r\nSo in some cases, it could be a model number, in other cases it could be just an index into a database. Supply chains are way too varied to be able to suggest something in particular.\r\n\r\n>  -- like a serial number that is different in every physical device\r\n\r\nWe have a separate claim called Instance ID, which is different for every physical device. \r\n\r\nHope that makes some sense. \r\n",
+          "createdAt": "2021-04-08T15:26:23Z",
+          "updatedAt": "2021-04-08T15:36:12Z"
+        },
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "Yes, that makes sense and I understand now. It would be good to update the document so the readers can understand too.",
+          "createdAt": "2021-04-08T17:23:45Z",
+          "updatedAt": "2021-04-08T17:23:45Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "Fixed in #35 ",
+          "createdAt": "2021-04-13T16:02:38Z",
+          "updatedAt": "2021-04-13T16:02:38Z"
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "id": "MDU6SXNzdWU4NTI2MjY0MjY=",
+      "title": "Claim key standardization",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/24",
+      "state": "CLOSED",
+      "author": "laurencelundblade",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Will you standardize all the claim keys and stop using one out of the private space? If so you might say so and add an IANA section for it.",
+      "createdAt": "2021-04-07T17:19:42Z",
+      "updatedAt": "2021-04-12T19:54:31Z",
+      "closedAt": "2021-04-12T16:48:17Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "> Will you standardize all the claim keys and stop using one out of the private space?\r\n\r\nNo, the rationale we use is:\r\n* if claim is standardised in EAT, use it;\r\n* if not, grab a codepoint from the private space: the value of the (standard) profile claim will provide the unambiguous domain of interpretation for it -- and its (private and non-private) siblings.\r\n\r\nThat was the reason for pestering you about pre-allocating the profile claim :-)\r\n\r\n\r\n",
+          "createdAt": "2021-04-12T16:48:14Z",
+          "updatedAt": "2021-04-12T16:48:14Z"
+        },
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "This surprises me a bit. I personally would register them in the Specification Required space.\r\n\r\nI know this creates a backwards compatibility problem during early deployments, but that isn't too hard to solve. ctoken and xclaim handle it fine now.\r\n\r\nA potential worse problem is that the meaning of a claim key is conditional on the profile claim. For example what if the XYZ token used -75001 to mean something completely different from PSA. This makes it hard for general SW like ctoken and xclaim to support.  The odds of this seems low because the space is so big, but seems worth mentioning.\r\n\r\nHaving it in the registry also helps market PSA token. \r\n\r\nThat said, I mostly understand the approach here.\r\n ",
+          "createdAt": "2021-04-12T19:54:31Z",
+          "updatedAt": "2021-04-12T19:54:31Z"
+        }
+      ]
+    },
+    {
+      "number": 25,
+      "id": "MDU6SXNzdWU4NTI2MzQyNTg=",
+      "title": "Identification as attestation in carrying protocol",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/25",
+      "state": "CLOSED",
+      "author": "laurencelundblade",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "To lock down tighter for guaranteed interoperability, I'd say that tag 61 MUST not be used when the carrying protocol between the Attester and Verify is CoAP, that the CoAP content format must be used.\r\n\r\nIt is implied, but I think you might also say that in CoAP the COSE tags MUST be used so the Verifier can tell a Mac0 from a Sign1.\r\n\r\nI assume PSA token can be carried in other protocols than CoAP. Those protocols might want to use tag 61 so the MUST should only be for CoAP.",
+      "createdAt": "2021-04-07T17:29:10Z",
+      "updatedAt": "2021-04-13T09:55:16Z",
+      "closedAt": "2021-04-13T09:55:16Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "I am not sure I understand where is the interop problem.  We say that when an application needs to transport a PSA Token it needs to wrap it into either a media type (application/psa-attestation-token) or a the CoAP content format (TBD).  If the outer type indicator is missing, CBOR 61 would not provide higher precision in terms of media identification than the COSE_Sign1 or COSE_Mac0 tags.  So it looks like it's redundant in all cases and I am not sure why a protocol would want to use it?",
+          "createdAt": "2021-04-12T21:29:36Z",
+          "updatedAt": "2021-04-12T21:29:36Z"
+        }
+      ]
+    },
+    {
+      "number": 26,
+      "id": "MDU6SXNzdWU4NTI2MzQ4MTc=",
+      "title": "UCCS and TLS-based security",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/26",
+      "state": "CLOSED",
+      "author": "laurencelundblade",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Can PSA token be used with UCCS and TLS-based security? If so this should be described.",
+      "createdAt": "2021-04-07T17:29:59Z",
+      "updatedAt": "2021-04-12T16:13:22Z",
+      "closedAt": "2021-04-12T16:13:22Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "> Can PSA token be used with UCCS\r\n\r\nAnswering this question would require us to do some serious security analysis to show under which circumstances using a UCCS PSA token is secure.  At this point in time we are not seeing any push for this feature, therefore we are going to defer.\r\n\r\n> and TLS-based security?\r\n\r\nHannes and Mathias have put forward [a proposal](https://tools.ietf.org/html/draft-tschofenig-tls-cwt-02) that would work with any CWT, including the PSA token.  The draft is now expired and I'm not sure if there's any plans to revive it.\r\n",
+          "createdAt": "2021-04-12T16:13:22Z",
+          "updatedAt": "2021-04-12T16:13:22Z"
+        }
+      ]
+    },
+    {
+      "number": 27,
+      "id": "MDU6SXNzdWU4NTI2MzU4NDk=",
+      "title": "Attestation results?",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/27",
+      "state": "CLOSED",
+      "author": "laurencelundblade",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Attestation results might be out of scope for this document, but they don't have to be. You could describe what Attestation Results look like for PSA. It might even be JSON format.",
+      "createdAt": "2021-04-07T17:31:28Z",
+      "updatedAt": "2021-04-12T16:18:12Z",
+      "closedAt": "2021-04-12T16:18:12Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "This is a very good point but I think it belongs to a different document. In fact, we have started working on a generic data model for attestation results.  Eventually, PSA attestation results will be described as a profile of that.",
+          "createdAt": "2021-04-12T16:18:12Z",
+          "updatedAt": "2021-04-12T16:18:12Z"
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "id": "MDU6SXNzdWU4NTI3NzAxMjU=",
+      "title": "add Xclaim to the implementation list",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/28",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "https://github.com/laurencelundblade/xclaim",
+      "createdAt": "2021-04-07T20:08:12Z",
+      "updatedAt": "2021-04-12T16:01:22Z",
+      "closedAt": "2021-04-12T16:01:22Z",
+      "comments": []
+    },
+    {
+      "number": 29,
+      "id": "MDU6SXNzdWU4NTM4MTEzOTI=",
+      "title": "boot seed is in EAT and PSA can reference its definition",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/29",
+      "state": "CLOSED",
+      "author": "laurencelundblade",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [
+        "future"
+      ],
+      "body": "I forgot I'd put boot seed in EAT. I think it belongs there because it is quite generic and certainly not specific to PSA.\r\n\r\nThe section number for boot seed in EAT is wrong and thus harder to notice. Will be fixed in next EAT draft.",
+      "createdAt": "2021-04-08T19:43:14Z",
+      "updatedAt": "2022-03-02T13:50:47Z",
+      "closedAt": "2022-03-02T13:50:47Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "You mean you wanted to pre-register `boot-seed`?  If yes, depending on when TF-M catches up with the draft, this may be too late.  I will keep this issue open to see if the stars align!",
+          "createdAt": "2021-04-12T18:21:25Z",
+          "updatedAt": "2021-04-12T18:21:25Z"
+        },
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "No, I don't want to pre-register. I don't want to slow down the pre-reg that we have in progress now.\r\n\r\nI want to be clear that PSA boot seed is exactly the same as EAT boot seed. When PSA mentions UEID and profile it says that they are EAT claims. boot seed should be the same.",
+          "createdAt": "2021-04-12T19:29:41Z",
+          "updatedAt": "2021-04-12T19:29:41Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "\r\n> No, I don't want to pre-register. I don't want to slow down the pre-reg that we have in progress now.\r\n\r\nSure, makes sense.\r\n\r\n> I want to be clear that PSA boot seed is exactly the same as EAT boot seed. When PSA mentions UEID and profile it says that they are EAT claims. boot seed should be the same.\r\n\r\nThe profile and ueid used by PSA are effectively EAT claims.  OTOH boot-seed has the same semantics and the same value format as its EAT counterpart, but the respective map keys are different, so the analogy is not full.  That said, we might say that (it costs nothing), but I'm failing to understand the value added?\r\n",
+          "createdAt": "2021-04-12T20:40:47Z",
+          "updatedAt": "2021-04-12T20:40:47Z"
+        },
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "Seems to me that having two claims that are exactly the same except for the claim key is confusing for the EAT ecosystem.\r\n\r\nIt adds complexity for implementations like ctoken and xclaim:\r\n- There must be two encode methods for boot seed and the documentation has to explain to the caller when to use one or the other.\r\n- The decoder has to recognize both claim keys and report which was used to the caller so the caller can error out if the wrong one was used\r\n- If the decoder is really thorough, then maybe it has a PSA mode and non-PSA mode\r\n- The users and implementors have more to think about\r\n\r\nThis probably triples the lines of code and documentation in xclaim and ctoken for boot seed.\r\n\r\nAll this because you want to lock down the claim keys now rather than wait until the standard is done? The code to manage the transition from temporary claim key to permanent claim key is not that hard and can eventually be deleted. The complexity from two claim keys for the same thing is permanent.\r\n",
+          "createdAt": "2021-04-13T17:31:46Z",
+          "updatedAt": "2021-04-13T17:31:46Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "We are using all the EAT claims that have been sent through the early allocation procedure.  Boot seed is not one of these and since we need a code point now, there seem to be no alternative than to mint one.  If we get to the IANA registry first, EAT could use the same code point.",
+          "createdAt": "2022-03-02T13:50:43Z",
+          "updatedAt": "2022-03-02T13:50:43Z"
+        }
+      ]
+    },
+    {
+      "number": 36,
+      "id": "MDU6SXNzdWU4NjQ1MTUxNzE=",
+      "title": "Checking in on prohibition against indefinite length encoding",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/36",
+      "state": "CLOSED",
+      "author": "laurencelundblade",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "I could see a rule where the encoder is allowed to user indefinite length maps and arrays and the decoder must support both definite and indefinite.   I think this could save a little object code on some devices with some encoders.\r\n\r\nI see no use for indefinite length strings so always prohibiting them seems fine.\r\n\r\nSee also https://github.com/laurencelundblade/EAT-test-vectors/issues/9 which asks whether invalid tests cases with indefinite lengths should be added to the test vectors for PSA.\r\n\r\n",
+      "createdAt": "2021-04-22T03:59:35Z",
+      "updatedAt": "2022-09-05T16:23:46Z",
+      "closedAt": "2022-09-05T16:23:46Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "Laurence, thanks for the input!\r\n\r\n> [...] this could save a little object code on some devices with some encoders.\r\n\r\nCould you quantify the code savings?\r\n",
+          "createdAt": "2021-04-22T12:24:14Z",
+          "updatedAt": "2021-04-22T12:24:14Z"
+        },
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "For the QCBOR/t_cose/ctoken stack I estimate you could save around 5%, maybe a little more.  I don't actually have that stack running. It's just an estimate. That's 100-200 bytes saved out of 3,300 on Intel x86. Presumably, the proportion on 32-bit arm will be about the same. I am assuming there crypto algorithms are already present and not counting them in the 3,300.",
+          "createdAt": "2021-04-23T03:18:45Z",
+          "updatedAt": "2021-04-23T03:18:45Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "Cool, thanks.  It look like something that would be worth having in the ultra constrained space.  The cost increase on the receiver is small so on balance I think this is a good suggestion.",
+          "createdAt": "2021-04-23T13:24:39Z",
+          "updatedAt": "2021-04-23T13:24:39Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "Re: indefinite/definite length rules, we are now aligning with the recommendations in https://datatracker.ietf.org/doc/html/draft-ietf-rats-eat#section-6.3, specifically:\r\n\r\n| Issue          | Profile Definition                               |\r\n|----------------|--------------------------------------------------|\r\n| CBOR Encoding  | Only definite length maps and arrays are allowed |\r\n| CBOR Encoding  | Only definite length strings are allowed         | ",
+          "createdAt": "2022-09-05T16:23:46Z",
+          "updatedAt": "2022-09-05T16:23:46Z"
+        }
+      ]
+    },
+    {
+      "number": 37,
+      "id": "MDU6SXNzdWU4NjcwNjE2ODc=",
+      "title": "Comment on no SW components",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/37",
+      "state": "CLOSED",
+      "author": "laurencelundblade",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "This is mostly an FYI. Close it when you feel informed. :-)\r\n\r\nIn my decoding implementation of SW components, the no sw components indicator adds about 25% to the implementation when counting lines of code. https://github.com/laurencelundblade/ctoken/pull/35\r\n\r\nThere are more error conditions than there would be without it. Anytime a SW component is fetched, a check must be made for the no SW components indicator and made sure it is the right type and content. Then there is the error when both the no SW component indicator is present along with the SW components and vice versa.\r\n\r\nIt adds three test cases to the test vector. https://github.com/laurencelundblade/EAT-test-vectors/tree/main/src/psa_swcomponents\r\n\r\nTook me about a day's work in total to get it all implemented, debugged and tested.\r\n\r\nThe extra stuff is all on the decode side. Nothing hard on the encode side.\r\n\r\nI may not have all the context, but it seems like a net loss in value and not a common thing in protocol design.",
+      "createdAt": "2021-04-25T17:07:54Z",
+      "updatedAt": "2022-03-07T16:02:09Z",
+      "closedAt": "2022-03-07T16:02:09Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "I personally agree with the analysis (it's been my experience too while implementing the verifier side of this).  I am not sure we are in a position to make this change now though.",
+          "createdAt": "2022-03-02T13:46:34Z",
+          "updatedAt": "2022-03-02T13:46:34Z"
+        },
+        {
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Can we at least mark it as deprecated so people can avoid using it? ",
+          "createdAt": "2022-03-02T16:57:16Z",
+          "updatedAt": "2022-03-02T16:57:16Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "> Can we at least mark it as deprecated so people can avoid using it?\r\n\r\nA resounding yes from me :-) @SimonFrost-Arm WDYT?",
+          "createdAt": "2022-03-02T17:05:07Z",
+          "updatedAt": "2022-03-02T17:05:07Z"
+        },
+        {
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "body": "When we first defined the PSA claim set, there was a stipulation that it should be able support devices without Secure & Measured boot, hence the Software Components claim was optional and the NoSWComponents claim allowed certainty that this was a deliberate act. Reading the current PSA SM, secure & measured boot is required so we can make the software component claim mandatory and deprecate the NoSWComponents claim.",
+          "createdAt": "2022-03-04T15:01:16Z",
+          "updatedAt": "2022-03-04T15:01:16Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "Reopening this given the good news in https://github.com/thomas-fossati/draft-psa-token/issues/37#issuecomment-1059238120",
+          "createdAt": "2022-03-07T10:50:45Z",
+          "updatedAt": "2022-03-07T10:50:45Z"
+        }
+      ]
+    },
+    {
+      "number": 39,
+      "id": "I_kwDODpTnZ85EzESj",
+      "title": "(re)align EAT claims",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/39",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "The code points have changed, see: https://mailarchive.ietf.org/arch/msg/cwt-reg-review/Eyya7u9rR1XA5N0KcXiTfolAdTs/",
+      "createdAt": "2022-02-28T15:36:12Z",
+      "updatedAt": "2022-03-01T18:54:53Z",
+      "closedAt": "2022-03-01T18:54:53Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "Specifically: `profile` is now 265, `ueid` is now 256.",
+          "createdAt": "2022-02-28T15:37:50Z",
+          "updatedAt": "2022-02-28T15:37:50Z"
+        }
+      ]
+    },
+    {
+      "number": 41,
+      "id": "I_kwDODpTnZ85E4EkQ",
+      "title": "clarify what goes into the measurement description",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/41",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "IIRC this was supposed to contain a textual description of the hash algorithm used for the measurement (e.g., https://www.iana.org/assignments/hash-function-text-names/hash-function-text-names.xhtml).\r\n\r\n[Adrian](@adrianlshaw) can you please confirm -- or refute :-) ?",
+      "createdAt": "2022-03-01T16:30:17Z",
+      "updatedAt": "2022-03-02T18:24:30Z",
+      "closedAt": "2022-03-02T18:24:30Z",
+      "comments": [
+        {
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Sure thing! No, it was not meant for an algorithm identifier. The intent of this claim is to simply give the verifier more information about the measurement. Think of it as a long form description that goes beyond what \"Measurement Type\" implies. It is a free form string, so it can be anything, but a few examples come to mind:\r\n* it could disambiguate whether the measurement is code or configuration data, if these items are loaded separately \r\n* it could could include the start and end addresses of the measured image in flash/RAM. A verifier can use this information to recompute the digest, if they choose to do so. \r\n* it could contain the actual data of what is measured, if it small enough, such as a configuration file or bitmap. The verifier can then create a digest of the configuration data and compare against the measurement digest in the token. \r\n\r\nIn practice, keeping the token size down is what matters for a lot of IoT devices, so this claim has never been used in anger. If you are familiar with TCG, a similar concept is the TCG Event Log, which contains a lot of event data to help the verifier recompute and compare digests. The lack of structure within this definition in PSA makes it difficult for a verifier to use this in an interoperable way.  \r\n\r\nThat all said, I think it very valuable to have a separate subclaim (whatever the term may be) that describes the hash algorithm in use for each measurement. This would improve the token. I think the IANA reference you have would be perfect.",
+          "createdAt": "2022-03-01T17:01:43Z",
+          "updatedAt": "2022-03-01T17:03:29Z"
+        },
+        {
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I corrected a few typos in my response",
+          "createdAt": "2022-03-01T17:03:42Z",
+          "updatedAt": "2022-03-01T17:03:42Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "hi Adrian, thanks for fixing my bad memory!\r\n\r\nHowever, it looks like the original intent got lost in the implementation: for example, [MCUBoot](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/1.3.1/mcuboot/design.html#measured-boot-and-data-sharing) seems to use the claim for _\"[...] algorithm used to calculate the measurement value\"_, a choice that was mirrored in [TF-M](https://review.trustedfirmware.org/plugins/gitiles/TF-M/trusted-firmware-m/+/27a61454e3e4855a6b4b6bd1119150a4f502550a/bl2/src/boot_record.c#57).  So, I am not exactly sure what to do with the claim description now :-)\r\n",
+          "createdAt": "2022-03-02T10:35:05Z",
+          "updatedAt": "2022-03-02T10:35:05Z"
+        },
+        {
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Ah. If that's the case, then it would make sense to change the (already ambiguous) definition to one which only describes the hash algorithm (your first comment). I wasn't aware of any implementation using Measurement Description anyway.",
+          "createdAt": "2022-03-02T10:56:14Z",
+          "updatedAt": "2022-03-02T10:56:14Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "I spoke to Tamas and he confirmed it's currently a text string (e.g., \"SHA256\", \"SHA512\").\r\n\r\nI also asked whether he saw any trouble standardising on https://www.iana.org/assignments/hash-function-text-names/hash-function-text-names.xhtml so to have a single, unambiguous way to encode the string and he was positive.\r\n\r\nI am going to draft a PR based on this discussion shortly.",
+          "createdAt": "2022-03-02T12:06:55Z",
+          "updatedAt": "2022-03-02T12:06:55Z"
+        }
+      ]
+    },
+    {
+      "number": 42,
+      "id": "I_kwDODpTnZ85E4FVx",
+      "title": "clarify that the lifecycle claim could be part of the signing key lookup",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/42",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Per PSA Security Model: when the security lifecycle is not in state \"secured\", the key used for signing is not the IAK.  Absent a CWT key-id claim, the lifecycle may be used alongside the instance-id claim to locate the verification key.",
+      "createdAt": "2022-03-01T16:33:17Z",
+      "updatedAt": "2022-03-02T13:43:33Z",
+      "closedAt": "2022-03-02T13:43:32Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "I reckon the current text:\r\n\r\n_\"[...] a Verifier can only trust reports from the PSA RoT when it is in SECURED or NON_PSA_ROT_DEBUG major states.\"_\r\n\r\n1. it is in line with the PSM\r\n1. it doesn't mention the PSA_ROT_DEBUG state which would be the one problematic from a key derivation perspective\r\n\r\nso we may as well avoid complicating the spec.",
+          "createdAt": "2022-03-02T13:43:32Z",
+          "updatedAt": "2022-03-02T13:43:32Z"
+        }
+      ]
+    },
+    {
+      "number": 44,
+      "id": "I_kwDODpTnZ85E_sd-",
+      "title": "IANA registrations",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/44",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Time to move the PSA claims (those that we didn't inherit from EAT) in to the [CWT registry](https://www.iana.org/assignments/cwt/cwt.xhtml#claims-registry).\r\n\r\nAllocations will be requested in a contiguous chunk from the negative \"Specification Required\" block (currently, [-65536,-257]).\r\n\r\n\r\n\r\n",
+      "createdAt": "2022-03-02T18:28:34Z",
+      "updatedAt": "2022-03-07T10:41:40Z",
+      "closedAt": "2022-03-07T10:41:40Z",
+      "comments": []
+    },
+    {
+      "number": 46,
+      "id": "I_kwDODpTnZ85FNS6s",
+      "title": "arm_psa_partition_id => psa-client-id",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/46",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "> Slight inconsistency through the file between client id (in block definition) & partition id here\r\n\r\nYeah, I can't recollect exactly how we ended up here, but we have also this: _`Note that the CDDL label used to be called arm_psa_partition_id.`_ in the Client ID subsection.  I'll raise an issue.\r\n\r\n_Originally posted by @thomas-fossati in https://github.com/thomas-fossati/draft-psa-token/pull/45#discussion_r820509042_",
+      "createdAt": "2022-03-07T09:17:01Z",
+      "updatedAt": "2022-03-07T12:03:05Z",
+      "closedAt": "2022-03-07T12:03:05Z",
+      "comments": []
+    },
+    {
+      "number": 49,
+      "id": "I_kwDODpTnZ85FOUwe",
+      "title": "Update psa-arch-tests",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/49",
+      "state": "OPEN",
+      "author": "adrianlshaw",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Not sure if this is the right place to open this but I think it's worth tracking somewhere. Once the new claim numbers are finalized, [psa-arch-tests ](https://github.com/ARM-software/psa-arch-tests) should be updated to check for the new numbers and possibly other minor changes like the algorithm type in Measurement Description.",
+      "createdAt": "2022-03-07T12:55:38Z",
+      "updatedAt": "2022-03-07T13:55:31Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "Good idea.  Noting that this should trickle down to TF-M as well.  Before that we need confirmation from IANA about the proposed numbers.  @hannestschofenig: what do we need to do in order to start the IANA review?",
+          "createdAt": "2022-03-07T13:55:31Z",
+          "updatedAt": "2022-03-07T13:55:31Z"
+        }
+      ]
+    },
+    {
+      "number": 51,
+      "id": "I_kwDODpTnZ85GDlY0",
+      "title": "Adrian's email contact not working?",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/51",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [
+        "adrianlshaw"
+      ],
+      "labels": [],
+      "body": "Hi [Adrian](@adrianlshaw), while sending the claims registration request to the IANA designated experts I got this automatic reply from the IETF mailer, which seems to suggest your email address is not set correctly?  Please see:\r\n\r\n```\r\nThis is the mail system at host ietfa.amsl.com.\r\n\r\nI'm sorry to have to inform you that your message could not\r\nbe delivered to one or more recipients. It's attached below.\r\n\r\nFor further assistance, please send mail to postmaster.\r\n\r\nIf you do so, please include this problem report. You can\r\ndelete your own text from the attached returned message.\r\n\r\n                   The mail system\r\n\r\n<[adrian.shaw@hp.com]()> (expanded from\r\n    <[expand-draft-tschofenig-rats-psa-token@virtual.ietf.org]()>): host\r\n    us-smtp-inbound-1.mimecast.com[207.211.30.221] said: 550 SPF Sender Invalid\r\n    - envelope rejected - https://community.mimecast.com/docs/DOC-1369#550\r\n    [cO-ppDN6NFCAr71co_FM0g.us301] (in reply to RCPT TO command)\r\n```\r\ncheers!",
+      "createdAt": "2022-03-21T12:54:38Z",
+      "updatedAt": "2022-05-11T10:41:18Z",
+      "closedAt": "2022-05-11T10:41:18Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "Note that it may also be a problem with the IETF mailer: there seems to be an SPF check that failed but it's not completely clear to me who Alice and Bob are :-)",
+          "createdAt": "2022-03-21T13:06:48Z",
+          "updatedAt": "2022-03-21T13:07:07Z"
+        },
+        {
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks for making me aware! This is odd. HP uses a system called Mimecast for dealing with spam. I will see if there's any way for me to add the IETF mailer to an allowlist. This is odd because I don't have any issues with IETF mailing list traffic ",
+          "createdAt": "2022-03-21T21:50:53Z",
+          "updatedAt": "2022-03-21T21:50:53Z"
+        },
+        {
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I added expand-draft-tschofenig-rats-psa-token@virtual.ietf.org to my permitted senders. I'll also follow up with my IT dept regarding ietfa.amsl.com.",
+          "createdAt": "2022-03-22T23:44:08Z",
+          "updatedAt": "2022-03-22T23:44:08Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "Thanks Adrian!",
+          "createdAt": "2022-03-23T14:26:00Z",
+          "updatedAt": "2022-03-23T14:26:00Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "Unfortunately I'm still having problems with Adrian's address, this time from a different Mimecast host:\r\n```\r\n<[adrian.shaw@hp.com]()> (expanded from\r\n    <[expand-draft-tschofenig-rats-psa-token@virtual.ietf.org]()>): host\r\n    us-smtp-inbound-1.mimecast.com[205.139.110.242] said: 550 SPF Sender\r\n    Invalid - envelope rejected -\r\n    https://community.mimecast.com/docs/DOC-1369#550\r\n    [FXfPkbIUNcyIr4ZjPneyIg.us322] (in reply to RCPT TO command)\r\n```\r\n:-(",
+          "createdAt": "2022-04-19T13:10:46Z",
+          "updatedAt": "2022-04-19T13:10:46Z"
+        },
+        {
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "How annoying. I guess the issue might be on arm.com SPF and Mimecast being too fussy. I'll open a pull request with my ACM.org email. ",
+          "createdAt": "2022-04-19T20:33:44Z",
+          "updatedAt": "2022-04-19T20:33:44Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "Closed by #52",
+          "createdAt": "2022-05-11T10:41:18Z",
+          "updatedAt": "2022-05-11T10:41:18Z"
+        }
+      ]
+    },
+    {
+      "number": 53,
+      "id": "I_kwDODpTnZ85JdV_a",
+      "title": "A variable length boot-seed?",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/53",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [
+        "thomas-fossati"
+      ],
+      "labels": [],
+      "body": "Section 6.4 of the [PSA SM](https://www.psacertified.org/app/uploads/2021/12/JSADEN014_PSA_Certified_SM_V1.1_BET0.pdf) requires a \"boot seed\" to be included in the initial attestation (Section 7.3).\r\n\r\nHowever, it does not make explicit recommendations about its size.\r\n\r\nCurrently, the [boot-seed](https://www.ietf.org/archive/id/draft-tschofenig-rats-psa-token-09.html#name-boot-seed) is a fixed size (256-bits), mandatory claim.\r\n\r\nWe may want to align with the PSA SM and make it variable length instead (with a reasonable lower bound, e.g.: 8 bytes).\r\n\r\n\r\n",
+      "createdAt": "2022-05-11T10:52:35Z",
+      "updatedAt": "2022-05-28T17:57:22Z",
+      "closedAt": "2022-05-28T17:57:22Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "Note also that there is no strict requirement for its inclusion.  This has been checked with Rob Smart (PSA-SM editor) in an offline conversation.",
+          "createdAt": "2022-05-18T14:24:26Z",
+          "updatedAt": "2022-05-18T14:24:26Z"
+        }
+      ]
+    },
+    {
+      "number": 55,
+      "id": "I_kwDODpTnZ85KmvQR",
+      "title": "Add a description of the PSA attester as per RATS architecture",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/55",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Provide a description of the PSA attester according to the conceptual model defined in [Section 3.1 of RATS](https://datatracker.ietf.org/doc/html/draft-ietf-rats-architecture-16#section-3.1).",
+      "createdAt": "2022-05-28T16:16:47Z",
+      "updatedAt": "2022-05-30T16:54:03Z",
+      "closedAt": "2022-05-30T16:54:03Z",
+      "comments": []
+    },
+    {
+      "number": 57,
+      "id": "I_kwDODpTnZ85Krfye",
+      "title": "what we mean by \"Initial\" in initial attestation service\"?",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/57",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Some people may ask what we mean by \"Initial attestation service\". Maybe it's worth an extra sentence. The closest concept is an Initial DevID (IDevID) but also very restricted.",
+      "createdAt": "2022-05-30T15:58:51Z",
+      "updatedAt": "2022-05-30T15:58:51Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 58,
+      "id": "I_kwDODpTnZ85KsGlZ",
+      "title": "format of certification reference",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/58",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "The Certificate Number of all the entries in the PSA Certified DB (at least, those I have sampled -- see for example [this SDT product](https://www.psacertified.org/products/iot-system-on-module-som-based-on-stm32f7)) has format \"[0-9]{13} - [0-9]{5}\" (e.g., \"0716053549822 - 10023\").\r\n\r\nThe Certificate Reference claim is instead just \"[0-9]{13}\".\r\n\r\nShould we align the token with the PSA Certified DB?\r\n\r\n\r\n",
+      "createdAt": "2022-05-30T19:46:46Z",
+      "updatedAt": "2022-07-14T14:05:31Z",
+      "closedAt": "2022-07-14T14:05:31Z",
+      "comments": [
+        {
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Do you know what those extra 5 digits represent?\n\nOn the PSA Certified website, you can search for a product in the catalog using the 13 digit EAN, which shows that this may be unique enough. However, I assume if the same product is certified multiple times (for example with a different chip revision) then maybe the EAN stays the same and maybe the change is reflected in the extra five digits.",
+          "createdAt": "2022-05-31T13:18:37Z",
+          "updatedAt": "2022-05-31T13:18:37Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "> Do you know what those extra 5 digits represent?\r\n\r\nThe [documentation](https://www.psacertified.org/app/uploads/2020/07/JSADEN011-PSA_Certified_Level_2_Step-by-Step-1.1-20200403.pdf#page=5) explains the arcane EAN-13+5 encoding.\r\n\r\nThe salient part:  _\"The +5 digits enables encoding of Trusted Firmware revisions and new certification attempts. Together the EAN-13 and the +5 describe the PSA-RoT i.e. chip-type and Trusted Firmware version. The first digit of the +5 encodes the number of the successful certification attempts, or actual certifications on the same products, starting with \u20181\u2019.\"_\r\n\r\n\r\n",
+          "createdAt": "2022-05-31T13:51:10Z",
+          "updatedAt": "2022-05-31T13:51:10Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "cc @tamasban",
+          "createdAt": "2022-06-22T13:49:18Z",
+          "updatedAt": "2022-06-22T13:49:18Z"
+        }
+      ]
+    },
+    {
+      "number": 59,
+      "id": "I_kwDODpTnZ85KsUky",
+      "title": "verification service indicator claim type",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/59",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "The [verification service indicator](https://thomas-fossati.github.io/draft-psa-token/draft-tschofenig-rats-psa-token.html#name-verification-service-indica) is defined as:\r\n\r\n1. _\"a text string that can be used to locate the service,\"_\r\n2. _\"or a URL specifying the address of the service\"_\r\n\r\nWhile the second part is OK -- a URL can effectively be used to discover an internet service and interact with a it --, the first part looks un-actionable: how is the RP supposed to use an untyped text string to locate a service?\r\n\r\nI think we should drop the first part and only allow URIs.\r\n\r\nAlso, instead of:\r\n* _\"A Verifier may choose to ignore this claim in favor of other information.\"_\r\n\r\nwe should say:\r\n\r\n* _\"A Relying Party may choose [...]\"_.",
+      "createdAt": "2022-05-30T21:32:09Z",
+      "updatedAt": "2022-09-05T16:56:18Z",
+      "closedAt": "2022-09-05T16:56:18Z",
+      "comments": []
+    },
+    {
+      "number": 61,
+      "id": "I_kwDODpTnZ85LXZ4Y",
+      "title": "PSA profile interoperability",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/61",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "An interesting comment from Laurence, extrapolated from https://mailarchive.ietf.org/arch/msg/rats/nulpme1VlabOds4591GG-_RUPD8/\r\n\r\n```\r\n[...]\r\nAlso, I don\u2019t think PSA token gives tight interoperability.\r\nIt doesn\u2019t say which algorithms to use or how key identification works.\r\nMaybe that is OK. Maybe it is not.\r\n```\r\n\r\nShould we require any signature algorithm?\r\nShould we better clarify how implementation-id & instance-id are effectively key identifiers?",
+      "createdAt": "2022-06-08T09:02:46Z",
+      "updatedAt": "2022-09-06T14:16:57Z",
+      "closedAt": "2022-09-06T14:16:57Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "See also the newly introduced [The Constrained Device Standard Profile](https://datatracker.ietf.org/doc/html/draft-ietf-rats-eat#section-6.3) ",
+          "createdAt": "2022-09-04T15:32:00Z",
+          "updatedAt": "2022-09-04T15:32:00Z"
+        }
+      ]
+    },
+    {
+      "number": 63,
+      "id": "I_kwDODpTnZ85Nlwyd",
+      "title": "update implementation status section",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/63",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "[RFC7942](https://datatracker.ietf.org/doc/html/rfc7942) provides a more structured way to do the implementation status report than what we have at the moment.  We should use their template.",
+      "createdAt": "2022-07-12T08:46:22Z",
+      "updatedAt": "2022-07-12T08:47:06Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 64,
+      "id": "I_kwDODpTnZ85O0cp2",
+      "title": "IANA section updates",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/64",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "The claims registrations have been done by IANA -- see https://www.iana.org/assignments/cwt/cwt.xhtml\r\n\r\nWe should update the IANA section to reflect the change.",
+      "createdAt": "2022-07-29T15:12:24Z",
+      "updatedAt": "2022-09-06T14:14:50Z",
+      "closedAt": "2022-09-06T14:14:50Z",
+      "comments": []
+    },
+    {
+      "number": 65,
+      "id": "I_kwDODpTnZ85RIbdT",
+      "title": "EAT media types naming convention",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/issues/65",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "The [EAT media types draft](https://datatracker.ietf.org/doc/draft-ietf-rats-eat-media-type/) has been recently adopted.  We should adopt the same naming convention.\r\n",
+      "createdAt": "2022-09-04T14:22:11Z",
+      "updatedAt": "2022-09-04T14:22:22Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
+  "pulls": [
+    {
+      "number": 2,
+      "id": "MDExOlB1bGxSZXF1ZXN0NDg1MDk4OTA4",
+      "title": "add verification considerations",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/2",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Add Simon text re: verification considerations as per discussion with\r\nAdrian",
+      "createdAt": "2020-09-11T13:53:20Z",
+      "updatedAt": "2022-05-30T16:57:30Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "9139f6bf7c8b680e90f1417e1c18a87bc978b139",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "verification-section",
+      "headRefOid": "b6f5ec47e7775b575ffe0e49e1860ec717aa8dad",
+      "closedAt": "2020-09-11T13:57:04Z",
+      "mergedAt": "2020-09-11T13:57:04Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "5366392e65e55f5a70f8fede868670060cdeae61"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 3,
+      "id": "MDExOlB1bGxSZXF1ZXN0NDg3NDM2Nzk3",
+      "title": "Generalise client ID description and rename arm_psa_partition_id",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/3",
+      "state": "MERGED",
+      "author": "adrianlshaw",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "documentation"
+      ],
+      "body": "As discussed :-) ",
+      "createdAt": "2020-09-15T17:09:44Z",
+      "updatedAt": "2020-09-15T22:52:59Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "5366392e65e55f5a70f8fede868670060cdeae61",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "generalise-partitionid",
+      "headRefOid": "d0611ae79078a55c37b270bf3802e2ef55117fc8",
+      "closedAt": "2020-09-15T21:12:27Z",
+      "mergedAt": "2020-09-15T21:12:27Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "2b72a1cb7fd264b99188eda0e50f4fdb6ce00050"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NDg4OTAzOTky",
+          "commit": {
+            "abbreviatedOid": "8d42017"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2020-09-15T17:23:30Z",
+          "updatedAt": "2020-09-15T17:27:26Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "```suggestion\r\nIn PSA, a security domain is represented by a signed\r\n```",
+              "createdAt": "2020-09-15T17:23:30Z",
+              "updatedAt": "2020-09-15T20:22:30Z"
+            },
+            {
+              "originalPosition": 13,
+              "body": "I think leaving the semantics open potentially confuses the reader.",
+              "createdAt": "2020-09-15T17:26:39Z",
+              "updatedAt": "2020-09-15T20:22:31Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NDg5MDgzOTA3",
+          "commit": {
+            "abbreviatedOid": "d0611ae"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "thanks!",
+          "createdAt": "2020-09-15T21:12:19Z",
+          "updatedAt": "2020-09-15T21:12:19Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTIxNTczMDMx",
+      "title": "media type and content format registrations",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/4",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Add IANA registration for the `application/psa-attestation-token` media type and its CoAP equivalent content-format.",
+      "createdAt": "2020-11-16T10:38:04Z",
+      "updatedAt": "2020-11-28T16:25:23Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "24d69d76ea3b57dd39b1bd849132fc6ff05245ec",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "media-types",
+      "headRefOid": "fd47301c07ae16380d7cd2495c0c722bb38703df",
+      "closedAt": "2020-11-28T16:25:19Z",
+      "mergedAt": "2020-11-28T16:25:19Z",
+      "mergedBy": "hannestschofenig",
+      "mergeCommit": {
+        "oid": "3465e27642ca3fa6cb46554dabfa449c67cb13d3"
+      },
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "> Good idea :) do we expect to upload this new draft prior to IANA registration or afterwards? (been looking at section Registry Contents)\r\n\r\nI think it is not critical to make a provisional registration in this case as it's pretty unlikely for anyone to show up with the same `application/psa-attestation-token` registration request to IANA.  Let us know if you have devised an evil scheme to make money with that :-)\r\n",
+          "createdAt": "2020-11-17T11:43:58Z",
+          "updatedAt": "2020-11-17T11:43:58Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTMxNDQzNTIx",
+          "commit": {
+            "abbreviatedOid": "2edc28b"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2020-11-16T15:42:20Z",
+          "updatedAt": "2020-11-16T15:42:20Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTMxOTMxMTg5",
+          "commit": {
+            "abbreviatedOid": "2edc28b"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Good idea :) do we expect to upload this new draft prior to IANA registration or afterwards? (been looking at section Registry Contents)",
+          "createdAt": "2020-11-17T00:26:43Z",
+          "updatedAt": "2020-11-17T00:26:43Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTI4NTY1MjYy",
+      "title": "Adding the CWT Claims List to the IANA Registry",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/5",
+      "state": "MERGED",
+      "author": "hannestschofenig",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-11-27T11:43:01Z",
+      "updatedAt": "2020-11-27T11:58:54Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "media-types",
+      "baseRefOid": "2edc28bbdc0f2c34e42b56a0e7b8b93a50b1e681",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "hannestschofenig-patch-1",
+      "headRefOid": "60890ad862c79eb73afa595887d4dff2b1616e2f",
+      "closedAt": "2020-11-27T11:54:14Z",
+      "mergedAt": "2020-11-27T11:54:14Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "9bd4c6abc036927cab3dcffcf5600ae6cca1ec8a"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTM5OTIyODU1",
+          "commit": {
+            "abbreviatedOid": "60890ad"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2020-11-27T11:53:01Z",
+          "updatedAt": "2020-11-27T11:53:01Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTI4NTgzOTI4",
+      "title": "Use the term \"nonce\" instead of \"auth challenge\"",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/6",
+      "state": "MERGED",
+      "author": "hannestschofenig",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-11-27T12:23:41Z",
+      "updatedAt": "2022-05-30T16:57:32Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "3465e27642ca3fa6cb46554dabfa449c67cb13d3",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "hannestschofenig-patch-1",
+      "headRefOid": "e2de34f5ee7636bd526be2010df44a9f4ecc2d72",
+      "closedAt": "2020-11-30T16:13:58Z",
+      "mergedAt": "2020-11-30T16:13:58Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "8194414ded73bf33b1b9cefabde2efe416f7ca84"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTQwOTUyNjAx",
+          "commit": {
+            "abbreviatedOid": "e2de34f"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2020-11-30T14:21:59Z",
+          "updatedAt": "2020-11-30T14:21:59Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTI4NTg0Mzk3",
+      "title": "Removed the term \"claim\" from the \"psa-nonce\"",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/7",
+      "state": "MERGED",
+      "author": "hannestschofenig",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-11-27T12:24:47Z",
+      "updatedAt": "2022-05-30T16:57:34Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "24d69d76ea3b57dd39b1bd849132fc6ff05245ec",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "hannestschofenig-patch-2",
+      "headRefOid": "fb71ef5315214942a57b85e947abecc741926d70",
+      "closedAt": "2020-11-27T14:57:33Z",
+      "mergedAt": "2020-11-27T14:57:33Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "91157156a0566c9dec53806017c8e11766c2e5a0"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 8,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTI4NTg0ODk2",
+      "title": "Changed \"psa-nonce-claim\" to \"psa-nonce\"",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/8",
+      "state": "CLOSED",
+      "author": "hannestschofenig",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-11-27T12:25:52Z",
+      "updatedAt": "2022-05-30T16:57:37Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "24d69d76ea3b57dd39b1bd849132fc6ff05245ec",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "hannestschofenig-patch-3",
+      "headRefOid": "a73d757721d5d0c5095c1a2e2f5db091362bed54",
+      "closedAt": "2020-11-27T15:03:00Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "hadn't seen this, sorry.  it's now taken care of in #9 ",
+          "createdAt": "2020-11-27T15:03:00Z",
+          "updatedAt": "2020-11-27T15:03:00Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 9,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTI4NjI4MDQ3",
+      "title": "fix example",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/9",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "The token example didn't validate against the CDDL because of a typo in the Profile Definition claim.\r\n\r\nThis change provides a new example which also splits the PSA token from its COSE Sign1 envelope for (hopefully) improved readability.",
+      "createdAt": "2020-11-27T13:57:40Z",
+      "updatedAt": "2022-05-30T16:58:19Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "91157156a0566c9dec53806017c8e11766c2e5a0",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "fix-example",
+      "headRefOid": "0adcab09dda0907756d272b6c8ea02a536c16a69",
+      "closedAt": "2020-11-30T14:33:21Z",
+      "mergedAt": "2020-11-30T14:33:21Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "8354b629434bfee1ebad648cafea8db0b42ab189"
+      },
+      "comments": [
+        {
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Looks great. Thanks, Thomas!",
+          "createdAt": "2020-11-30T14:33:11Z",
+          "updatedAt": "2020-11-30T14:33:11Z"
+        },
+        {
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Retroactive LGTM :+1: ",
+          "createdAt": "2020-11-30T15:40:56Z",
+          "updatedAt": "2020-11-30T15:40:56Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 10,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTI5NjQ4MzQz",
+      "title": "Rename HW Ver to Certification Reference",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/10",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "As discussed: rename HW Ver to Certification Reference and make the necessary CDDL adjustments.",
+      "createdAt": "2020-11-30T16:03:58Z",
+      "updatedAt": "2022-05-30T16:58:16Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "8354b629434bfee1ebad648cafea8db0b42ab189",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "goodbye-hwver",
+      "headRefOid": "b24c4886dc2ad080ad44017b005d4b4fbaa4fc2c",
+      "closedAt": "2020-11-30T16:39:36Z",
+      "mergedAt": "2020-11-30T16:39:36Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "161457e2a123d908fc7c8de2d8d6c21b05ebc68f"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTQxMDc3NTE2",
+          "commit": {
+            "abbreviatedOid": "30f100e"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2020-11-30T16:28:14Z",
+          "updatedAt": "2020-11-30T16:28:14Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTQxMDc1ODQw",
+          "commit": {
+            "abbreviatedOid": "30f100e"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2020-11-30T16:26:36Z",
+          "updatedAt": "2020-11-30T16:29:36Z",
+          "comments": [
+            {
+              "originalPosition": 17,
+              "body": "I would change to 'reference value' (singular) ",
+              "createdAt": "2020-11-30T16:26:36Z",
+              "updatedAt": "2020-11-30T16:36:29Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTQxMDg0OTc0",
+          "commit": {
+            "abbreviatedOid": "30f100e"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2020-11-30T16:36:04Z",
+          "updatedAt": "2020-11-30T16:36:05Z",
+          "comments": [
+            {
+              "originalPosition": 17,
+              "body": "```suggestion\r\nreference value and other token claim values - for example, the Implementation\r\n```",
+              "createdAt": "2020-11-30T16:36:04Z",
+              "updatedAt": "2020-11-30T16:36:29Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTMwMTU4ODM1",
+      "title": "Harmonized CDDL",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/11",
+      "state": "MERGED",
+      "author": "hannestschofenig",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-12-01T09:29:21Z",
+      "updatedAt": "2022-05-30T16:58:20Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "161457e2a123d908fc7c8de2d8d6c21b05ebc68f",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "cddl-fix",
+      "headRefOid": "c0083d6229dfe55ed39a7988979a8428f7e1b906",
+      "closedAt": "2020-12-01T09:48:22Z",
+      "mergedAt": "2020-12-01T09:48:22Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "1f93b765d6682cc476fdc8fefdd411db1aed1d3f"
+      },
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "super!",
+          "createdAt": "2020-12-01T09:48:17Z",
+          "updatedAt": "2020-12-01T09:48:17Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 12,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTMwMTc5NzAz",
+      "title": "avoid \"line too long warning\" from xml2rfc",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/12",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-12-01T10:01:09Z",
+      "updatedAt": "2020-12-01T10:13:02Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "1f93b765d6682cc476fdc8fefdd411db1aed1d3f",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "make-xmlrfc-great-again",
+      "headRefOid": "ddf1fa6f0a32fb542941307c4e88a10c77c73e10",
+      "closedAt": "2020-12-01T10:12:48Z",
+      "mergedAt": "2020-12-01T10:12:48Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "c5789c1fe9838a41e1a1c84f8a2a7b0b2cc8542e"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 14,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTY0MTU2Mjc4",
+      "title": "fix refs",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/14",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Links to PSA documentation became broken since last time the draft was published.  Hopefully they won't change again...",
+      "createdAt": "2021-01-29T18:23:41Z",
+      "updatedAt": "2022-05-30T16:58:14Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "818b3081ab1babde47848e24f00d4f873e7f4235",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "psa-refs",
+      "headRefOid": "d3e1fc78172bffdf5a970410d8559008a3024059",
+      "closedAt": "2021-01-29T20:00:19Z",
+      "mergedAt": "2021-01-29T20:00:19Z",
+      "mergedBy": "hannestschofenig",
+      "mergeCommit": {
+        "oid": "44b4c2e351c1bea20d44506343b2a5280cd027cc"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 16,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTk4MjQzMDE3",
+      "title": "use standard claims",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/16",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #15",
+      "createdAt": "2021-03-22T18:19:53Z",
+      "updatedAt": "2022-05-30T16:58:13Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "44b4c2e351c1bea20d44506343b2a5280cd027cc",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "eat-profile",
+      "headRefOid": "616321bb83a805d8bc0f0737667436d6703fcd3d",
+      "closedAt": "2021-03-24T09:31:39Z",
+      "mergedAt": "2021-03-24T09:31:39Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "40024c4dc5dd6811d7203e246b2fd5be75bce030"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4ODM3MjU5",
+          "commit": {
+            "abbreviatedOid": "8a492d8"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T16:51:39Z",
+          "updatedAt": "2021-03-23T16:51:39Z",
+          "comments": [
+            {
+              "originalPosition": 3,
+              "body": "drop psa- prefix in comment? Also for 26 & 28 below. (Unless I'm mistaken that this is deliberately a down-rev example).",
+              "createdAt": "2021-03-23T16:51:39Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4ODQ0MTU2",
+          "commit": {
+            "abbreviatedOid": "8a492d8"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T16:57:39Z",
+          "updatedAt": "2021-03-23T16:57:40Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "The current PSA Security model has backed off from this strict definition of the Instance ID. It now just says it 'identifies the IAK'.",
+              "createdAt": "2021-03-23T16:57:40Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4ODQ3NzUz",
+          "commit": {
+            "abbreviatedOid": "8a492d8"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T17:00:47Z",
+          "updatedAt": "2021-03-23T17:00:48Z",
+          "comments": [
+            {
+              "originalPosition": 96,
+              "body": "Maybe worth saying this choice was taken because IANA registration became available for standard claim values (rather than being an arbitrary decision we took for fun)!",
+              "createdAt": "2021-03-23T17:00:47Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4ODU4NjQw",
+          "commit": {
+            "abbreviatedOid": "8a492d8"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T17:10:32Z",
+          "updatedAt": "2021-03-23T17:10:33Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "We'll also want to revise it to also cover group unique keys as an alternative",
+              "createdAt": "2021-03-23T17:10:32Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4ODY4MTMy",
+          "commit": {
+            "abbreviatedOid": "8a492d8"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T17:19:18Z",
+          "updatedAt": "2021-03-23T17:19:19Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "\"to the wire\" - Does this have a specific meaning? We don't make any statements about endianess etc",
+              "createdAt": "2021-03-23T17:19:18Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4ODY5Mjk2",
+          "commit": {
+            "abbreviatedOid": "8a492d8"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T17:20:26Z",
+          "updatedAt": "2021-03-23T17:20:26Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "As discussed, let's use semantic versioning",
+              "createdAt": "2021-03-23T17:20:26Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4ODY5MzY4",
+          "commit": {
+            "abbreviatedOid": "8a492d8"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T17:20:30Z",
+          "updatedAt": "2021-03-23T17:20:30Z",
+          "comments": [
+            {
+              "originalPosition": 12,
+              "body": "As discussed, let's use semantic versioning",
+              "createdAt": "2021-03-23T17:20:30Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4ODcyMDQ1",
+          "commit": {
+            "abbreviatedOid": "8a492d8"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T17:23:05Z",
+          "updatedAt": "2021-03-23T17:23:05Z",
+          "comments": [
+            {
+              "originalPosition": 99,
+              "body": "missing capital A in PSA Attestation API",
+              "createdAt": "2021-03-23T17:23:05Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4ODcyODc4",
+          "commit": {
+            "abbreviatedOid": "8a492d8"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T17:23:51Z",
+          "updatedAt": "2021-03-23T17:23:51Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "We \"inherit\" the serialisation rules of CBOR.",
+              "createdAt": "2021-03-23T17:23:51Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4ODgyMTQ1",
+          "commit": {
+            "abbreviatedOid": "8a492d8"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T17:32:39Z",
+          "updatedAt": "2021-03-23T17:32:39Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "Unless there is a separate, distinct EAT claim for that?",
+              "createdAt": "2021-03-23T17:32:39Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4ODgzMDM1",
+          "commit": {
+            "abbreviatedOid": "8a492d8"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T17:33:30Z",
+          "updatedAt": "2021-03-23T17:33:30Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "@SimonFrost-Arm : makes sense, I will remove the details about the derivation.\r\n\r\n@adrianlshaw : can you suggest some text? ",
+              "createdAt": "2021-03-23T17:33:30Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4ODgzNzMx",
+          "commit": {
+            "abbreviatedOid": "8a492d8"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T17:34:14Z",
+          "updatedAt": "2021-03-23T17:34:14Z",
+          "comments": [
+            {
+              "originalPosition": 3,
+              "body": "What if we need a different token in the future? Having the prefix seems useful to have",
+              "createdAt": "2021-03-23T17:34:14Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4ODg1MDkw",
+          "commit": {
+            "abbreviatedOid": "8a492d8"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T17:35:36Z",
+          "updatedAt": "2021-03-23T17:35:37Z",
+          "comments": [
+            {
+              "originalPosition": 131,
+              "body": "Should evidence be capitalised like this?",
+              "createdAt": "2021-03-23T17:35:37Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4ODkwNzQ0",
+          "commit": {
+            "abbreviatedOid": "8a492d8"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T17:41:10Z",
+          "updatedAt": "2021-03-23T17:41:10Z",
+          "comments": [
+            {
+              "originalPosition": 96,
+              "body": "I had a sentence to that end, but I dropped it because I thought that it'd be a distraction.  We want cold, dull, uninspiring standards language :-)",
+              "createdAt": "2021-03-23T17:41:10Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4OTAwMjIz",
+          "commit": {
+            "abbreviatedOid": "8a492d8"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T17:50:33Z",
+          "updatedAt": "2021-03-23T17:50:33Z",
+          "comments": [
+            {
+              "originalPosition": 3,
+              "body": "> What if we need a different token in the future? Having the prefix seems useful to have\r\n\r\nThe trouble here is that 18 means \"EAT profile\", using the `psa-` prefix is not correct.",
+              "createdAt": "2021-03-23T17:50:33Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4OTAyMTU1",
+          "commit": {
+            "abbreviatedOid": "8a492d8"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T17:52:26Z",
+          "updatedAt": "2021-03-23T17:52:26Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "> Unless there is a separate, distinct EAT claim for that?\r\n\r\nThere is some discussion ongoing about defining a separate \"group ueid\".   The requirement is coming from the FIDO side.",
+              "createdAt": "2021-03-23T17:52:26Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4OTAzMTcw",
+          "commit": {
+            "abbreviatedOid": "8a492d8"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T17:53:26Z",
+          "updatedAt": "2021-03-23T17:53:27Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "OK, I will use 2.0.0 everywhere then.",
+              "createdAt": "2021-03-23T17:53:26Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4OTA0OTQ3",
+          "commit": {
+            "abbreviatedOid": "8a492d8"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T17:55:14Z",
+          "updatedAt": "2021-03-23T17:55:14Z",
+          "comments": [
+            {
+              "originalPosition": 131,
+              "body": "It's the term of art established in the [RATS architecture document](https://ietf-rats-wg.github.io/architecture/draft-ietf-rats-architecture.html#section-8.1)",
+              "createdAt": "2021-03-23T17:55:14Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4OTI3NTYz",
+          "commit": {
+            "abbreviatedOid": "8a492d8"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T18:19:04Z",
+          "updatedAt": "2021-03-23T18:19:04Z",
+          "comments": [
+            {
+              "originalPosition": 96,
+              "body": "> I had a sentence to that end, but I dropped it because I thought that it'd be a distraction. We want cold, dull, uninspiring standards language :-)\r\n\r\nThis +1",
+              "createdAt": "2021-03-23T18:19:04Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4OTI4OTE5",
+          "commit": {
+            "abbreviatedOid": "8a492d8"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T18:20:33Z",
+          "updatedAt": "2021-03-23T18:20:33Z",
+          "comments": [
+            {
+              "originalPosition": 3,
+              "body": "Sorry, I misread Simon's comment. For some reason I thought he was talking about the URL. No objections to dropping psa- from the comment ",
+              "createdAt": "2021-03-23T18:20:33Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4OTMxNjIz",
+          "commit": {
+            "abbreviatedOid": "8a492d8"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T18:23:32Z",
+          "updatedAt": "2021-03-23T18:23:33Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "On a re-read, I think 'identifies the IAK' should be fine for both cases. ",
+              "createdAt": "2021-03-23T18:23:33Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4OTY3MTMz",
+          "commit": {
+            "abbreviatedOid": "1fc7e24"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T19:04:03Z",
+          "updatedAt": "2021-03-23T19:04:03Z",
+          "comments": [
+            {
+              "originalPosition": 3,
+              "body": "done in 58ba0c6",
+              "createdAt": "2021-03-23T19:04:03Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4OTY3Mjgw",
+          "commit": {
+            "abbreviatedOid": "1fc7e24"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T19:04:12Z",
+          "updatedAt": "2021-03-23T19:04:13Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "done in 58ba0c6",
+              "createdAt": "2021-03-23T19:04:12Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4OTY3NTA0",
+          "commit": {
+            "abbreviatedOid": "1fc7e24"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T19:04:28Z",
+          "updatedAt": "2021-03-23T19:04:28Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "done in 58ba0c6",
+              "createdAt": "2021-03-23T19:04:28Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4OTY3NjM2",
+          "commit": {
+            "abbreviatedOid": "1fc7e24"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T19:04:38Z",
+          "updatedAt": "2021-03-23T19:04:38Z",
+          "comments": [
+            {
+              "originalPosition": 12,
+              "body": "done in 58ba0c6",
+              "createdAt": "2021-03-23T19:04:38Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE4OTY3NzQ5",
+          "commit": {
+            "abbreviatedOid": "1fc7e24"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-23T19:04:46Z",
+          "updatedAt": "2021-03-23T19:04:47Z",
+          "comments": [
+            {
+              "originalPosition": 99,
+              "body": "done in 58ba0c6",
+              "createdAt": "2021-03-23T19:04:46Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE5Mzc3MjI5",
+          "commit": {
+            "abbreviatedOid": "1fc7e24"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-24T06:56:32Z",
+          "updatedAt": "2021-03-24T06:56:33Z",
+          "comments": [
+            {
+              "originalPosition": 26,
+              "body": "```suggestion\r\n* The length MUST be either 32, 48, or 64 bytes.\r\n```",
+              "createdAt": "2021-03-24T06:56:32Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE5Mzc4ODUw",
+          "commit": {
+            "abbreviatedOid": "1fc7e24"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-24T06:59:43Z",
+          "updatedAt": "2021-03-24T06:59:43Z",
+          "comments": [
+            {
+              "originalPosition": 27,
+              "body": "```suggestion\r\n* Only a single nonce value is conveyed. Per {{!I-D.ietf-rats-eat}} the array notation is not used for encoding the nonce value.\r\n```",
+              "createdAt": "2021-03-24T06:59:43Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE5Mzc4OTgw",
+          "commit": {
+            "abbreviatedOid": "1fc7e24"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-24T06:59:57Z",
+          "updatedAt": "2021-03-24T06:59:58Z",
+          "comments": [
+            {
+              "originalPosition": 31,
+              "body": "```suggestion\r\n\r\n```",
+              "createdAt": "2021-03-24T06:59:57Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE5MzgwNTIy",
+          "commit": {
+            "abbreviatedOid": "1fc7e24"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-24T07:02:51Z",
+          "updatedAt": "2021-03-24T07:02:52Z",
+          "comments": [
+            {
+              "originalPosition": 53,
+              "body": "```suggestion\r\n* The length MUST be 33 bytes.\r\n```",
+              "createdAt": "2021-03-24T07:02:52Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE5MzgxMDQ5",
+          "commit": {
+            "abbreviatedOid": "1fc7e24"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-24T07:03:50Z",
+          "updatedAt": "2021-03-24T07:03:51Z",
+          "comments": [
+            {
+              "originalPosition": 74,
+              "body": "```suggestion\r\n* The URI encoding MUST be used.\r\n```",
+              "createdAt": "2021-03-24T07:03:50Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE5MzgxMzY3",
+          "commit": {
+            "abbreviatedOid": "1fc7e24"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-24T07:04:26Z",
+          "updatedAt": "2021-03-24T07:04:27Z",
+          "comments": [
+            {
+              "originalPosition": 89,
+              "body": "```suggestion\r\nPrevious versions of this specification used different claim key values for the following\r\n```",
+              "createdAt": "2021-03-24T07:04:26Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE5MzgxODQw",
+          "commit": {
+            "abbreviatedOid": "1fc7e24"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-24T07:05:19Z",
+          "updatedAt": "2021-03-24T07:05:20Z",
+          "comments": [
+            {
+              "originalPosition": 103,
+              "body": "```suggestion\r\nTo simplify the transition to the token format described in this\r\n```",
+              "createdAt": "2021-03-24T07:05:20Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE5MzgyMzY3",
+          "commit": {
+            "abbreviatedOid": "1fc7e24"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-24T07:06:19Z",
+          "updatedAt": "2021-03-24T07:06:20Z",
+          "comments": [
+            {
+              "originalPosition": 126,
+              "body": "```suggestion\r\nattestation tokens can use the media type defined in {{sec-iana-media-types}}\r\n```",
+              "createdAt": "2021-03-24T07:06:19Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE5Mzg0MDI0",
+          "commit": {
+            "abbreviatedOid": "1fc7e24"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-24T07:09:25Z",
+          "updatedAt": "2021-03-24T07:09:25Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "```suggestion\r\nThe Nonce claim is used to carry the challenge provided by the caller to demonstrate freshness of the generated token.\r\n```",
+              "createdAt": "2021-03-24T07:09:25Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE5Mzg0MzEw",
+          "commit": {
+            "abbreviatedOid": "1fc7e24"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-24T07:09:56Z",
+          "updatedAt": "2021-03-24T07:09:56Z",
+          "comments": [
+            {
+              "originalPosition": 31,
+              "body": "I moved the text ",
+              "createdAt": "2021-03-24T07:09:56Z",
+              "updatedAt": "2021-03-24T09:29:54Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "id": "MDExOlB1bGxSZXF1ZXN0NjA4NDMwMjAw",
+      "title": "slight reword of the verification section",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/19",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "* add ref to Section 5 re: cryptographic verification requirements;\r\n* mark Instance ID as the primary lookup handle for the verification key\r\n  material.\r\n\r\nAlso s/verifier/Verifier/g\r\n\r\nFixes #18",
+      "createdAt": "2021-04-03T19:07:10Z",
+      "updatedAt": "2021-04-07T15:03:14Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "6241b11636b9ea47594c60a61753d31b101906ad",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "verif",
+      "headRefOid": "fcdc7d71f78ebbe879180ccd0c2a8513ba851322",
+      "closedAt": "2021-04-07T15:03:10Z",
+      "mergedAt": "2021-04-07T15:03:10Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "47c6a72bb6bbfc33851b48b351cb88d1de065d3e"
+      },
+      "comments": [
+        {
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Looks good to me. Just minor editorial changes. ",
+          "createdAt": "2021-04-07T12:54:38Z",
+          "updatedAt": "2021-04-07T12:54:38Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjI4Nzk1Mjgw",
+          "commit": {
+            "abbreviatedOid": "6227c38"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-04-06T10:05:48Z",
+          "updatedAt": "2021-04-06T10:05:48Z",
+          "comments": [
+            {
+              "originalPosition": 80,
+              "body": "There may or may not be a single database or certification scheme. To address this, might be better to rephrase to something like \"locate security certification information associated with the attesting device. An example could be a reference to a www.psacertified.org certificate\" \r\n\r\nWhat do you think?",
+              "createdAt": "2021-04-06T10:05:48Z",
+              "updatedAt": "2021-04-07T15:02:53Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjI5MzU2MzYw",
+          "commit": {
+            "abbreviatedOid": "b45adbe"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-04-06T19:55:47Z",
+          "updatedAt": "2021-04-06T19:55:47Z",
+          "comments": [
+            {
+              "originalPosition": 80,
+              "body": "thanks!  Your suggested text is in b45adbe",
+              "createdAt": "2021-04-06T19:55:47Z",
+              "updatedAt": "2021-04-07T15:02:53Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjI5MzY4NjYx",
+          "commit": {
+            "abbreviatedOid": "b45adbe"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Nice edits. LGTM",
+          "createdAt": "2021-04-06T20:11:48Z",
+          "updatedAt": "2021-04-06T20:11:48Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjI5ODc0MzIz",
+          "commit": {
+            "abbreviatedOid": "b45adbe"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2021-04-07T11:05:19Z",
+          "updatedAt": "2021-04-07T11:05:19Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjI5OTYzMjMz",
+          "commit": {
+            "abbreviatedOid": "b45adbe"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-04-07T12:48:45Z",
+          "updatedAt": "2021-04-07T12:48:46Z",
+          "comments": [
+            {
+              "originalPosition": 53,
+              "body": "```suggestion\r\nTo verify the token, the primary need is to check correct encoding and signing\r\n```",
+              "createdAt": "2021-04-07T12:48:45Z",
+              "updatedAt": "2021-04-07T15:02:53Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjI5OTY3NDMx",
+          "commit": {
+            "abbreviatedOid": "b45adbe"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-04-07T12:52:59Z",
+          "updatedAt": "2021-04-07T12:52:59Z",
+          "comments": [
+            {
+              "originalPosition": 67,
+              "body": "```suggestion\r\nID claim is used (together with the kid in the COSE header, if present)\r\n```",
+              "createdAt": "2021-04-07T12:52:59Z",
+              "updatedAt": "2021-04-07T15:02:53Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjI5OTY4MTQy",
+          "commit": {
+            "abbreviatedOid": "b45adbe"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-04-07T12:53:39Z",
+          "updatedAt": "2021-04-07T12:53:40Z",
+          "comments": [
+            {
+              "originalPosition": 68,
+              "body": "```suggestion\r\nto assist in locating the public key used to verify the signature covering the CWT token.\r\n```",
+              "createdAt": "2021-04-07T12:53:39Z",
+              "updatedAt": "2021-04-07T15:02:53Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 30,
+      "id": "MDExOlB1bGxSZXF1ZXN0NjEzNzUzNDg0",
+      "title": "add xclaim to the list of implementations",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/30",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #28",
+      "createdAt": "2021-04-12T16:00:28Z",
+      "updatedAt": "2022-05-30T16:58:10Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "47c6a72bb6bbfc33851b48b351cb88d1de065d3e",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "xclaim",
+      "headRefOid": "547bb4ceae06b29a86373dcdde711a989dd9fee7",
+      "closedAt": "2021-04-12T16:01:22Z",
+      "mergedAt": "2021-04-12T16:01:22Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "319fbee56067ef9bb7f627e8bb02efa908056191"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 31,
+      "id": "MDExOlB1bGxSZXF1ZXN0NjEzNzY5MDEw",
+      "title": "Update CBOR ref",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/31",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #20",
+      "createdAt": "2021-04-12T16:22:36Z",
+      "updatedAt": "2022-05-30T16:57:26Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "319fbee56067ef9bb7f627e8bb02efa908056191",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "cbor-ref",
+      "headRefOid": "79b3559638c04a54a314cfb5f924d5ecd2c21b8a",
+      "closedAt": "2021-04-12T16:23:47Z",
+      "mergedAt": "2021-04-12T16:23:47Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "4f2536d32e2dfc0327775e1ce108c61cb2cdac22"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 32,
+      "id": "MDExOlB1bGxSZXF1ZXN0NjEzODI0ODAx",
+      "title": "add baseline requirements for crypto algorithms",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/32",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "The rationale is to take TF-M as reference and to model the baseline requirements on what it can do.  The use of\r\nES256 for COSE_Sign1 and HMAC 256/256 for COSE_Mac0 have been confirmed by @tamasban.\r\n\r\nFixes #21",
+      "createdAt": "2021-04-12T17:53:03Z",
+      "updatedAt": "2021-04-14T13:48:01Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "8481f8432c4bf88d412a6e5cf70bdf8903e5274e",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "baseline-crypt",
+      "headRefOid": "b404fc2843928e14d85342119bfca227a60f607b",
+      "closedAt": "2021-04-14T13:47:54Z",
+      "mergedAt": "2021-04-14T13:47:54Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "a66e0598b6adff93d91ca25fe1fc7bfcf8fef0e5"
+      },
+      "comments": [
+        {
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think we need to include EdDSA as well, as described in the COSE document. This will become more popular. \n\nRSA-PSS should probably include, even though it might be falling out of favour.\n\nAs for Chinese algorithms like SM2, the COSE document doesn't mention these. Chinese PSA devices will likely use that algorithm, so there needs to be a discussion about MUST vs SHOULD language. I think it uses an ECDSA-like scheme but I'm not familiar with how compatible it is with the COSE format.",
+          "createdAt": "2021-04-12T18:35:42Z",
+          "updatedAt": "2021-04-12T18:35:42Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "> I think we need to include EdDSA as well, as described in the COSE document. This will become more popular.\r\n> \r\n> RSA-PSS should probably include, even though it might be falling out of favour.\r\n\r\n* verifier MUST ES256 -- interop fail-safe\r\n* verifier SHOULD (or MUST?) EdDSA\r\n* verifier SHOULD (or MUST?) PS256\r\n\r\n> As for Chinese algorithms like SM2, the COSE document doesn't mention these. Chinese PSA devices will likely use that algorithm, so there needs to be a discussion about MUST vs SHOULD language. I think it uses an ECDSA-like scheme but I'm not familiar with how compatible it is with the COSE format.\r\n\r\nThere is no support in COSE for these at the moment.\r\n\r\n",
+          "createdAt": "2021-04-13T10:17:40Z",
+          "updatedAt": "2021-04-13T10:17:40Z"
+        },
+        {
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I'm not sure why you need the 'fail-safe' that you mention - it is cheap for a verifier to support all the algorithms, whereas the device obviously has less flexibility. However, I don't think you need to say the \"verifier must\" phrasing because we are talking about what an interoperable token contains. With a small tweak to the wording: \"Conformant tokens using COSE_Sign1 MUST use ES256, EdDSA or PS256 signatures\" then it should be clear to both the verifier and the attester what is an interoperable token. \r\n\r\nBut the wording I mention above is not enough because we should encourage, where possible, stronger signature algorithms with bigger keys. This is of particular importance because the Initial Attestation Key is a long lived key, so we don't want to limit to 256 bits. \r\n\r\nEither we list all the possible signature algorithms + sizes or we reference COSE (RFC8152) for the list of signature algorithms. Would it be a problem if we make a statement saying that any COSE signature algorithm is permitted? Because when I checked RFC8152 there are no broken or obsolete algorithms, there are only three algorithm families (reasonable number to support), and if someone wanted to upstream SM2 or other national equivalent, then all they would need to do is make a contribution to the COSE RFC. Or are things not that simple?\r\n\r\nEdit: regarding Chinese algorithms and such, we could acknowledge them in the draft by saying that they are possible due to regional requirements but are not expected to be interoperable.  ",
+          "createdAt": "2021-04-13T10:56:34Z",
+          "updatedAt": "2021-04-13T11:00:44Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "> I'm not sure why you need the 'fail-safe' that you mention\r\n\r\nIn order to guarantee interop either we say \"verifiers MUST implement all COSE algorithms\" or we define (at least) one non-empty intersection between what is required from both attesters and verifiers (the fail-safe).  I thought ES256+HMAC 256/256 might be a good choice for the fail-safe (because TF-M).  Then we can extend the requirements on the verifier side, adding bigger keys and other algorithms.\r\n\r\n> it is cheap for a verifier to support all the algorithms, whereas the device obviously has less flexibility.\r\n\r\nIt is cheaper for the verifier than for the attester, but it's not cheap in absolute terms.  It depends on available libraries.\r\n\r\n> However, I don't think you need to say the \"verifier must\" phrasing because we are talking about what an interoperable token contains. With a small tweak to the wording: \"Conformant tokens using COSE_Sign1 MUST use ES256, EdDSA or PS256 signatures\" then it should be clear to both the verifier and the attester what is an interoperable token.\r\n\r\nI think this would be too onerous for the attester.  There is an imbalance of force that we need to consider.  Splitting the requirements allows us to create the opportunity for successful interop while avoiding pushing too much weigh on the attester.\r\n\r\n> But the wording I mention above is not enough because we should encourage, where possible, stronger signature algorithms with bigger keys. This is of particular importance because the Initial Attestation Key is a long lived key, so we don't want to limit to 256 bits.\r\n\r\nI agree that this is a good thing in general and we should add some text to that purpose.  But I think this is an orthogonal consideration.\r\n\r\n> Either we list all the possible signature algorithms + sizes or we reference COSE (RFC8152) for the list of signature algorithms. Would it be a problem if we make a statement saying that any COSE signature algorithm is permitted?\r\n\r\nUnfortunately, the implementations are not necessarily providing all the algorithms.\r\n\r\n> Because when I checked RFC8152 there are no broken or obsolete algorithms, there are only three algorithm families (reasonable number to support), and if someone wanted to upstream SM2 or other national equivalent, then all they would need to do is make a contribution to the COSE RFC. Or are things not that simple?\r\n\r\nHannes is telling me they had to deal with similar concerns in FIDO and what they ended up doing was allocating from a private codepoint space in the COSE algorithm registry (i.e., less than -65536)\r\n\r\n> Edit: regarding Chinese algorithms and such, we could acknowledge them in the draft by saying that they are possible due to regional requirements but are not expected to be interoperable.\r\n\r\n",
+          "createdAt": "2021-04-13T13:05:08Z",
+          "updatedAt": "2021-04-13T13:05:08Z"
+        },
+        {
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "OK I understand the purpose of it now. I didn't really understand the library cost argument: OpenSSL supports all these algorithms and MbedTLS will support all three at some point this year. But I appreciate that the COSE libraries might be less versatile or mature.\r\n\r\nOnly requiring ECDSA support makes me afraid of the impact on devices. Clearly this bias will affect those who use hardware to accelerate RSA but do not have ECC acceleration due to patent related reasons. As worded, all implementations are forced to use ECDSA. Although TF-M uses that ECC algorithm by default, it is not the only implementation of the PSA RoT (there are hardware implementations and closed source commercial firmware products). Throughout PSA we have avoided specifying algorithm families and particular strengths, which is why the Attestation API lets you choose any algorithm described by COSE.\r\n\r\nUltimately, I believe that RSA should be included in the minimum required interop set. I still have an issue with the fail safe as described so far. By not mentioning stronger key sizes, the device maker will have to choose between interoperability or more security. Doesn't seem like a sensible decision to force on someone. The burden should be on the verifier, not the chip maker.\r\n\r\nMy concerns might be addressed if we can separate the question of \"what is a valid token\" from \"what is desired from interoperability point of view\" because I fear readers are going to conflate the two. ",
+          "createdAt": "2021-04-13T14:38:04Z",
+          "updatedAt": "2021-04-13T14:38:04Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "The text proposed in b404fc2 is the follow up of a bunch of OOB discussion with Simon, Yogesh, Hannes and Adrian.",
+          "createdAt": "2021-04-13T16:56:49Z",
+          "updatedAt": "2021-04-13T16:56:49Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjM0OTAyMzU4",
+          "commit": {
+            "abbreviatedOid": "b404fc2"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-04-13T18:25:51Z",
+          "updatedAt": "2021-04-13T18:25:51Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjM1MDgxMzk1",
+          "commit": {
+            "abbreviatedOid": "b404fc2"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-04-13T22:41:31Z",
+          "updatedAt": "2021-04-13T22:41:31Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 33,
+      "id": "MDExOlB1bGxSZXF1ZXN0NjEzODM3NjIy",
+      "title": "say that the Verifier obtains the keys from an Endorser",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/33",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #22",
+      "createdAt": "2021-04-12T18:15:36Z",
+      "updatedAt": "2022-05-30T16:57:25Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "4f2536d32e2dfc0327775e1ce108c61cb2cdac22",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "key-endorsement",
+      "headRefOid": "30c74fe46bb15369e070e06af24cfb269a17650e",
+      "closedAt": "2021-04-12T18:18:23Z",
+      "mergedAt": "2021-04-12T18:18:23Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "2d8c47f0321710a1f0c9ea804175098641a65956"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 34,
+      "id": "MDExOlB1bGxSZXF1ZXN0NjE0MzExMzU1",
+      "title": "more clarity around the CBOR tags to use",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/34",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Add some more clarity around what CBOR tags are to be expected in a\r\napplication/psa-attestation-token payload.\r\n\r\nFixes #25",
+      "createdAt": "2021-04-13T09:44:08Z",
+      "updatedAt": "2022-05-30T16:57:24Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "2d8c47f0321710a1f0c9ea804175098641a65956",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "protocols",
+      "headRefOid": "ea4c76d4fef586a10a0129562ab987cea4ef7848",
+      "closedAt": "2021-04-13T09:55:16Z",
+      "mergedAt": "2021-04-13T09:55:16Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "1a5729bb77ab56f4bd86d2b4a418cb8f4e842365"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 35,
+      "id": "MDExOlB1bGxSZXF1ZXN0NjE0MzkwODUx",
+      "title": "Improve Implementation ID description",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/35",
+      "state": "MERGED",
+      "author": "adrianlshaw",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "First stab at addressing #23.\r\n\r\nNote that I have removed the PSA-SM reference here because, as of version Alpha 3, there is only one sentence in that document that describe the implementation ID. There was more detail in Alpha 2 but this was removed. Since it's even more vague and unhelpful, I've dropped the reference. ",
+      "createdAt": "2021-04-13T11:45:27Z",
+      "updatedAt": "2021-04-13T16:02:15Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "1a5729bb77ab56f4bd86d2b4a418cb8f4e842365",
+      "headRepository": "adrianlshaw/draft-psa-token",
+      "headRefName": "master",
+      "headRefOid": "109759211e5c2026cf1d0829a74ded187ae44815",
+      "closedAt": "2021-04-13T16:02:15Z",
+      "mergedAt": "2021-04-13T16:02:15Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "8481f8432c4bf88d412a6e5cf70bdf8903e5274e"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjM0NTg2ODA4",
+          "commit": {
+            "abbreviatedOid": "4e96c3a"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-04-13T13:26:22Z",
+          "updatedAt": "2021-04-13T13:26:22Z",
+          "comments": [
+            {
+              "originalPosition": 12,
+              "body": "plural/singular mismatch (Such details...is used)",
+              "createdAt": "2021-04-13T13:26:22Z",
+              "updatedAt": "2021-04-13T14:43:39Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjM0NjgwNzQ0",
+          "commit": {
+            "abbreviatedOid": "1097592"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "thanks!",
+          "createdAt": "2021-04-13T14:44:06Z",
+          "updatedAt": "2021-04-13T14:44:06Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 38,
+      "id": "PR_kwDODpTnZ84zqR1R",
+      "title": "Updated contact details of Adrian",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/38",
+      "state": "MERGED",
+      "author": "hannestschofenig",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-02-28T12:06:57Z",
+      "updatedAt": "2022-02-28T13:20:16Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "d7662abaf6f076c8eaa251d696c50bdfdedaa815",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "hannestschofenig-patch-4",
+      "headRefOid": "ad204092b4eae458dfdd630711bca7e5233d53c0",
+      "closedAt": "2022-02-28T13:20:16Z",
+      "mergedAt": "2022-02-28T13:20:15Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "264eef09e4616221a52d47589bb1672b75c332d9"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDODpTnZ841WOVo",
+          "commit": {
+            "abbreviatedOid": "ad20409"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Thanks Hannes :-)",
+          "createdAt": "2022-02-28T12:23:32Z",
+          "updatedAt": "2022-02-28T12:23:32Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDODpTnZ841WQy0",
+          "commit": {
+            "abbreviatedOid": "ad20409"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "\ud83d\udc4d ",
+          "createdAt": "2022-02-28T12:33:57Z",
+          "updatedAt": "2022-02-28T12:33:57Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 40,
+      "id": "PR_kwDODpTnZ84zrCrv",
+      "title": "renumber profile and ueid",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/40",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #39",
+      "createdAt": "2022-02-28T15:41:47Z",
+      "updatedAt": "2022-03-01T18:54:56Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "264eef09e4616221a52d47589bb1672b75c332d9",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "eat-align",
+      "headRefOid": "a251748b0a39f1f805a03233eab5f344d2710070",
+      "closedAt": "2022-03-01T18:54:53Z",
+      "mergedAt": "2022-03-01T18:54:53Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "65be836150ff2adfd4b7d25bea05f17af1d18397"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDODpTnZ841Z35m",
+          "commit": {
+            "abbreviatedOid": "a251748"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-03-01T08:13:15Z",
+          "updatedAt": "2022-03-01T08:13:15Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 43,
+      "id": "PR_kwDODpTnZ84z0_--",
+      "title": "description of the Measurement Description claim",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/43",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Reformulate the prose around Measurement Description to reflect what\r\nimplementations have come to do.\r\n\r\nFixes #41",
+      "createdAt": "2022-03-02T13:12:50Z",
+      "updatedAt": "2022-03-02T18:24:33Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "65be836150ff2adfd4b7d25bea05f17af1d18397",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "measurement-desc-revamp",
+      "headRefOid": "2323738ca40bf21fb57e34a12a1da5d9dc0d5bb4",
+      "closedAt": "2022-03-02T18:24:30Z",
+      "mergedAt": "2022-03-02T18:24:30Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "9a5c1da3d5d27e3ca505272d343ce630f2c920d1"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDODpTnZ841hG8o",
+          "commit": {
+            "abbreviatedOid": "2323738"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-03-02T16:57:53Z",
+          "updatedAt": "2022-03-02T16:57:53Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDODpTnZ841hLIR",
+          "commit": {
+            "abbreviatedOid": "2323738"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Nice one, Thomas. That SHOULD should probably become a MUST someday.",
+          "createdAt": "2022-03-02T17:10:30Z",
+          "updatedAt": "2022-03-02T17:10:30Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 45,
+      "id": "PR_kwDODpTnZ84z2vWf",
+      "title": "Add requests to IANA for PSA claims",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/45",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #44",
+      "createdAt": "2022-03-02T21:17:37Z",
+      "updatedAt": "2022-05-30T16:57:23Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "9a5c1da3d5d27e3ca505272d343ce630f2c920d1",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "iana-registrations",
+      "headRefOid": "d76e21be74efcf098931b069fdfe94461d2f7d17",
+      "closedAt": "2022-03-07T10:41:41Z",
+      "mergedAt": "2022-03-07T10:41:40Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "3defc99fc7b9a3b302477d6c7b431d13650006bd"
+      },
+      "comments": [
+        {
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Numbering looks OK \ud83d\udc4d ",
+          "createdAt": "2022-03-04T16:38:02Z",
+          "updatedAt": "2022-03-04T16:38:02Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "> Looks good. Note slight terminology mismatch (present for a while) for client/partition ID\r\n\r\nraised #46 to address this",
+          "createdAt": "2022-03-07T09:17:46Z",
+          "updatedAt": "2022-03-07T09:17:46Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDODpTnZ841jib9",
+          "commit": {
+            "abbreviatedOid": "d60cf14"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-03-03T06:51:42Z",
+          "updatedAt": "2022-03-03T06:51:42Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDODpTnZ841mSJC",
+          "commit": {
+            "abbreviatedOid": "321cc75"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-03-03T17:03:56Z",
+          "updatedAt": "2022-03-03T17:03:56Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDODpTnZ841q5wK",
+          "commit": {
+            "abbreviatedOid": "321cc75"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-03-04T16:28:32Z",
+          "updatedAt": "2022-03-04T16:28:33Z",
+          "comments": [
+            {
+              "originalPosition": 3,
+              "body": "payload?",
+              "createdAt": "2022-03-04T16:28:33Z",
+              "updatedAt": "2022-03-04T16:28:33Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDODpTnZ841rDt3",
+          "commit": {
+            "abbreviatedOid": "321cc75"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-03-04T17:05:08Z",
+          "updatedAt": "2022-03-04T17:05:08Z",
+          "comments": [
+            {
+              "originalPosition": 3,
+              "body": "```suggestion\r\n    / payload /     h'AA1901097818687474703A2F2F61726D2E636F6D2F\r\n```",
+              "createdAt": "2022-03-04T17:05:08Z",
+              "updatedAt": "2022-03-04T17:05:08Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDODpTnZ841r1K5",
+          "commit": {
+            "abbreviatedOid": "0efd2bb"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-03-04T20:18:24Z",
+          "updatedAt": "2022-03-04T20:18:24Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDODpTnZ841uJen",
+          "commit": {
+            "abbreviatedOid": "d76e21b"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-03-07T06:48:09Z",
+          "updatedAt": "2022-03-07T06:48:09Z",
+          "comments": [
+            {
+              "originalPosition": 22,
+              "body": "Slight inconsistency through the file between client id (in block definition) & partition id here",
+              "createdAt": "2022-03-07T06:48:09Z",
+              "updatedAt": "2022-03-07T06:48:47Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDODpTnZ841uKES",
+          "commit": {
+            "abbreviatedOid": "d76e21b"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks good. Note slight terminology mismatch (present for a while) for client/partition ID",
+          "createdAt": "2022-03-07T06:52:13Z",
+          "updatedAt": "2022-03-07T06:52:13Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDODpTnZ841uoJs",
+          "commit": {
+            "abbreviatedOid": "d76e21b"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-03-07T09:14:54Z",
+          "updatedAt": "2022-03-07T09:14:54Z",
+          "comments": [
+            {
+              "originalPosition": 22,
+              "body": "Yeah, I can't recollect exactly how we ended up here, but we have also this: _`Note that the CDDL label used to be called arm_psa_partition_id.`_ in the Client ID subsection.  I'll raise an issue.",
+              "createdAt": "2022-03-07T09:14:54Z",
+              "updatedAt": "2022-03-07T09:14:54Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 47,
+      "id": "PR_kwDODpTnZ840CG5v",
+      "title": "Drop debris of partition id",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/47",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #46",
+      "createdAt": "2022-03-07T10:49:25Z",
+      "updatedAt": "2022-03-07T12:38:47Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "3defc99fc7b9a3b302477d6c7b431d13650006bd",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "drop-partition-id",
+      "headRefOid": "143e8cfa58d053325fbab7a8faa2ef7f2a0a35c5",
+      "closedAt": "2022-03-07T12:03:05Z",
+      "mergedAt": "2022-03-07T12:03:05Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "c34d4b847a7feb86b27115e0751730ac0ae5f730"
+      },
+      "comments": [
+        {
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Suggestion: keep it consistent with the naming of other \"ID\" claims we have, such as instance_id and implementation_id. So lower case and underscore before id: clientID -> client_id. ",
+          "createdAt": "2022-03-07T11:23:32Z",
+          "updatedAt": "2022-03-07T11:23:32Z"
+        },
+        {
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Also, why drop the \"arm_psa_\" prefix? I think we use this prefix to make it clear which claims are specific to PSA versus some generic claims in the CWT registry ",
+          "createdAt": "2022-03-07T11:25:35Z",
+          "updatedAt": "2022-03-07T11:25:35Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "> Suggestion: keep it consistent with the naming of other \"ID\" claims we have, such as instance_id and implementation_id. So lower case and underscore before id: clientID -> client_id.\r\n\r\nhey Adrian, these changes are not \"publicly\" visible: they are limited to the internal test/consistency suite.  The only visible bit of this PR will be the dropping of the _\"Note that the CDDL label used to be called arm_psa_partition_id.\"_ sentence from the bottom of [section 3.1.2](https://datatracker.ietf.org/doc/html/draft-tschofenig-rats-psa-token#section-3.1.2)",
+          "createdAt": "2022-03-07T11:30:28Z",
+          "updatedAt": "2022-03-07T11:30:28Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "> Also, why drop the \"arm_psa_\" prefix? I think we use this prefix to make it clear which claims are specific to PSA versus some generic claims in the CWT registry\r\n\r\nWe have replaced the `arm_psa_` prefix and use `psa-` instead.",
+          "createdAt": "2022-03-07T11:31:59Z",
+          "updatedAt": "2022-03-07T11:31:59Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDODpTnZ841vORU",
+          "commit": {
+            "abbreviatedOid": "143e8cf"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Ah, I hadn't noticed they were internal names. Then LGTM \ud83d\udc4d ",
+          "createdAt": "2022-03-07T11:35:44Z",
+          "updatedAt": "2022-03-07T11:35:44Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDODpTnZ841vdWr",
+          "commit": {
+            "abbreviatedOid": "143e8cf"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "LGTM",
+          "createdAt": "2022-03-07T12:38:47Z",
+          "updatedAt": "2022-03-07T12:38:47Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 48,
+      "id": "PR_kwDODpTnZ840CN9R",
+      "title": "Drop the no-sw-measurement claim",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/48",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Also renumber the VSI claim as 2400 to fill the gap.\r\n\r\nFixes #37",
+      "createdAt": "2022-03-07T11:18:08Z",
+      "updatedAt": "2022-03-07T16:02:13Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "c34d4b847a7feb86b27115e0751730ac0ae5f730",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "no-no-sw-measurements",
+      "headRefOid": "9da97425a2f820034842417d9253ca6bf3f41a2c",
+      "closedAt": "2022-03-07T16:02:10Z",
+      "mergedAt": "2022-03-07T16:02:09Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "6ae0cc18b71ea31b4e1de8103a507ce4d122b23e"
+      },
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "> I assume changing the number of VSI doesn't create a backwards compatibility problem because these new claim numbers are not yet registered.\r\n\r\nYes, exactly so.",
+          "createdAt": "2022-03-07T11:32:41Z",
+          "updatedAt": "2022-03-07T11:32:41Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDODpTnZ841vNBe",
+          "commit": {
+            "abbreviatedOid": "552b561"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "I assume changing the number of VSI doesn't create a backwards compatibility problem because these new claim numbers are not yet registered. ",
+          "createdAt": "2022-03-07T11:30:28Z",
+          "updatedAt": "2022-03-07T11:30:28Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDODpTnZ841vdse",
+          "commit": {
+            "abbreviatedOid": "9da9742"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-03-07T12:40:10Z",
+          "updatedAt": "2022-03-07T12:40:10Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 50,
+      "id": "PR_kwDODpTnZ840DxnW",
+      "title": "Small updates",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/50",
+      "state": "MERGED",
+      "author": "hannestschofenig",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Possible edits to be incorporated in the future.",
+      "createdAt": "2022-03-07T18:02:40Z",
+      "updatedAt": "2022-05-20T09:53:12Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "6ae0cc18b71ea31b4e1de8103a507ce4d122b23e",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "hannestschofenig-patch-5",
+      "headRefOid": "ef232080a71754d2f18c9ca3d714a2faf4560a5c",
+      "closedAt": "2022-05-20T09:52:00Z",
+      "mergedAt": "2022-05-20T09:52:00Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "af9757ac474b9d97b0b7c485851a8a0d5ea03dbe"
+      },
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "hi @hannestschofenig, could you please fix:\r\n\r\n```\r\ndraft-tschofenig-rats-psa-token.md contains trailing whitespace\r\n*** Run 'make fix-lint' to automatically fix some errors\r\nmake: *** [lib/main.mk:205: lint-whitespace] Error 1\r\n```\r\n\r\nthanks!",
+          "createdAt": "2022-03-23T14:21:53Z",
+          "updatedAt": "2022-03-23T14:21:53Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDODpTnZ842t9JZ",
+          "commit": {
+            "abbreviatedOid": "c3a3d1e"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-03-22T23:47:46Z",
+          "updatedAt": "2022-03-22T23:47:46Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDODpTnZ842xMrZ",
+          "commit": {
+            "abbreviatedOid": "c3a3d1e"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "Super, thanks!  Please do `make fix-lint` and re-push before merging.  Cheers",
+          "createdAt": "2022-03-23T14:23:03Z",
+          "updatedAt": "2022-03-23T14:23:03Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 52,
+      "id": "PR_kwDODpTnZ842hZ2F",
+      "title": "Update Adrian's e-mail address",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/52",
+      "state": "MERGED",
+      "author": "adrianlshaw",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "bug"
+      ],
+      "body": "Workaround for the e-mail SPF issue in #51",
+      "createdAt": "2022-04-20T22:37:59Z",
+      "updatedAt": "2022-04-21T08:27:25Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "6ae0cc18b71ea31b4e1de8103a507ce4d122b23e",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "update-email",
+      "headRefOid": "a656c1b335e7c9bcc5bee79aa6a78a1ed1d2bbd2",
+      "closedAt": "2022-04-21T08:22:32Z",
+      "mergedAt": "2022-04-21T08:22:32Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "c6bca80c90afb3ed8fbe71441de636799f8cd122"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDODpTnZ844hPxs",
+          "commit": {
+            "abbreviatedOid": "a656c1b"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "thanks!",
+          "createdAt": "2022-04-21T08:22:26Z",
+          "updatedAt": "2022-04-21T08:22:26Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 54,
+      "id": "PR_kwDODpTnZ844CAJP",
+      "title": "make boot-seed optional and variable length",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/54",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fix #53\r\n\r\nSigned-off-by: Thomas Fossati <thomas.fossati@arm.com>",
+      "createdAt": "2022-05-18T14:25:48Z",
+      "updatedAt": "2022-05-30T11:14:59Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "af9757ac474b9d97b0b7c485851a8a0d5ea03dbe",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "optvar-boot-seed",
+      "headRefOid": "3dcfe08f48e9abaec04c32956aad7d5fef7ef8dc",
+      "closedAt": "2022-05-28T17:57:23Z",
+      "mergedAt": "2022-05-28T17:57:22Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "1832da9741181d5b79ab892c6290e18add21a190"
+      },
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "I was planning to merge this.\r\n\r\n@hannestschofenig, @adrianlshaw: any pending concern?",
+          "createdAt": "2022-05-26T12:30:40Z",
+          "updatedAt": "2022-05-26T12:30:40Z"
+        },
+        {
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Permitting different sizes makes sense to me. Is 8 bits a safe minimum? I believe it could be but maybe you ought to get a second opinion on that.",
+          "createdAt": "2022-05-26T20:00:39Z",
+          "updatedAt": "2022-05-26T20:00:39Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "> Is 8 bits a safe minimum?\r\n\r\ns/bits/bytes/ right?\r\n\r\n> I believe it could be but maybe you ought to get a second opinion on that.\r\n\r\nMarcus, Andrew and I had a discussion about the lower bound, and the outcome was that 8 bytes is the point where the random sampling strategy is OK for the common use case (i.e., devices that go through less than 4 billion resets during their lifetime), while the monotonic counter approach is still relatively efficient.",
+          "createdAt": "2022-05-27T20:06:46Z",
+          "updatedAt": "2022-05-27T20:06:46Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDODpTnZ846Rmzb",
+          "commit": {
+            "abbreviatedOid": "686bff8"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-05-18T21:56:04Z",
+          "updatedAt": "2022-05-18T21:56:04Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDODpTnZ8460DUa",
+          "commit": {
+            "abbreviatedOid": "3dcfe08"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-05-26T20:02:29Z",
+          "updatedAt": "2022-05-26T20:02:30Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "why is random removed? if it's 8 bits and not random, then this could be an issue. Also, the PSA SM says that it must be random https://www.psacertified.org/app/uploads/2021/12/JSADEN014_PSA_Certified_SM_V1.1_BET0.pdf",
+              "createdAt": "2022-05-26T20:02:29Z",
+              "updatedAt": "2022-05-26T20:02:30Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDODpTnZ8460D09",
+          "commit": {
+            "abbreviatedOid": "3dcfe08"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-05-26T20:04:42Z",
+          "updatedAt": "2022-05-26T20:04:42Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "The EAT definition also says it must be random https://datatracker.ietf.org/doc/html/draft-ietf-rats-eat-13#section-4.2.14",
+              "createdAt": "2022-05-26T20:04:42Z",
+              "updatedAt": "2022-05-26T20:04:42Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDODpTnZ8465LdG",
+          "commit": {
+            "abbreviatedOid": "3dcfe08"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-05-27T20:14:06Z",
+          "updatedAt": "2022-05-27T20:14:06Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "> Also, the PSA SM says that it must be random https://www.psacertified.org/app/uploads/2021/12/JSADEN014_PSA_Certified_SM_V1.1_BET0.pdf\r\n\r\nYou are right, I've left out a lot of context that you are not aware of.  I should have added it to the PR summary.  Anyway, luckily you asked, so I can give you the background information that should allow you to fill in the blanks.\r\n\r\nRob is currently tweaking the PSA SM wrt boot seed.  The new text is:  _\"[...] A boot seed that is unique for each system reset, for example, a random number or a monotonic counter.\"_.  The text is in the editor copy and it's not been published yet.\r\n\r\n",
+              "createdAt": "2022-05-27T20:14:06Z",
+              "updatedAt": "2022-05-27T20:14:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDODpTnZ8465Mou",
+          "commit": {
+            "abbreviatedOid": "3dcfe08"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-05-27T20:19:25Z",
+          "updatedAt": "2022-05-27T20:19:26Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "> The EAT definition also says it must be random https://datatracker.ietf.org/doc/html/draft-ietf-rats-eat-13#section-4.2.14\r\n\r\nGood catch!  I think we should ask Laurence to change that to remove the requirement on randomness, which is not necessary.  I think the salient bit is _\"value [...] that will allow differentiation of reports from different boot sessions\"_.  If one can store that value across resets, they could also use a counter rather than using random sampling.\r\n\r\n",
+              "createdAt": "2022-05-27T20:19:25Z",
+              "updatedAt": "2022-05-27T20:19:26Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDODpTnZ8465R1M",
+          "commit": {
+            "abbreviatedOid": "3dcfe08"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-05-27T20:35:34Z",
+          "updatedAt": "2022-05-27T20:35:34Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "Thanks Thomas. Monontonic counter is a fine approach provided it is large enough. TPMs have been using monotonic boot counters for years, which is like a boot seed, and it has worked well. ",
+              "createdAt": "2022-05-27T20:35:34Z",
+              "updatedAt": "2022-05-27T20:35:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDODpTnZ8465SrV",
+          "commit": {
+            "abbreviatedOid": "3dcfe08"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2022-05-27T20:37:50Z",
+          "updatedAt": "2022-05-27T20:37:50Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDODpTnZ8469eEy",
+          "commit": {
+            "abbreviatedOid": "3dcfe08"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-05-30T11:14:58Z",
+          "updatedAt": "2022-05-30T11:14:59Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "Filed https://github.com/ietf-rats-wg/eat/issues/187",
+              "createdAt": "2022-05-30T11:14:59Z",
+              "updatedAt": "2022-05-30T11:14:59Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 56,
+      "id": "PR_kwDODpTnZ844oUQA",
+      "title": "PSA attester description",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/56",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fix #55\r\n\r\nSigned-off-by: Thomas Fossati <thomas.fossati@arm.com>",
+      "createdAt": "2022-05-28T16:17:30Z",
+      "updatedAt": "2022-05-30T16:54:09Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "af9757ac474b9d97b0b7c485851a8a0d5ea03dbe",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "psa-attester-model",
+      "headRefOid": "bb851f7965d666c65174589874fc9a477f23dd9e",
+      "closedAt": "2022-05-30T16:54:03Z",
+      "mergedAt": "2022-05-30T16:54:03Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "1b6ce08ffd523e9cc6f318bed42bd6e142c4c780"
+      },
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "> LGTM as well. I think some people may ask what we mean by \"Initial attestation service\". Maybe it's worth an extra sentence. The closest concept is an Initial DevID (IDevID) but also very restricted.\r\n\r\nThanks Adrian.  I've opened #57 to track your comment.",
+          "createdAt": "2022-05-30T15:59:29Z",
+          "updatedAt": "2022-05-30T15:59:29Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "> > LGTM as well. I think some people may ask what we mean by \"Initial attestation service\". Maybe it's worth an extra sentence. The closest concept is an Initial DevID (IDevID) but also very restricted.\r\n> \r\n> Thanks Adrian. I've opened #57 to track your comment.\r\n\r\nAnd BTW, if you have any concrete suggestion about what to add and where, feel free to file a PR ;-)",
+          "createdAt": "2022-05-30T16:28:33Z",
+          "updatedAt": "2022-05-30T16:28:33Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDODpTnZ846-TLn",
+          "commit": {
+            "abbreviatedOid": "bb851f7"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2022-05-30T14:10:45Z",
+          "updatedAt": "2022-05-30T14:10:45Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDODpTnZ846-fKe",
+          "commit": {
+            "abbreviatedOid": "bb851f7"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM as well. I think some people may ask what we mean by \"Initial attestation service\". Maybe it's worth an extra sentence. The closest concept is an Initial DevID (IDevID) but also very restricted.",
+          "createdAt": "2022-05-30T14:50:43Z",
+          "updatedAt": "2022-05-30T14:50:43Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 60,
+      "id": "PR_kwDODpTnZ845J59o",
+      "title": "Build system revamp",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/60",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "* use aasvg to avoid the extra ascii->svg step",
+      "createdAt": "2022-06-06T09:48:42Z",
+      "updatedAt": "2022-06-06T09:48:56Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "dd1d77e268532d0c89dac88934a2b262775d9210",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "build-system-revamp",
+      "headRefOid": "afd2015b5aa0ea23ca8ffe56bd758173c9406cbc",
+      "closedAt": "2022-06-06T09:48:53Z",
+      "mergedAt": "2022-06-06T09:48:53Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "f21156a2eba28001000a9d26f75e610dc6e03262"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 62,
+      "id": "PR_kwDODpTnZ8460C4B",
+      "title": "P2 uses EAN-13+5, P1 continues to use EAN-13",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/62",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fix #58\r\n\r\nSigned-off-by: Thomas Fossati <thomas.fossati@arm.com>",
+      "createdAt": "2022-07-04T17:58:54Z",
+      "updatedAt": "2022-07-14T14:05:34Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "a75fcf1936518b1b70882ffb6ee6509e8c2c44fc",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "ean13+5",
+      "headRefOid": "7a80718114bc9f20fad610f6ce244929ae0ca51b",
+      "closedAt": "2022-07-14T14:05:31Z",
+      "mergedAt": "2022-07-14T14:05:31Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "943c1300e147b08d427a224bd94deed693564f3e"
+      },
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "> Can you remind me why boot seed is now optional? Niche usage? It still seems required in the publicly available PSA SM 1.1.\r\n\r\nHi Adrian, sure.\r\n\r\nThere are a few edits in the editor copy of the PSA SM that await publication.  Some more context is captured in our previous discussions [here](https://github.com/thomas-fossati/draft-psa-token/issues/53) and [here](https://github.com/thomas-fossati/draft-psa-token/pull/54).",
+          "createdAt": "2022-07-04T20:00:57Z",
+          "updatedAt": "2022-07-04T20:00:57Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDODpTnZ849Q87y",
+          "commit": {
+            "abbreviatedOid": "7a80718"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM. Can you remind me why boot seed is now optional? Niche usage? It still seems required in the publicly available PSA SM 1.1. ",
+          "createdAt": "2022-07-04T19:02:48Z",
+          "updatedAt": "2022-07-04T19:02:48Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDODpTnZ8497JzA",
+          "commit": {
+            "abbreviatedOid": "7a80718"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-07-14T13:57:26Z",
+          "updatedAt": "2022-07-14T13:57:26Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 66,
+      "id": "PR_kwDODpTnZ84-VG-R",
+      "title": "update IANA section to reflect the state of the CWT registry",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/66",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fix #64\r\n\r\nSigned-off-by: Thomas Fossati <thomas.fossati@arm.com>",
+      "createdAt": "2022-09-04T14:38:57Z",
+      "updatedAt": "2022-09-06T14:14:52Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "943c1300e147b08d427a224bd94deed693564f3e",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "iana-fix",
+      "headRefOid": "19d9a7a7e06df1b327fe0f38ddf86c2953acdfa2",
+      "closedAt": "2022-09-06T14:14:49Z",
+      "mergedAt": "2022-09-06T14:14:49Z",
+      "mergedBy": "hannestschofenig",
+      "mergeCommit": {
+        "oid": "aa9f612136b55026286d2593f22653ba7bc7db0b"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDODpTnZ85BXZSk",
+          "commit": {
+            "abbreviatedOid": "19d9a7a"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2022-09-05T16:24:49Z",
+          "updatedAt": "2022-09-05T16:24:49Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 67,
+      "id": "PR_kwDODpTnZ84-VIGI",
+      "title": "wordsmithing around the verification service indication claim definition",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/67",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fix #59\r\n\r\nSigned-off-by: Thomas Fossati <thomas.fossati@arm.com>",
+      "createdAt": "2022-09-04T15:02:46Z",
+      "updatedAt": "2022-09-05T16:56:17Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "943c1300e147b08d427a224bd94deed693564f3e",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "stricter-vsi",
+      "headRefOid": "f82f56ecde3393ce52b7fd1872ae71dddad4695b",
+      "closedAt": "2022-09-05T16:56:17Z",
+      "mergedAt": "2022-09-05T16:56:17Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "11b8db213a24b145b1d61f0d2f4a64f4024bb455"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDODpTnZ85BXZx8",
+          "commit": {
+            "abbreviatedOid": "f82f56e"
+          },
+          "author": "adrianlshaw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-09-05T16:27:48Z",
+          "updatedAt": "2022-09-05T16:27:48Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDODpTnZ85BXcKr",
+          "commit": {
+            "abbreviatedOid": "f82f56e"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-09-05T16:43:20Z",
+          "updatedAt": "2022-09-05T16:43:20Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 68,
+      "id": "PR_kwDODpTnZ84-YuA8",
+      "title": "RECOMMEND using RFC9053 algorithms",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/68",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fix #61\r\n\r\nSigned-off-by: Thomas Fossati <thomas.fossati@arm.com>",
+      "createdAt": "2022-09-05T16:25:46Z",
+      "updatedAt": "2022-09-06T14:16:59Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "aa9f612136b55026286d2593f22653ba7bc7db0b",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "crypto-interop",
+      "headRefOid": "533b2118b10602f2f2698c7f3b7738e47b65975a",
+      "closedAt": "2022-09-06T14:16:55Z",
+      "mergedAt": "2022-09-06T14:16:55Z",
+      "mergedBy": "hannestschofenig",
+      "mergeCommit": {
+        "oid": "1911c74cc7dd9ee6b5b9855694285b53f9a74063"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDODpTnZ85BXZ5E",
+          "commit": {
+            "abbreviatedOid": "f6b6371"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-09-05T16:28:32Z",
+          "updatedAt": "2022-09-05T16:28:32Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 69,
+      "id": "PR_kwDODpTnZ84-bE1C",
+      "title": "build improvements",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/69",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Signed-off-by: Thomas Fossati <thomas.fossati@arm.com>",
+      "createdAt": "2022-09-06T09:12:24Z",
+      "updatedAt": "2022-09-06T09:31:28Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "11b8db213a24b145b1d61f0d2f4a64f4024bb455",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "build-improv",
+      "headRefOid": "cad87130ce10b51138e971671b2b95a80ec558d1",
+      "closedAt": "2022-09-06T09:31:28Z",
+      "mergedAt": "2022-09-06T09:31:28Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "941e4caac5d34b17bdf1805b162a95615fca5358"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 70,
+      "id": "PR_kwDODpTnZ84-q_A9",
+      "title": "ask IANA to make registrations permanent",
+      "url": "https://github.com/thomas-fossati/draft-psa-token/pull/70",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-09-09T11:25:01Z",
+      "updatedAt": "2022-09-09T11:25:01Z",
+      "baseRepository": "thomas-fossati/draft-psa-token",
+      "baseRefName": "master",
+      "baseRefOid": "bfa3624353fdda1f0e56095083b1c92c614e4841",
+      "headRepository": "thomas-fossati/draft-psa-token",
+      "headRefName": "iana-req",
+      "headRefOid": "87ad7801f9e7fd8cc1e632e0316421a51acf4686",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
+}
