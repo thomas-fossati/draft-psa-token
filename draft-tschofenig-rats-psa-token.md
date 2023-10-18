@@ -663,8 +663,8 @@ For use in PSA tokens, it must be possible to encode the epoch handle as an opaq
 ## Profile TFM
 {: #sec-tfm-profile}
 
-This profile is suitable for devices using TrustedFirmware-M {{TF-M}}.
-This profile is appropriate for the code base implemented in TF-M and should apply for most derivative implementations. If an implementation changes the requirements described below then, to ensure interoperability, this profile should be identified by a new profile value. This includes a restriction of the profile to a subset of the COSE Protection scheme requirements.
+This profile is appropriate for the code base implemented in {{TF-M}} and should apply for most derivative implementations. If an implementation changes the requirements described below then, to ensure interoperability, a new profile value should be used ({{sec-profile-uri-structure}}). This includes a restriction of the profile to a subset of the COSE Protection scheme requirements.
+
 {{tbl-tfm-profile}} presents a concise view of the requirements.
 
 The value of the `eat_profile` MUST be `tag:psacertified.org,2023:psa#tfm`.
