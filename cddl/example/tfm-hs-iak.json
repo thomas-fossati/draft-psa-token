@@ -1,0 +1,8 @@
+========== NOTE: '\\' line wrapping per RFC 8792 ==========
+
+{
+  "kty": "oct",
+  "alg": "HS256",
+  "k": "3gOLNKyhJXaMXjNXq40Gs2e5qw1-i-Ek7cpH_gM6W7epPTB_8imqNv8k\
+       \bBKVlk-s9xq3qm7E_WECt7OYMlWtkg"
+}

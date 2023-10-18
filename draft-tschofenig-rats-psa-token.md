@@ -516,11 +516,13 @@ The Profile Definition claim encodes the unique identifier that corresponds to
 the EAT profile described by this document.  This allows a receiver to assign
 the intended semantics to the rest of the claims found in the token.
 
-The EAT `profile` (claim key 265) is used.  The following constraints
-apply to its type:
+The EAT `eat_profile` (claim key 265) is used.
 
-* The URI encoding MUST be used.
-* The value MUST be `http://arm.com/psa/2.0.0`.
+The URI encoding MUST be used.
+
+The value MUST be `tag:psacertified.org,2023:psa#tfm` for the profile defined in {{sec-tfm-profile}}.
+
+Future profiles derived from the baseline PSA profile SHALL create their unique value, as described in {{sec-profile-uri-structure}}.
 
 This claim MUST be present in a PSA attestation token.
 
@@ -531,7 +533,22 @@ with previous versions of the PSA attestation token format.
 {::include cddl/psa-profile.cddl}
 ~~~
 
-# Backwards Compatibility Considerations
+#### URI Structure for the Derived Profile Identifiers
+{: #sec-profile-uri-structure}
+
+A new profile is associated with a unique string.
+
+The string MUST use the URI fragment syntax defined in {{Section 3.5 of !RFC3986}}.
+
+The string SHOULD be short to avoid unnecessary overhead.
+
+To avoid collisions, profile authors SHOULD communicate upfront their intent to use a certain string using the enquiry form on the {{PSACertified}} website.
+
+To derive the value to be used for the `eat_profile` claim, the string is added as a fragment to the `tag:psacertified.org,2023:psa` tag URI {{!RFC4151}}.
+
+For example, an hypothetical profile using only COSE_Mac0 with AES Message Authenticationm Code (AES-MAC) may decide to use the string "aes-mac".  The `eat_profile` value would then be: `tag:psacertified.org,2023:psa#aes-mac`.
+
+## Backwards Compatibility Considerations
 {: #sec-backwards-compat}
 
 A previous version of this specification (identified by the `PSA_IOT_PROFILE_1`
@@ -541,7 +558,7 @@ registry.  These claim keys have now been retired and their use is deprecated.
 {{tab-claim-map}} provides the mappings between the deprecated and new claim
 keys.
 
-| | PSA_IOT_PROFILE_1 | http://arm.com/psa/2.0.0 |
+| | PSA_IOT_PROFILE_1 | tag:psacertified.org,2023:psa#tfm |
 |-|-------------------|--------------------------|
 | Nonce | -75008 | 10 (EAT nonce) |
 | Instance ID | -75009 | 256 (EAT euid) |
@@ -570,10 +587,18 @@ the claim keys specified in this document.
 To simplify the transition to the token format described in this
 document it is RECOMMENDED that receivers (e.g., PSA Attestation Verifiers)
 accept tokens encoded according to the old profile (`PSA_IOT_PROFILE_1`) as well as
-to the new profile (`http://arm.com/psa/2.0.0`), at least for the time needed to
+to the new profile (`tag:psacertified.org,2023:psa#tfm`), at least for the time needed to
 their clients to upgrade.
 
-# Token Encoding and Signing
+# Profiles
+
+This document defines a baseline with common requirements that all PSA profiles must satisfy.
+
+This document also defines a profile ({{sec-tfm-profile}}) that builds on the baseline while constraining the use of COSE algorithms to improve interoperability between PSA Attesters and Verifiers.
+
+## Baseline Profile
+
+### Token Encoding and Signing
 {: #sec-token-encoding-and-signing}
 
 The PSA attestation token is encoded in CBOR {{!RFC8949}} format.  Only
@@ -581,23 +606,22 @@ definite-length string, arrays, and maps are allowed.
 Given that a PSA attester is typically found in a constrained device, it MAY
 NOT emit CBOR preferred serializations ({{Section 4.1 of RFC8949}}).
 Therefore, the receiver (e.g., a Verifier) MUST be a variation-tolerant
-decoder.
+CBOR decoder.
 
-Cryptographic protection is obtained by wrapping the `psa-token` map in a COSE
+Cryptographic protection is obtained by wrapping the `psa-token` claims-set in a COSE
 Web Token (CWT) {{!RFC8392}}.  For asymmetric key algorithms, the signature
 structure MUST be a tagged (18) COSE_Sign1.  For symmetric key algorithms, the signature
 structure MUST be a tagged (17) COSE_Mac0.
 
 Acknowledging the variety of markets, regulations and use cases in which the
-PSA attestation token can be used, this specification does not impose any
+PSA attestation token can be used, the baseline profile does not impose any
 strong requirement on the cryptographic algorithms that need to be supported by
-Attesters and Verifiers.  It is assumed that the flexibility provided by the
-COSE format is sufficient to deal with the level of cryptographic agility
-needed to adapt to specific use cases.  For interoperability considerations, it
-is RECOMMENDED that commonly adopted algorithms are used, such as those
-discussed in {{COSE-ALGS}}).  It is expected that receivers (Verifiers and
-Relying Parties) will accept a wider range of algorithms, while Attesters would
-produce PSA tokens using only one such algorithm.
+Attesters and Verifiers.  The flexibility provided by the COSE format should be
+sufficient to deal with the level of cryptographic agility needed to adapt to
+specific use cases.  It is RECOMMENDED that commonly adopted algorithms are
+used, such as those discussed in {{COSE-ALGS}}.  It is expected that receivers
+(Verifiers and Relying Parties) will accept a wider range of algorithms, while
+Attesters would produce PSA tokens using only one such algorithm.
 
 The CWT CBOR tag (61) is not used.  An application that needs to exchange PSA
 attestation tokens can wrap the serialised COSE_Sign1 or COSE_Mac0 in the media
@@ -607,6 +631,63 @@ type defined in {{sec-iana-media-types}} or the CoAP Content-Format defined in
 A PSA token is always directly signed by the PSA RoT.  Therefore, a PSA
 claims-set ({{sec-psa-claims}}) is never carried in a Detached EAT bundle
 ({{Section 5 of EAT}}).
+
+### Freshness Model
+
+The PSA Token supports the freshness models for attestation Evidence based on
+nonces and epoch handles ({{Section 10.2 and Section 10.3 of RFC9334}}) using
+the `nonce` claim to convey the nonce or epoch handle supplied by the Verifier.
+No further assumption on the specific remote attestation protocol is made.
+
+Note that use of epoch handles is constrained by the type restrictions imposed by the `eat_nonce` syntax.
+For use in PSA tokens, it must be possible to encode the epoch handle as an opaque binary string between 8 and 64 octets.
+
+### Synopsis
+
+{{tbl-baseline-profile}} presents a concise view of the requirements described in the preceding sections.
+
+| Issue | Profile Definition |
+| CBOR/JSON | CBOR MUST be used  |
+| CBOR Encoding | Definite length maps and arrays MUST be used |
+| CBOR Encoding | Definite length strings MUST be used |
+| CBOR Serialization | Variant serialization MAY be used |
+| COSE Protection | COSE_Sign1 and/or COSE_Mac0 MUST be used |
+| Algorithms | {{COSE-ALGS}} SHOULD be used |
+| Detached EAT Bundle Usage | Detached EAT bundles MUST not be sent |
+| Verification Key Identification | Any identification method listed in {{Appendix F.1 of EAT}} |
+| Endorsements | See {{sec-psa-endorsements}} |
+| Freshness | nonce or epoch ID based |
+| Claims | Those defined in {{sec-psa-claims}}. As per general EAT rules, the receiver MUST NOT error out on claims it doesn't understand. |
+{: #tbl-baseline-profile title="Baseline Profile"}
+
+## Profile TFM
+{: #sec-tfm-profile}
+
+This profile is appropriate for the code base implemented in {{TF-M}} and should apply for most derivative implementations. If an implementation changes the requirements described below then, to ensure interoperability, a new profile value should be used ({{sec-profile-uri-structure}}). This includes a restriction of the profile to a subset of the COSE Protection scheme requirements.
+
+{{tbl-tfm-profile}} presents a concise view of the requirements.
+
+The value of the `eat_profile` MUST be `tag:psacertified.org,2023:psa#tfm`.
+
+| Issue | Profile Definition |
+| CBOR/JSON | See {{baseline-profile}} |
+| CBOR Encoding | See {{baseline-profile}} |
+| CBOR Encoding | See {{baseline-profile}} |
+| CBOR Serialization | See {{baseline-profile}} |
+| COSE Protection | COSE_Sign1 or COSE_Mac0 MUST be used |
+| Algorithms | The receiver MUST accept ES256, ES384 and ES512 with COSE_Sign1 and HMAC256/256, HMAC384/384 and HMAC512/512 with COSE_Mac0; the sender MUST send one of these |
+| Detached EAT Bundle Usage | See {{baseline-profile}} |
+| Verification Key Identification | Claim-Based Key Identification ({{Appendix F.1.4 of EAT}}) using Implementation ID and Instance ID |
+| Endorsements | See {{sec-psa-endorsements}} |
+| Freshness | See {{baseline-profile}} |
+| Claims | See {{baseline-profile}} |
+{: #tbl-tfm-profile title="TF-M Profile"}
+
+# Collated CDDL
+
+~~~
+{::include cddl/psa-attestation.cddl}
+~~~
 
 # Scalability Considerations
 {: #sec-scalability}
@@ -624,7 +705,9 @@ compared to using raw public keys, namely:
 * storage requirements on the verifier side are minimised - the same
   manufacturer's trust anchor is used for any number of devices,
 * the provisioning model is simpler and more robust since there is no need to
-  notify the verifier about each newly manufactured device.
+  notify the verifier about each newly manufactured device,
+* already existing and well understood revocation mechanisms (CRL, OCSP) can be
+  used.
 
 The IAK's X.509 cert can be inlined in the PSA token using the `x5chain` COSE
 header parameter {{COSE-X509}} at the cost of an increase in the PSA token
@@ -634,22 +717,9 @@ Note that the exact split between pre-provisioned and inlined certs may vary
 depending on the specific deployment.  In that respect, `x5chain` is quite
 flexible: it can contain the end-entity (EE) cert only, the EE and a partial
 chain, or the EE and the full chain up to the trust anchor (see {{Section 2 of
-COSE-X509}} for the details).  Deciding a sensible split point may depend on
+COSE-X509}} for the details).  Deciding on a sensible split point may depend on
 constraints around network bandwidth and computing resources available to the
 endpoints (especially network buffers).
-
-# Freshness Model
-
-The PSA Token supports the freshness models for attestation Evidence based on
-nonces and epoch handles ({{Section 10.2 and Section 10.3 of RFC9334}}) using
-the `nonce` claim to convey the nonce or epoch handle supplied by the Verifier.
-No further assumption on the specific remote attestation protocol is made.
-
-# Collated CDDL
-
-~~~
-{::include cddl/psa-attestation.cddl}
-~~~
 
 # Implementation Status
 
@@ -747,6 +817,7 @@ implementation is expected to follow the algorithm described in {{Section 2.3.3
 of RATS-AR4SI}}.
 
 ## Endorsements, Reference Values and Verification Key Material
+{: #sec-psa-endorsements}
 
 {{PSA-Endorsements}} defines a protocol based on the {{RATS-CoRIM}} data model
 that can be used to convey PSA Endorsements, Reference Values and verification
@@ -837,7 +908,7 @@ No new media type registration is requested.
 To indicate that the transmitted content is a PSA Attestation Token,
 applications can use the `application/eat+cwt` media type defined in
 {{EAT-MEDIATYPES}} with the `eat_profile` parameter set to
-`http://arm.com/psa/2.0.0` (or `PSA_IOT_PROFILE_1` if the token is encoded
+`tag:psacertified.org,2023:psa#tfm` (or `PSA_IOT_PROFILE_1` if the token is encoded
 according to the old profile, see {{sec-backwards-compat}}).
 
 ## CoAP Content-Formats Registration
@@ -847,13 +918,13 @@ IANA is requested to register two CoAP Content-Format IDs in the "CoAP
 Content-Formats" registry {{IANA-CoAP-Content-Formats}}:
 
 * One for the `application/eat+cwt` media type with the `eat_profile` parameter
-  equal to `http://arm.com/psa/2.0.0`
+  equal to `tag:psacertified.org,2023:psa#tfm`
 * Another for the `application/eat+cwt` media type with the `eat_profile`
   parameter equal to `PSA_IOT_PROFILE_1`
 
 ### Registry Contents
 
-*  Media Type: `application/eat+cwt; eat_profile="http://arm.com/psa/2.0.0"`
+*  Media Type: `application/eat+cwt; eat_profile="tag:psacertified.org,2023:psa#tfm"`
 *  Encoding: -
 *  Id: [[To-be-assigned by IANA]]
 *  Reference: {{&SELF}}
@@ -865,35 +936,68 @@ Content-Formats" registry {{IANA-CoAP-Content-Formats}}:
 
 --- back
 
-# Example
+# Examples
 
-The following example shows a PSA attestation token for an hypothetical system
-comprising two measured software components (a boot loader and a trusted RTOS).
-The attesting device is in a lifecycle state {{sec-security-lifecycle}} of
+The following examples show PSA attestation tokens for an hypothetical system
+comprising a single measured software component.
+The attesting device is in a lifecycle state ({{sec-security-lifecycle}}) of
 SECURED.  The attestation has been requested from a client residing in the
-SPE:
+SPE.
+
+The example in {{ex-sign1}} illustrates the case where the IAK is an asymmetric key.  A COSE Sign1 envelope is used to wrap the PSA claims-set.
+
+{{ex-mac0}} illustrates the case where the IAK is a symmetric key and a COSE Mac0 envelope is used instead.
+
+The claims sets are identical, except for the Instance ID which is synthesized from the key material.
+
+## COSE Sign1 Token {#ex-sign1}
 
 ~~~
-{::include cddl/example/psa-token.diag}
+{::include cddl/example/sign1-claims.diag}
 ~~~
 
 The JWK representation of the IAK used for creating the COSE Sign1 signature
 over the PSA token is:
 
 ~~~
-{::include cddl/example/iak.jwk}
+{::include cddl/example/tfm-es-iak.json}
 ~~~
 
 The resulting COSE object is:
 
 ~~~
-{::include cddl/example/cose.diag}
+{::include cddl/example/psa-sign1.diag}
 ~~~
 
 which has the following base16 encoding:
 
 ~~~
-{::include cddl/example/cose.hex}
+{::include cddl/example/psa-sign1.hex}
+~~~
+
+## COSE Mac0 Token {#ex-mac0}
+
+~~~
+{::include cddl/example/mac0-claims.diag}
+~~~
+
+The JWK representation of the IAK used for creating the COSE Mac0 signature
+over the PSA token is:
+
+~~~
+{::include cddl/example/tfm-hs-iak.json}
+~~~
+
+The resulting COSE object is:
+
+~~~
+{::include cddl/example/psa-mac0.diag}
+~~~
+
+which has the following base16 encoding:
+
+~~~
+{::include cddl/example/psa-mac0.hex}
 ~~~
 
 # Acknowledgments

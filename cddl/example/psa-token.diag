@@ -1,5 +1,5 @@
 {
-  / eat_profile /             265: "http://arm.com/psa/2.0.0",
+  / eat_profile /             265: "tag:psacertified.org,2023:psa#tfm",
   / psa-client-id /          2394: 2147483647,
   / psa-security-lifecycle / 2395: 12288,
   / psa-implementation-id /  2396: h'000000000000000000000000000
