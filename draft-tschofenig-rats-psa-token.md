@@ -471,6 +471,11 @@ The following measurement types MAY be used for code measurements:
 The same labels with a "-config" postfix (e.g., "PRoT-config") MAY be used for
 configuration measurements.
 
+This attribute SHOULD be present in a PSA software component unless
+there is a very good reason to leave it out - for example in networks
+with severely constrained bandwidth, where sparing a few bytes really
+makes a difference.
+
 #### Measurement Value
 
 The Measurement Value attribute (key=2) represents a hash of the invariant
