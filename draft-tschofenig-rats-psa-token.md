@@ -581,7 +581,7 @@ The new profile introduces three further changes:
   {{sec-certification-reference}}).
 
 Unless compatibility with existing infrastructure is a concern, emitters (e.g.,
-devices that implement the PSA Attestation API) SHOULD produce tokens with
+devices that implement the PSA Attestation API) MUST produce tokens with
 the claim keys specified in this document.
 
 To simplify the transition to the token format described in this
