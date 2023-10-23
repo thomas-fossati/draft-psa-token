@@ -656,7 +656,7 @@ For use in PSA tokens, it must be possible to encode the epoch handle as an opaq
 | Verification Key Identification | Any identification method listed in {{Appendix F.1 of EAT}} |
 | Endorsements | See {{sec-psa-endorsements}} |
 | Freshness | nonce or epoch ID based |
-| Claims | Those defined in {{sec-psa-claims}}. As per general EAT rules, the receiver MUST NOT error out on claims it doesn't understand. |
+| Claims | Those defined in {{sec-psa-claims}}. As per general EAT rules, the receiver MUST NOT error out on claims it does not understand. |
 {: #tbl-baseline-profile title="Baseline Profile"}
 
 ## Profile TFM
