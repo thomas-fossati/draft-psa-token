@@ -193,7 +193,11 @@ Model documentation {{PSA-SM}}.
 
 {::boilerplate bcp14}
 
-## Glossary
+The terms Attester, Relying Party, Verifier, Attestation Result, and Evidence
+are defined in {{RFC9334}}.
+
+We use the terms Evidence, PSA attestation token, and PSA token interchangeably.
+Likewise, we use the terms Verifier, and verification service interchangeably.
 
 {: vspace="0"}
 RoT:
