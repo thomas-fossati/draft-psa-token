@@ -707,7 +707,7 @@ compared to using raw public keys, namely:
   manufacturer's trust anchor is used for any number of devices,
 * the provisioning model is simpler and more robust since there is no need to
   notify the verifier about each newly manufactured device,
-* already existing and well understood revocation mechanisms (CRL, OCSP) can be
+* already existing and well understood revocation mechanisms can be
   used.
 
 The IAK's X.509 cert can be inlined in the PSA token using the `x5chain` COSE
