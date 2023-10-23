@@ -546,7 +546,7 @@ To avoid collisions, profile authors SHOULD communicate upfront their intent to 
 
 To derive the value to be used for the `eat_profile` claim, the string is added as a fragment to the `tag:psacertified.org,2023:psa` tag URI {{!RFC4151}}.
 
-For example, an hypothetical profile using only COSE_Mac0 with AES Message Authenticationm Code (AES-MAC) may decide to use the string "aes-mac".  The `eat_profile` value would then be: `tag:psacertified.org,2023:psa#aes-mac`.
+For example, an hypothetical profile using only COSE_Mac0 with the AES Message Authentication Code (AES-MAC) may decide to use the string "aes-mac".  The `eat_profile` value would then be: `tag:psacertified.org,2023:psa#aes-mac`.
 
 ## Backwards Compatibility Considerations
 {: #sec-backwards-compat}
@@ -574,13 +574,13 @@ keys.
 
 The new profile introduces three further changes:
 
-* the "Boot Seed" claim is now optional and variable length (see
+* the "Boot Seed" claim is now optional and of variable length (see
   {{sec-boot-seed}}),
 * the "No Software Measurements" claim has been retired,
-* the "Certification Reference" syntax changed from EAN-13 to EAN-13+5 (see
+* the "Certification Reference" claim syntax changed from EAN-13 to EAN-13+5 (see
   {{sec-certification-reference}}).
 
-Unless compatibility with existing infrastructure is a concern, emitters (e.g.,
+Unless compatibility with existing infrastructure is a concern, attesters (e.g.,
 devices that implement the PSA Attestation API) SHOULD produce tokens with
 the claim keys specified in this document.
 
