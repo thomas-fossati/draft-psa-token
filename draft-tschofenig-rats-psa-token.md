@@ -547,7 +547,7 @@ To avoid collisions, profile authors SHOULD communicate upfront their intent to 
 
 To derive the value to be used for the `eat_profile` claim, the string is added as a fragment to the `tag:psacertified.org,2023:psa` tag URI {{!RFC4151}}.
 
-For example, an hypothetical profile using only COSE_Mac0 with AES Message Authenticationm Code (AES-MAC) may decide to use the string "aes-mac".  The `eat_profile` value would then be: `tag:psacertified.org,2023:psa#aes-mac`.
+For example, an hypothetical profile using only COSE_Mac0 with the AES Message Authentication Code (AES-MAC) may decide to use the string "aes-mac".  The `eat_profile` value would then be: `tag:psacertified.org,2023:psa#aes-mac`.
 
 ## Backwards Compatibility Considerations
 {: #sec-backwards-compat}
@@ -575,21 +575,21 @@ keys.
 
 The new profile introduces three further changes:
 
-* the "Boot Seed" claim is now optional and variable length (see
+* the "Boot Seed" claim is now optional and of variable length (see
   {{sec-boot-seed}}),
 * the "No Software Measurements" claim has been retired,
-* the "Certification Reference" syntax changed from EAN-13 to EAN-13+5 (see
+* the "Certification Reference" claim syntax changed from EAN-13 to EAN-13+5 (see
   {{sec-certification-reference}}).
 
-Unless compatibility with existing infrastructure is a concern, emitters (e.g.,
+Unless compatibility with existing infrastructure is a concern, Attesters (e.g.,
 devices that implement the PSA Attestation API) SHOULD produce tokens with
 the claim keys specified in this document.
 
 To simplify the transition to the token format described in this
-document it is RECOMMENDED that receivers (e.g., PSA Attestation Verifiers)
+document it is RECOMMENDED that Verifiers
 accept tokens encoded according to the old profile (`PSA_IOT_PROFILE_1`) as well as
 to the new profile (`tag:psacertified.org,2023:psa#tfm`), at least for the time needed to
-their clients to upgrade.
+their devices to upgrade.
 
 # Profiles
 
@@ -606,8 +606,7 @@ The PSA attestation token is encoded in CBOR {{!RFC8949}} format.  Only
 definite-length string, arrays, and maps are allowed.
 Given that a PSA attester is typically found in a constrained device, it MAY
 NOT emit CBOR preferred serializations ({{Section 4.1 of RFC8949}}).
-Therefore, the receiver (e.g., a Verifier) MUST be a variation-tolerant
-CBOR decoder.
+Therefore, the Verifier MUST be a variation-tolerant CBOR decoder.
 
 Cryptographic protection is obtained by wrapping the `psa-token` claims-set in a COSE
 Web Token (CWT) {{!RFC8392}}.  For asymmetric key algorithms, the signature
@@ -621,8 +620,8 @@ Attesters and Verifiers.  The flexibility provided by the COSE format should be
 sufficient to deal with the level of cryptographic agility needed to adapt to
 specific use cases.  It is RECOMMENDED that commonly adopted algorithms are
 used, such as those discussed in {{COSE-ALGS}}.  It is expected that receivers
-(Verifiers and Relying Parties) will accept a wider range of algorithms, while
-Attesters would produce PSA tokens using only one such algorithm.
+will accept a wider range of algorithms, while Attesters would produce PSA tokens
+using only one such algorithm.
 
 The CWT CBOR tag (61) is not used.  An application that needs to exchange PSA
 attestation tokens can wrap the serialised COSE_Sign1 or COSE_Mac0 in the media
@@ -658,7 +657,7 @@ For use in PSA tokens, it must be possible to encode the epoch handle as an opaq
 | Verification Key Identification | Any identification method listed in {{Appendix F.1 of EAT}} |
 | Endorsements | See {{sec-psa-endorsements}} |
 | Freshness | nonce or epoch ID based |
-| Claims | Those defined in {{sec-psa-claims}}. As per general EAT rules, the receiver MUST NOT error out on claims it doesn't understand. |
+| Claims | Those defined in {{sec-psa-claims}}. As per general EAT rules, the receiver MUST NOT error out on claims it does not understand. |
 {: #tbl-baseline-profile title="Baseline Profile"}
 
 ## Profile TFM
