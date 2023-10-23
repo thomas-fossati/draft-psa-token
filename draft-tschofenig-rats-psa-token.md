@@ -237,13 +237,13 @@ cooperating components:
 * The Main Bootloader (executing at boot-time) measures the loaded software
   components, collects the relevant PSA RoT parameters, and stores the recorded
   information in secure memory (Main Boot State) from where the Initial
-  Attestation Service will, when asked for a platform attestation report,
+  Attestation Service will, when asked for claims about the platform,
   retrieve them.
 
 * The Initial Attestation Service (executing at run-time in SPE) answers
   requests coming from NSPE via the PSA attestation API {{PSA-API}}, collects
   and formats the claims from Main Boot State, and uses the Initial Attestation
-  Key (IAK) to sign the attestation report. The word "Initial" in "Initial
+  Key (IAK) to sign platform claims. The word "Initial" in "Initial
   Attestation Service" refers to a
   limited target environment, namely the state of the Main Bootloader and the
   Root of Trust components when the platform booted.
