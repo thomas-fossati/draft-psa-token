@@ -653,7 +653,7 @@ For use in PSA tokens, it must be possible to encode the epoch handle as an opaq
 | CBOR Serialization | Variant serialization MAY be used |
 | COSE Protection | COSE_Sign1 and/or COSE_Mac0 MUST be used |
 | Algorithms | {{COSE-ALGS}} SHOULD be used |
-| Detached EAT Bundle Usage | Detached EAT bundles MUST not be sent |
+| Detached EAT Bundle Usage | Detached EAT bundles MUST NOT be sent |
 | Verification Key Identification | Any identification method listed in {{Appendix F.1 of EAT}} |
 | Endorsements | See {{sec-psa-endorsements}} |
 | Freshness | nonce or epoch ID based |
