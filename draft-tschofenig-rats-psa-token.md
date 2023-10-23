@@ -234,7 +234,7 @@ the conceptual model described in {{Section 3.1 of RFC9334}}.
 {: #fig-psa-attester title="PSA Attester" }
 
 The PSA Attester is a relatively straightforward embodiment of the RATS
-Attester with exactly one Attesting Environment and one Target Environment.
+Attester with exactly one Attesting Environment and one or more Target Environments.
 
 The Attesting Environment is responsible for collecting the information to be
 represented in PSA claims and to assemble them into Evidence. It is made of two
@@ -249,12 +249,12 @@ cooperating components:
 * The Initial Attestation Service (executing at run-time in SPE) answers
   requests coming from NSPE via the PSA attestation API {{PSA-API}}, collects
   and formats the claims from Main Boot State, and uses the Initial Attestation
-  Key (IAK) to sign platform claims. The word "Initial" in "Initial
-  Attestation Service" refers to a
-  limited target environment, namely the state of the Main Bootloader and the
-  Root of Trust components when the platform booted.
+  Key (IAK) to sign them and produce Evidence. The word "Initial" in "Initial
+  Attestation Service" refers to a limited set of target environments, namely
+  those representing the first, foundational stages establishing the chain of
+  trust of a PSA device.
 
-The Target Environment can be broken down into four macro "objects", some of
+The Target Environments can be of four types, some of
 which may or may not be present depending on the device architecture:
 
 * (A subset of) the PSA RoT parameters, including Instance and Implementation
