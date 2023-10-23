@@ -461,7 +461,7 @@ The following measurement types MAY be used for code measurements:
 * "App": a component of the NSPE application
 * "TS": a component of a Trusted Subsystem
 
-The same labels with a "-config" postfix (e.g., "PRoT-config") MAY be used for
+The same labels with a "-cfg" postfix (e.g., "PRoT-cfg") MAY be used for
 configuration measurements.
 
 #### Measurement Value
