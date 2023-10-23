@@ -618,9 +618,9 @@ strong requirement on the cryptographic algorithms that need to be supported by
 Attesters and Verifiers.  The flexibility provided by the COSE format should be
 sufficient to deal with the level of cryptographic agility needed to adapt to
 specific use cases.  It is RECOMMENDED that commonly adopted algorithms are
-used, such as those discussed in {{COSE-ALGS}}.  It is expected that Verifiers
-and Relying Parties will accept a wider range of algorithms, while
-Attesters would produce PSA tokens using only one such algorithm.
+used, such as those discussed in {{COSE-ALGS}}.  It is expected that receivers
+will accept a wider range of algorithms, while Attesters would produce PSA tokens
+using only one such algorithm.
 
 The CWT CBOR tag (61) is not used.  An application that needs to exchange PSA
 attestation tokens can wrap the serialised COSE_Sign1 or COSE_Mac0 in the media
