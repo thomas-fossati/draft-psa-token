@@ -193,7 +193,13 @@ Model documentation {{PSA-SM}}.
 
 {::boilerplate bcp14}
 
-## Glossary
+The terms Attester, Relying Party, Verifier, Attestation Result, and Evidence
+are defined in {{RFC9334}}. We use the term receiver to refer to Relying Parties
+and Verifiers.
+
+We use the terms Evidence, PSA attestation token, and PSA token interchangeably.
+The terms sender and Attester are used interchangeably. Likewise, we use the terms
+Verifier, and verification service interchangeably.
 
 {: vspace="0"}
 RoT:
@@ -237,13 +243,14 @@ cooperating components:
 * The Main Bootloader (executing at boot-time) measures the loaded software
   components, collects the relevant PSA RoT parameters, and stores the recorded
   information in secure memory (Main Boot State) from where the Initial
-  Attestation Service will, when asked for a platform attestation report,
+  Attestation Service will, when asked for claims about the platform,
   retrieve them.
 
 * The Initial Attestation Service (executing at run-time in SPE) answers
   requests coming from NSPE via the PSA attestation API {{PSA-API}}, collects
   and formats the claims from Main Boot State, and uses the Initial Attestation
-  Key (IAK) to sign the attestation report. The word "Initial" refers to a
+  Key (IAK) to sign platform claims. The word "Initial" in "Initial
+  Attestation Service" refers to a
   limited target environment, namely the state of the Main Bootloader and the
   Root of Trust components when the platform booted.
 
@@ -461,7 +468,7 @@ The following measurement types MAY be used for code measurements:
 * "App": a component of the NSPE application
 * "TS": a component of a Trusted Subsystem
 
-The same labels with a "-config" postfix (e.g., "PRoT-config") MAY be used for
+The same labels with a "-cfg" postfix (e.g., "PRoT-cfg") MAY be used for
 configuration measurements.
 
 #### Measurement Value
@@ -546,7 +553,7 @@ To avoid collisions, profile authors SHOULD communicate upfront their intent to 
 
 To derive the value to be used for the `eat_profile` claim, the string is added as a fragment to the `tag:psacertified.org,2023:psa` tag URI {{!RFC4151}}.
 
-For example, an hypothetical profile using only COSE_Mac0 with AES Message Authenticationm Code (AES-MAC) may decide to use the string "aes-mac".  The `eat_profile` value would then be: `tag:psacertified.org,2023:psa#aes-mac`.
+For example, an hypothetical profile using only COSE_Mac0 with the AES Message Authentication Code (AES-MAC) may decide to use the string "aes-mac".  The `eat_profile` value would then be: `tag:psacertified.org,2023:psa#aes-mac`.
 
 ## Backwards Compatibility Considerations
 {: #sec-backwards-compat}
@@ -574,18 +581,17 @@ keys.
 
 The new profile introduces three further changes:
 
-* the "Boot Seed" claim is now optional and variable length (see
+* the "Boot Seed" claim is now optional and of variable length (see
   {{sec-boot-seed}}),
 * the "No Software Measurements" claim has been retired,
-* the "Certification Reference" syntax changed from EAN-13 to EAN-13+5 (see
+* the "Certification Reference" claim syntax changed from EAN-13 to EAN-13+5 (see
   {{sec-certification-reference}}).
-
 
 To simplify the transition to the token format described in this
 document it is RECOMMENDED that Verifiers
 accept tokens encoded according to the old profile (`PSA_IOT_PROFILE_1`) as well as
 to the new profile (`tag:psacertified.org,2023:psa#tfm`), at least for the time needed to
-their clients to upgrade.
+their devices to upgrade.
 
 # Profiles
 
@@ -602,8 +608,7 @@ The PSA attestation token is encoded in CBOR {{!RFC8949}} format.  Only
 definite-length string, arrays, and maps are allowed.
 Given that a PSA attester is typically found in a constrained device, it MAY
 NOT emit CBOR preferred serializations ({{Section 4.1 of RFC8949}}).
-Therefore, the receiver (e.g., a Verifier) MUST be a variation-tolerant
-CBOR decoder.
+Therefore, the Verifier MUST be a variation-tolerant CBOR decoder.
 
 Cryptographic protection is obtained by wrapping the `psa-token` claims-set in a COSE
 Web Token (CWT) {{!RFC8392}}.  For asymmetric key algorithms, the signature
@@ -617,8 +622,8 @@ Attesters and Verifiers.  The flexibility provided by the COSE format should be
 sufficient to deal with the level of cryptographic agility needed to adapt to
 specific use cases.  It is RECOMMENDED that commonly adopted algorithms are
 used, such as those discussed in {{COSE-ALGS}}.  It is expected that receivers
-(Verifiers and Relying Parties) will accept a wider range of algorithms, while
-Attesters would produce PSA tokens using only one such algorithm.
+will accept a wider range of algorithms, while Attesters would produce PSA tokens
+using only one such algorithm.
 
 The CWT CBOR tag (61) is not used.  An application that needs to exchange PSA
 attestation tokens can wrap the serialised COSE_Sign1 or COSE_Mac0 in the media
@@ -650,11 +655,11 @@ For use in PSA tokens, it must be possible to encode the epoch handle as an opaq
 | CBOR Serialization | Variant serialization MAY be used |
 | COSE Protection | COSE_Sign1 and/or COSE_Mac0 MUST be used |
 | Algorithms | {{COSE-ALGS}} SHOULD be used |
-| Detached EAT Bundle Usage | Detached EAT bundles MUST not be sent |
+| Detached EAT Bundle Usage | Detached EAT bundles MUST NOT be sent |
 | Verification Key Identification | Any identification method listed in {{Appendix F.1 of EAT}} |
 | Endorsements | See {{sec-psa-endorsements}} |
 | Freshness | nonce or epoch ID based |
-| Claims | Those defined in {{sec-psa-claims}}. As per general EAT rules, the receiver MUST NOT error out on claims it doesn't understand. |
+| Claims | Those defined in {{sec-psa-claims}}. As per general EAT rules, the receiver MUST NOT error out on claims it does not understand. |
 {: #tbl-baseline-profile title="Baseline Profile"}
 
 ## Profile TFM
@@ -703,7 +708,7 @@ compared to using raw public keys, namely:
   manufacturer's trust anchor is used for any number of devices,
 * the provisioning model is simpler and more robust since there is no need to
   notify the verifier about each newly manufactured device,
-* already existing and well understood revocation mechanisms (CRL, OCSP) can be
+* already existing and well understood revocation mechanisms can be
   used.
 
 The IAK's X.509 cert can be inlined in the PSA token using the `x5chain` COSE
