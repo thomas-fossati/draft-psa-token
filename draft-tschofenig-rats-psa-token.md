@@ -582,7 +582,7 @@ The new profile introduces three further changes:
 
 
 To simplify the transition to the token format described in this
-document it is RECOMMENDED that receivers (e.g., PSA Attestation Verifiers)
+document it is RECOMMENDED that Verifiers
 accept tokens encoded according to the old profile (`PSA_IOT_PROFILE_1`) as well as
 to the new profile (`tag:psacertified.org,2023:psa#tfm`), at least for the time needed to
 their clients to upgrade.
