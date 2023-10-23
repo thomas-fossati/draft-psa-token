@@ -580,12 +580,12 @@ The new profile introduces three further changes:
 * the "Certification Reference" claim syntax changed from EAN-13 to EAN-13+5 (see
   {{sec-certification-reference}}).
 
-Unless compatibility with existing infrastructure is a concern, attesters (e.g.,
+Unless compatibility with existing infrastructure is a concern, Attesters (e.g.,
 devices that implement the PSA Attestation API) SHOULD produce tokens with
 the claim keys specified in this document.
 
 To simplify the transition to the token format described in this
-document it is RECOMMENDED that verifiers (e.g., PSA Attestation Verifiers)
+document it is RECOMMENDED that Verifiers
 accept tokens encoded according to the old profile (`PSA_IOT_PROFILE_1`) as well as
 to the new profile (`tag:psacertified.org,2023:psa#tfm`), at least for the time needed to
 their devices to upgrade.
