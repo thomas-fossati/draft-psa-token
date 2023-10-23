@@ -577,7 +577,7 @@ keys.
 | Certification Reference | -75005 | 2398 |
 | Software Components | -75006 | 2399 |
 | Verification Service Indicator | -75010 | 2400 |
-{: #tab-claim-map title="Claim key mappings"}
+{: #tab-claim-map title="Claim Key Mappings"}
 
 The new profile introduces three further changes:
 
@@ -586,10 +586,6 @@ The new profile introduces three further changes:
 * the "No Software Measurements" claim has been retired,
 * the "Certification Reference" claim syntax changed from EAN-13 to EAN-13+5 (see
   {{sec-certification-reference}}).
-
-Unless compatibility with existing infrastructure is a concern, Attesters (e.g.,
-devices that implement the PSA Attestation API) SHOULD produce tokens with
-the claim keys specified in this document.
 
 To simplify the transition to the token format described in this
 document it is RECOMMENDED that Verifiers
