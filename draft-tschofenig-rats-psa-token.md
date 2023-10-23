@@ -580,7 +580,6 @@ The new profile introduces three further changes:
 * the "Certification Reference" syntax changed from EAN-13 to EAN-13+5 (see
   {{sec-certification-reference}}).
 
-Attesters MUST produce tokens with the new claim keys specified in this document.
 
 To simplify the transition to the token format described in this
 document it is RECOMMENDED that receivers (e.g., PSA Attestation Verifiers)
