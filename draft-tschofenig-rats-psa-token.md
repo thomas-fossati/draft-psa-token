@@ -243,7 +243,8 @@ cooperating components:
 * The Initial Attestation Service (executing at run-time in SPE) answers
   requests coming from NSPE via the PSA attestation API {{PSA-API}}, collects
   and formats the claims from Main Boot State, and uses the Initial Attestation
-  Key (IAK) to sign the attestation report. The word "Initial" refers to a
+  Key (IAK) to sign the attestation report. The word "Initial" in "Initial
+  Attestation Service" refers to a
   limited target environment, namely the state of the Main Bootloader and the
   Root of Trust components when the platform booted.
 
