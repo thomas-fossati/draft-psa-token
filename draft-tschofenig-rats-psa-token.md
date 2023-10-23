@@ -585,10 +585,10 @@ devices that implement the PSA Attestation API) SHOULD produce tokens with
 the claim keys specified in this document.
 
 To simplify the transition to the token format described in this
-document it is RECOMMENDED that receivers (e.g., PSA Attestation Verifiers)
+document it is RECOMMENDED that verifiers (e.g., PSA Attestation Verifiers)
 accept tokens encoded according to the old profile (`PSA_IOT_PROFILE_1`) as well as
 to the new profile (`tag:psacertified.org,2023:psa#tfm`), at least for the time needed to
-their clients to upgrade.
+their devices to upgrade.
 
 # Profiles
 
@@ -605,8 +605,7 @@ The PSA attestation token is encoded in CBOR {{!RFC8949}} format.  Only
 definite-length string, arrays, and maps are allowed.
 Given that a PSA attester is typically found in a constrained device, it MAY
 NOT emit CBOR preferred serializations ({{Section 4.1 of RFC8949}}).
-Therefore, the receiver (e.g., a Verifier) MUST be a variation-tolerant
-CBOR decoder.
+Therefore, the Verifier MUST be a variation-tolerant CBOR decoder.
 
 Cryptographic protection is obtained by wrapping the `psa-token` claims-set in a COSE
 Web Token (CWT) {{!RFC8392}}.  For asymmetric key algorithms, the signature
@@ -619,8 +618,8 @@ strong requirement on the cryptographic algorithms that need to be supported by
 Attesters and Verifiers.  The flexibility provided by the COSE format should be
 sufficient to deal with the level of cryptographic agility needed to adapt to
 specific use cases.  It is RECOMMENDED that commonly adopted algorithms are
-used, such as those discussed in {{COSE-ALGS}}.  It is expected that receivers
-(Verifiers and Relying Parties) will accept a wider range of algorithms, while
+used, such as those discussed in {{COSE-ALGS}}.  It is expected that Verifiers
+and Relying Parties will accept a wider range of algorithms, while
 Attesters would produce PSA tokens using only one such algorithm.
 
 The CWT CBOR tag (61) is not used.  An application that needs to exchange PSA
