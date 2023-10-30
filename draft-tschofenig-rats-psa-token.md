@@ -56,9 +56,9 @@ normative:
   PSA-SM:
     author:
       org: Arm
-    title: Platform Security Architecture Security Model 1.0 (PSA-SM)
-    target: https://developer.arm.com/-/media/Files/pdf/PlatformSecurityArchitecture/Architect/DEN0079_PSA_SM_ALPHA-03_RC01.pdf
-    date: 19. Feb. 2019
+    title: Platform Security Model 1.1
+    target: https://www.psacertified.org/app/uploads/2021/12/JSADEN014_PSA_Certified_SM_V1.1_BET0.pdf
+    date: 01. Dec. 2021
   EAN-13:
     author:
       org: GS1
@@ -143,9 +143,9 @@ informative:
   PSA-API:
     author:
       org: Arm
-    title: PSA Attestation API 1.0
-    target: https://developer.arm.com/-/media/Files/pdf/PlatformSecurityArchitecture/Implement/IHI0085-PSA_Attestation_API-1.0.2.pdf
-    date: 2019
+    title: PSA Attestation API 1.0.3
+    target: https://arm-software.github.io/psa-api/attestation/1.0/IHI0085-PSA_Certified_Attestation_API-1.0.3.pdf
+    date: 2022
   PSA-Endorsements: I-D.fdb-rats-psa-endorsements
   RATS-CoRIM: I-D.ietf-rats-corim
   RATS-AR4SI: I-D.ietf-rats-ar4si
@@ -180,7 +180,7 @@ functions are typically exposed through a narrow and well-defined interface,
 and can be used by operating system libraries and applications.  Various APIs
 have been developed by Arm as part of the Platform Security Architecture
 {{PSA}} framework.  This document focuses on the output provided by PSA's
-Initial Attestation API. Since the tokens are also consumed by services outside
+Initial Attestation API {{PSA-API}}. Since the tokens are also consumed by services outside
 the device, there is an actual need to ensure interoperability.
 Interoperability needs are addressed here by describing the exact syntax and
 semantics of the attestation claims, and defining the way these claims are
