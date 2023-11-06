@@ -929,6 +929,8 @@ Content-Formats" registry {{IANA-CoAP-Content-Formats}}:
 * Another for the `application/eat+cwt` media type with the `eat_profile`
   parameter equal to `PSA_IOT_PROFILE_1`
 
+The Content-Formats should be allocated from the Expert review range (0-255).
+
 ### Registry Contents
 
 *  Media Type: `application/eat+cwt; eat_profile="tag:psacertified.org,2023:psa#tfm"`
