@@ -158,8 +158,8 @@ entity:
 The Platform Security Architecture (PSA) is a family of hardware and firmware
 security specifications, as well as open-source reference implementations, to
 help device makers and chip manufacturers build best-practice security into
-products. Devices that are PSA compliant are able to produce attestation tokens
-as described in this memo, which are the basis for a number of different
+products. Devices that are PSA compliant can produce attestation tokens
+as described in this memo, which are the basis for many different
 protocols, including secure provisioning and network access control.  This
 document specifies the PSA attestation token structure and semantics.
 
