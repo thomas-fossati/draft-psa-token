@@ -746,7 +746,7 @@ signatures and COSE_Mac0 for MACs, as defined in the COSE specification {{STD96}
 Note, however, that the use of MAC authentication is NOT RECOMMENDED due to the associated
 infrastructure costs for key management and protocol complexities.
 
-Additionally, a PSA attester MUST NOT send attestation evidence to an unauthenticated challenger.
+A PSA attester MUST NOT provide attestation evidence to an unauthenticated challenger.
 Failing to do so may may allow an attacker to interpose between the attester and a verifier, tricking the verifier into believing the attacker is the legitimate attester.
 
 Attestation tokens contain information that may be unique to a device and
