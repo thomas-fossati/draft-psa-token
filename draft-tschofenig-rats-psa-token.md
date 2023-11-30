@@ -115,6 +115,12 @@ informative:
     title: Trusted Firmware-M
     target: https://www.trustedfirmware.org/projects/tf-m/
     date: 2022
+  IAT-VERIFIER:
+    author:
+      org: Linaro
+    title: iat-verifier
+    target: https://git.trustedfirmware.org/TF-M/tf-m-tools.git/tree/iat-verifier
+    date: 2023
   Veraison:
     author:
       org: The Veraison Project
@@ -731,8 +737,8 @@ endpoints (especially network buffers).
 # Implementation Status
 
 Implementations of this specification are provided by the Trusted
-Firmware-M project {{TF-M}}, the Veraison project {{Veraison}}, and the Xclaim
-{{Xclaim}} library.  All three implementations are released as open-source software.
+Firmware-M project {{TF-M}}, {{IAT-VERIFIER}}, the Veraison project {{Veraison}}, and the Xclaim
+{{Xclaim}} library.  All four implementations are released as open-source software.
 
 # Security and Privacy Considerations
 
@@ -958,6 +964,8 @@ The example in {{ex-sign1}} illustrates the case where the IAK is an asymmetric 
 {{ex-mac0}} illustrates the case where the IAK is a symmetric key and a COSE Mac0 envelope is used instead.
 
 The claims sets are identical, except for the Instance ID which is synthesized from the key material.
+
+The examples have been created using the `iat-verifier` tool {{IAT-VERIFIER}}.
 
 ## COSE Sign1 Token {#ex-sign1}
 
