@@ -8,8 +8,8 @@ category: info
 submissionType: independent
 
 ipr: trust200902
-area: "Security"
-workgroup: "Remote ATtestation ProcedureS"
+area: ""
+workgroup: ""
 keyword: Internet-Draft
 
 stand_alone: yes
