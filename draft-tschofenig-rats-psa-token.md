@@ -163,7 +163,7 @@ entity:
 
 The Platform Security Architecture (PSA) is a set of hardware and firmware
 specifications, backed by reference implementations and a security
-certification program.  The security specifications have been published by Arm,
+certification program (PSA Certified).  The security specifications have been published by Arm,
 while the certification program and reference implementations are the result of
 a collaborative effort by companies from multiple sectors, including evaluation
 laboratories, semiconductor IP and security consultancy.  The main objective of
