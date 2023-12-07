@@ -185,7 +185,7 @@ specifications, backed by reference implementations and a security
 certification program {{PSACertified}}.  The security specifications have been published by Arm,
 while the certification program and reference implementations are the result of
 a collaborative effort by companies from multiple sectors, including evaluation
-laboratories, semiconductor IP and security consultancy.  The main objective of
+laboratories, IP semiconductor vendors and security consultancies.  The main objective of
 the PSA initiative is to assist device manufacturers and chip makers in
 incorporating best-practice security measures into their products.
 
