@@ -258,17 +258,30 @@ cooperating components:
 
 * The Main Bootloader (executing at boot-time) measures the loaded software
   components, collects the relevant PSA RoT parameters, and stores the recorded
-  information in secure memory (Main Boot State) from where the Initial
-  Attestation Service will, when asked for claims about the platform,
-  retrieve them.
+  information in secure memory (Main Boot State). See {{fig-psa-attester-boot}}.
+
+~~~ aasvg
+{::include art/psa-boot.ascii-art}
+~~~
+{: #fig-psa-attester-boot
+   title="PSA Attester Boot Phase"
+   align="center" }
 
 * The Initial Attestation Service (executing at run-time in SPE) answers
   requests coming from NSPE via the PSA attestation API {{PSA-API}}, collects
   and formats the claims from Main Boot State, and uses the Initial Attestation
-  Key (IAK) to sign them and produce Evidence. The word "Initial" in "Initial
-  Attestation Service" refers to a limited set of target environments, namely
-  those representing the first, foundational stages establishing the chain of
-  trust of a PSA device.
+  Key (IAK) to sign them and produce Evidence. See {{fig-psa-attester-runtime}}.
+
+The word "Initial" in "Initial Attestation Service" refers to a limited set of
+target environments, namely those representing the first, foundational stages
+establishing the chain of trust of a PSA device.
+
+~~~ aasvg
+{::include art/psa-runtime.ascii-art}
+~~~
+{: #fig-psa-attester-runtime
+   title="PSA Attester Run-time Phase"
+   align="center" }
 
 The Target Environments can be of four types, some of
 which may or may not be present depending on the device architecture:

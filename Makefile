@@ -27,6 +27,8 @@ EXAMPLES += $(wildcard cddl/example/*.json)
 
 ARTWORK := art/psa-attester.ascii-art
 ARTWORK += art/psa-lifecycle.ascii-art
+ARTWORK += art/psa-boot.ascii-art
+ARTWORK += art/psa-runtime.ascii-art
 
 TESTS := $(wildcard cddl/test/GOOD_*.diag)
 TESTS += $(wildcard cddl/test/FAIL_*.diag)

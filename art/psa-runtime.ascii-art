@@ -1,0 +1,11 @@
+      MBS           IAS      Verifier
+       | read        |          |
+       | measurement |          |
+       |<------------+          |
+       |             |          |
+       |         .---+          |
+       |    sign |   |          |
+       |         '-->|          |
+       |             | Evidence |
+       |             +--------->|
+       |             |          |
