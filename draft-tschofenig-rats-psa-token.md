@@ -155,6 +155,7 @@ informative:
   PSA-Endorsements: I-D.fdb-rats-psa-endorsements
   RATS-CoRIM: I-D.ietf-rats-corim
   RATS-AR4SI: I-D.ietf-rats-ar4si
+  PSA-OLD: I-D.tschofenig-rats-psa-token-07
 
 entity:
   SELF: "RFCthis"
@@ -209,13 +210,13 @@ Model documentation {{PSA-SM}}.
 
 {::boilerplate bcp14}
 
-The terms Attester, Relying Party, Verifier, Attestation Result, and Evidence
-are defined in {{RFC9334}}. We use the term receiver to refer to Relying Parties
+The terms Attester, Relying Party, Verifier, Attestation Result, Target Environment, Attesting Environment and Evidence
+are defined in {{RFC9334}}. We use the term "receiver" to refer to Relying Parties
 and Verifiers.
 
-We use the terms Evidence, PSA attestation token, and PSA token interchangeably.
-The terms sender and Attester are used interchangeably. Likewise, we use the terms
-Verifier, and verification service interchangeably.
+We use the terms Evidence, "PSA attestation token," and "PSA token" interchangeably.
+The terms "sender" and Attester are used interchangeably. Likewise, we use the terms
+Verifier, and "verification service" interchangeably.
 
 {: vspace="0"}
 RoT:
@@ -236,7 +237,7 @@ trusted hardware.  (Equivalent to Trusted Execution Environment (TEE), or
 NSPE:
 : Non Secure Processing Environment, the security domain outside of the SPE,
 the Application domain, typically containing the application firmware,
-operating systems, and general hardware.  (Equivalent to Rich Execution
+operating systems, applications and general hardware.  (Equivalent to Rich Execution
 Environment (REE), or "normal world".)
 
 # PSA Attester Model
@@ -256,8 +257,8 @@ The Attesting Environment is responsible for collecting the information to be
 represented in PSA claims and to assemble them into Evidence. It is made of two
 cooperating components:
 
-* The Main Bootloader (executing at boot-time) measures the loaded software
-  components, collects the relevant PSA RoT parameters, and stores the recorded
+* The Main Bootloader, executing at boot-time, measures the Target Environments - i.e., loaded software
+  components, and all the relevant PSA RoT parameters -, and stores the recorded
   information in secure memory (Main Boot State). See {{fig-psa-attester-boot}}.
 
 ~~~ aasvg
@@ -273,7 +274,7 @@ cooperating components:
   Key (IAK) to sign them and produce Evidence. See {{fig-psa-attester-runtime}}.
 
 The word "Initial" in "Initial Attestation Service" refers to a limited set of
-target environments, namely those representing the first, foundational stages
+Target Environments, namely those representing the first, foundational stages
 establishing the chain of trust of a PSA device.
 
 ~~~ aasvg
@@ -303,6 +304,7 @@ A reference implementation of the PSA Attester is provided by {{TF-M}}.
 {: #sec-psa-claims }
 
 This section describes the claims to be used in a PSA attestation token.
+A more comprehensive treatment of the EAT profile(s) defined by PSA is found in {{sec-profiles}}.
 
 CDDL {{!RFC8610}} along with text descriptions is used to define each claim
 independent of encoding.  The following CDDL type(s) are reused by different
@@ -365,7 +367,7 @@ The EAT `ueid` (claim key 256) of type RAND is used.  The following constraints
 apply to the `ueid-type`:
 
 * The length MUST be 33 bytes.
-* The first byte MUST be 0x01 (RAND) followed by the 32-bytes key hash.
+* The first byte MUST be 0x01 (RAND) followed by the 32 random bytes.  {{PSA-API}} provides implementation options for obtaining the random bytes from the underlying IAK.
 
 This claim MUST be present in a PSA attestation token.
 
@@ -409,6 +411,8 @@ Linking to the PSA Certification entry can still be achieved if this claim is
 not present in the token by making an association at a Verifier between the
 reference value and other token claim values - for example, the Implementation
 ID.
+
+This claim MAY be present in a PSA attestation token.
 
 ~~~
 {::include cddl/psa-certification-reference.cddl}
@@ -521,8 +525,8 @@ original signed manifest of the component.
 
 #### Signer ID
 
-The Signer ID attribute (key=5) is the hash of a signing authority public key
-for the software component. The value of this attribute will correspond to the
+The Signer ID attribute (key=5) uniquely identifies the signing authority for the software component, which is typically a hash of the corresponding public key.
+The value of this attribute will correspond to the
 entry in the original manifest for the component. This can be used by a
 Verifier to ensure the components were signed by an expected trusted source.
 
@@ -592,8 +596,8 @@ For example, an hypothetical profile using only COSE_Mac0 with the AES Message A
 ## Backwards Compatibility Considerations
 {: #sec-backwards-compat}
 
-A previous version of this specification (identified by the `PSA_IOT_PROFILE_1`
-profile) used claim key values from the "private use range" of the CWT Claims
+A previous version of this specification {{PSA-OLD}}, identified by the `PSA_IOT_PROFILE_1`
+profile, used claim key values from the "private use range" of the CWT Claims
 registry.  These claim keys have now been retired and their use is deprecated.
 
 {{tab-claim-map}} provides the mappings between the deprecated and new claim
@@ -628,10 +632,13 @@ to the new profile (`tag:psacertified.org,2023:psa#tfm`), at least for the time 
 their devices to upgrade.
 
 # Profiles
+{: #sec-profiles}
 
 This document defines a baseline with common requirements that all PSA profiles must satisfy.
 
-This document also defines a profile ({{sec-tfm-profile}}) that builds on the baseline while constraining the use of COSE algorithms to improve interoperability between PSA Attesters and Verifiers.
+This document also defines a "TFM" profile ({{sec-tfm-profile}}) that builds on the baseline while constraining the use of COSE algorithms to improve interoperability between PSA Attesters and Verifiers.
+
+Baseline and TFM are what EAT calls a "partial" and "full" profile respectively; see {{Section 6.2 of EAT}} for further details.
 
 ## Baseline Profile
 

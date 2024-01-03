@@ -1,9 +1,9 @@
-       TE_i           MBL           MBS
+    i-th Target    Main Boot     Main Boot
+    Environment      Loader        State
          |             |             |
 .--------|-------------|-------------|----.
 | loop i |             |             |    |
 |        | measure     |             |    |
-|        | & load TE_i |             |    |
 |        |o------------+             |    |
 |        |             | write       |    |
 |        |             | measurement |    |
