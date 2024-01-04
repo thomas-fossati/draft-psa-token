@@ -214,9 +214,9 @@ The terms Attester, Relying Party, Verifier, Attestation Result, Target Environm
 are defined in {{RFC9334}}. We use the term "receiver" to refer to Relying Parties
 and Verifiers.
 
-We use the terms Evidence, "PSA attestation token," and "PSA token" interchangeably.
+We use the terms Evidence, "PSA attestation token", and "PSA token" interchangeably.
 The terms "sender" and Attester are used interchangeably. Likewise, we use the terms
-Verifier, and "verification service" interchangeably.
+Verifier and "verification service" interchangeably.
 
 {: vspace="0"}
 RoT:
@@ -677,7 +677,7 @@ claims-set ({{sec-psa-claims}}) is never carried in a Detached EAT bundle
 
 ### Freshness Model
 
-The PSA Token supports the freshness models for attestation Evidence based on
+The PSA token supports the freshness models for attestation Evidence based on
 nonces and epoch handles ({{Section 10.2 and Section 10.3 of RFC9334}}) using
 the `nonce` claim to convey the nonce or epoch handle supplied by the Verifier.
 No further assumption on the specific remote attestation protocol is made.
@@ -952,7 +952,7 @@ assigned via early allocation in the "CBOR Web Token (CWT) Claims" registry
 {: #sec-iana-media-types}
 
 No new media type registration is requested.
-To indicate that the transmitted content is a PSA Attestation Token,
+To indicate that the transmitted content is a PSA attestation token,
 applications can use the `application/eat+cwt` media type defined in
 {{EAT-MEDIATYPES}} with the `eat_profile` parameter set to
 `tag:psacertified.org,2023:psa#tfm` (or `PSA_IOT_PROFILE_1` if the token is encoded
