@@ -367,7 +367,7 @@ The EAT `ueid` (claim key 256) of type RAND is used.  The following constraints
 apply to the `ueid-type`:
 
 * The length MUST be 33 bytes.
-* The first byte MUST be 0x01 (RAND) followed by the 32 random bytes.  {{PSA-API}} provides implementation options for obtaining the random bytes from the underlying IAK.
+* The first byte MUST be 0x01 (RAND) followed by 32 random bytes.  {{PSA-API}} provides implementation options for obtaining the random bytes from the underlying IAK.
 
 This claim MUST be present in a PSA attestation token.
 
@@ -742,7 +742,7 @@ authority (CA) that issues X.509 certs for the IAKs.  (Note that operating a CA
 is a complex and expensive task that may be unaffordable to certain
 manufacturers.)
 
-If applicable, such approach provides sensibly better scalability properties
+If applicable, such approach provides better scalability properties
 compared to using raw public keys, namely:
 
 * storage requirements on the verifier side are minimised - the same
@@ -765,6 +765,8 @@ constraints around network bandwidth and computing resources available to the
 endpoints (especially network buffers).
 
 # Implementation Status
+
+[^rfc-ed-note] please remove this section before pubblication.
 
 Implementations of this specification are provided by the Trusted
 Firmware-M project {{TF-M}}, {{IAT-VERIFIER}}, the Veraison project {{Veraison}}, and the Xclaim
@@ -1056,3 +1058,5 @@ which has the following base16 encoding:
 
 Thanks to Carsten Bormann for help with the CDDL and Nicholas Wood for ideas
 and comments.
+
+[^rfc-ed-note]: RFC Editor:
