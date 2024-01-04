@@ -720,7 +720,7 @@ The value of the `eat_profile` MUST be `tag:psacertified.org,2023:psa#tfm`.
 | COSE Protection | COSE_Sign1 or COSE_Mac0 MUST be used |
 | Algorithms | The receiver MUST accept ES256, ES384 and ES512 with COSE_Sign1 and HMAC256/256, HMAC384/384 and HMAC512/512 with COSE_Mac0; the sender MUST send one of these |
 | Detached EAT Bundle Usage | See {{baseline-profile}} |
-| Verification Key Identification | Claim-Based Key Identification ({{Appendix F.1.4 of EAT}}) using Implementation ID and Instance ID |
+| Verification Key Identification | Claim-Based Key Identification ({{Appendix F.1.4 of EAT}}) using Instance ID |
 | Endorsements | See {{sec-psa-endorsements}} |
 | Freshness | See {{baseline-profile}} |
 | Claims | See {{baseline-profile}} |
@@ -749,7 +749,7 @@ compared to using raw public keys, namely:
   manufacturer's trust anchor is used for any number of devices,
 * the provisioning model is simpler and more robust since there is no need to
   notify the verifier about each newly manufactured device,
-* already existing and well understood revocation mechanisms can be
+* already existing and well-understood revocation mechanisms can be
   used.
 
 The IAK's X.509 cert can be inlined in the PSA token using the `x5chain` COSE
@@ -764,36 +764,6 @@ COSE-X509}} for the details).  Deciding on a sensible split point may depend on
 constraints around network bandwidth and computing resources available to the
 endpoints (especially network buffers).
 
-# Implementation Status
-
-[^rfc-ed-note] please remove this section before pubblication.
-
-Implementations of this specification are provided by the Trusted
-Firmware-M project {{TF-M}}, {{IAT-VERIFIER}}, the Veraison project {{Veraison}}, and the Xclaim
-{{Xclaim}} library.  All four implementations are released as open-source software.
-
-# Security and Privacy Considerations
-
-This specification re-uses the EAT specification and therefore the CWT specification.
-Hence, the security and privacy considerations of those specifications apply here as well.
-
-Since CWTs offer different ways to protect the token, this specification
-profiles those options and allows signatures using public key cryptography as
-well as message authentication codes (MACs). COSE_Sign1 is used for digital
-signatures and COSE_Mac0 for MACs, as defined in the COSE specification {{STD96}}.
-Note, however, that the use of MAC authentication is NOT RECOMMENDED due to the associated
-infrastructure costs for key management and protocol complexities.
-
-A PSA attester MUST NOT provide attestation evidence to an untrusted
-challenger, as it may allow attackers to interpose and trick the verifier into
-believing the attacker is a legitimate attester.
-
-Attestation tokens contain information that may be unique to a device and
-therefore they may allow to single out an individual device for tracking
-purposes.  Deployments that have privacy requirements must take appropriate
-measures to ensure that the token is only used to provision anonymous/pseudonym
-keys.
-
 # Verification
 
 To verify the token, the primary need is to check correct encoding and signing
@@ -802,12 +772,12 @@ The key used for verification is either supplied to the Verifier by an
 authorized Endorser along with the corresponding Attester's Instance ID or
 inlined in the token using the `x5chain` header parameter as described in
 {{sec-scalability}}.
-If the IAK is a raw public key, the Instance and Implementation ID claims are
-used (together with the kid in the COSE header, if present) to assist in
+If the IAK is a raw public key, the Instance ID claim is
+used to assist in
 locating the key used to verify the signature covering the CWT token.
 If the IAK is a certified public key, X.509 path construction and validation
 ({{Section 6 of X509}}) up to a trusted CA MUST be successful before the key is
-used to verify the token signature.
+used to verify the token signature.  This also includes revocation checking.
 
 In addition, the Verifier will typically operate a policy where values of some
 of the claims in this profile can be compared to reference values, registered
@@ -871,6 +841,37 @@ of RATS-AR4SI}}.
 {{PSA-Endorsements}} defines a protocol based on the {{RATS-CoRIM}} data model
 that can be used to convey PSA Endorsements, Reference Values and verification
 key material to the Verifier.
+
+# Implementation Status
+
+[^rfc-ed-note] please remove this section before pubblication.
+
+Implementations of this specification are provided by the Trusted
+Firmware-M project {{TF-M}}, {{IAT-VERIFIER}}, the Veraison project {{Veraison}}, and the Xclaim
+{{Xclaim}} library.  All four implementations are released as open-source software.
+
+# Security and Privacy Considerations
+
+This specification re-uses the EAT specification and therefore the CWT specification.
+Hence, the security and privacy considerations of those specifications apply here as well.
+
+Since CWTs offer different ways to protect the token, this specification
+profiles those options and allows signatures using public key cryptography as
+well as message authentication codes (MACs). COSE_Sign1 is used for digital
+signatures and COSE_Mac0 for MACs, as defined in the COSE specification {{STD96}}.
+Note, however, that the use of MAC authentication is NOT RECOMMENDED due to the associated
+infrastructure costs for key management and protocol complexities.
+
+A PSA attester MUST NOT provide attestation evidence to an untrusted
+challenger, as it may allow attackers to interpose and trick the verifier into
+believing the attacker is a legitimate attester.
+This is especially relevant to protocols that use PSA attestation tokens to authenticate the attester to a relying party.
+
+Attestation tokens contain information that may be unique to a device and
+therefore they may allow to single out an individual device for tracking
+purposes.  Deployments that have privacy requirements must take appropriate
+measures to ensure that the token is only used to provision anonymous/pseudonym
+keys.
 
 # IANA Considerations
 
