@@ -368,7 +368,7 @@ The EAT `ueid` (claim key 256) of type RAND is used.  The following constraints
 apply to the `ueid-type`:
 
 * The length MUST be 33 bytes.
-* The first byte MUST be 0x01 (RAND) followed by 32 random bytes.  {{PSA-API}} provides implementation options for obtaining the random bytes from the underlying IAK.
+* The first byte MUST be 0x01 (RAND) followed by the 32-byte unique identifier of the IAK. {{PSA-API}} provides implementation options for deriving the IAK unique identifier from the IAK itself.
 
 This claim MUST be present in a PSA attestation token.
 
