@@ -8,3 +8,4 @@ boot_seed: !!binary AAAAAAAAAAA=
 sw_components:
     - signer_id: !!binary BAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQ=
       measurement_value: !!binary AwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwM=
+      sw_component_type: PRoT
