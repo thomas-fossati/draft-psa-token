@@ -1057,7 +1057,11 @@ which has the following base16 encoding:
 # Acknowledgments
 {:numbered="false"}
 
-Thanks to Carsten Bormann for help with the CDDL and Nicholas Wood for ideas
-and comments.
+Thank you Carsten Bormann for help with the CDDL.
+Thanks to
+Nicholas Wood,
+Eliot Lear and
+Yaron Sheffer
+for ideas, comments and suggestions.
 
 [^rfc-ed-note]: RFC Editor:
