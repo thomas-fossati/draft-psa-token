@@ -276,6 +276,7 @@ cooperating components:
 The word "Initial" in "Initial Attestation Service" refers to a limited set of
 Target Environments, namely those representing the first, foundational stages
 establishing the chain of trust of a PSA device.
+Execution after the "Initial" phase is application specific. This could result in additional Target Environments and claim identification within those environments, but these are, by definition, custom.
 
 ~~~ aasvg
 {::include art/psa-runtime.ascii-art}
