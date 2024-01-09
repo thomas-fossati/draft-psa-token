@@ -77,8 +77,11 @@ normative:
     title: PSA Certified Level 2 Step by Step Guide Version 1.1
     target: https://www.psacertified.org/app/uploads/2020/07/JSADEN011-PSA_Certified_Level_2_Step-by-Step-1.1-20200403.pdf
     date: 2020
+  STD94:
+    -: cbor
+    =: RFC8949
   STD96:
-    -: uri
+    -: cose
     =: RFC9052
   COSE-ALGS: RFC9053
   IANA-CWT:
@@ -646,10 +649,11 @@ Baseline and TFM are what EAT calls a "partial" and "full" profile respectively;
 ### Token Encoding and Signing
 {: #sec-token-encoding-and-signing}
 
-The PSA attestation token is encoded in CBOR {{!RFC8949}} format.  Only
-definite-length string, arrays, and maps are allowed.
+The PSA attestation token is encoded in CBOR {{STD94}} format.
+The CBOR representation of a PSA token MUST be "valid" according to the definition in {{Section 1.2 of STD94}}.
+Besides, only definite-length string, arrays, and maps are allowed.
 Given that a PSA attester is typically found in a constrained device, it MAY
-NOT emit CBOR preferred serializations ({{Section 4.1 of RFC8949}}).
+NOT emit CBOR preferred serializations ({{Section 4.1 of STD94}}).
 Therefore, the Verifier MUST be a variation-tolerant CBOR decoder.
 
 Cryptographic protection is obtained by wrapping the `psa-token` claims-set in a COSE
