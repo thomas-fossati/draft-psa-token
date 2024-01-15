@@ -240,7 +240,7 @@ trusted hardware.  (Equivalent to Trusted Execution Environment (TEE), or
 NSPE:
 : Non Secure Processing Environment, the security domain outside of the SPE,
 the Application domain, typically containing the application firmware,
-operating systems, applications and general hardware.  (Equivalent to Rich Execution
+real-time operating systems, applications and general hardware.  (Equivalent to Rich Execution
 Environment (REE), or "normal world".)
 
 # PSA Attester Model
@@ -279,7 +279,7 @@ cooperating components:
 The word "Initial" in "Initial Attestation Service" refers to a limited set of
 Target Environments, namely those representing the first, foundational stages
 establishing the chain of trust of a PSA device.
-Execution after the "Initial" phase is application specific. This could result in additional Target Environments and claim identification within those environments, but these are, by definition, custom.
+Collecting measurements from Target Environments after this initial phase is outside the scope of this specification. Extensions of this specification could collect up-to-date measurements from additional Target Environments and define additional claims for use within those environments, but these are, by definition, custom.
 
 ~~~ aasvg
 {::include art/psa-runtime.ascii-art}
@@ -529,7 +529,7 @@ original signed manifest of the component.
 
 #### Signer ID
 
-The Signer ID attribute (key=5) uniquely identifies the signing authority for the software component, which is typically a hash of the corresponding public key.
+The Signer ID attribute (key=5) uniquely identifies the signer of the software component. The identification is typically accomplished by hashing the signer's public key.
 The value of this attribute will correspond to the
 entry in the original manifest for the component. This can be used by a
 Verifier to ensure the components were signed by an expected trusted source.
@@ -640,9 +640,9 @@ their devices to upgrade.
 
 This document defines a baseline with common requirements that all PSA profiles must satisfy.
 
-This document also defines a "TFM" profile ({{sec-tfm-profile}}) that builds on the baseline while constraining the use of COSE algorithms to improve interoperability between PSA Attesters and Verifiers.
+This document also defines a "TFM" profile ({{sec-tfm-profile}}) that builds on the baseline while constraining the use of COSE algorithms to improve interoperability between Attesters and Verifiers.
 
-Baseline and TFM are what EAT calls a "partial" and "full" profile respectively; see {{Section 6.2 of EAT}} for further details.
+Baseline and TFM are what EAT calls a "partial" and "full" profile, respectively. See {{Section 6.2 of EAT}} for further details regarding profiles.
 
 ## Baseline Profile
 
@@ -652,7 +652,7 @@ Baseline and TFM are what EAT calls a "partial" and "full" profile respectively;
 The PSA attestation token is encoded in CBOR {{STD94}} format.
 The CBOR representation of a PSA token MUST be "valid" according to the definition in {{Section 1.2 of STD94}}.
 Besides, only definite-length string, arrays, and maps are allowed.
-Given that a PSA attester is typically found in a constrained device, it MAY
+Given that a PSA Attester is typically found in a constrained device, it MAY
 NOT emit CBOR preferred serializations ({{Section 4.1 of STD94}}).
 Therefore, the Verifier MUST be a variation-tolerant CBOR decoder.
 
@@ -750,10 +750,10 @@ manufacturers.)
 If applicable, such approach provides better scalability properties
 compared to using raw public keys, namely:
 
-* storage requirements on the verifier side are minimised - the same
+* storage requirements for the Verifier are minimised - the same
   manufacturer's trust anchor is used for any number of devices,
 * the provisioning model is simpler and more robust since there is no need to
-  notify the verifier about each newly manufactured device,
+  notify the Verifier about each newly manufactured device,
 * already existing and well-understood revocation mechanisms can be
   used.
 
@@ -867,9 +867,9 @@ signatures and COSE_Mac0 for MACs, as defined in the COSE specification {{STD96}
 Note, however, that the use of MAC authentication is NOT RECOMMENDED due to the associated
 infrastructure costs for key management and protocol complexities.
 
-A PSA attester MUST NOT provide attestation evidence to an untrusted
-challenger, as it may allow attackers to interpose and trick the verifier into
-believing the attacker is a legitimate attester.
+A PSA Attester MUST NOT provide Evidence to an untrusted
+challenger, as it may allow attackers to interpose and trick the Verifier into
+believing the attacker is a legitimate Attester.
 This is especially relevant to protocols that use PSA attestation tokens to authenticate the attester to a relying party.
 
 Attestation tokens contain information that may be unique to a device and
