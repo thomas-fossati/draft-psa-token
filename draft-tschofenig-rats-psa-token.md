@@ -77,8 +77,11 @@ normative:
     title: PSA Certified Level 2 Step by Step Guide Version 1.1
     target: https://www.psacertified.org/app/uploads/2020/07/JSADEN011-PSA_Certified_Level_2_Step-by-Step-1.1-20200403.pdf
     date: 2020
+  STD94:
+    -: cbor
+    =: RFC8949
   STD96:
-    -: uri
+    -: cose
     =: RFC9052
   COSE-ALGS: RFC9053
   IANA-CWT:
@@ -155,6 +158,7 @@ informative:
   PSA-Endorsements: I-D.fdb-rats-psa-endorsements
   RATS-CoRIM: I-D.ietf-rats-corim
   RATS-AR4SI: I-D.ietf-rats-ar4si
+  PSA-OLD: I-D.tschofenig-rats-psa-token-07
 
 entity:
   SELF: "RFCthis"
@@ -209,13 +213,13 @@ Model documentation {{PSA-SM}}.
 
 {::boilerplate bcp14}
 
-The terms Attester, Relying Party, Verifier, Attestation Result, and Evidence
-are defined in {{RFC9334}}. We use the term receiver to refer to Relying Parties
+The terms Attester, Relying Party, Verifier, Attestation Result, Target Environment, Attesting Environment and Evidence
+are defined in {{RFC9334}}. We use the term "receiver" to refer to Relying Parties
 and Verifiers.
 
-We use the terms Evidence, PSA attestation token, and PSA token interchangeably.
-The terms sender and Attester are used interchangeably. Likewise, we use the terms
-Verifier, and verification service interchangeably.
+We use the terms Evidence, "PSA attestation token", and "PSA token" interchangeably.
+The terms "sender" and Attester are used interchangeably. Likewise, we use the terms
+Verifier and "verification service" interchangeably.
 
 {: vspace="0"}
 RoT:
@@ -236,7 +240,7 @@ trusted hardware.  (Equivalent to Trusted Execution Environment (TEE), or
 NSPE:
 : Non Secure Processing Environment, the security domain outside of the SPE,
 the Application domain, typically containing the application firmware,
-operating systems, and general hardware.  (Equivalent to Rich Execution
+real-time operating systems, applications and general hardware.  (Equivalent to Rich Execution
 Environment (REE), or "normal world".)
 
 # PSA Attester Model
@@ -256,8 +260,8 @@ The Attesting Environment is responsible for collecting the information to be
 represented in PSA claims and to assemble them into Evidence. It is made of two
 cooperating components:
 
-* The Main Bootloader (executing at boot-time) measures the loaded software
-  components, collects the relevant PSA RoT parameters, and stores the recorded
+* The Main Bootloader, executing at boot-time, measures the Target Environments - i.e., loaded software
+  components, and all the relevant PSA RoT parameters -, and stores the recorded
   information in secure memory (Main Boot State). See {{fig-psa-attester-boot}}.
 
 ~~~ aasvg
@@ -273,8 +277,9 @@ cooperating components:
   Key (IAK) to sign them and produce Evidence. See {{fig-psa-attester-runtime}}.
 
 The word "Initial" in "Initial Attestation Service" refers to a limited set of
-target environments, namely those representing the first, foundational stages
+Target Environments, namely those representing the first, foundational stages
 establishing the chain of trust of a PSA device.
+Collecting measurements from Target Environments after this initial phase is outside the scope of this specification. Extensions of this specification could collect up-to-date measurements from additional Target Environments and define additional claims for use within those environments, but these are, by definition, custom.
 
 ~~~ aasvg
 {::include art/psa-runtime.ascii-art}
@@ -303,6 +308,7 @@ A reference implementation of the PSA Attester is provided by {{TF-M}}.
 {: #sec-psa-claims }
 
 This section describes the claims to be used in a PSA attestation token.
+A more comprehensive treatment of the EAT profile(s) defined by PSA is found in {{sec-profiles}}.
 
 CDDL {{!RFC8610}} along with text descriptions is used to define each claim
 independent of encoding.  The following CDDL type(s) are reused by different
@@ -365,7 +371,7 @@ The EAT `ueid` (claim key 256) of type RAND is used.  The following constraints
 apply to the `ueid-type`:
 
 * The length MUST be 33 bytes.
-* The first byte MUST be 0x01 (RAND) followed by the 32-bytes key hash.
+* The first byte MUST be 0x01 (RAND) followed by the 32-byte unique identifier of the IAK. {{PSA-API}} provides implementation options for deriving the IAK unique identifier from the IAK itself.
 
 This claim MUST be present in a PSA attestation token.
 
@@ -409,6 +415,8 @@ Linking to the PSA Certification entry can still be achieved if this claim is
 not present in the token by making an association at a Verifier between the
 reference value and other token claim values - for example, the Implementation
 ID.
+
+This claim MAY be present in a PSA attestation token.
 
 ~~~
 {::include cddl/psa-certification-reference.cddl}
@@ -521,8 +529,8 @@ original signed manifest of the component.
 
 #### Signer ID
 
-The Signer ID attribute (key=5) is the hash of a signing authority public key
-for the software component. The value of this attribute will correspond to the
+The Signer ID attribute (key=5) uniquely identifies the signer of the software component. The identification is typically accomplished by hashing the signer's public key.
+The value of this attribute will correspond to the
 entry in the original manifest for the component. This can be used by a
 Verifier to ensure the components were signed by an expected trusted source.
 
@@ -592,8 +600,8 @@ For example, an hypothetical profile using only COSE_Mac0 with the AES Message A
 ## Backwards Compatibility Considerations
 {: #sec-backwards-compat}
 
-A previous version of this specification (identified by the `PSA_IOT_PROFILE_1`
-profile) used claim key values from the "private use range" of the CWT Claims
+A previous version of this specification {{PSA-OLD}}, identified by the `PSA_IOT_PROFILE_1`
+profile, used claim key values from the "private use range" of the CWT Claims
 registry.  These claim keys have now been retired and their use is deprecated.
 
 {{tab-claim-map}} provides the mappings between the deprecated and new claim
@@ -628,20 +636,24 @@ to the new profile (`tag:psacertified.org,2023:psa#tfm`), at least for the time 
 their devices to upgrade.
 
 # Profiles
+{: #sec-profiles}
 
 This document defines a baseline with common requirements that all PSA profiles must satisfy.
 
-This document also defines a profile ({{sec-tfm-profile}}) that builds on the baseline while constraining the use of COSE algorithms to improve interoperability between PSA Attesters and Verifiers.
+This document also defines a "TFM" profile ({{sec-tfm-profile}}) that builds on the baseline while constraining the use of COSE algorithms to improve interoperability between Attesters and Verifiers.
+
+Baseline and TFM are what EAT calls a "partial" and "full" profile, respectively. See {{Section 6.2 of EAT}} for further details regarding profiles.
 
 ## Baseline Profile
 
 ### Token Encoding and Signing
 {: #sec-token-encoding-and-signing}
 
-The PSA attestation token is encoded in CBOR {{!RFC8949}} format.  Only
-definite-length string, arrays, and maps are allowed.
-Given that a PSA attester is typically found in a constrained device, it MAY
-NOT emit CBOR preferred serializations ({{Section 4.1 of RFC8949}}).
+The PSA attestation token is encoded in CBOR {{STD94}} format.
+The CBOR representation of a PSA token MUST be "valid" according to the definition in {{Section 1.2 of STD94}}.
+Besides, only definite-length string, arrays, and maps are allowed.
+Given that a PSA Attester is typically found in a constrained device, it MAY
+NOT emit CBOR preferred serializations ({{Section 4.1 of STD94}}).
 Therefore, the Verifier MUST be a variation-tolerant CBOR decoder.
 
 Cryptographic protection is obtained by wrapping the `psa-token` claims-set in a COSE
@@ -670,7 +682,7 @@ claims-set ({{sec-psa-claims}}) is never carried in a Detached EAT bundle
 
 ### Freshness Model
 
-The PSA Token supports the freshness models for attestation Evidence based on
+The PSA token supports the freshness models for attestation Evidence based on
 nonces and epoch handles ({{Section 10.2 and Section 10.3 of RFC9334}}) using
 the `nonce` claim to convey the nonce or epoch handle supplied by the Verifier.
 No further assumption on the specific remote attestation protocol is made.
@@ -713,7 +725,7 @@ The value of the `eat_profile` MUST be `tag:psacertified.org,2023:psa#tfm`.
 | COSE Protection | COSE_Sign1 or COSE_Mac0 MUST be used |
 | Algorithms | The receiver MUST accept ES256, ES384 and ES512 with COSE_Sign1 and HMAC256/256, HMAC384/384 and HMAC512/512 with COSE_Mac0; the sender MUST send one of these |
 | Detached EAT Bundle Usage | See {{baseline-profile}} |
-| Verification Key Identification | Claim-Based Key Identification ({{Appendix F.1.4 of EAT}}) using Implementation ID and Instance ID |
+| Verification Key Identification | Claim-Based Key Identification ({{Appendix F.1.4 of EAT}}) using Instance ID |
 | Endorsements | See {{sec-psa-endorsements}} |
 | Freshness | See {{baseline-profile}} |
 | Claims | See {{baseline-profile}} |
@@ -735,14 +747,14 @@ authority (CA) that issues X.509 certs for the IAKs.  (Note that operating a CA
 is a complex and expensive task that may be unaffordable to certain
 manufacturers.)
 
-If applicable, such approach provides sensibly better scalability properties
+If applicable, such approach provides better scalability properties
 compared to using raw public keys, namely:
 
-* storage requirements on the verifier side are minimised - the same
+* storage requirements for the Verifier are minimised - the same
   manufacturer's trust anchor is used for any number of devices,
 * the provisioning model is simpler and more robust since there is no need to
-  notify the verifier about each newly manufactured device,
-* already existing and well understood revocation mechanisms can be
+  notify the Verifier about each newly manufactured device,
+* already existing and well-understood revocation mechanisms can be
   used.
 
 The IAK's X.509 cert can be inlined in the PSA token using the `x5chain` COSE
@@ -757,34 +769,6 @@ COSE-X509}} for the details).  Deciding on a sensible split point may depend on
 constraints around network bandwidth and computing resources available to the
 endpoints (especially network buffers).
 
-# Implementation Status
-
-Implementations of this specification are provided by the Trusted
-Firmware-M project {{TF-M}}, {{IAT-VERIFIER}}, the Veraison project {{Veraison}}, and the Xclaim
-{{Xclaim}} library.  All four implementations are released as open-source software.
-
-# Security and Privacy Considerations
-
-This specification re-uses the EAT specification and therefore the CWT specification.
-Hence, the security and privacy considerations of those specifications apply here as well.
-
-Since CWTs offer different ways to protect the token, this specification
-profiles those options and allows signatures using public key cryptography as
-well as message authentication codes (MACs). COSE_Sign1 is used for digital
-signatures and COSE_Mac0 for MACs, as defined in the COSE specification {{STD96}}.
-Note, however, that the use of MAC authentication is NOT RECOMMENDED due to the associated
-infrastructure costs for key management and protocol complexities.
-
-A PSA attester MUST NOT provide attestation evidence to an untrusted
-challenger, as it may allow attackers to interpose and trick the verifier into
-believing the attacker is a legitimate attester.
-
-Attestation tokens contain information that may be unique to a device and
-therefore they may allow to single out an individual device for tracking
-purposes.  Deployments that have privacy requirements must take appropriate
-measures to ensure that the token is only used to provision anonymous/pseudonym
-keys.
-
 # Verification
 
 To verify the token, the primary need is to check correct encoding and signing
@@ -793,12 +777,12 @@ The key used for verification is either supplied to the Verifier by an
 authorized Endorser along with the corresponding Attester's Instance ID or
 inlined in the token using the `x5chain` header parameter as described in
 {{sec-scalability}}.
-If the IAK is a raw public key, the Instance and Implementation ID claims are
-used (together with the kid in the COSE header, if present) to assist in
+If the IAK is a raw public key, the Instance ID claim is
+used to assist in
 locating the key used to verify the signature covering the CWT token.
 If the IAK is a certified public key, X.509 path construction and validation
 ({{Section 6 of X509}}) up to a trusted CA MUST be successful before the key is
-used to verify the token signature.
+used to verify the token signature.  This also includes revocation checking.
 
 In addition, the Verifier will typically operate a policy where values of some
 of the claims in this profile can be compared to reference values, registered
@@ -862,6 +846,37 @@ of RATS-AR4SI}}.
 {{PSA-Endorsements}} defines a protocol based on the {{RATS-CoRIM}} data model
 that can be used to convey PSA Endorsements, Reference Values and verification
 key material to the Verifier.
+
+# Implementation Status
+
+[^rfc-ed-note] please remove this section before pubblication.
+
+Implementations of this specification are provided by the Trusted
+Firmware-M project {{TF-M}}, {{IAT-VERIFIER}}, the Veraison project {{Veraison}}, and the Xclaim
+{{Xclaim}} library.  All four implementations are released as open-source software.
+
+# Security and Privacy Considerations
+
+This specification re-uses the EAT specification and therefore the CWT specification.
+Hence, the security and privacy considerations of those specifications apply here as well.
+
+Since CWTs offer different ways to protect the token, this specification
+profiles those options and allows signatures using public key cryptography as
+well as message authentication codes (MACs). COSE_Sign1 is used for digital
+signatures and COSE_Mac0 for MACs, as defined in the COSE specification {{STD96}}.
+Note, however, that the use of MAC authentication is NOT RECOMMENDED due to the associated
+infrastructure costs for key management and protocol complexities.
+
+A PSA Attester MUST NOT provide Evidence to an untrusted
+challenger, as it may allow attackers to interpose and trick the Verifier into
+believing the attacker is a legitimate Attester.
+This is especially relevant to protocols that use PSA attestation tokens to authenticate the attester to a relying party.
+
+Attestation tokens contain information that may be unique to a device and
+therefore they may allow to single out an individual device for tracking
+purposes.  Deployments that have privacy requirements must take appropriate
+measures to ensure that the token is only used to provision anonymous/pseudonym
+keys.
 
 # IANA Considerations
 
@@ -945,7 +960,7 @@ assigned via early allocation in the "CBOR Web Token (CWT) Claims" registry
 {: #sec-iana-media-types}
 
 No new media type registration is requested.
-To indicate that the transmitted content is a PSA Attestation Token,
+To indicate that the transmitted content is a PSA attestation token,
 applications can use the `application/eat+cwt` media type defined in
 {{EAT-MEDIATYPES}} with the `eat_profile` parameter set to
 `tag:psacertified.org,2023:psa#tfm` (or `PSA_IOT_PROFILE_1` if the token is encoded
@@ -1047,5 +1062,11 @@ which has the following base16 encoding:
 # Acknowledgments
 {:numbered="false"}
 
-Thanks to Carsten Bormann for help with the CDDL and Nicholas Wood for ideas
-and comments.
+Thank you Carsten Bormann for help with the CDDL.
+Thanks to
+Nicholas Wood,
+Eliot Lear and
+Yaron Sheffer
+for ideas, comments and suggestions.
+
+[^rfc-ed-note]: RFC Editor:
