@@ -466,7 +466,7 @@ psa-lifecycle-assembly-and-test-type         |  Assembly and Test
 psa-lifecycle-psa-rot-provisioning-type      |  PSA RoT Provisioning
 psa-lifecycle-secured-type                   |  Secured
 psa-lifecycle-non-psa-rot-debug-type         |  Non-Recoverable PSA RoT Debug
-psa-lifecycle-recoverable-psa-rot-debug-type |  Recoverable PSA RoT Debug  
+psa-lifecycle-recoverable-psa-rot-debug-type |  Recoverable PSA RoT Debug
 psa-lifecycle-decommissioned-type            |  Decommissioned
 ---------------------------------------------+--------------------------------
 ~~~
