@@ -185,8 +185,6 @@ wire, and how they are cryptographically protected.
 This document is produced through the Independent RFC Stream and was not
 subject to the IETF's approval process.
 
-This document was published via the IETF Independent RFC Stream.
-
 --- middle
 
 # Introduction
