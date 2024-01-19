@@ -1080,8 +1080,10 @@ which has the following base16 encoding:
 Thank you Carsten Bormann for help with the CDDL.
 Thanks to
 Nicholas Wood,
-Eliot Lear and
-Yaron Sheffer
+Eliot Lear,
+Yaron Sheffer,
+Kathleen Moriarty and
+Ned Smith
 for ideas, comments and suggestions.
 
 [^rfc-ed-note]: RFC Editor:
