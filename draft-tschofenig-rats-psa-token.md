@@ -204,7 +204,7 @@ Many devices now have trusted execution environments that provide a safe
 space for security-sensitive code, such as cryptography, secure boot, secure
 storage, and other essential security functions.  These security
 functions are typically exposed through a narrow and well-defined interface,
-and can be used by operating system libraries and applications.  
+and can be used by operating system libraries and applications.
 
 As outlined in the RATS Architecture {{RFC9334}}, an Attester produces a signed collection
 of Claims that constitutes Evidence about its target environment. This document focuses
