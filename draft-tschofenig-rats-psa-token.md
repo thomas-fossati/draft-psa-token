@@ -545,6 +545,10 @@ SHOULD be encoded according to {{IANA-HashFunctionTextualNames}}.
 
 ## Verification Claims
 
+The following claims are part of the PSA token (and therefore still Evidence)
+but aim to help receivers, including relying parties, to help with the
+processing of the received attestation Evidence.
+
 ### Verification Service Indicator
 {: #sec-verification-service-indicator}
 
@@ -557,6 +561,18 @@ in favor of other information.
 ~~~
 {::include cddl/psa-verification-service-indicator.cddl}
 ~~~
+
+It is assumed that the relying party is pre-configured with a list of trusted
+verification services and that the contents of this hint can be used to look
+up the correct one. Under no circumstances must the relying party be tricked
+into contacting an unknown and untrusted verification service since the
+returned Attestation Result subsequently cannot be relied on.
+
+Note: This hint requires the relying party to parse the content of the
+PSA token. Since the relying party may not be in possession of a trust
+anchor to verify the digital signature, it uses the hint in the same way
+as it would treat any other information provided by an external party,
+which includes attacker-provided data.
 
 ### Profile Definition
 {: #sec-profile-definition-claim}
