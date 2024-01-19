@@ -459,7 +459,7 @@ an invalid state that must not occur in a system.
 
 ~~~
 ---------------------------------------------+--------------------------------
-   CDDL                                      |   Lifecycle States    
+   CDDL                                      |   Lifecycle States
 ---------------------------------------------+--------------------------------
 psa-lifecycle-unknown-type                   |
 psa-lifecycle-assembly-and-test-type         |  Assembly and Test
