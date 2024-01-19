@@ -222,7 +222,7 @@ defining the way these claims are encoded and cryptographically protected.
 Further details on concepts expressed below can be found in the PSA Security
 Model documentation {{PSA-SM}}.
 
-This document was published via the IETF Independent RFC Stream, see {{RFC8730,RFC9280}}.
+This document was published via the IETF Independent RFC Stream, see {{RFC8730}} and {{RFC9280}}.
 
 # Conventions and Definitions
 
