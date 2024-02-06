@@ -338,8 +338,9 @@ claims:
 
 The Nonce claim is used to carry the challenge provided by the caller to demonstrate freshness of the generated token.
 
-The EAT {{EAT}} `nonce` (claim key 10) is used.  The following constraints
-apply to the `nonce-type`:
+The EAT {{EAT}} `nonce` (claim key 10) is used.  Since the EAT nonce claim offers flexiblity for different
+attestation technologies, this specifications applies the following constraints
+ to the `nonce-type`:
 
 * The length MUST be either 32, 48, or 64 bytes.
 * Only a single nonce value is conveyed. The array notation MUST NOT be used for encoding the nonce value.
