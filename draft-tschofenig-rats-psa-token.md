@@ -247,8 +247,8 @@ SPE:
 : Secure Processing Environment, a platform's processing environment for
 software that provides confidentiality and integrity for its runtime state,
 from software and hardware, outside of the SPE. Contains trusted code and
-trusted hardware.  (Equivalent to Trusted Execution Environment (TEE), or
-"secure world".)
+trusted hardware.  (Equivalent to Trusted Execution Environment (TEE),
+"secure world", or "secure enclave".)
 
 NSPE:
 : Non Secure Processing Environment, the security domain outside of the SPE,
