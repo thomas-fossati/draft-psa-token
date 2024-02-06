@@ -546,7 +546,7 @@ SHOULD be encoded according to {{IANA-HashFunctionTextualNames}}.
 ## Verification Claims
 
 The following claims are part of the PSA token (and therefore still Evidence)
-but aim to help receivers, including relying parties, to help with the
+but aim to help receivers, including relying parties, with the
 processing of the received attestation Evidence.
 
 ### Verification Service Indicator
