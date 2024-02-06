@@ -256,6 +256,8 @@ the Application domain, typically containing the application firmware,
 real-time operating systems, applications and general hardware.  (Equivalent to Rich Execution
 Environment (REE), or "normal world".)
 
+In this document, the structure of data is specified in Concise Data Definition Language (CDDL) {{!RFC8610}}.
+
 # PSA Attester Model
 
 {{fig-psa-attester}} outlines the structure of the PSA Attester according to
@@ -331,6 +333,8 @@ claims:
 {::include cddl/psa-common-types.cddl}
 ~~~
 
+Two conventions are used to encode the Right-Hand-Side (RHS) of a claim: the postfix `-label` is used for EAT-defined claims, and the postfix `-key` for PSA-originated claims.
+
 ## Caller Claims
 
 ### Nonce
@@ -396,7 +400,7 @@ This claim MUST be present in a PSA attestation token.
 ### Implementation ID
 {: #sec-implementation-id}
 
-The Implementation ID claim uniquely identifies the implementation of the
+The Implementation ID claim uniquely identifies the hardware assembly of the
 immutable PSA RoT. A verification service uses this claim to locate the
 details of the PSA RoT implementation from an Endorser or manufacturer.
 Such details are used by a verification service to determine the security properties
@@ -447,8 +451,8 @@ state and a minor state. A major state is mandatory and defined by {{PSA-SM}}.
 A minor state is optional and 'IMPLEMENTATION DEFINED'. The PSA security
 lifecycle state and implementation state are encoded as follows:
 
-* version\[15:8\] - PSA security lifecycle state, and
-* version\[7:0\] - IMPLEMENTATION DEFINED state.
+* major\[15:8\] - PSA security lifecycle state, and
+* minor\[7:0\] - IMPLEMENTATION DEFINED state.
 
 The PSA lifecycle states are illustrated in {{fig-lifecycle-states}}. For PSA,
 a Verifier can only trust reports from the PSA RoT when it is in SECURED or
@@ -510,12 +514,12 @@ using the attributes described in the following subsections.  Unless explicitly
 stated, the presence of an attribute is OPTIONAL.
 
 Note that, as described in {{RFC9334}}, a relying party will typically see the
-result of the verification process from the Verifier in form of an attestation
-result, rather than the PSA token from the attesting endpoint.
+result of the appraisal process from the Verifier in form of an Attestation
+Result, rather than the PSA token from the attesting endpoint.
 Therefore, a relying party is not expected to understand the Software
 Components claim.  Instead, it is for the Verifier to check this claim against
-the available endorsements and provide an answer in form of an "high level"
-attestation result, which may or may not include the original Software
+the available Reference Values and provide an answer in form of an "high level"
+Attestation Result, which may or may not include the original Software
 Components claim.
 
 ~~~
