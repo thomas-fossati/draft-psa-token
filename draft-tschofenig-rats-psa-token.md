@@ -566,7 +566,7 @@ It is assumed that the relying party is pre-configured with a list of trusted
 verification services and that the contents of this hint can be used to look
 up the correct one. Under no circumstances must the relying party be tricked
 into contacting an unknown and untrusted verification service since the
-returned Attestation Result subsequently cannot be relied on.
+returned Attestation Result cannot be relied on.
 
 Note: This hint requires the relying party to parse the content of the
 PSA token. Since the relying party may not be in possession of a trust
