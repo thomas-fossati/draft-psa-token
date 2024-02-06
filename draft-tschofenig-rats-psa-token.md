@@ -460,9 +460,25 @@ This claim MUST be present in a PSA attestation token.
 ~~~
 {: #fig-lifecycle-states title="PSA Lifecycle States" }
 
+The CDDL representation is shown below.
+{{tab-states-map}} provides the mappings between {{fig-lifecycle-states}} and the data model.
+
 ~~~
 {::include cddl/psa-security-lifecycle.cddl}
 ~~~
+
+`psa-lifecycle-unknown-type` is not shown in {{fig-lifecycle-states}}; it represents an invalid state that must not occur in a system.
+
+| CDDL | Lifecycle States |
+|------|------------------|
+| `psa-lifecycle-unknown-type`                   | |
+| `psa-lifecycle-assembly-and-test-type`         |  Assembly and Test |
+| `psa-lifecycle-psa-rot-provisioning-type`      |  PSA RoT Provisioning |
+| `psa-lifecycle-secured-type`                   |  Secured |
+| `psa-lifecycle-non-psa-rot-debug-type`         |  Non-Recoverable PSA RoT Debug |
+| `psa-lifecycle-recoverable-psa-rot-debug-type` |  Recoverable PSA RoT Debug |
+| `psa-lifecycle-decommissioned-type`            |  Decommissioned |
+{: #tab-states-map title="Lifecycle States Mappings"}
 
 ### Boot Seed
 {: #sec-boot-seed }
