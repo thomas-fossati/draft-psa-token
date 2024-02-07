@@ -290,6 +290,7 @@ cooperating components:
   requests coming from NSPE via the PSA attestation API {{PSA-API}}, collects
   and formats the claims from Main Boot State, and uses the Initial Attestation
   Key (IAK) to sign them and produce Evidence. See {{fig-psa-attester-runtime}}.
+  {: #para-ias-intro}
 
 The word "Initial" in "Initial Attestation Service" refers to a limited set of
 Target Environments, namely those representing the first, foundational stages
@@ -682,13 +683,14 @@ The new profile introduces three further changes:
 To simplify the transition to the token format described in this
 document it is RECOMMENDED that Verifiers
 accept tokens encoded according to the old profile (`PSA_IOT_PROFILE_1`) as well as
-to the new profile (`tag:psacertified.org,2023:psa#tfm`), at least for the time needed to
+to the profile defined in this document (`tag:psacertified.org,2023:psa#tfm`), at least for the time needed to
 their devices to upgrade.
 
 # Profiles
 {: #sec-profiles}
 
 This document defines a baseline with common requirements that all PSA profiles must satisfy.
+(Note that this does not apply to {{PSA-OLD}}.)
 
 This document also defines a "TFM" profile ({{sec-tfm-profile}}) that builds on the baseline while constraining the use of COSE algorithms to improve interoperability between Attesters and Verifiers.
 
@@ -761,7 +763,7 @@ For use in PSA tokens, it must be possible to encode the epoch handle as an opaq
 ## Profile TFM
 {: #sec-tfm-profile}
 
-This profile is appropriate for the code base implemented in {{TF-M}} and should apply for most derivative implementations. If an implementation changes the requirements described below then, to ensure interoperability, a new profile value should be used ({{sec-profile-uri-structure}}). This includes a restriction of the profile to a subset of the COSE Protection scheme requirements.
+This profile is appropriate for the code base implemented in {{TF-M}} and should apply for most derivative implementations. If an implementation changes the requirements described below then, to ensure interoperability, a different profile value should be used ({{sec-profile-uri-structure}}). This includes a restriction of the profile to a subset of the COSE Protection scheme requirements.
 
 {{tbl-tfm-profile}} presents a concise view of the requirements.
 
@@ -790,22 +792,21 @@ The value of the `eat_profile` MUST be `tag:psacertified.org,2023:psa#tfm`.
 # Scalability Considerations
 {: #sec-scalability}
 
-IAKs can be either raw public keys or certified public keys.
+IAKs ({{para-ias-intro}}) can be either raw public keys or certified public keys.
 
 Certified public keys require the manufacturer to run the certification
 authority (CA) that issues X.509 certs for the IAKs.  (Note that operating a CA
 is a complex and expensive task that may be unaffordable to certain
 manufacturers.)
 
-If applicable, such approach provides better scalability properties
-compared to using raw public keys, namely:
+Using certified public keys offers better scalability properties when compared to using raw public keys, namely:
 
 * storage requirements for the Verifier are minimised - the same
   manufacturer's trust anchor is used for any number of devices,
 * the provisioning model is simpler and more robust since there is no need to
   notify the Verifier about each newly manufactured device,
-* already existing and well-understood revocation mechanisms can be
-  used.
+
+Furthermore, existing and well-understood revocation mechanisms can be readily used.
 
 The IAK's X.509 cert can be inlined in the PSA token using the `x5chain` COSE
 header parameter {{COSE-X509}} at the cost of an increase in the PSA token
@@ -815,9 +816,8 @@ Note that the exact split between pre-provisioned and inlined certs may vary
 depending on the specific deployment.  In that respect, `x5chain` is quite
 flexible: it can contain the end-entity (EE) cert only, the EE and a partial
 chain, or the EE and the full chain up to the trust anchor (see {{Section 2 of
-COSE-X509}} for the details).  Deciding on a sensible split point may depend on
-constraints around network bandwidth and computing resources available to the
-endpoints (especially network buffers).
+COSE-X509}} for the details).
+Constraints around network bandwidth and computing resources available to endpoints, such as network buffers, may dictate a reasonable split point.
 
 # Verification
 
