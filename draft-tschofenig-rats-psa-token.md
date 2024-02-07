@@ -529,7 +529,7 @@ Components claim.
 
 #### Measurement Type
 
-The Measurement Type attribute (key=1) is short string representing the role of
+The Measurement Type attribute (key=1) is a short string representing the role of
 this software component.
 
 The following measurement types MAY be used for code measurements:
@@ -653,7 +653,7 @@ For example, an hypothetical profile using only COSE_Mac0 with the AES Message A
 
 A previous version of this specification {{PSA-OLD}}, identified by the `PSA_IOT_PROFILE_1`
 profile, used claim key values from the "private use range" of the CWT Claims
-registry.  These claim keys have now been retired and their use is deprecated.
+registry.  These claim keys have now been deprecated.
 
 {{tab-claim-map}} provides the mappings between the deprecated and new claim
 keys.
@@ -819,7 +819,7 @@ chain, or the EE and the full chain up to the trust anchor (see {{Section 2 of
 COSE-X509}} for the details).
 Constraints around network bandwidth and computing resources available to endpoints, such as network buffers, may dictate a reasonable split point.
 
-# Verification
+# PSA Token Verification
 
 To verify the token, the primary need is to check correct encoding and signing
 as detailed in {{sec-token-encoding-and-signing}}.
