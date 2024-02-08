@@ -256,6 +256,8 @@ the Application domain, typically containing the application firmware,
 real-time operating systems, applications and general hardware.  (Equivalent to Rich Execution
 Environment (REE), or "normal world".)
 
+In this document, the structure of data is specified in Concise Data Definition Language (CDDL) {{!RFC8610}}.
+
 # PSA Attester Model
 
 {{fig-psa-attester}} outlines the structure of the PSA Attester according to
@@ -288,6 +290,7 @@ cooperating components:
   requests coming from NSPE via the PSA attestation API {{PSA-API}}, collects
   and formats the claims from Main Boot State, and uses the Initial Attestation
   Key (IAK) to sign them and produce Evidence. See {{fig-psa-attester-runtime}}.
+  {: #para-ias-intro}
 
 The word "Initial" in "Initial Attestation Service" refers to a limited set of
 Target Environments, namely those representing the first, foundational stages
@@ -330,6 +333,8 @@ claims:
 ~~~
 {::include cddl/psa-common-types.cddl}
 ~~~
+
+Two conventions are used to encode the Right-Hand-Side (RHS) of a claim: the postfix `-label` is used for EAT-defined claims, and the postfix `-key` for PSA-originated claims.
 
 ## Caller Claims
 
@@ -396,7 +401,7 @@ This claim MUST be present in a PSA attestation token.
 ### Implementation ID
 {: #sec-implementation-id}
 
-The Implementation ID claim uniquely identifies the implementation of the
+The Implementation ID claim uniquely identifies the hardware assembly of the
 immutable PSA RoT. A verification service uses this claim to locate the
 details of the PSA RoT implementation from an Endorser or manufacturer.
 Such details are used by a verification service to determine the security properties
@@ -447,8 +452,8 @@ state and a minor state. A major state is mandatory and defined by {{PSA-SM}}.
 A minor state is optional and 'IMPLEMENTATION DEFINED'. The PSA security
 lifecycle state and implementation state are encoded as follows:
 
-* version\[15:8\] - PSA security lifecycle state, and
-* version\[7:0\] - IMPLEMENTATION DEFINED state.
+* major\[15:8\] - PSA security lifecycle state, and
+* minor\[7:0\] - IMPLEMENTATION DEFINED state.
 
 The PSA lifecycle states are illustrated in {{fig-lifecycle-states}}. For PSA,
 a Verifier can only trust reports from the PSA RoT when it is in SECURED or
@@ -510,12 +515,12 @@ using the attributes described in the following subsections.  Unless explicitly
 stated, the presence of an attribute is OPTIONAL.
 
 Note that, as described in {{RFC9334}}, a relying party will typically see the
-result of the verification process from the Verifier in form of an attestation
-result, rather than the PSA token from the attesting endpoint.
+result of the appraisal process from the Verifier in form of an Attestation
+Result, rather than the PSA token from the attesting endpoint.
 Therefore, a relying party is not expected to understand the Software
 Components claim.  Instead, it is for the Verifier to check this claim against
-the available endorsements and provide an answer in form of an "high level"
-attestation result, which may or may not include the original Software
+the available Reference Values and provide an answer in form of an "high level"
+Attestation Result, which may or may not include the original Software
 Components claim.
 
 ~~~
@@ -524,7 +529,7 @@ Components claim.
 
 #### Measurement Type
 
-The Measurement Type attribute (key=1) is short string representing the role of
+The Measurement Type attribute (key=1) is a short string representing the role of
 this software component.
 
 The following measurement types MAY be used for code measurements:
@@ -648,7 +653,7 @@ For example, an hypothetical profile using only COSE_Mac0 with the AES Message A
 
 A previous version of this specification {{PSA-OLD}}, identified by the `PSA_IOT_PROFILE_1`
 profile, used claim key values from the "private use range" of the CWT Claims
-registry.  These claim keys have now been retired and their use is deprecated.
+registry.  These claim keys have now been deprecated.
 
 {{tab-claim-map}} provides the mappings between the deprecated and new claim
 keys.
@@ -678,13 +683,14 @@ The new profile introduces three further changes:
 To simplify the transition to the token format described in this
 document it is RECOMMENDED that Verifiers
 accept tokens encoded according to the old profile (`PSA_IOT_PROFILE_1`) as well as
-to the new profile (`tag:psacertified.org,2023:psa#tfm`), at least for the time needed to
+to the profile defined in this document (`tag:psacertified.org,2023:psa#tfm`), at least for the time needed to
 their devices to upgrade.
 
 # Profiles
 {: #sec-profiles}
 
 This document defines a baseline with common requirements that all PSA profiles must satisfy.
+(Note that this does not apply to {{PSA-OLD}}.)
 
 This document also defines a "TFM" profile ({{sec-tfm-profile}}) that builds on the baseline while constraining the use of COSE algorithms to improve interoperability between Attesters and Verifiers.
 
@@ -757,7 +763,7 @@ For use in PSA tokens, it must be possible to encode the epoch handle as an opaq
 ## Profile TFM
 {: #sec-tfm-profile}
 
-This profile is appropriate for the code base implemented in {{TF-M}} and should apply for most derivative implementations. If an implementation changes the requirements described below then, to ensure interoperability, a new profile value should be used ({{sec-profile-uri-structure}}). This includes a restriction of the profile to a subset of the COSE Protection scheme requirements.
+This profile is appropriate for the code base implemented in {{TF-M}} and should apply for most derivative implementations. If an implementation changes the requirements described below then, to ensure interoperability, a different profile value should be used ({{sec-profile-uri-structure}}). This includes a restriction of the profile to a subset of the COSE Protection scheme requirements.
 
 {{tbl-tfm-profile}} presents a concise view of the requirements.
 
@@ -786,22 +792,21 @@ The value of the `eat_profile` MUST be `tag:psacertified.org,2023:psa#tfm`.
 # Scalability Considerations
 {: #sec-scalability}
 
-IAKs can be either raw public keys or certified public keys.
+IAKs ({{para-ias-intro}}) can be either raw public keys or certified public keys.
 
 Certified public keys require the manufacturer to run the certification
 authority (CA) that issues X.509 certs for the IAKs.  (Note that operating a CA
 is a complex and expensive task that may be unaffordable to certain
 manufacturers.)
 
-If applicable, such approach provides better scalability properties
-compared to using raw public keys, namely:
+Using certified public keys offers better scalability properties when compared to using raw public keys, namely:
 
 * storage requirements for the Verifier are minimised - the same
   manufacturer's trust anchor is used for any number of devices,
 * the provisioning model is simpler and more robust since there is no need to
   notify the Verifier about each newly manufactured device,
-* already existing and well-understood revocation mechanisms can be
-  used.
+
+Furthermore, existing and well-understood revocation mechanisms can be readily used.
 
 The IAK's X.509 cert can be inlined in the PSA token using the `x5chain` COSE
 header parameter {{COSE-X509}} at the cost of an increase in the PSA token
@@ -811,11 +816,10 @@ Note that the exact split between pre-provisioned and inlined certs may vary
 depending on the specific deployment.  In that respect, `x5chain` is quite
 flexible: it can contain the end-entity (EE) cert only, the EE and a partial
 chain, or the EE and the full chain up to the trust anchor (see {{Section 2 of
-COSE-X509}} for the details).  Deciding on a sensible split point may depend on
-constraints around network bandwidth and computing resources available to the
-endpoints (especially network buffers).
+COSE-X509}} for the details).
+Constraints around network bandwidth and computing resources available to endpoints, such as network buffers, may dictate a reasonable split point.
 
-# Verification
+# PSA Token Verification
 
 To verify the token, the primary need is to check correct encoding and signing
 as detailed in {{sec-token-encoding-and-signing}}.
