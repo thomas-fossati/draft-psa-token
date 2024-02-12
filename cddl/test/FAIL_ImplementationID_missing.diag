@@ -1,5 +1,5 @@
 {
-     / arm_psa_boot_seed / 2397: h'000102030405060708090a0b0c0d0e0f
+     / bootseed / 268: h'000102030405060708090a0b0c0d0e0f
      101112131415161718191a1b1c1d1e1f',
      / arm_psa_sw_components / 2399: [
           {

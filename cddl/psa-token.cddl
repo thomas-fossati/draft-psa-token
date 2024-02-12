@@ -14,7 +14,6 @@ psa-token = {
 psa-client-id-key = 2394
 psa-lifecycle-key = 2395
 psa-implementation-id-key = 2396
-psa-boot-seed-key = 2397
 psa-certification-reference-key = 2398
 psa-software-components-key = 2399
 psa-verification-service-indicator-key = 2400
@@ -22,4 +21,5 @@ psa-verification-service-indicator-key = 2400
 ; from EAT
 nonce-label = 10
 ueid-label = 256
+boot-seed-label = 268
 profile-label = 265

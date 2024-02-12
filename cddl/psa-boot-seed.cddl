@@ -1,5 +1,5 @@
 psa-boot-seed-type = bytes .size (8..32)
 
 psa-boot-seed = (
-    psa-boot-seed-key => psa-boot-seed-type
+    boot-seed-label => psa-boot-seed-type
 )
