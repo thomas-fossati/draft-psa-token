@@ -7,9 +7,8 @@ EA2DCC8B82159BB4E7453D6A744D4EECD6D0AC60',
 01010101010101010101010101010101010101',
   / psa-client-id /           2394: 2147483647,
   / psa-security-lifecycle /  2395: 12288,
-  / eat_profile /              265: "tag:psacertified.org,2023:p
-sa#tfm",
-  / psa-boot-seed /           2397: h'0000000000000000',
+  / eat_profile /              265: "tag:psacertified.org,2023:psa#tfm",
+  / psa-boot-seed /            268: h'0000000000000000',
   / psa-software-components / 2399: [
     {
       / signer ID /         5: h'0404040404040404040404040404040

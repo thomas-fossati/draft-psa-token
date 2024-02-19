@@ -4,7 +4,7 @@
   / psa-security-lifecycle / 2395: 12288,
   / psa-implementation-id /  2396: h'000000000000000000000000000
 0000000000000000000000000000000000000',
-  / psa-boot-seed /          2397: h'0000000000000000',
+  / psa-boot-seed /           268: h'0000000000000000',
   / psa-certification-reference / 2398: "1234567890123-12345",
   / psa-software-components / 2399: [
     {

@@ -1,4 +1,19 @@
 #!/bin/bash
+#
+# NOTE: to re-create the examples the iatverifier library code has been patched
+# as follows:
+#
+# --- psa_2_0_0_token_claims.py	2024-02-15 12:12:01
+# +++ psa_2_0_0_token_claims.py.orig	2024-02-15 13:12:28
+# @@ -184,7 +184,7 @@
+#  class BootSeedClaim(AttestationClaim):
+#      """Class representing a PSA Attestation Token Boot Seed claim"""
+#      def get_claim_key(self=None):
+# -        return 268 # EAT bootseed
+# +        return ARM_RANGE + 4
+#
+#      def get_claim_name(self=None):
+#          return 'BOOT_SEED'
 
 set -eux
 set -o pipefail

@@ -489,12 +489,16 @@ The CDDL representation is shown below.
 ### Boot Seed
 {: #sec-boot-seed }
 
-The Boot Seed claim represents a value created at system boot time that
-will allow differentiation of reports from different boot sessions.
+The Boot Seed claim contains a value created at system boot time
+that allows differentiation of attestation reports from different
+boot sessions of a particular entity (i.e., a certain Instance ID).
+
+The EAT `bootseed` (claim key 268) is used.
+The following constraints apply to the `binary-data` type:
+
+* The length MUST be between 8 and 32 bytes.
 
 This claim MAY be present in a PSA attestation token.
-
-If present, it MUST be between 8 and 32 bytes.
 
 ~~~
 {::include cddl/psa-boot-seed.cddl}
@@ -666,7 +670,7 @@ keys.
 | Client ID | -75001 | 2394 |
 | Security Lifecycle | -75002 | 2395 |
 | Implementation ID | -75003 | 2396 |
-| Boot Seed | -75004 | 2397 |
+| Boot Seed | -75004 | 268 (EAT bootseed) |
 | Certification Reference | -75005 | 2398 |
 | Software Components | -75006 | 2399 |
 | Verification Service Indicator | -75010 | 2400 |
@@ -965,16 +969,6 @@ assigned via early allocation in the "CBOR Web Token (CWT) Claims" registry
 * Claim Value Type(s): byte string
 * Change Controller: Hannes Tschofenig
 * Specification Document(s): {{sec-implementation-id}} of {{&SELF}}
-
-### Boot Seed Claim
-
-* Claim Name: psa-boot-seed
-* Claim Description: PSA Boot Seed
-* JWT Claim Name: N/A
-* Claim Key: 2397
-* Claim Value Type(s): byte string
-* Change Controller: Hannes Tschofenig
-* Specification Document(s): {{sec-boot-seed}} of {{&SELF}}
 
 ### Certification Reference Claim
 
