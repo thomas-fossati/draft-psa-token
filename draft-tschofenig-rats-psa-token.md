@@ -1001,7 +1001,7 @@ No new media type registration is requested.
 To indicate that the transmitted content is a PSA attestation token,
 applications can use the `application/eat+cwt` media type defined in
 {{EAT-MEDIATYPES}} with the `eat_profile` parameter set to
-`tag:psacertified.org,2023:psa#tfm` (or `tag:psacertified.org,2019:legacy#tfm` if the token is encoded
+`tag:psacertified.org,2023:psa#tfm` (or `tag:psacertified.org,2019:psa#legacy` if the token is encoded
 according to the old profile, see {{sec-backwards-compat}}).
 
 ## CoAP Content-Formats Registration
@@ -1013,7 +1013,7 @@ Content-Formats" registry {{IANA-CoAP-Content-Formats}}:
 * One for the `application/eat+cwt` media type with the `eat_profile` parameter
   equal to `tag:psacertified.org,2023:psa#tfm`
 * Another for the `application/eat+cwt` media type with the `eat_profile`
-  parameter equal to `tag:psacertified.org,2019:legacy#tfm`
+  parameter equal to `tag:psacertified.org,2019:psa#legacy`
 
 The Content-Formats should be allocated from the Expert review range (0-255).
 
@@ -1024,7 +1024,7 @@ The Content-Formats should be allocated from the Expert review range (0-255).
 *  Id: [[To-be-assigned by IANA]]
 *  Reference: {{&SELF}}
 
-*  Media Type: `application/eat+cwt; eat_profile="tag:psacertified.org,2019:legacy#tfm"`
+*  Media Type: `application/eat+cwt; eat_profile="tag:psacertified.org,2019:psa#legacy"`
 *  Encoding: -
 *  Id: [[To-be-assigned by IANA]]
 *  Reference: {{&SELF}}
