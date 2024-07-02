@@ -27,5 +27,5 @@ Terminate         Non-Recoverable      PSA RoT Compromised
   |                      |                   |
   |                      v                   |
   |              .----------------.          |
-   '------------>| Decommissioned |<---------'
+   '------------>| Decommissioned |<--------'
                  '----------------'
