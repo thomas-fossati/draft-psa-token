@@ -253,6 +253,7 @@ Environment (REE), or "normal world".)
 In this document, the structure of data is specified in Concise Data Definition Language (CDDL) {{!RFC8610}}.
 
 # PSA Attester Model
+{: #sec-psa-attester-model }
 
 {{fig-psa-attester}} outlines the structure of the PSA Attester according to
 the conceptual model described in {{Section 3.1 of RFC9334}}.
@@ -284,7 +285,6 @@ cooperating components:
   requests coming from NSPE via the PSA attestation API {{PSA-API}}, collects
   and formats the claims from Main Boot State, and uses the Initial Attestation
   Key (IAK) to sign them and produce Evidence. See {{fig-psa-attester-runtime}}.
-  {: #para-ias-intro}
 
 The word "Initial" in "Initial Attestation Service" refers to a limited set of
 Target Environments, namely those representing the first, foundational stages
@@ -790,7 +790,7 @@ The value of the `eat_profile` MUST be `tag:psacertified.org,2023:psa#tfm`.
 # Scalability Considerations
 {: #sec-scalability}
 
-IAKs ({{para-ias-intro}}) can be either raw public keys or certified public keys.
+IAKs (see {{sec-psa-attester-model}) can be either raw public keys or certified public keys.
 
 Certified public keys require the manufacturer to run the certification
 authority (CA) that issues X.509 certs for the IAKs.  (Note that operating a CA
