@@ -1015,7 +1015,7 @@ Content-Formats" registry {{IANA-CoAP-Content-Formats}}:
 * Another for the `application/eat+cwt` media type with the `eat_profile`
   parameter equal to `tag:psacertified.org,2019:psa#legacy`
 
-The Content-Formats should be allocated from the (256-9999) range.
+The Content-Formats should be allocated from the First Come First Served range (10000-64999).
 
 ### Registry Contents
 
