@@ -790,7 +790,7 @@ The value of the `eat_profile` MUST be `tag:psacertified.org,2023:psa#tfm`.
 # Scalability Considerations
 {: #sec-scalability}
 
-IAKs (see {{sec-psa-attester-model}) can be either raw public keys or certified public keys.
+IAKs (see {{sec-psa-attester-model}}) can be either raw public keys or certified public keys.
 
 Certified public keys require the manufacturer to run the certification
 authority (CA) that issues X.509 certs for the IAKs.  (Note that operating a CA
